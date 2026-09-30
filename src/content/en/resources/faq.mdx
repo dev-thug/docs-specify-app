@@ -22,6 +22,10 @@ New projects start without automatic updates. Document changes driven by code ch
 
 If **Trigger on push** is on for the source and the document skill uses incremental updates, proposed updates are prepared when code lands on the selected branch. Docs that use full regeneration need to be regenerated when you need them.
 
+### Can we use documentation automation on the Free plan?
+
+Document projects (GitHub-based document generation and automatic updates) are a feature of the Pro, Max, Team, and Enterprise plans. On the Free plan, you can use document writing, AI chat, and Workspace RAG.
+
 ### Can we connect organization repositories?
 
 Yes. Organization repositories connect after a GitHub organization admin approves the request. After approval, select reconnect in Specify to finish.
@@ -31,6 +35,20 @@ Yes. Organization repositories connect after a GitHub organization admin approve
 ### Are our code and docs safe?
 
 All data runs on AWS infrastructure, isolated per workspace, and is visible only to approved members. We don't use customer data to train AI models. For details, see [Security and data](/en/resources/security).
+
+## AI and models
+
+### Which model should we use?
+
+Start with GPT-6 Luna, the default model, for search, short questions, and summaries. For writing and editing documents, and tasks that use skills or connectors, we recommend Claude Sonnet 4.6. For detailed guidance, see [Choosing a model](/en/models/choosing).
+
+### What does AI base its answers on?
+
+It uses Workspace RAG to search your team's documents, uploaded files, and messages from connected Slack public channels as evidence, and shows links to the documents it relied on. Search runs only within workspaces you're a member of. See [Workspace RAG](/en/knowledge/rag).
+
+### Can it write regulatory documents accurately?
+
+In workspaces where the standards library is available, the agent searches and cites clauses from standards such as IEC 62304 and ISO 14971 as it writes. Content without evidence is marked `[GAP]`. Generated documents are drafts that need expert review before submission. See [Standards library](/en/knowledge/standards).
 
 ## MCP
 

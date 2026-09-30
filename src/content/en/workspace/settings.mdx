@@ -1,0 +1,55 @@
+Open settings from the **account menu** at the bottom of the sidebar → **Settings**. In the settings window, choose an item from the list on the left to see its contents on the right.
+
+<Screenshot name="settings-general" alt="The account General page in the settings window, with the Account, Workspace, AI Agent, Plans & Billing, and Manage groups on the left" />
+
+## Settings items
+
+| Group | Item | What you can do |
+| --- | --- | --- |
+| **Account** | General | Profile (name and photo), theme and language, account deletion |
+| | Notifications | Notification preferences |
+| **Workspace** | General | Workspace name, URL, and description, default AI model, doc generation model |
+| | Members · Teams | Invite members and manage roles in a team workspace ([Invite your team and manage roles](/en/workspace/members)) |
+| **AI Agent** | Automations | Agent tasks that run on a schedule ([Automations](/en/guides/automations)) |
+| | Agent Learning | Review and delete the memories and skills the agent learned from conversations |
+| | Doc Style Guide | Writing rules applied to every document in the workspace |
+| | Plugins | Install official skill plugins ([Plugins and skills](/en/guides/plugins-skills)) |
+| | Tools & skills | Manage connectors, skills, and editor connections (MCP) |
+| **Plans & Billing** | Plan | Your current plan and billing |
+| | Usage | This month's document and AI budget usage ([Usage and AI budget](/en/models/usage)) |
+| **Manage** | Archive | Search, restore, and delete archived items |
+
+<Note>
+  The Members and Teams items appear only in team workspaces. They aren't shown in personal workspaces.
+</Note>
+
+## Workspace general
+
+Set the workspace name and URL, and the model AI uses by default in this workspace.
+
+<Screenshot name="settings-workspace" alt="Workspace General settings with Workspace Name, Workspace URL, Description, and the Default AI Model and Doc Generation Model pickers" />
+
+- **Default AI Model**: The default model used for automations in this workspace.
+- **Doc Generation Model**: The model used for document automation (project creation and automatic updates).
+- The workspace URL identifier (slug) can contain only letters, numbers, and hyphens. You can always access the workspace at its UUID address.
+
+For help choosing a model, see [Choosing a model](/en/models/choosing).
+
+## Document style guide
+
+Writing rules shared by every document the workspace generates. Write your tone, structure, and terminology rules in Markdown, and they apply starting with the next generation run.
+
+<Screenshot name="settings-style-guide" alt="Doc Style Guide settings with a field for entering tone and structure rules in Markdown and a Save button" />
+
+- You can enter up to 8,192 bytes.
+- System quality rules such as length, citations, and verification can't be relaxed here.
+- Each document project can have a more specific [project style guide](/en/guides/automation-settings), and the project guide takes precedence when they conflict.
+- Editor or higher permissions are required.
+
+## Usage
+
+See this month's document count and AI budget usage. Usage is scoped to the current workspace, and personal and team workspace budgets are separate.
+
+<Screenshot name="settings-usage" alt="The Usage page showing this month's usage period, unlimited documents, and an AI Budget usage bar" />
+
+For how the AI budget is calculated, see [Usage and AI budget](/en/models/usage).

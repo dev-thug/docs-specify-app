@@ -12,17 +12,26 @@ export const NAV_STRUCTURE = [
     id: "get-started",
     groups: [
       { id: "first-steps", pages: ["intro", "quickstart", "concepts"] },
-      { id: "workspace", pages: ["workspace/members"] },
+      { id: "workspace", pages: ["workspace/tour", "workspace/members", "workspace/settings"] },
     ],
   },
   {
     id: "guides",
     groups: [
+      { id: "writing", pages: ["guides/editor", "guides/ask-ai"] },
       {
         id: "automation",
         pages: ["guides/github", "guides/doc-projects", "guides/review-proposals", "guides/automation-settings"],
       },
-      { id: "use-cases", pages: ["guides/api-docs", "guides/onboarding-docs", "guides/ask-ai"] },
+      { id: "extend", pages: ["guides/automations", "guides/plugins-skills", "guides/connectors"] },
+      { id: "use-cases", pages: ["guides/api-docs", "guides/onboarding-docs"] },
+    ],
+  },
+  {
+    id: "ai",
+    groups: [
+      { id: "models", pages: ["models/overview", "models/choosing", "models/usage"] },
+      { id: "knowledge", pages: ["knowledge/rag", "knowledge/standards"] },
     ],
   },
   {

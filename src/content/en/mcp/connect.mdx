@@ -1,5 +1,11 @@
 When you choose a client in your workspace under **Tools & skills** → **Connect editor**, a token for that workspace is issued, and the command or config for that client is prepared with the token already filled in. This page explains each format.
 
+<Screenshot name="tools-editor-connect" alt="The Connect editor tab in Tools & skills, showing Permissions for new connections, the Allow document creation and editing checkbox, and connection cards for Claude Code, Cursor, VS Code, Claude Desktop, and Codex" caption="The Connect editor tab under Skills & connectors in the sidebar account menu" />
+
+## Set permissions before connecting
+
+Before you select **Connect** on a client card, check **Permissions for new connections**. The default is **Read only**, which allows only searching and reading documents. If the agent needs to create or edit docs, check **Allow document creation and editing** before connecting. This setting applies to connections you issue from then on.
+
 <Warning>
   The token is shown only on the screen where it's issued. If you lose it, create a new token. Don't paste tokens into repositories, shared docs, or prompts.
 </Warning>
@@ -86,7 +92,7 @@ The Specify MCP server also supports the OAuth authorization code flow (PKCE `S2
 ## Verify the connection
 
 - Ask the agent something like "Find the onboarding docs in Specify" and check that the search tool is called.
-- In your workspace's **Editor access** list, you can see the issued permissions and when they were last used. This list may differ from the actual editor connection status.
+- In the **Editor access** list on the **Connect editor** tab, you can see the issued permissions and when they were last used. This list may differ from the actual editor connection status.
 
 ## Troubleshooting
 

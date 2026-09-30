@@ -8,6 +8,8 @@ Specify's features are built on a handful of concepts. This page explains what e
 4. When the source changes, **proposed updates** are prepared for the affected docs.
 5. Your team checks progress and proposed updates in the **Inbox**, and coding agents read the same context through **MCP**.
 
+Throughout this process, AI uses **Workspace RAG** to find your team's docs and files as evidence, and for work that needs a reference standard, such as regulatory documents, it cites the **standards library** clause by clause.
+
 ## Workspace
 
 The unit in which your team shares docs, conversations, decisions, and code history. Members and roles, connected tools, and your plan all belong to a workspace. Data is isolated per workspace.
@@ -48,6 +50,18 @@ Where the progress and results of background tasks collect. Even after you close
 ## Thread
 
 A unit of conversation with an agent. Questions and answers, and the work the agent performs, are recorded in the thread. If the agent asks a question during document generation, open the thread and answer it to continue generation.
+
+## Workspace RAG
+
+RAG (retrieval-augmented generation) is an approach where AI first searches for relevant materials and uses them as evidence before answering or writing a document. Specify indexes your workspace's documents, uploaded files, and messages from connected Slack public channels, and finds the parts it needs in chat and document writing. Search is isolated per workspace and runs only after checking member permissions. See [Workspace RAG](/en/knowledge/rag).
+
+## Standards library
+
+A knowledge source for searching official standards such as IEC 62304 and ISO 14971 clause by clause. For each section of a document, the agent searches the relevant clauses to check against, and leaves the clause number and edition as citation links. Standards search is rolled out in stages, subject to license verification. See [Standards library](/en/knowledge/standards).
+
+## Models and reasoning effort
+
+Chat and agent tasks run on one of the Claude or GPT family models. Each model differs in quality, speed, and cost, and raising the reasoning effort lets the model reason more deeply about complex tasks. See [Models overview](/en/models/overview).
 
 ## MCP
 

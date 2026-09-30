@@ -1,10 +1,17 @@
 Specify uses GitHub repositories as the evidence for your docs. Once you connect a repository, the agent can read the code to generate docs and prepare later changes as proposed updates.
 
+You can connect GitHub in two places.
+
+- **Connect GitHub** in the Source step of **Create document project**: Choose the repositories that serve as evidence for document generation.
+- **Connect** under **Tools & skills → Connectors → GitHub**: Lets the agent reference code, issues, and PRs in chat. See [Connect connectors](/en/guides/connectors).
+
 ## Connection flow
 
 <Steps>
   <Step title="Start connecting GitHub">
     In the Source step of the create document project screen, select **Connect GitHub**. You need to connect GitHub before you can select repositories in this workspace.
+
+    <Screenshot name="project-wizard-source" alt="The Source step of Create document project, with the prompt to connect GitHub to select repositories for this workspace and a Connect GitHub button" />
   </Step>
   <Step title="Grant access on GitHub">
     On the GitHub screen, choose the account and repository scope Specify should read, then grant access.
@@ -25,6 +32,12 @@ Organization repositories require approval from a GitHub organization admin.
 <Note>
   While you wait for organization admin approval, that organization's repositories don't appear in the list.
 </Note>
+
+## Use GitHub in chat
+
+When you connect GitHub as a connector, the agent can read **repository code and file contents**, **issues, PRs, and comments**, and **commit history**, and handle tasks such as searching code and summarizing issues and PRs.
+
+<Screenshot name="connector-github" alt="The GitHub connector details, showing the Connect to workspace button and the lists of data the agent reads and tasks you can delegate" caption="The details window that opens when you select GitHub under Tools & skills → Connectors." />
 
 ## Connect multiple repositories
 

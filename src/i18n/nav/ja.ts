@@ -4,14 +4,19 @@ export const jaNav: NavLabels = {
   tabs: {
     "get-started": "はじめに",
     guides: "ガイド",
+    ai: "モデル・ナレッジ",
     mcp: "MCP",
     resources: "リソース",
   },
   groups: {
     "first-steps": "最初のステップ",
     workspace: "ワークスペース",
+    writing: "ドキュメント作成とAI",
     automation: "ドキュメント自動化",
+    extend: "オートメーションと拡張",
     "use-cases": "活用ガイド",
+    models: "モデル",
+    knowledge: "ナレッジと検索",
     "specify-mcp": "Specify MCP",
     reference: "リファレンス",
   },
@@ -30,9 +35,57 @@ export const jaNav: NavLabels = {
       description:
         "ワークスペース、ノード、ドキュメントプロジェクト、修正案、スキルなど、Specifyを理解するために必要な概念をまとめます。",
     },
+    "workspace/tour": {
+      title: "画面ツアー",
+      description:
+        "サイドバー、タブ、検索、インボックス、AIパネルなど、Specifyの画面構成と各領域の役割を実際の画面で説明します。",
+    },
     "workspace/members": {
       title: "チームの招待と権限",
       description: "ワークスペースにチームメンバーを招待し、役割ごとにできることを確認します。",
+    },
+    "workspace/settings": {
+      title: "設定の概要",
+      description: "アカウント、ワークスペース、AIエージェント、プラン・使用量の設定がどこにあり、何を変更できるかをまとめます。",
+    },
+    "guides/editor": {
+      title: "ドキュメントの作成と編集",
+      description: "ドキュメントを作成し、ブロックコマンド、ステータス、共有、ファイルのアップロードでチームのドキュメントを整理する方法です。",
+    },
+    "guides/automations": {
+      title: "オートメーション",
+      description: "決められたスケジュールでエージェントがプロンプトを実行するように、オートメーションを作成・管理します。",
+    },
+    "guides/plugins-skills": {
+      title: "プラグインとスキル",
+      description: "公式プラグインをインストールし、スキルで繰り返し作業の手順をエージェントに伝える方法です。",
+    },
+    "guides/connectors": {
+      title: "コネクターの接続",
+      description:
+        "GitHub、Notion、Slack、Jira、Linear、GoogleとカスタムMCPサーバーを接続し、AIが参照できる資料を広げます。",
+    },
+    "models/overview": {
+      title: "モデルの概要",
+      description: "Specifyで利用できるAIモデルと、プランごとの利用範囲、コンテキストサイズ、コストを比較します。",
+    },
+    "models/choosing": {
+      title: "モデル選択ガイド",
+      description: "作業の種類ごとに、どのモデルと思考の強度を使えばよいかを社内評価の結果に基づいておすすめします。",
+    },
+    "models/usage": {
+      title: "使用量とAI予算",
+      description: "AI使用量の計算方法、予算の警告とチャージ、使用量を節約する方法を説明します。",
+    },
+    "knowledge/rag": {
+      title: "ワークスペースRAG",
+      description:
+        "ワークスペースのドキュメントやファイル、接続された資料をAIが検索し、それを根拠に回答やドキュメント作成を行う仕組みを説明します。",
+    },
+    "knowledge/standards": {
+      title: "規格文書ライブラリ",
+      description:
+        "IEC 62304・ISO 14971などの規格の条項をRAGで検索し、根拠と引用のある正確なドキュメントを作成する方法です。",
     },
     "guides/github": {
       title: "GitHubの接続",
@@ -59,8 +112,8 @@ export const jaNav: NavLabels = {
       description: "新しいチームメンバーが初日に実行までたどり着けるオンボーディングドキュメントを生成し、補完する方法です。",
     },
     "guides/ask-ai": {
-      title: "AIに質問する",
-      description: "チームのドキュメントとコードの文脈を根拠に、「なぜ」と「どこ」の質問に答えを得る方法です。",
+      title: "AIチャットと質問",
+      description: "AIチャットでチームのドキュメントとコードの文脈を根拠に答えを得る方法と、モデルと思考の強度の選び方です。",
     },
     "mcp/overview": {
       title: "MCPの概要",

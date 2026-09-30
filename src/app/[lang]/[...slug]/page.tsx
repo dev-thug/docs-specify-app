@@ -80,7 +80,7 @@ export default async function DocPage({ params }: PageProps) {
         </header>
 
         <div className="docs-prose">
-          <Content components={createMdxComponents(dict)} />
+          <Content components={createMdxComponents(dict, lang)} />
         </div>
 
         <PageFooter locale={lang} slug={slug} title={page.title} dict={dict.page} />

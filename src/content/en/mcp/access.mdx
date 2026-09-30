@@ -7,23 +7,25 @@ Agents read only what your workspace permissions allow. This page explains perso
 | `mcp:read` | `search`, `read_document`, `browse` | Always included |
 | `mcp:write` | `create_document`, `update_document` | Optional (when **Allow document creation and editing** is checked) |
 
-The default is read-only. Allow write access only when the agent needs to create or edit docs. Tokens with write access are marked with a **write** badge in the list.
+The default is read-only. Allow write access only when the agent needs to create or edit docs. If you check **Allow document creation and editing** under **Permissions for new connections** before connecting, the token is issued with write access.
 
-## Manage your tokens
+<Screenshot name="tools-editor-connect" alt="Access overview and Permissions for new connections at the top of the Connect editor tab" caption="Admins also see active access permissions, workspace access, and calls in the last 24 hours at the top." />
 
-In your workspace, go to **Tools & skills** → **Connect editor** to see the **My MCP tokens** list.
+## Manage your access permissions
 
-- **Label**: The name of the client the token was issued for
-- **Last used**: When the token was last used for a call
-- **Revoke**: Immediately invalidates a token you no longer use.
+In the **Editor access** list on **Tools & skills** → **Connect editor**, you can see the permissions you've issued.
+
+- **Read only / Read and write**: The scope of the issued permission
+- **Last used**: When this permission was last used for a call. If it has never been used, it shows **Not used yet**.
+- **Revoke access**: Ends a permission you no longer use. Editors connected with this permission need to be set up again.
 
 <Tip>
-  If you switch laptops or a token may have been exposed, revoke the old token and issue a new one. A revoked token is rejected starting with the next call.
+  If you switch laptops or a token may have been exposed, revoke the existing permission and connect again. A revoked permission is rejected starting with the next call. You can see revoked permissions with **Show N revoked permissions**.
 </Tip>
 
 ## Admin access policies
 
-Admins manage external editor access for the whole workspace under **Tools & skills** → **Admin**.
+Admins and owners also see the **Workspace access policy** on the **Tools & skills** → **Connect editor** tab, where they manage external editor access for the whole workspace.
 
 ### Allow access from external editors
 
@@ -31,11 +33,11 @@ Turning this off blocks access from every external editor connected to this work
 
 ### Allowed operations
 
-Decide per tool whether it's allowed: **Search**, **Read document**, **Browse tree**, **Create document**, and **Update document**. For example, you can allow only reads and block creating and editing.
+Decide per tool whether it's allowed: **Search**, **Read document**, **Browse tree**, **Create document**, and **Update document**. For example, you can allow only reads and block creating and editing. This setting applies to every editor connection, and write operations also require write access to be allowed when connecting.
 
 ### Token inventory
 
-See the owner, label, scopes, last use, and status of every token issued in the workspace.
+See the owner, label, scopes, last use, and status of every token issued in the workspace. Admins can **Revoke** other members' tokens here, and revoking immediately cuts off access for the connected editor.
 
 ### Usage
 

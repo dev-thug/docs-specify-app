@@ -22,7 +22,8 @@ npm run validate   # typecheck + lint + build
 | `src/lib/i18n.ts` | 지원 로케일(`ko`·`en`·`ja`), 기본 로케일(`ko`), Accept-Language 협상 |
 | `src/app/[lang]/layout.tsx` | 루트 레이아웃(`<html lang>`), 헤더·사이드바·푸터 |
 | `src/app/[lang]/[...slug]/page.tsx` | 문서 페이지(정적 생성), 목차, 이전/다음 |
-| `src/components/mdx/` | MDX 컴포넌트: `Callout`/`Note`/`Tip`/`Warning`/`Danger`, `Card`/`CardGroup`, `Steps`/`Step`, `Tabs`/`Tab`, 코드 블록 |
+| `src/components/mdx/` | MDX 컴포넌트: `Callout`/`Note`/`Tip`/`Warning`/`Danger`, `Card`/`CardGroup`, `Steps`/`Step`, `Tabs`/`Tab`, `Screenshot`, 코드 블록 |
+| `public/images/docs/<locale>/` | 문서 스크린샷(PNG). 로케일별 UI 언어로 캡처 |
 | `src/i18n/` | UI 문자열 사전 |
 | `src/proxy.ts` | 로케일 없는 경로 → 선호 로케일(쿠키 `NEXT_LOCALE` → Accept-Language → `ko`)로 리다이렉트, `/<lang>/<slug>.md` → Markdown 원문 rewrite |
 | `src/app/globals.css` | Specify 디자인 토큰(Foundation → Semantic → `@theme`) + 문서 본문 스타일 |
@@ -55,6 +56,17 @@ MDX 예시:
   <Step title="첫 단계">내용</Step>
 </Steps>
 ```
+
+### 스크린샷
+
+```mdx
+<Screenshot name="editor" alt="화면 설명(스크린 리더용)" caption="선택 캡션" />
+```
+
+`name` 은 `public/images/docs/<locale>/<name>.png` 를 가리킨다. 해당 로케일 파일이 없으면 `ko` 이미지로 대체된다.
+스크린샷은 Specify 로컬 개발 서버 + sandbox 백엔드의 테스트 워크스페이스에서 1440×900으로 캡처했고,
+이메일·이름·워크스페이스 이름 같은 개인 정보는 DOM 에서 가상 값(예: `minji@acme.dev`)으로 바꾼 뒤 찍었다.
+새로 찍을 때도 production 계정을 쓰지 않고, 개인 정보·테스트 데이터가 보이지 않게 한 뒤 256색으로 양자화해 용량을 줄인다.
 
 `Card` 아이콘 이름은 `src/components/mdx/Card.tsx` 의 `ICONS` 를 따른다. 목차는 `##`·`###` 제목으로 만들어지므로 제목을 JSX 컴포넌트 안에 넣지 않는다.
 

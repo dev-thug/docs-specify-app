@@ -5,29 +5,41 @@ This guide walks you through creating a workspace, connecting a GitHub repositor
 - A **GitHub repository** with the code you want to document, either personal or owned by an organization
 - For an organization repository, the ability to get **approval from a GitHub organization admin**
 - **Editor or higher permissions** in the workspace so you can create document projects (whoever creates a workspace first is its owner)
+- A **Pro, Max, Team, or Enterprise** plan. Document projects are a paid plan feature. The Pro and Team plans can start with a 14-day free trial.
+
+<Note>
+  On the Free plan, you can still use document writing, AI chat, and [Workspace RAG](/en/knowledge/rag). If you'd like to look around first, start with [Tour the interface](/en/workspace/tour).
+</Note>
 
 ## Create your first document
 
 <Steps>
   <Step title="Sign up and create a workspace">
-    Sign up at [specify.app](https://specify.app/en) and create a workspace. You can start on the free plan without a credit card.
+    Sign up at [specify.app](https://specify.app/en) and create a workspace. You can start on the free plan without a credit card. To use document projects, switch to the Pro plan or higher (see [Plans](/en/resources/plans)).
+  </Step>
+  <Step title="Open Create project">
+    Select the **New (+)** button in the sidebar, then choose **Create project**. The **Document project setup** tab opens in the center.
+
+    <Screenshot name="new-menu" alt="The sidebar New menu showing Create project, New Document, New Chat, and Add External Node" />
   </Step>
   <Step title="Connect GitHub">
-    In the Source step of the create document project screen, select **Connect GitHub**, then grant Specify access to the GitHub account and repositories it should read.
+    In the Source step, select **Connect GitHub**, then grant Specify access to the GitHub account and repositories it should read.
+
+    <Screenshot name="project-wizard-source" alt="The Source step of Create document project with a Connect GitHub button" />
 
     Organization repositories connect after a GitHub organization admin approves the request. Once it's approved, select reconnect on the same screen to finish. For details, see [Connect GitHub](/en/guides/github).
   </Step>
   <Step title="Choose a source">
-    Pick a GitHub account, then choose the repository and branch to document. This repository and branch become the evidence for every document and proposed update that follows.
+    Pick a **GitHub account**, choose the **Repository** and **Branch** to document, then select **Next**. This repository and branch become the evidence for every document and proposed update that follows.
   </Step>
   <Step title="Choose document types">
-    Select the document skills the agent should create first. If there's something to emphasize this time, describe the audience, the topics to emphasize, and the level of detail you want in **Focus for this run**. For example, you could write "Center it on the deployment procedure."
+    In the **Documents** step, select the document skills the agent should create first. If there's something to emphasize this time, describe the audience, the topics to emphasize, and the level of detail you want in **Focus for this run (optional)**. For example, you could write "Center it on the deployment procedure."
   </Step>
   <Step title="Choose an update mode">
-    Turn on **Automatically update on repository changes** to have Specify prepare proposed document updates whenever code lands on the selected branch. Skills that regenerate the whole document every time don't support automatic updates; regenerate those when you need to.
+    In the same step, turn on **Automatically update on repository changes** to have Specify prepare proposed document updates whenever code lands on the selected branch. Skills that regenerate the whole document every time don't support automatic updates; regenerate those when you need to.
   </Step>
   <Step title="Confirm your first document is generated">
-    Once you start generation, the document agent writes the selected documents. You can close this screen. The **Inbox** keeps tracking the generation task and shows completed, failed, and try-again options.
+    Select **Create N document types**, and the document agent writes the selected documents. You can close this screen. The **Inbox** keeps tracking the generation task and shows completed, failed, and try-again options.
   </Step>
 </Steps>
 
@@ -51,6 +63,7 @@ Generated pages keep links to their sources, so you can review later repository 
 | Symptom | What to check |
 | --- | --- |
 | The repository list is empty | Check that the selected GitHub account has repositories that Specify is allowed to access. Organization repositories require organization admin approval. |
+| Document generation doesn't start on the Free plan | Document projects are available on the Pro plan or higher. See [Plans](/en/resources/plans). |
 | You can't create a document project | Viewers can't create document projects. Ask a member with edit permissions. If workspace writes are locked, check your subscription status. |
 | Generation is taking a long time | The Inbox keeps tracking the task even if you close the screen. When it finishes, you can see the result in the Inbox. |
 | Generation shows that it needs attention | Your project is saved. Check the reason shown, then try again or change the source. |

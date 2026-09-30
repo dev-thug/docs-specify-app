@@ -1,4 +1,26 @@
-AI in your IDE knows the code itself well, but it doesn't know why it was built that way. Specify's AI answers based on the docs, conversations, decisions, and code history collected in your workspace.
+AI in your IDE knows the code itself well, but it doesn't know why it was built that way. Specify's AI searches the docs, files, and connected sources collected in your workspace and answers based on what it finds.
+
+## Start a chat
+
+1. Select sidebar **New (+)** → **New Chat**, or select **+** under **Chat** in the sidebar.
+2. Type your question in the message box and press <Kbd>Enter</Kbd>. To add a line break, press <Kbd>Shift</Kbd>+<Kbd>Enter</Kbd>.
+3. If you need an example, start with the **Research**, **Writing**, **Analysis**, **Ideas**, or **Summary** buttons at the top.
+
+<Screenshot name="home" alt="The new chat screen with example request buttons and a message box" />
+
+While you edit a document, select the AI button at the bottom right to open the AI panel next to the document.
+
+## Answers grounded in your team's materials
+
+When you ask a question, AI searches the workspace with the **Search knowledge** tool when it needs to. Links to the documents used as evidence appear below the answer.
+
+<Screenshot name="chat-rag" alt="A chat where a question about how the Orders API authenticates requests triggers the Search knowledge tool, and the answer is grounded in the API Reference document" />
+
+Expand the **Search knowledge** row to see what search query AI actually used and what it found.
+
+<Screenshot name="chat-rag-tool" alt="The expanded Search knowledge tool showing the input query, the retrieved document chunks, and their scores" />
+
+For what gets searched and how it works, see [Workspace RAG](/en/knowledge/rag).
 
 ## Questions it answers well
 
@@ -7,17 +29,33 @@ AI in your IDE knows the code itself well, but it doesn't know why it was built 
 | **Why** | "Why did we move payment retries into a queue?" |
 | **Where** | "Where is the logic that saves notification settings?" |
 | **How** | "What order do we work in when adding a new API endpoint?" |
-| **Status** | "Did anything change around authentication this week?" |
+| **Summary** | "Summarize the Onboarding Guide in 5 lines for a new developer." |
 
 ## Get better answers
 
-- **Narrow the scope.** Including a service name, feature name, or time period makes it easier to find evidence.
-- **Check the evidence.** Before relying on an answer for an important decision, check the docs and code it was based on yourself.
+- **Narrow the scope.** Including a service name, feature name, or document name makes it easier to find evidence.
+- **Point to documents.** Type `@` in the message box to pick an item from **Projects** or **Documents** and add it to the conversation.
+- **Connect a repository.** Use **Connect repository** below the message box to connect a GitHub repository to the conversation so AI also references the code context.
+- **Check the evidence.** Before relying on an answer for an important decision, open the documents it was based on yourself.
 - **Save answers as docs.** Writing up answers to recurring questions gives the next question something to draw on.
 
+## Choose a model and reasoning effort
+
+Select the model button at the bottom right of the message box to change the **model** and **reasoning effort**. The model applies to the whole current conversation and can't be changed while a response is in progress.
+
+<Screenshot name="model-picker" alt="The model menu showing Claude Opus 4.6, Claude Sonnet 4.6, Claude Haiku 4.5, GPT-6 Sol, GPT-5.6 Terra, and GPT-6 Luna" />
+
+Choose a **reasoning effort** of **Off**, **Low**, **Medium**, **High**, **Extra**, or **Max**. Higher effort means deeper reasoning, but responses are slower and use more tokens.
+
+<Screenshot name="effort-picker" alt="The reasoning effort menu showing six levels from Off to Max" />
+
 <Note>
-  AI uses only the docs your workspace permissions allow as evidence. Content from docs you don't have access to isn't included in answers.
+  On the Free plan, you can use Claude Haiku 4.5 and GPT-6 Luna, and reasoning effort is fixed at Off. Other models and reasoning effort controls are available starting with the Pro plan. For task-by-task recommendations, see [Choosing a model](/en/models/choosing).
 </Note>
+
+## Today's briefing
+
+Select **Turn on daily briefing** on the **Today's briefing** card in chat to have Specify analyze your workspace every day and recommend what to do next. The daily briefing is available starting with the Pro plan and is managed under [Automations](/en/guides/automations) in settings.
 
 ## Use with non-developer colleagues
 
@@ -25,4 +63,4 @@ Colleagues who find technical docs hard to read can ask in everyday language and
 
 ## Ask from a coding agent
 
-If you use Claude Code or Codex, connect [Specify MCP](/en/mcp/overview) to reference the same team context inside your editor.
+If you use Claude Code or Codex, connect [Specify MCP](/en/mcp/overview) to reference the same team materials inside your editor.

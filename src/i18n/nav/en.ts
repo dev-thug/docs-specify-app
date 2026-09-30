@@ -4,14 +4,19 @@ export const enNav: NavLabels = {
   tabs: {
     "get-started": "Get started",
     guides: "Guides",
+    ai: "Models & Knowledge",
     mcp: "MCP",
     resources: "Resources",
   },
   groups: {
     "first-steps": "First steps",
     workspace: "Workspace",
+    writing: "Writing & AI",
     automation: "Documentation automation",
+    extend: "Automation & Extensions",
     "use-cases": "Use cases",
+    models: "Models",
+    knowledge: "Knowledge & Search",
     "specify-mcp": "Specify MCP",
     reference: "Reference",
   },
@@ -30,10 +35,63 @@ export const enNav: NavLabels = {
       description:
         "The concepts you need to understand Specify: workspaces, nodes, document projects, proposed updates, skills, and more.",
     },
+    "workspace/tour": {
+      title: "Tour the interface",
+      description:
+        "A walkthrough of the Specify interface, including the sidebar, tabs, search, Inbox, and AI panel, and what each area does, with real screenshots.",
+    },
     "workspace/members": {
       title: "Invite your team and manage roles",
       sidebarTitle: "Team and roles",
       description: "Invite teammates to your workspace and see what each role can do.",
+    },
+    "workspace/settings": {
+      title: "Settings at a glance",
+      description:
+        "Where to find account, workspace, AI agent, and billing and usage settings, and what you can change in each.",
+    },
+    "guides/editor": {
+      title: "Write and edit docs",
+      description:
+        "Create docs and organize your team's knowledge with block commands, statuses, sharing, and file uploads.",
+    },
+    "guides/automations": {
+      title: "Automations",
+      description: "Create and manage automations that have the agent run a prompt on a set schedule.",
+    },
+    "guides/plugins-skills": {
+      title: "Plugins and skills",
+      description:
+        "Install official plugins and use skills to teach the agent the procedure for recurring tasks.",
+    },
+    "guides/connectors": {
+      title: "Connect connectors",
+      description:
+        "Connect GitHub, Notion, Slack, Jira, Linear, Google, and custom MCP servers to expand what AI can reference.",
+    },
+    "models/overview": {
+      title: "Models overview",
+      description:
+        "Compare the AI models available in Specify, including plan availability, context size, and cost.",
+    },
+    "models/choosing": {
+      title: "Choosing a model",
+      description:
+        "Recommendations, based on internal evaluations, for which model and reasoning effort to use for each kind of task.",
+    },
+    "models/usage": {
+      title: "Usage and AI budget",
+      description: "How AI usage is calculated, budget warnings and top-ups, and ways to use less.",
+    },
+    "knowledge/rag": {
+      title: "Workspace RAG",
+      description:
+        "How AI searches your workspace's docs, files, and connected sources to ground its answers and the docs it writes.",
+    },
+    "knowledge/standards": {
+      title: "Standards library",
+      description:
+        "Use RAG to search clauses from standards such as IEC 62304 and ISO 14971 and write accurate docs with evidence and citations.",
     },
     "guides/github": {
       title: "Connect GitHub",
@@ -64,8 +122,9 @@ export const enNav: NavLabels = {
         "Generate and refine onboarding docs that get a new teammate to a working local setup on their first day.",
     },
     "guides/ask-ai": {
-      title: "Ask AI",
-      description: "Get answers to \"why\" and \"where\" questions grounded in your team's docs and code context.",
+      title: "AI chat and questions",
+      description:
+        "Get answers in AI chat grounded in your team's docs and code context, and choose a model and reasoning effort.",
     },
     "mcp/overview": {
       title: "MCP overview",

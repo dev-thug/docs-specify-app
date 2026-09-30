@@ -4,23 +4,26 @@ A document project connects a GitHub repository to a folder in your workspace so
 
 - Your workspace must have [GitHub connected](/en/guides/github).
 - You need Editor, Admin, or Owner permissions. Viewers can't create document projects.
+- Document projects are available on the **Pro, Max, Team, and Enterprise** plans. If you're on the Free plan, see [Plans](/en/resources/plans).
 
 ## Create a project
 
-Before generation starts, creating a document project walks you through **Source**, **Documents**, and **Update mode**, in that order.
+Select **New (+) → Create project** in the sidebar to open the **Document project setup** tab. The wizard has two steps, **Source** and **Documents**, and before generation starts you choose the GitHub source, the document types, and the update mode.
+
+<Screenshot name="project-wizard-source" alt="Step 1, Source, of Create document project, with a Connect GitHub button below What codebase would you like to document?" caption="If you haven't connected GitHub yet, the Source step shows a Connect GitHub button." />
 
 <Steps>
   <Step title="Source: What codebase would you like to document?">
-    Choose a GitHub account, repository, and branch. Once both the repository and branch are selected, you can move to the next step.
+    Choose a **GitHub account**, **Repository**, and **Branch**. You can search for repositories by name. Once both the repository and branch are selected, **Next** at the top right becomes available.
   </Step>
   <Step title="Documents: What should the agent create first?">
-    Select one or more document skills for the agent to create first. If no document skills are installed, you can find one in the marketplace or create your own. Optionally, select auxiliary skills as well.
+    Select one or more document skills for the agent to create first. If no document skills are installed, use **Find more in marketplace** or **Create new**. For each skill, use **View execution details** to see which document it writes and how.
   </Step>
   <Step title="Focus: optional">
-    Write a request that applies only to the documents generated this time. The more specific you are about the audience, the topics to emphasize, and the level of detail you want, the better the results.
+    In **Focus for this run (optional)** in the same step, write a request that applies only to this run. The more specific you are about the audience, the topics to emphasize, and the level of detail you want, the better the results.
   </Step>
   <Step title="Update mode: What happens when code changes?">
-    Turn on **Automatically update on repository changes** to keep documents current when code lands on the selected branch.
+    Turn on **Automatically update on repository changes** to keep documents current when code lands on the selected branch. When you're ready, select **Create N document types** to start generation.
   </Step>
 </Steps>
 

@@ -1,10 +1,12 @@
 import type { Dictionary } from "@/i18n";
+import { DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { Callout, Danger, Note, Tip, Warning } from "./Callout";
 import { Card, CardGroup } from "./Card";
 import { CodeBlock } from "./CodeBlock";
+import { createScreenshot } from "./Screenshot";
 import { Step, Steps } from "./Steps";
 import { Tab, Tabs } from "./Tabs";
 
@@ -61,8 +63,9 @@ function Table({ children, ...props }: ComponentProps<"table">) {
 }
 
 /** 로케일 사전을 받아 MDX 컴포넌트 맵을 만든다 — 페이지에서 `<Content components={...} />` 로 넘긴다 */
-export function createMdxComponents(dict: Pick<Dictionary, "code">): MDXComponents {
+export function createMdxComponents(dict: Pick<Dictionary, "code">, locale: Locale = DEFAULT_LOCALE): MDXComponents {
   return {
+    Screenshot: createScreenshot(locale),
     h2: heading("h2"),
     h3: heading("h3"),
     h4: heading("h4"),
