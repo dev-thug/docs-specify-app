@@ -1,0 +1,44 @@
+Specify uses GitHub repositories as the evidence for your docs. Once you connect a repository, the agent can read the code to generate docs and prepare later changes as proposed updates.
+
+## Connection flow
+
+<Steps>
+  <Step title="Start connecting GitHub">
+    In the Source step of the create document project screen, select **Connect GitHub**. You need to connect GitHub before you can select repositories in this workspace.
+  </Step>
+  <Step title="Grant access on GitHub">
+    On the GitHub screen, choose the account and repository scope Specify should read, then grant access.
+  </Step>
+  <Step title="Choose a repository and branch">
+    Back in Specify, pick a **GitHub account**, search for the repository by name and select it, then choose a branch. If the list doesn't load, you can also enter it directly in `owner/repo` format.
+  </Step>
+</Steps>
+
+## Organization repositories
+
+Organization repositories require approval from a GitHub organization admin.
+
+1. When you request a connection, GitHub sends an approval request to the organization admin.
+2. The organization admin approves the request on GitHub.
+3. Once it's approved, select **Reconnect** in Specify to finish.
+
+<Note>
+  While you wait for organization admin approval, that organization's repositories don't appear in the list.
+</Note>
+
+## Connect multiple repositories
+
+You can add multiple sources to a single document project. In the **Sources** section of project settings, add or remove the repositories and branches used as evidence for your docs. You can assign a role to each source.
+
+## Trigger on push
+
+Turn on **Trigger on push** for a source to have Specify prepare proposed document updates whenever you push code to that branch. For detailed settings, see [Automation settings](/en/guides/automation-settings).
+
+## Troubleshooting
+
+| Symptom | What to check |
+| --- | --- |
+| Repositories fail to load | Try again in a moment, or use **Enter manually** to type `owner/repo`. |
+| No repositories are available | Check that the selected GitHub account has repositories where Specify access is allowed. |
+| No branches are available | Check that the repository has branches and that you have access to it. |
+| Organization repositories don't appear | Confirm the organization admin has approved the request, then select reconnect. |

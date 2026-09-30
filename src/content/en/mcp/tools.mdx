@@ -1,0 +1,62 @@
+The Specify MCP server provides five tools. Read tools require the `mcp:read` scope, and write tools require the `mcp:write` scope. The exact input schema is defined by the JSON Schema that clients receive from `tools/list`.
+
+## Tool list
+
+| Tool | Scope | What it does |
+| --- | --- | --- |
+| `search` | `mcp:read` | Searches workspace docs by meaning and title, and returns results from enabled external connectors grouped by source. |
+| `read_document` | `mcp:read` | Reads the full body or a section of a text or PDF document. |
+| `browse` | `mcp:read` | Explores the workspace through the document tree, recent documents, and title search. |
+| `create_document` | `mcp:write` | Creates a new document from a Markdown body. |
+| `update_document` | `mcp:write` | Finds and replaces exact text in a document, or appends to the end of the body. |
+
+## search
+
+Use it to find the docs a task needs.
+
+| Input | Description |
+| --- | --- |
+| `query` | Search query |
+| `topK` | Optional. Number of results to return (1–25) |
+
+## read_document
+
+Reads a document found through search or browsing. You can read long documents section by section.
+
+| Input | Description |
+| --- | --- |
+| `nodeId` | ID of the document to read |
+| `around`, `offset`, `limit`, `page` | Optional. Specify the section to read. |
+
+## browse
+
+| Input | Description |
+| --- | --- |
+| `mode` | One of `tree` (document tree), `recent` (recent documents), or `search` (title search) |
+| `query` | Optional. Search query for `search` mode |
+| `limit` | Optional. Number of items to return |
+
+## create_document
+
+| Input | Description |
+| --- | --- |
+| `title` | Document title |
+| `content` | Markdown body |
+| `parentNodeId` | Optional. Parent folder to create the document in |
+
+## update_document
+
+| Input | Description |
+| --- | --- |
+| `nodeId` | ID of the document to edit |
+| `search` | Optional. Text to replace (must match exactly) |
+| `replace` | Replacement content. If `search` is omitted, it's appended to the end of the body. |
+
+Uploaded file documents can't be edited.
+
+## Permissions and limits
+
+- Every tool call checks the token, workspace membership, scope, admin access policy, and rate limits each time. If a member leaves or a token is revoked, the existing token can no longer access data.
+- Write tools require a workspace role of Editor or higher, and don't run while workspace writes are locked.
+- Documents and folders excluded from MCP exposure, along with everything beneath them, don't appear in search, read, or edit results.
+- If a tool fails because of an input or permission problem, it returns an error result with an explanation the agent can read and act on.

@@ -1,0 +1,46 @@
+Specify reads code changes, finds the developer docs that need to change, and turns them into proposed updates you can review. Even a small team with no time to write docs by hand can keep developer documentation in step with the code just by connecting a GitHub repository.
+
+There are two main ways to use Specify, and you can combine them depending on your team's needs.
+
+|  | Documentation automation | Specify MCP |
+| --- | --- | --- |
+| **What it is** | A workspace feature that generates developer docs from your GitHub repository and prepares proposed updates as the code changes | An MCP server that lets coding agents such as Claude Code, Codex, and Cursor read the docs and context in your team's workspace |
+| **Best for** | Keeping API, architecture, and onboarding docs in sync with the code | Working on top of team context without pasting project background into your agent every time |
+| **Get started** | [Quickstart](/en/quickstart) | [MCP overview](/en/mcp/overview) |
+
+## What Specify does
+
+<CardGroup cols={3}>
+  <Card icon="git" title="Connects code and docs">Connects GitHub repositories and branches to a document project and generates your first docs from the code.</Card>
+  <Card icon="pr" title="Proposed updates with evidence">When code changes, finds the affected docs and prepares a proposed update with the reason for the change and a before-and-after view.</Card>
+  <Card icon="message" title="Answers from team context">Answers "why was it built this way?" and "where is it?" using your docs, decisions, and code history as evidence.</Card>
+</CardGroup>
+
+<Note>
+  New document projects start without automatic updates. Every change arrives first as a proposed update with its evidence, and how updates are applied after that follows your project settings and the applicable policy.
+</Note>
+
+## Recommended path for new teams
+
+Follow these steps to go from creating a workspace to developer docs your whole team uses.
+
+<CardGroup cols={2}>
+  <Card icon="rocket" title="Create a workspace" href="/en/quickstart" cta="Go to the quickstart">Sign up, create a workspace, and connect a GitHub repository.</Card>
+  <Card icon="git" title="Create a document project" href="/en/guides/doc-projects" cta="Read the guide">Choose the repository to document, the document types, and an update mode, then generate your first docs.</Card>
+  <Card icon="workflow" title="Review proposed updates" href="/en/guides/review-proposals" cta="See the review flow">Check the evidence and scope of the proposed updates that code changes produce.</Card>
+  <Card icon="terminal" title="Connect a coding agent" href="/en/mcp/connect" cta="See how to connect">Let Claude Code or Codex reference your workspace docs directly.</Card>
+</CardGroup>
+
+## Common use cases
+
+- **API and developer docs**: Keep endpoints, request schemas, and response fields aligned with the code. See [Keep API docs up to date](/en/guides/api-docs).
+- **Onboarding docs**: Use your repository structure and run instructions to create docs that get a new teammate to a working setup on their first day. See [Generate onboarding docs](/en/guides/onboarding-docs).
+- **Team knowledge search**: Get answers grounded in team context without digging through docs or pulling a colleague aside. See [Ask AI](/en/guides/ask-ai).
+
+## Learn more
+
+<CardGroup cols={3}>
+  <Card icon="book" title="Core concepts" href="/en/concepts">Understand how workspaces, nodes, document projects, and proposed updates relate to each other.</Card>
+  <Card icon="shield" title="Security and data" href="/en/resources/security">Review data isolation and permission boundaries.</Card>
+  <Card icon="help" title="FAQ" href="/en/resources/faq">Common questions from teams evaluating Specify.</Card>
+</CardGroup>

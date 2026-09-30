@@ -1,0 +1,54 @@
+Specify's features are built on a handful of concepts. This page explains what each one is and how they connect.
+
+## How it fits together
+
+1. Your team and documents come together in a **workspace**.
+2. A **document project** ties a workspace folder to a GitHub **source**.
+3. The agent follows a **document skill** to generate docs from the code.
+4. When the source changes, **proposed updates** are prepared for the affected docs.
+5. Your team checks progress and proposed updates in the **Inbox**, and coding agents read the same context through **MCP**.
+
+## Workspace
+
+The unit in which your team shares docs, conversations, decisions, and code history. Members and roles, connected tools, and your plan all belong to a workspace. Data is isolated per workspace.
+
+## Node
+
+The core unit of content in a workspace. Documents, folders, and agent rules are all nodes, organized in a tree. A document project is connected to a specific folder node.
+
+## Document project
+
+The unit that analyzes a GitHub repository to create and maintain developer docs such as architecture docs, onboarding guides, and API specs. A document project has:
+
+- **Source**: The GitHub repository and branch used as evidence for the docs
+- **Document skill**: The writing procedure that defines which docs to write and the discipline to follow
+- **Automation settings**: Whether to trigger on push, the default output folder, and the project style guide
+
+In the project list, each project shows a **current**, **writing**, or **needs attention** status.
+
+## Skill
+
+The procedure and conditions of use an agent follows while working. In a document project, the **document skill** provides the writing discipline used to generate docs, and **auxiliary skills** provide reference procedures that help the document skill. You can select up to 5 auxiliary skills.
+
+Skills fall into two types based on how they update docs.
+
+| Mode | Behavior when code changes |
+| --- | --- |
+| Incremental update | Automatically prepares proposed document updates when code lands on the selected branch. |
+| Full regeneration | Doesn't support automatic updates. Regenerate when you need to. |
+
+## Proposed update
+
+A suggestion Specify prepares when a code change means a document needs to change. Each proposed update includes the evidence for the change and a before-and-after view. New projects start without automatic updates, and how updates are applied follows your project settings and the applicable policy. For details, see [Review and apply proposed updates](/en/guides/review-proposals).
+
+## Inbox
+
+Where the progress and results of background tasks collect. Even after you close the document generation screen, you can keep checking completed, failed, and try-again options in the Inbox. When an agent is waiting for your answer, you can also pick up from the Inbox and the thread.
+
+## Thread
+
+A unit of conversation with an agent. Questions and answers, and the work the agent performs, are recorded in the thread. If the agent asks a question during document generation, open the thread and answer it to continue generation.
+
+## MCP
+
+The Model Context Protocol is an open standard for connecting AI agents to external tools and data. Specify provides an MCP server so agents such as Claude Code, Codex, and Cursor can search and read your team's docs within the scope your workspace permissions allow. See [MCP overview](/en/mcp/overview).

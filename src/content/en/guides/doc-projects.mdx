@@ -1,0 +1,59 @@
+A document project connects a GitHub repository to a folder in your workspace so the agent can generate code-based docs and keep them in sync.
+
+## Before you begin
+
+- Your workspace must have [GitHub connected](/en/guides/github).
+- You need Editor, Admin, or Owner permissions. Viewers can't create document projects.
+
+## Create a project
+
+Before generation starts, creating a document project walks you through **Source**, **Documents**, and **Update mode**, in that order.
+
+<Steps>
+  <Step title="Source: What codebase would you like to document?">
+    Choose a GitHub account, repository, and branch. Once both the repository and branch are selected, you can move to the next step.
+  </Step>
+  <Step title="Documents: What should the agent create first?">
+    Select one or more document skills for the agent to create first. If no document skills are installed, you can find one in the marketplace or create your own. Optionally, select auxiliary skills as well.
+  </Step>
+  <Step title="Focus: optional">
+    Write a request that applies only to the documents generated this time. The more specific you are about the audience, the topics to emphasize, and the level of detail you want, the better the results.
+  </Step>
+  <Step title="Update mode: What happens when code changes?">
+    Turn on **Automatically update on repository changes** to keep documents current when code lands on the selected branch.
+  </Step>
+</Steps>
+
+<Note>
+  If some of the selected documents use full regeneration, only the incremental documents update automatically when code changes. Full regeneration documents need to be regenerated manually.
+</Note>
+
+## What happens during generation
+
+When you start generation, Specify prepares the following.
+
+- **Project index**: Links the folder, the project record, and the generation task so later updates attach to the same project.
+- **Automatic update setup**: Saves the selected automation mode first so the generated docs can receive proposed changes.
+- **Change review foundation**: Leaves source links in the generated pages so later repository changes can be reviewed against their evidence.
+
+The Inbox keeps tracking the task even if you close the generation screen. Each document's generation status appears as **Waiting to start**, **Writing**, **Complete**, **Failed**, or **Start blocked**.
+
+## When the agent asks a question
+
+If the agent doesn't have enough information to write a document, it asks a question and waits for your answer. Open the thread and answer to continue generation.
+
+## When generation doesn't finish
+
+If the project was created but the first document generation didn't finish, **Generation needs attention** appears. Check the reason shown, then choose one of the following.
+
+- **Try again**: Restarts generation with the same settings.
+- **Change source**: Change the repository or branch and start again.
+- **Close and notify me**: Follow the result in the Inbox.
+
+<Tip>
+  If some document tasks didn't start because you reached a task limit, check the budget and project permissions, then regenerate once running document tasks have finished.
+</Tip>
+
+## Add documents
+
+After the first run, you can generate additional guides or references in the same project folder. Select the project in the project list and run add document.

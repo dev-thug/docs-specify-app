@@ -1,26 +1,586 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+   Specify 디자인 시스템 — specify/src/app/globals.css 에서 이식했다.
+   Foundation → Semantic → Tailwind(@theme inline) 3계층과 값은 원본과 동일하게 유지한다.
+   토큰 값을 바꿀 때는 원본(specify 저장소)을 먼저 고치고 이 파일에 같은 값을 반영한다.
+   워크스페이스 전용 규칙(CodeMirror, 모바일 워크스페이스 셸 등)은 가져오지 않았다.
+   ============================================================================ */
+
+@custom-variant dark (&:is(.dark *));
+
+/* Pretendard — 한글/영문 혼합 UI 본문 폰트 (self-host) */
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 45 920;
+  font-display: swap;
+}
+
+/* 대구북성로 — 브랜드 로고타입 전용 */
+@font-face {
+  font-family: "DaeguBukseongro";
+  src: url("/fonts/DaeguBukseongro-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* 마루부리 — 제목 안 에디토리얼 강조 한 단어 전용 */
+@font-face {
+  font-family: "MaruBuri";
+  src: url("/fonts/MaruBuri-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
 }
 
 @theme inline {
+  /* Tailwind 기본 팔레트 제거 — 색 유틸은 아래 역할 토큰만 존재한다 */
+  --color-*: initial;
+
+  /* Radius — 누르는 컨트롤 pill, 목록 행 10 · 떠 있는 표면 16 · 모달 20 · 컴포저 28 */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-4xl: 28px;
+
+  --font-sans: var(--font-family-sans);
+  --font-display: var(--font-family-display);
+  --font-mono: var(--font-family-mono);
+  --font-brand: var(--font-family-brand);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand — 무채색 강조 신호(링크·포커스·선택). 보라는 로고에만 있다 */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-on-subtle: var(--brand-on-subtle);
+
+  /* Status — solid 표면 / solid 위 텍스트 / 틴트 위 텍스트 */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-on-subtle: var(--success-on-subtle);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-on-subtle: var(--info-on-subtle);
+  --color-teal: var(--teal);
+  --color-teal-foreground: var(--teal-foreground);
+  --color-teal-on-subtle: var(--teal-on-subtle);
+  --color-amber: var(--amber);
+  --color-amber-foreground: var(--amber-foreground);
+  --color-amber-on-subtle: var(--amber-on-subtle);
+  --color-rose: var(--rose);
+  --color-rose-foreground: var(--rose-foreground);
+  --color-rose-on-subtle: var(--rose-on-subtle);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-app-shell: var(--app-shell);
+  --color-app-panel: var(--app-panel);
+  --color-app-panel-muted: var(--app-panel-muted);
+  --color-app-border-subtle: var(--app-border-subtle);
+
+  --color-paper: var(--paper);
+  --color-scrim: var(--scrim);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+
+  /* Typography families */
+  --font-family-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-family-display: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-family-brand: "DaeguBukseongro", sans-serif;
+  --font-family-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: "MaruBuri", "Noto Serif KR", ui-serif, Georgia, serif;
+
+  --tracking-tighter: 0em;
+  --tracking-tight: 0em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.01em;
+  --tracking-wider: 0.04em;
+  --tracking-widest: 0.24em;
+  --tracking-serif-accent: -0.06em;
+
+  /* Type scale — 본문·UI(≤ text-xl) 자간 0, 제목(≥ text-2xl)은 크기에 비례해 좁힌다 */
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+  --text-ui: 0.8125rem;
+  --text-ui--line-height: 1.25rem;
+  --text-2xl--letter-spacing: -0.01em;
+  --text-3xl--letter-spacing: -0.015em;
+  --text-4xl--line-height: 1.15;
+  --text-4xl--letter-spacing: -0.02em;
+  --text-5xl--line-height: 1.1;
+  --text-5xl--letter-spacing: -0.025em;
+
+  /* Elevation — xs/sm raised · md overlay · lg modal · xl/2xl showcase */
+  --shadow-xs: 0 1px 2px var(--shadow-ambient);
+  --shadow-sm: inset 0 1px 0 var(--shadow-highlight), 0 1px 2px var(--shadow-ambient), 0 2px 8px -2px var(--shadow-ambient);
+  --shadow-md: inset 0 1px 0 var(--shadow-highlight), 0 1px 2px var(--shadow-ambient), 0 8px 24px -8px var(--shadow-key);
+  --shadow-lg: inset 0 1px 0 var(--shadow-highlight), 0 2px 6px var(--shadow-ambient), 0 24px 56px -16px var(--shadow-key);
+  --shadow-xl: inset 0 1px 0 var(--shadow-highlight), 0 2px 6px var(--shadow-ambient), 0 32px 72px -20px var(--shadow-deep);
+  --shadow-2xl: 0 40px 100px -32px var(--shadow-deep);
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  --blur-glass: 20px;
+
+  /* 문서 레이아웃 치수 — 헤더 2단(56 + 44), 사이드바 260, TOC 220 */
+  --spacing-header: 6.25rem;
+  --spacing-sidebar: 16.25rem;
+  --spacing-toc: 13.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------- 1) Foundation · light ---------- */
+:root {
+  --white: oklch(1 0 0);
+  --gray-1: oklch(0.985 0.003 290);
+  --gray-2: oklch(0.972 0.004 290);
+  --gray-3: oklch(0.955 0.005 290);
+  --gray-4: oklch(0.935 0.006 290);
+  --gray-5: oklch(0.915 0.007 290);
+  --gray-6: oklch(0.895 0.008 290);
+  --gray-7: oklch(0.85 0.009 290);
+  --gray-8: oklch(0.76 0.011 290);
+  --gray-9: oklch(0.62 0.013 290);
+  --gray-10: oklch(0.52 0.014 290);
+  --gray-11: oklch(0.38 0.014 290);
+  --gray-12: oklch(0.185 0.012 290);
+
+  --brand: var(--gray-11);
+  --brand-foreground: var(--gray-1);
+  --brand-on-subtle: var(--gray-12);
+
+  --destructive: oklch(0.55 0.20 10);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.52 0.13 152);
+  --success-foreground: oklch(0.99 0 0);
+  --success-on-subtle: oklch(0.47 0.11 152);
+  --info: oklch(0.53 0.145 250);
+  --info-foreground: oklch(0.99 0 0);
+  --info-on-subtle: oklch(0.48 0.13 250);
+  --teal: oklch(0.53 0.09 195);
+  --teal-foreground: oklch(0.99 0 0);
+  --teal-on-subtle: oklch(0.48 0.082 195);
+  --amber: oklch(0.65 0.18 75);
+  --amber-foreground: oklch(0.15 0.02 75);
+  --amber-on-subtle: oklch(0.52 0.11 75);
+  --rose: oklch(0.55 0.20 10);
+  --rose-foreground: oklch(0.99 0 0);
+  --rose-on-subtle: oklch(0.51 0.20 10);
+
+  --scrim: oklch(0.185 0.012 290 / 0.28);
+  --glass: oklch(1 0 0 / 0.68);
+  --glass-border: oklch(0.185 0.012 290 / 0.07);
+  --shadow-highlight: oklch(1 0 0 / 0.6);
+  --shadow-ambient: oklch(0.185 0.012 290 / 0.05);
+  --shadow-key: oklch(0.185 0.012 290 / 0.12);
+  --shadow-deep: oklch(0.2 0.012 290 / 0.18);
+}
+
+/* ---------- 1) Foundation · dark ---------- */
+.dark {
+  --gray-0: oklch(0.125 0.005 290);
+  --gray-1: oklch(0.145 0.005 290);
+  --gray-2: oklch(0.175 0.006 290);
+  --gray-3: oklch(0.205 0.007 290);
+  --gray-4: oklch(0.235 0.008 290);
+  --gray-5: oklch(0.265 0.008 290);
+  --gray-6: oklch(0.29 0.009 290);
+  --gray-7: oklch(0.34 0.01 290);
+  --gray-8: oklch(0.44 0.011 290);
+  --gray-9: oklch(0.56 0.012 290);
+  --gray-10: oklch(0.68 0.012 290);
+  --gray-11: oklch(0.82 0.008 290);
+  --gray-12: oklch(0.965 0.004 290);
+
+  --brand: var(--gray-11);
+  --brand-foreground: var(--gray-1);
+  --brand-on-subtle: var(--gray-12);
+
+  --destructive: oklch(0.72 0.17 10);
+  --destructive-foreground: oklch(0.15 0.02 10);
+  --success: oklch(0.74 0.14 152);
+  --success-foreground: oklch(0.15 0.02 152);
+  --success-on-subtle: oklch(0.74 0.14 152);
+  --info: oklch(0.74 0.12 250);
+  --info-foreground: oklch(0.15 0.02 250);
+  --info-on-subtle: oklch(0.74 0.12 250);
+  --teal: oklch(0.72 0.12 195);
+  --teal-foreground: oklch(0.15 0.02 195);
+  --teal-on-subtle: oklch(0.72 0.12 195);
+  --amber: oklch(0.78 0.16 75);
+  --amber-foreground: oklch(0.15 0.02 75);
+  --amber-on-subtle: oklch(0.78 0.16 75);
+  --rose: oklch(0.72 0.17 10);
+  --rose-foreground: oklch(0.15 0.02 10);
+  --rose-on-subtle: oklch(0.72 0.17 10);
+
+  --scrim: oklch(0.08 0.005 290 / 0.62);
+  --glass: oklch(0.19 0.006 290 / 0.62);
+  --glass-border: oklch(1 0 0 / 0.08);
+  --shadow-highlight: oklch(1 0 0 / 0.05);
+  --shadow-ambient: oklch(0 0 0 / 0.35);
+  --shadow-key: oklch(0 0 0 / 0.55);
+  --shadow-deep: oklch(0 0 0 / 0.7);
+}
+
+/* ---------- 2) Semantic — 두 테마 공통 역할 매핑 ---------- */
+:root,
+.dark {
+  --background: var(--gray-1);
+  --foreground: var(--gray-12);
+  --card: var(--white);
+  --card-foreground: var(--gray-12);
+  --popover: var(--white);
+  --popover-foreground: var(--gray-12);
+
+  --primary: var(--gray-12);
+  --primary-foreground: var(--gray-1);
+
+  --secondary: var(--gray-3);
+  --secondary-foreground: var(--gray-12);
+  --muted: var(--gray-3);
+  --muted-foreground: var(--gray-10);
+  --accent: var(--gray-4);
+  --accent-foreground: var(--gray-12);
+
+  --border: var(--gray-5);
+  --input: var(--gray-6);
+  --border-strong: var(--gray-7);
+  --ring: var(--brand);
+
+  --sidebar: var(--gray-2);
+  --sidebar-foreground: var(--gray-11);
+  --sidebar-primary: var(--gray-12);
+  --sidebar-primary-foreground: var(--gray-1);
+  --sidebar-accent: var(--gray-4);
+  --sidebar-accent-foreground: var(--gray-12);
+  --sidebar-border: var(--gray-5);
+  --sidebar-ring: var(--brand);
+
+  --app-shell: var(--gray-2);
+  --app-panel: var(--white);
+  --app-panel-muted: var(--gray-3);
+  --app-border-subtle: var(--gray-4);
+
+  --paper: var(--white);
+}
+
+/* ---------- 2) Semantic — dark 전용 표면 규칙 ---------- */
+.dark {
+  --card: var(--gray-2);
+  --popover: var(--gray-2);
+  --app-panel: var(--gray-2);
+  --sidebar: var(--gray-0);
+  --app-shell: var(--gray-0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-padding-top: calc(var(--spacing-header) + 1rem);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-family-sans);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 한국어는 어절 단위로 줄바꿈한다 — "근/거가" 처럼 단어 중간에서 끊기지 않게 */
+  :lang(ko) body {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  /* 일본어는 금칙 처리를 엄격하게 — 행두에 작은 가나·구두점이 오지 않게 */
+  :lang(ja) body {
+    line-break: strict;
+    overflow-wrap: anywhere;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background-color: oklch(from var(--brand) l c h / 0.2);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================================
+   문서 본문 타이포그래피 — sans-reading(1rem / 1.7) 기준.
+   색은 전부 역할 토큰이며, 링크·강조 신호는 brand 를 쓴다.
+   @layer components 안에 둬야 MDX 컴포넌트(Callout·Steps 등)의 유틸 클래스가 이 기본값을 덮는다.
+   ============================================================================ */
+@layer components {
+  .docs-prose {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--foreground);
+  }
+
+  .docs-prose> :first-child {
+    margin-top: 0;
+  }
+
+  .docs-prose h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .docs-prose h3 {
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.1875rem;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .docs-prose h4 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .docs-prose p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .docs-prose strong {
+    font-weight: 600;
+  }
+
+  .docs-prose a:not([data-card]):not([data-heading-anchor]) {
+    color: var(--brand-on-subtle);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 150ms var(--ease-standard);
+  }
+
+  .docs-prose a:not([data-card]):not([data-heading-anchor]):hover {
+    text-decoration-color: var(--foreground);
+  }
+
+  .docs-prose ul,
+  .docs-prose ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .docs-prose ul {
+    list-style: disc;
+  }
+
+  .docs-prose ol {
+    list-style: decimal;
+  }
+
+  .docs-prose li {
+    margin-top: 0.375rem;
+    margin-bottom: 0.375rem;
+    padding-left: 0.25rem;
+  }
+
+  .docs-prose li::marker {
+    color: var(--muted-foreground);
+  }
+
+  .docs-prose hr {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-color: var(--border);
+  }
+
+  .docs-prose blockquote {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-left: 2px solid var(--border-strong);
+    padding-left: 1rem;
+    color: var(--muted-foreground);
+  }
+
+  /* 인라인 코드 */
+  .docs-prose :not(pre)>code {
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background-color: var(--muted);
+    padding: 0.125rem 0.375rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.8125em;
+    font-weight: 500;
+    word-break: break-word;
+  }
+
+  /* 표 */
+  .docs-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .docs-prose thead th {
+    background-color: var(--muted);
+    color: var(--foreground);
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .docs-prose th,
+  .docs-prose td {
+    border-bottom: 1px solid var(--border);
+    padding: 0.625rem 0.875rem;
+    vertical-align: top;
+  }
+
+  /* 첫 열은 보통 항목 이름이라 좁게 접히지 않게 한다 */
+  .docs-prose tbody td:first-child {
+    min-width: 7rem;
+  }
+
+  .docs-prose tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  /* ============================================================================
+   코드 블록 — rehype-pretty-code(shiki) 이중 테마. 배경은 토큰이 가진다.
+   ============================================================================ */
+  .docs-prose figure[data-rehype-pretty-code-figure] {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .docs-prose pre {
+    overflow-x: auto;
+    padding: 1rem 0;
+    font-family: var(--font-family-mono);
+    font-size: 0.8125rem;
+    line-height: 1.7;
+  }
+
+  .docs-prose pre code {
+    display: grid;
+    min-width: 100%;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .docs-prose pre [data-line] {
+    padding: 0 1.25rem;
+  }
+
+  .docs-prose pre [data-highlighted-line] {
+    background-color: oklch(from var(--brand) l c h / 0.08);
+  }
+
+  .docs-prose code[data-theme] span {
+    color: var(--shiki-light);
+  }
+
+  .dark .docs-prose code[data-theme] span {
+    color: var(--shiki-dark);
+  }
+
+  .docs-prose figcaption[data-rehype-pretty-code-title] {
+    border: 1px solid var(--border);
+    border-bottom: 0;
+    border-top-left-radius: var(--radius-2xl);
+    border-top-right-radius: var(--radius-2xl);
+    background-color: var(--muted);
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+  }
+
+  .docs-prose figcaption[data-rehype-pretty-code-title]+[data-code-block] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+}
+
+/* 패널 세로 스크롤 — 트랙 없는 얇은 pill 썸 */
+.panel-scroll-subtle {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--muted-foreground) 35%, transparent) transparent;
+}
+
+.panel-scroll-subtle::-webkit-scrollbar {
+  width: 5px;
+}
+
+.panel-scroll-subtle::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--muted-foreground) 35%, transparent);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* 터치 환경 최소 터치 타겟 */
+@media (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
 }

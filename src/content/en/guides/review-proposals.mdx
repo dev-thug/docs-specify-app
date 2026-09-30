@@ -1,0 +1,40 @@
+When code changes, a proposed update arrives first. Specify reads pushed changes, finds the affected docs, and prepares proposed updates for review. Applying them follows the policy your team sets.
+
+## How proposed updates are prepared
+
+1. Code lands on the source branch of a document project. **Trigger on push** must be on for that source.
+2. Specify compares the changes with the docs the project manages to find the affected docs.
+3. For each document, it prepares a proposed update with the evidence for the change and a before-and-after view.
+
+## What a proposed update includes
+
+| Item | Description |
+| --- | --- |
+| **Evidence** | Which code change makes this document need an update |
+| **Before and after** | Which part of the document changes, and how |
+| **Scope** | The documents and sections the proposed update affects |
+
+## Review and apply
+
+Check the evidence and the before-and-after view of the proposed update, then approve it to apply it to the document. By default, only changes that a person has reviewed and approved are applied.
+
+<Note>
+  New projects start without automatic updates. You can review the changes and their evidence, and how updates are applied after that follows your project settings and the applicable policy. When automatic updates are allowed, low-risk changes may be approved automatically.
+</Note>
+
+## Review checklist
+
+- Is the code change cited as evidence actually related to the document content?
+- Are deleted or renamed items reflected consistently throughout the document?
+- Do code examples and request and response examples match the new behavior?
+- Were explanations that need human judgment (design intent, operational policy) left intact rather than overwritten by an automatic edit?
+
+## Project status
+
+Use the status badges in the project list to find projects that need review.
+
+| Status | Meaning |
+| --- | --- |
+| **current** | The managed docs are in sync with the source. |
+| **writing** | Document generation or an update is in progress. |
+| **needs attention** | There are changes to review or tasks that need your attention. |

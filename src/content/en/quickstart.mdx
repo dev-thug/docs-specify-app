@@ -1,0 +1,56 @@
+This guide walks you through creating a workspace, connecting a GitHub repository, and generating your first developer document. By the end, you'll have one document generated from your code and a document project that's ready to receive proposed updates as the code changes.
+
+## Prerequisites
+
+- A **GitHub repository** with the code you want to document, either personal or owned by an organization
+- For an organization repository, the ability to get **approval from a GitHub organization admin**
+- **Editor or higher permissions** in the workspace so you can create document projects (whoever creates a workspace first is its owner)
+
+## Create your first document
+
+<Steps>
+  <Step title="Sign up and create a workspace">
+    Sign up at [specify.app](https://specify.app/en) and create a workspace. You can start on the free plan without a credit card.
+  </Step>
+  <Step title="Connect GitHub">
+    In the Source step of the create document project screen, select **Connect GitHub**, then grant Specify access to the GitHub account and repositories it should read.
+
+    Organization repositories connect after a GitHub organization admin approves the request. Once it's approved, select reconnect on the same screen to finish. For details, see [Connect GitHub](/en/guides/github).
+  </Step>
+  <Step title="Choose a source">
+    Pick a GitHub account, then choose the repository and branch to document. This repository and branch become the evidence for every document and proposed update that follows.
+  </Step>
+  <Step title="Choose document types">
+    Select the document skills the agent should create first. If there's something to emphasize this time, describe the audience, the topics to emphasize, and the level of detail you want in **Focus for this run**. For example, you could write "Center it on the deployment procedure."
+  </Step>
+  <Step title="Choose an update mode">
+    Turn on **Automatically update on repository changes** to have Specify prepare proposed document updates whenever code lands on the selected branch. Skills that regenerate the whole document every time don't support automatic updates; regenerate those when you need to.
+  </Step>
+  <Step title="Confirm your first document is generated">
+    Once you start generation, the document agent writes the selected documents. You can close this screen. The **Inbox** keeps tracking the generation task and shows completed, failed, and try-again options.
+  </Step>
+</Steps>
+
+<Tip>
+  Start with a single document. After you review the generated document with your team, you can generate additional guides or references in the same project folder.
+</Tip>
+
+## After generation finishes
+
+Generated pages keep links to their sources, so you can review later repository changes against precise evidence. Continue with the next steps.
+
+<CardGroup cols={2}>
+  <Card icon="workflow" title="Review and apply proposed updates" href="/en/guides/review-proposals">How to review the proposed updates that arrive when code changes.</Card>
+  <Card icon="users" title="Invite your team and manage roles" href="/en/workspace/members">Invite teammates and assign roles.</Card>
+  <Card icon="terminal" title="Connect a coding agent" href="/en/mcp/connect">Let Claude Code and Codex reference your workspace docs.</Card>
+  <Card icon="message" title="Ask AI" href="/en/guides/ask-ai">Ask questions grounded in the generated docs and code context.</Card>
+</CardGroup>
+
+## Troubleshooting
+
+| Symptom | What to check |
+| --- | --- |
+| The repository list is empty | Check that the selected GitHub account has repositories that Specify is allowed to access. Organization repositories require organization admin approval. |
+| You can't create a document project | Viewers can't create document projects. Ask a member with edit permissions. If workspace writes are locked, check your subscription status. |
+| Generation is taking a long time | The Inbox keeps tracking the task even if you close the screen. When it finishes, you can see the result in the Inbox. |
+| Generation shows that it needs attention | Your project is saved. Check the reason shown, then try again or change the source. |

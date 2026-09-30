@@ -1,0 +1,98 @@
+ワークスペースの**ツールとスキル** → **エディタ連携**でクライアントを選択すると、そのワークスペース用のトークンが発行され、クライアントごとのコマンドや設定がトークンを入力済みの状態で用意されます。このページでは、それぞれの形式について説明します。
+
+<Warning>
+  トークンは発行画面でのみ表示されます。紛失した場合は新しいトークンを生成してください。トークンをリポジトリ、共有ドキュメント、プロンプトに貼り付けないでください。
+</Warning>
+
+以下の例の`<SPECIFY_MCP_TOKEN>`は、発行されたトークンに置き換えてください。
+
+## クライアントごとの接続
+
+<Tabs>
+  <Tab title="Claude Code">
+    ターミナルで次のコマンドを実行します。
+
+    ```bash
+    claude mcp add specify --transport http https://mcp.specify.app \
+      --header "Authorization: Bearer <SPECIFY_MCP_TOKEN>"
+    ```
+
+    登録後、Claude Codeからワークスペースのドキュメントを検索して読み取れるようになります。`claude mcp list`で登録状態を確認できます。
+  </Tab>
+  <Tab title="Codex">
+    `~/.codex/config.toml`に次の設定を追加してから、Codexを再起動します。`url`があると、Streamable HTTPトランスポートを使用します。
+
+    ```toml title="~/.codex/config.toml"
+    [mcp_servers.specify]
+    url = "https://mcp.specify.app"
+    http_headers = { Authorization = "Bearer <SPECIFY_MCP_TOKEN>" }
+    ```
+  </Tab>
+  <Tab title="Cursor">
+    エディタ連携の画面でCursorを選択すると、インストール用のディープリンクが開き、Cursorにサーバーが登録されます。開かない場合は、表示されたリンクをコピーして貼り付けてください。
+
+    手動で設定する場合は、CursorのMCP設定に次の項目を追加します。
+
+    ```json title="mcp.json"
+    {
+      "mcpServers": {
+        "specify": {
+          "url": "https://mcp.specify.app",
+          "headers": { "Authorization": "Bearer <SPECIFY_MCP_TOKEN>" }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="VS Code">
+    エディタ連携の画面でVS Codeを選択すると、`vscode:mcp/install`ディープリンクでサーバーのインストールが始まります。インストールされる設定は次のとおりです。
+
+    ```json
+    {
+      "name": "specify",
+      "type": "http",
+      "url": "https://mcp.specify.app",
+      "headers": { "Authorization": "Bearer <SPECIFY_MCP_TOKEN>" }
+    }
+    ```
+  </Tab>
+  <Tab title="Claude Desktop">
+    Claude Desktopの設定ファイルはローカル（stdio）サーバーのみを受け付けるため、`mcp-remote`プロキシでリモートサーバーに接続します。設定を貼り付けた後、Claude Desktopを再起動してください。
+
+    ```json title="claude_desktop_config.json"
+    {
+      "mcpServers": {
+        "specify": {
+          "command": "npx",
+          "args": ["-y", "mcp-remote", "https://mcp.specify.app", "--header", "Authorization:${AUTH_HEADER}"],
+          "env": { "AUTH_HEADER": "Bearer <SPECIFY_MCP_TOKEN>" }
+        }
+      }
+    }
+    ```
+
+    ヘッダーの値は`AUTH_HEADER`環境変数で渡します。引数に空白が入らないように、`Authorization:`の後ろは空白を入れずに書きます。
+
+    <Warning>
+      Claude Desktopの設定に、`type`、`url`、`headers`形式のリモート項目を直接追加しないでください。Claude Desktopが`mcpServers`の設定全体を消去する場合があります。上記のように`mcp-remote`を使用してください。
+    </Warning>
+  </Tab>
+</Tabs>
+
+## OAuthで接続する
+
+Specify MCPサーバーは、OAuth認可コードフロー（PKCE `S256`、動的クライアント登録）にも対応しています。OAuthに対応したクライアントは、トークンなしでサーバーのアドレスだけを登録し、ブラウザでSpecifyにログインしてワークスペースと権限スコープを承認することで接続できます。スコープを指定しない場合は、読み取り専用で承認されます。
+
+## 接続を確認する
+
+- エージェントに「Specifyでオンボーディングドキュメントを探して」のように依頼し、検索ツールが呼び出されるかを確認します。
+- ワークスペースの**エディターのアクセス権限**一覧で、発行された権限と最終使用の履歴を確認できます。この一覧は、実際のエディターの接続状態と異なる場合があります。
+
+## トラブルシューティング
+
+| 症状 | 確認すること |
+| --- | --- |
+| 認証エラー | トークンが失効していないか、`Bearer `プレフィックスが含まれているかを確認します。 |
+| ツールの呼び出しが拒否される | ワークスペースの管理者が外部エディターからのアクセスを遮断したか、その操作を許可していない可能性があります。[トークンとアクセス方針](/ja/mcp/access)を参照してください。 |
+| ドキュメントの作成・編集ができない | トークンに書き込み権限（`mcp:write`）がないか、ワークスペースでの役割が編集者未満です。 |
+| MCPサーバーのURLが設定されていないと表示される | ワークスペースの管理者にお問い合わせください。 |

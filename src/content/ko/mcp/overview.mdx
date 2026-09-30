@@ -1,0 +1,52 @@
+코딩 에이전트는 유능하지만 우리 팀은 모릅니다. Specify는 MCP 서버로 동작해 Claude Code·Codex·Cursor 같은 에이전트가 팀의 문서·결정·코드 맥락을 직접 탐색하게 합니다.
+
+## MCP란
+
+MCP(Model Context Protocol)는 AI 에이전트를 외부 도구와 데이터에 연결하는 개방형 표준입니다. Specify는 MCP 서버를 제공하므로, MCP를 지원하는 클라이언트라면 워크스페이스 권한이 허용한 범위 안에서 팀 문서를 검색하고 읽을 수 있습니다.
+
+## 할 수 있는 일
+
+<CardGroup cols={3}>
+  <Card icon="search" title="팀 문서 검색">에이전트가 작업 중 필요한 문서를 워크스페이스에서 찾아 읽습니다.</Card>
+  <Card icon="library" title="같은 맥락 공유">팀이 Specify에 남긴 맥락이 에이전트가 읽는 바로 그 맥락입니다.</Card>
+  <Card icon="file" title="문서 작성">쓰기 권한을 허용하면 에이전트가 문서를 만들거나 고칠 수 있습니다.</Card>
+</CardGroup>
+
+## 서버 정보
+
+| 항목 | 값 |
+| --- | --- |
+| 서버 주소 | `https://mcp.specify.app` |
+| 전송 방식 | Streamable HTTP (JSON 응답, SSE 세션 없음) |
+| 인증 | 워크스페이스 MCP 토큰(Bearer) 또는 OAuth |
+| 권한 범위 | `mcp:read`(기본), `mcp:write`(선택) |
+| 서버 이름 | 모든 클라이언트에서 `specify` 로 통일 |
+
+<Note>
+  연결 명령과 토큰은 워크스페이스 화면에서 발급받는 것이 가장 간단합니다. 연결을 선택하면 해당 워크스페이스의 접근 권한이 발급되고, 클라이언트별 명령이나 설정이 준비됩니다.
+</Note>
+
+## 연결 방법 한눈에 보기
+
+<Steps>
+  <Step title="워크스페이스에서 에디터 연결 열기">
+    워크스페이스의 **도구와 스킬** → **에디터 연결**에서 사용할 클라이언트를 선택합니다.
+  </Step>
+  <Step title="권한 범위 정하기">
+    기본은 읽기 전용입니다. 에이전트가 문서를 만들거나 고쳐야 한다면 **문서 생성·수정 허용**을 체크합니다.
+  </Step>
+  <Step title="명령 또는 설정 적용하기">
+    클라이언트에 따라 터미널 명령을 실행하거나, 설정을 붙여 넣거나, 딥링크로 에디터를 엽니다. 클라이언트별 방법은 [에디터·에이전트 연결](/ko/mcp/connect)을 참고하세요.
+  </Step>
+  <Step title="맥락 위에서 질문하기">
+    결정·문서·코드에 대해 물으면 에이전트가 일반적인 추측이 아니라 팀의 실제 맥락을 근거로 답합니다.
+  </Step>
+</Steps>
+
+## 다음 단계
+
+<CardGroup cols={3}>
+  <Card icon="terminal" title="에디터·에이전트 연결" href="/ko/mcp/connect">Claude Code, Codex, Cursor, VS Code, Claude Desktop 연결 방법</Card>
+  <Card icon="blocks" title="제공 도구" href="/ko/mcp/tools">search, read_document, browse, create_document, update_document</Card>
+  <Card icon="key" title="토큰과 접근 정책" href="/ko/mcp/access">토큰 권한과 폐기, 관리자 접근 정책</Card>
+</CardGroup>

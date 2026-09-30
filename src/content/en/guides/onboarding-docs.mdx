@@ -1,0 +1,35 @@
+Good onboarding docs let a new teammate run the project locally on their first day and know where to start reading the code. Specify generates onboarding docs from your repository structure and run instructions, and updates them as the code changes.
+
+## What good onboarding docs include
+
+1. **What this project is**: A one-paragraph overview and the main components
+2. **Running locally**: Required runtimes and versions, installation, environment variables, and run and test commands
+3. **Repository map**: Key directories and entry points, and where to start reading
+4. **Development workflow**: Branching strategy, reviews, and deployment process
+5. **Where to get help**: Owners, related docs, and common sticking points
+
+## Generate
+
+<Steps>
+  <Step title="Create a document project">
+    Connect the repository to onboard people onto as the source, and select a document skill that creates onboarding guides.
+  </Step>
+  <Step title="Write the focus">
+    Be specific about the readers and the goal. For example: "Get a backend developer in their first week to a local run and their first PR."
+  </Step>
+  <Step title="Fill in the gaps yourself">
+    Add what can't be learned from the code, such as team agreements, owners, and how to request access, directly to the generated docs.
+  </Step>
+</Steps>
+
+## Verify
+
+The most reliable way to verify generated docs is to actually follow them.
+
+- In a fresh environment, confirm you can install and run the project using only the commands in the docs.
+- Confirm the docs list only the names of environment variables and secrets, not their values.
+- Fix any sticking points in the docs right away so the next person doesn't get stuck in the same place.
+
+<Tip>
+  Have new teammates bring onboarding questions to [Ask AI](/en/guides/ask-ai) first. It saves your colleagues' time and helps you find gaps in the docs quickly.
+</Tip>

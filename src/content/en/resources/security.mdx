@@ -1,0 +1,34 @@
+Specify handles your team's code and docs. This page explains where data is stored, who can access it, and what boundaries are in place.
+
+## Core principles
+
+<CardGroup cols={3}>
+  <Card icon="shield" title="Workspace isolation">All data is isolated and operated per workspace.</Card>
+  <Card icon="users" title="Approved members only">Data is visible only to members approved in the workspace.</Card>
+  <Card icon="sparkles" title="Not used for training">We don't use customer data to train AI models.</Card>
+</CardGroup>
+
+## Infrastructure
+
+Specify runs on AWS serverless infrastructure.
+
+## Access control
+
+- **Role-based permissions**: What each person can do depends on their role: Owner, Admin, Editor, or Viewer. See [Invite your team and manage roles](/en/workspace/members).
+- **Document access**: You can't open documents you don't have permission for, but you can send an access request.
+- **AI answer scope**: AI uses only the documents the person asking can access as evidence.
+
+## GitHub connection
+
+- Specify reads only the GitHub repositories you allow. Organization repositories connect only after an organization admin approves them.
+- Events sent from GitHub are processed only after signature verification and duplicate-delivery protection.
+
+## MCP connection
+
+- External editors authenticate with a workspace MCP token or OAuth. Tokens are read-only by default.
+- Every tool call checks current workspace membership each time, so access is blocked immediately when a member leaves or a token is revoked.
+- Admins can block all external editor access or set which tools are allowed. See [Tokens and access policies](/en/mcp/access).
+
+## Contact
+
+Send security questions or vulnerability reports to [support@specify.app](mailto:support@specify.app). For details on how data is handled, see the [Privacy policy](https://specify.app/en/privacy).

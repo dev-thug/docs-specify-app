@@ -1,0 +1,21 @@
+Terms commonly used across the Specify product and docs.
+
+| Term | Meaning |
+| --- | --- |
+| **Workspace** | The unit in which a team shares docs, conversations, decisions, and code history, along with members and connected tools. It's the boundary where data is isolated. |
+| **Node** | The core unit of content in a workspace. Documents, folders, and agent rules are all nodes. |
+| **Document project** | The unit that creates and maintains developer docs from a GitHub repository. It ties together a folder, sources, skills, and automation settings. |
+| **Source** | The GitHub repository and branch a document project uses as evidence. |
+| **Document skill** | The writing discipline an agent follows when it generates docs. |
+| **Auxiliary skill** | A reference procedure that helps a document skill. You can select up to 5. |
+| **Incremental update** | A mode that updates docs by applying only the code changes. Supports automatic updates. |
+| **Full regeneration** | A mode that recreates the whole document every time. Doesn't support automatic updates. |
+| **Proposed update** | A suggestion to change a document in response to a code change. It includes the evidence for the change and a before-and-after view. |
+| **Trigger on push** | A trigger that prepares proposed document updates when code is pushed to a source branch. |
+| **Style guide** | Markdown writing rules applied to docs. The project guide takes precedence over the workspace guide. |
+| **Inbox** | Where the progress and results of background tasks collect. |
+| **Thread** | A unit of conversation with an agent. |
+| **Daily briefing** | A daily summary of workspace changes, stale-document alerts, and suggested tasks. |
+| **MCP** | Model Context Protocol. An open standard for connecting AI agents to external tools and data. |
+| **Specify MCP** | The MCP server that provides workspace context to external coding agents such as Claude Code and Codex. |
+| **MCP token** | A workspace-level token external editors use to authenticate with Specify MCP. Read-only by default. |

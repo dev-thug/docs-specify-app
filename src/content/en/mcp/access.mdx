@@ -1,0 +1,46 @@
+Agents read only what your workspace permissions allow. This page explains personal token scopes and management, and the access policies admins apply to the whole workspace.
+
+## Token scopes
+
+| Scope | Allowed tools | Default |
+| --- | --- | --- |
+| `mcp:read` | `search`, `read_document`, `browse` | Always included |
+| `mcp:write` | `create_document`, `update_document` | Optional (when **Allow document creation and editing** is checked) |
+
+The default is read-only. Allow write access only when the agent needs to create or edit docs. Tokens with write access are marked with a **write** badge in the list.
+
+## Manage your tokens
+
+In your workspace, go to **Tools & skills** → **Connect editor** to see the **My MCP tokens** list.
+
+- **Label**: The name of the client the token was issued for
+- **Last used**: When the token was last used for a call
+- **Revoke**: Immediately invalidates a token you no longer use.
+
+<Tip>
+  If you switch laptops or a token may have been exposed, revoke the old token and issue a new one. A revoked token is rejected starting with the next call.
+</Tip>
+
+## Admin access policies
+
+Admins manage external editor access for the whole workspace under **Tools & skills** → **Admin**.
+
+### Allow access from external editors
+
+Turning this off blocks access from every external editor connected to this workspace. You can use it as a switch to cut off access immediately during incident response or a policy review.
+
+### Allowed operations
+
+Decide per tool whether it's allowed: **Search**, **Read document**, **Browse tree**, **Create document**, and **Update document**. For example, you can allow only reads and block creating and editing.
+
+### Token inventory
+
+See the owner, label, scopes, last use, and status of every token issued in the workspace.
+
+### Usage
+
+See call counts and error counts per tool for the last 24 hours.
+
+<Note>
+  Members can manage only their own connections. For workspace-wide access policies, contact an admin.
+</Note>

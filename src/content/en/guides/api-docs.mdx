@@ -1,0 +1,34 @@
+API docs drift from the code faster than any other docs. Change a single parameter or response field, and anyone integrating against the docs gets stuck right away. Specify checks whether endpoint parameters, response fields, and request examples have drifted from the code and prepares proposed updates.
+
+## Set up
+
+<Steps>
+  <Step title="Connect the repository with your API code">
+    Connect the repository and branch containing your routes, handlers, and schema definitions as the source of a document project. If your schemas live in a separate repository, add another source.
+  </Step>
+  <Step title="Select an API reference document skill">
+    Select a document skill that creates an API reference, and in the focus field, describe the target readers (internal team, external partners, and so on) and the scope to cover.
+  </Step>
+  <Step title="Turn on the push trigger">
+    Turn on **Trigger on push** for the default branch to receive a proposed update every time an API change lands.
+  </Step>
+</Steps>
+
+## What to check when reviewing proposed updates
+
+| Area | What to check |
+| --- | --- |
+| **Requests** | Path, method, path and query parameters, request body schema, and required fields |
+| **Responses** | Response fields for each status code, types, nullability, and pagination format |
+| **Authentication** | Required authentication method, scopes, and where the token is sent |
+| **Errors** | Error codes and messages, and whether the request can be retried |
+| **Examples** | Whether request and response examples match the new schema |
+| **Compatibility** | Whether the change breaks existing integrations, such as removing or renaming a field, and whether migration guidance is needed |
+
+<Warning>
+  An automatic edit may not be enough for changes that break existing integrations. Have a person decide whether a changelog entry and migration guidance are needed, and fill them in.
+</Warning>
+
+## Use with coding agents
+
+Connect [Specify MCP](/en/mcp/overview) so Claude Code or Codex can reference your workspace's API docs directly while changing the API. You get to work on docs and code in the same context.

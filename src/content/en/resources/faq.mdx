@@ -1,0 +1,55 @@
+## Adoption
+
+### What kind of team is Specify for?
+
+Specify fits small development teams that don't have the time or people to write docs. Teams that use AI tools such as Claude Code, Cursor, and Codex every day can use documentation automation and the MCP connection together.
+
+### Do we need to replace our existing tools?
+
+No. Keep your existing GitHub and editor workflows, and just add a GitHub connection. You can start a pilot with a single document.
+
+### Do teammates need to set anything up?
+
+Teammates just accept the invitation. No extra setup is needed to read docs or ask AI.
+
+## Documentation automation
+
+### Will AI change our docs on its own?
+
+New projects start without automatic updates. Document changes driven by code changes arrive first as proposed updates with their evidence and a before-and-after view, and how they're applied after that follows your project settings and the applicable policy. When automatic updates are allowed, low-risk changes may be approved automatically.
+
+### Are docs updated automatically when code changes?
+
+If **Trigger on push** is on for the source and the document skill uses incremental updates, proposed updates are prepared when code lands on the selected branch. Docs that use full regeneration need to be regenerated when you need them.
+
+### Can we connect organization repositories?
+
+Yes. Organization repositories connect after a GitHub organization admin approves the request. After approval, select reconnect in Specify to finish.
+
+## Security
+
+### Are our code and docs safe?
+
+All data runs on AWS infrastructure, isolated per workspace, and is visible only to approved members. We don't use customer data to train AI models. For details, see [Security and data](/en/resources/security).
+
+## MCP
+
+### Which coding agents can we connect?
+
+Any client that supports MCP, including Claude Code, Codex, Cursor, VS Code, and Claude Desktop. See [Connect editors and agents](/en/mcp/connect).
+
+### Can agents edit docs too?
+
+Yes, if you check **Allow document creation and editing** when issuing the token. The default is read-only, and admins can block creating and editing with a workspace policy.
+
+## Pricing
+
+### Can we start for free?
+
+Yes. You can start on the Free plan without a credit card, and the Pro and Team plans come with a 14-day free trial. For current pricing, see the [pricing page](https://specify.app/en/pricing).
+
+## Support
+
+### Where can I send other questions?
+
+Contact us at [support@specify.app](mailto:support@specify.app).
