@@ -1,15 +1,15 @@
 Specify offers six models from the Anthropic Claude and OpenAI GPT families. Choose a model for each conversation in the chat message box, and set the default models for automations and document generation in workspace settings.
 
-<Screenshot name="model-picker" alt="The model menu in the chat message box listing Claude Opus 4.6, Claude Sonnet 4.6, Claude Haiku 4.5, GPT-6 Sol, GPT-5.6 Terra, and GPT-6 Luna" />
+<Screenshot name="model-picker" alt="The model menu in the chat message box listing Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 4.5, GPT-6.1 Sol, GPT-5.6 Terra, and GPT-6 Luna" />
 
 ## Compare models
 
 | Model | Provider | Available on | Context | Max output | Input / output price (per 1M tokens) |
 | --- | --- | --- | --- | --- | --- |
-| **Claude Opus 4.6** | Anthropic | Pro and above | 1M | 128K | $5.00 / $25.00 |
-| **Claude Sonnet 4.6** | Anthropic | Pro and above | 1M | 64K | $3.00 / $15.00 |
+| **Claude Opus 5.5** | Anthropic | Pro and above | 200K | 128K | $4.00 / $20.00 |
+| **Claude Sonnet 5.5** | Anthropic | Pro and above | 200K | 128K | $2.00 / $10.00 |
 | **Claude Haiku 4.5** | Anthropic | All plans, including Free | 200K | 64K | $1.00 / $5.00 |
-| **GPT-6 Sol** | OpenAI | Pro and above | 1.05M | 128K | $2.00 / $10.00 |
+| **GPT-6.1 Sol** | OpenAI | Pro and above | 1.05M | 128K | $2.00 / $10.00 |
 | **GPT-5.6 Terra** | OpenAI | Pro and above | 1.05M | 128K | $2.00 / $12.00 |
 | **GPT-6 Luna** | OpenAI | All plans, including Free | 1.05M | 128K | $0.10 / $0.50 |
 
@@ -22,9 +22,9 @@ Specify offers six models from the Anthropic Claude and OpenAI GPT families. Cho
 <CardGroup cols={2}>
   <Card icon="sparkles" title="GPT-6 Luna: default model">The least expensive model. Try it first for everyday questions, search, and summaries. It's also available on the Free plan.</Card>
   <Card icon="search" title="Claude Haiku 4.5: lightweight Claude">The least expensive Claude model. It's good at looking up information and summarizing, but weaker at multi-step document editing.</Card>
-  <Card icon="file" title="Claude Sonnet 4.6: document work">Reliable for writing and editing documents, following skills, and connector tasks. Supports a 1M-token context.</Card>
-  <Card icon="library" title="Claude Opus 4.6: deepest reasoning">Use it for the hardest analysis and for designing and verifying the structure of long documents. It's the most expensive.</Card>
-  <Card icon="blocks" title="GPT-6 Sol: general high performance">A high-performance OpenAI model that costs less than Sonnet. Use it when you want to try a complex request with a model from a different family.</Card>
+  <Card icon="file" title="Claude Sonnet 5.5: document work">Reliable for writing and editing documents, following skills, and connector tasks.</Card>
+  <Card icon="library" title="Claude Opus 5.5: deepest reasoning">Use it for the hardest analysis and for designing and verifying the structure of long documents. It's the most expensive.</Card>
+  <Card icon="blocks" title="GPT-6.1 Sol: general high performance">A high-performance OpenAI model at the same price as Sonnet. Use it when you want to try a complex request with a model from a different family.</Card>
   <Card icon="workflow" title="GPT-5.6 Terra: OpenAI alternative">An OpenAI model with the same input price as Sol and a slightly higher output price. Use it to compare results with other OpenAI models.</Card>
 </CardGroup>
 
@@ -32,7 +32,7 @@ For which model to use for each task, see [Choosing a model](/en/models/choosing
 
 ## Reasoning effort
 
-Every model lets you set **reasoning effort** to one of six levels: **Off**, **Low**, **Medium**, **High**, **Extra**, or **Max**. Higher effort means deeper reasoning before answering, but responses are slower and use more tokens.
+You can set **reasoning effort** to one of six levels: **Off**, **Low**, **Medium**, **High**, **Extra**, or **Max**. Claude Opus 5.5 and GPT-6.1 Sol don't support Off, so they offer five levels starting at Low. Higher effort means deeper reasoning before answering, but responses are slower and use more tokens.
 
 | Level | Minimum tokens used for reasoning |
 | --- | --- |

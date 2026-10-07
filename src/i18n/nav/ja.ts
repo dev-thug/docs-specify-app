@@ -24,7 +24,7 @@ export const jaNav: NavLabels = {
     intro: {
       title: "Specifyの概要",
       description:
-        "Specifyは小規模な開発チームのための開発ドキュメント自動化ツールです。GitHubのコード変更と関連ドキュメントをつなぎ、根拠のある修正案を用意します。",
+        "Specifyは開発ドキュメントを自動化するツールです。GitHubのコード変更と関連ドキュメントをつなぎ、根拠のある修正案を用意します。",
     },
     quickstart: {
       title: "クイックスタート",
@@ -42,7 +42,7 @@ export const jaNav: NavLabels = {
     },
     "workspace/members": {
       title: "チームの招待と権限",
-      description: "ワークスペースにチームメンバーを招待し、役割ごとにできることを確認します。",
+      description: "ワークスペースにチームメンバーを招待し、オーナー・管理者・編集者・閲覧者の役割ごとにできることと文書へのアクセス範囲を確認します。",
     },
     "workspace/settings": {
       title: "設定の概要",
@@ -103,6 +103,31 @@ export const jaNav: NavLabels = {
       title: "自動化の詳細設定",
       description: "pushトリガー、作成スキル、出力フォルダ、プロジェクトのスタイルガイドでドキュメント自動化を調整します。",
     },
+    "guides/medical-device-docs": {
+      title: "医療機器ソフトウェアの開発文書自動化",
+      sidebarTitle: "医療機器の開発文書",
+      description: "医療機器ソフトウェアの認証準備に向けて、コードを根拠に要求仕様書・設計書のドラフトを作成し、SOUP一覧と文書の不足項目を確認する活用例です。",
+    },
+    "guides/use-cases": {
+      title: "自分の業務に合う活用例を探す",
+      sidebarTitle: "活用例一覧",
+      description: "開発・営業・カスタマーサポート・品質管理で、チーム資料を根拠に文書を作成・レビューする活用例を紹介します。",
+    },
+    "guides/security-questionnaires": {
+      title: "顧客のセキュリティ質問票への回答を準備する",
+      sidebarTitle: "セキュリティ質問票",
+      description: "現行ポリシーと過去の回答を照合し、根拠付きの回答ドラフトと担当者への確認事項を作成します。",
+    },
+    "guides/project-handover": {
+      title: "コードとチーム資料から引き継ぎ文書を作る",
+      sidebarTitle: "プロジェクトの引き継ぎ",
+      description: "プロジェクトのメモと実際のコードを照合し、実装範囲、実行方法、未完了の要望、運用上の確認事項を整理します。",
+    },
+    "guides/customer-updates": {
+      title: "変更内容を顧客向け案内とFAQにまとめる",
+      sidebarTitle: "顧客向け案内とFAQ",
+      description: "変更資料と既存FAQを根拠に案内ドラフトを作り、リリース範囲と利用制限を一貫して説明します。",
+    },
     "guides/api-docs": {
       title: "APIドキュメントを最新に保つ",
       description: "リクエスト・レスポンス・認証・エラー・例がコードとずれないようにAPIドキュメントを維持する方法です。",
@@ -141,11 +166,11 @@ export const jaNav: NavLabels = {
     },
     "resources/glossary": {
       title: "用語集",
-      description: "Specifyのドキュメントと製品で使われる用語をまとめます。",
+      description: "ワークスペース、ドキュメントプロジェクト、修正案、RAG、MCPなど、Specifyのドキュメントと製品で使われる用語を一行で定義します。",
     },
     "resources/faq": {
       title: "よくある質問",
-      description: "導入、ドキュメント自動化、セキュリティ、MCPについてよくある質問と回答です。",
+      description: "導入、ドキュメント自動化、セキュリティ、AIモデル、MCP、料金についてよくある質問と回答です。",
     },
   },
 };

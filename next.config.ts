@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // 로케일별 예제 자료(public/examples/<locale>/*.zip) — 파일명은 URL 마지막 경로를 쓴다.
+        source: "/examples/:locale/:file",
+        headers: [{ key: "Content-Disposition", value: "attachment" }],
+      },
+      {
         source: "/fonts/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },

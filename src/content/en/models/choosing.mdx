@@ -1,4 +1,4 @@
-If you're not sure which model to use, **start with GPT-6 Luna, the default model**. For writing documents, multi-step editing, or tasks that need to follow a skill, we recommend **Claude Sonnet 4.6**. For the hardest analysis and for verifying long documents, use **Claude Opus 4.6**.
+If you're not sure which model to use, **start with GPT-6 Luna, the default model**. For writing documents, multi-step editing, or tasks that need to follow a skill, we recommend **Claude Sonnet 5.5**. For the hardest analysis and for verifying long documents, use **Claude Opus 5.5**.
 
 ## Recommendations by task
 
@@ -6,15 +6,15 @@ If you're not sure which model to use, **start with GPT-6 Luna, the default mode
 | --- | --- | --- | --- |
 | Search team docs, ask short questions, summarize | **GPT-6 Luna** | Off | The least expensive default model. In the Haiku and Sonnet comparison, search- and lookup-focused tasks showed no difference between models. |
 | Quick lookups with Claude | **Claude Haiku 4.5** | Off | Showed a success rate similar to Sonnet for lookups, summaries, and search. |
-| Write new documents or edit several places in an existing one | **Claude Sonnet 4.6** | Low to Medium | Higher success rate than Haiku on document editing tasks. |
-| Write documents that follow a skill or plugin procedure | **Claude Sonnet 4.6** | Low to Medium | Skill application tasks showed the largest quality gap. |
-| Tasks that use connectors such as GitHub or Slack | **Claude Sonnet 4.6** | Low | Completed every connector scenario. |
-| Design the structure of long documents, verify quality, handle difficult analysis | **Claude Opus 4.6** | Medium to High | The deepest reasoning. It's the most expensive, so use it only in the conversations that need it. |
-| Compare the same task with a model from another family | **GPT-6 Sol** | Medium | A high-performance OpenAI alternative that costs less than Sonnet. |
+| Write new documents or edit several places in an existing one | **Claude Sonnet 5.5** | Low to Medium | The previous generation (Sonnet 4.6) showed a higher success rate than Haiku on document editing tasks. |
+| Write documents that follow a skill or plugin procedure | **Claude Sonnet 5.5** | Low to Medium | Skill application tasks showed the largest quality gap in the previous-generation evaluation. |
+| Tasks that use connectors such as GitHub or Slack | **Claude Sonnet 5.5** | Low | Completed every connector scenario in the previous-generation evaluation. |
+| Design the structure of long documents, verify quality, handle difficult analysis | **Claude Opus 5.5** | Medium to High | The deepest reasoning. It's the most expensive, so use it only in the conversations that need it. |
+| Compare the same task with a model from another family | **GPT-6.1 Sol** | Medium | A high-performance OpenAI alternative at the same price as Sonnet. |
 
 ## Internal evaluation results
 
-Specify compared Claude Haiku 4.5 and Claude Sonnet 4.6 across 38 real workspace scenarios, including document editing, skill application, connectors, memory, RAG search, and multi-turn conversations.
+Specify compared Claude Haiku 4.5 and Claude Sonnet 4.6 (the previous generation of the current Sonnet 5.5) across 38 real workspace scenarios, including document editing, skill application, connectors, memory, RAG search, and multi-turn conversations.
 
 | Metric | Claude Haiku 4.5 | Claude Sonnet 4.6 |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ Success rates by task type:
 **Conclusion:** Tasks that follow a skill or edit documents in multiple steps need Sonnet. Search-, summary-, and lookup-focused tasks work well with a less expensive model.
 
 <Note>
-  This evaluation compared only Claude Haiku 4.5 and Sonnet 4.6 (July 2026). GPT models and Opus weren't measured under the same conditions. The recommendations above for GPT models and Opus are based on specifications such as price and context, and on Specify's internal defaults.
+  This evaluation compared only Claude Haiku 4.5 and Sonnet 4.6 (July 2026). Sonnet 5.5, Opus 5.5, and the GPT models weren't measured under the same conditions. The Sonnet 5.5 recommendation carries over the previous generation's measured results, while the GPT and Opus recommendations are based on specifications such as price and context, and on Specify's internal defaults.
 </Note>
 
 ## Specify's internal defaults
@@ -46,9 +46,9 @@ When Specify picks a model itself in the background, it follows the same princip
 
 | Task | Default model |
 | --- | --- |
-| Maintaining and updating documents, planning | Claude Sonnet 4.6 |
+| Maintaining and updating documents, planning | Claude Sonnet 5.5 |
 | Research, synthesizing results, analysis | Claude Haiku 4.5 |
-| Designing and verifying document quality outlines | Claude Opus 4.6 |
+| Designing and verifying document quality outlines | Claude Opus 5.5 |
 | Document automation (when no workspace setting exists) | GPT-6 Luna |
 
 ## Choose a reasoning effort
@@ -63,5 +63,5 @@ Automations and document generation use the models in workspace settings, separa
 
 <Screenshot name="settings-workspace" alt="The Default AI Model and Doc Generation Model pickers in Workspace General settings" />
 
-- **Default AI Model**: If you have many lightweight automations such as weekly summaries, we recommend GPT-6 Luna. If you have many automations that edit documents, we recommend Claude Sonnet 4.6.
-- **Doc Generation Model**: If document quality matters, we recommend Claude Sonnet 4.6. If cost comes first, start with the default (GPT-6 Luna), then change it after reviewing the results.
+- **Default AI Model**: If you have many lightweight automations such as weekly summaries, we recommend GPT-6 Luna. If you have many automations that edit documents, we recommend Claude Sonnet 5.5.
+- **Doc Generation Model**: If document quality matters, we recommend Claude Sonnet 5.5. If cost comes first, start with the default (GPT-6 Luna), then change it after reviewing the results.

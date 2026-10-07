@@ -47,6 +47,6 @@ export function proxy(request: NextRequest) {
 export const config = {
   // 정적 자산·메타 라우트·원문 라우트는 proxy 를 거치지 않는다. `.md` 는 rewrite 대상이라 제외하지 않는다.
   matcher: [
-    "/((?!_next/|raw/|favicons/|fonts/|logo\\.png|llms\\.txt|llms-full\\.txt|robots\\.txt|sitemap\\.xml|.*\\.(?:png|jpg|jpeg|gif|svg|ico|webp|webmanifest|woff2|json|txt|xml)$).*)",
+    "/((?!_next/|raw/|favicons/|fonts/|logo\\.png|llms\\.txt|llms-full\\.txt|robots\\.txt|sitemap\\.xml|.*\\.(?:png|jpg|jpeg|gif|svg|ico|webp|webmanifest|woff2|json|txt|xml|zip)$).*)",
   ],
 };

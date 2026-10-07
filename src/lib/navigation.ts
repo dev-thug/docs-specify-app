@@ -24,7 +24,18 @@ export const NAV_STRUCTURE = [
         pages: ["guides/github", "guides/doc-projects", "guides/review-proposals", "guides/automation-settings"],
       },
       { id: "extend", pages: ["guides/automations", "guides/plugins-skills", "guides/connectors"] },
-      { id: "use-cases", pages: ["guides/api-docs", "guides/onboarding-docs"] },
+      {
+        id: "use-cases",
+        pages: [
+          "guides/use-cases",
+          "guides/medical-device-docs",
+          "guides/security-questionnaires",
+          "guides/project-handover",
+          "guides/customer-updates",
+          "guides/api-docs",
+          "guides/onboarding-docs",
+        ],
+      },
     ],
   },
   {

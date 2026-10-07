@@ -2,7 +2,7 @@
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Check, Languages } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { LOCALE_COOKIE, LOCALE_LABELS, LOCALES, type Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 // 모든 로케일이 같은 slug 구조를 공유하므로 경로의 로케일 세그먼트만 바꾼다.
 export function LanguageSwitcher({ locale, label }: { locale: Locale; label: string }) {
   const pathname = usePathname();
-  const router = useRouter();
 
   const hrefFor = (target: Locale) => {
     const rest = pathname.split("/").slice(2).join("/");
@@ -21,7 +20,9 @@ export function LanguageSwitcher({ locale, label }: { locale: Locale; label: str
   const select = (target: Locale) => {
     // 1년 유지. 서버는 이 값을 로케일 없는 경로의 리다이렉트에만 쓴다.
     document.cookie = `${LOCALE_COOKIE}=${target}; path=/; max-age=31536000; samesite=lax`;
-    if (target !== locale) router.push(hrefFor(target));
+    // 루트 레이아웃이 [lang] 아래에 있어 소프트 이동하면 <html> 전체가 클라이언트에서 다시 마운트되고,
+    // next-themes 의 인라인 <script> 가 클라이언트 렌더링되어 React 경고가 난다. 로케일 전환은 문서 단위로 새로 연다.
+    if (target !== locale) window.location.assign(hrefFor(target));
   };
 
   return (

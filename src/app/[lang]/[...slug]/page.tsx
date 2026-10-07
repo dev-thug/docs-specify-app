@@ -2,10 +2,14 @@ import { PageActions } from "@/components/docs/PageActions";
 import { PageFooter } from "@/components/docs/PageFooter";
 import { TableOfContents } from "@/components/docs/TableOfContents";
 import { createMdxComponents } from "@/components/mdx/components";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getDictionary } from "@/i18n";
-import { extractToc, getRawSource } from "@/lib/content";
+import { extractFaq, extractToc, getRawSource } from "@/lib/content";
 import { DEFAULT_LOCALE, isLocale, LOCALES, OG_LOCALES } from "@/lib/i18n";
+import { breadcrumbJsonLd, docArticleJsonLd, faqPageJsonLd } from "@/lib/jsonld";
+import { getLastModified } from "@/lib/last-modified";
 import { findPage, getAllPages, pageHref } from "@/lib/navigation";
+import { OG_IMAGE } from "@/lib/site";
 import type { MDXComponents } from "mdx/types";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -46,8 +50,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ...Object.fromEntries(LOCALES.map((locale) => [locale, pageHref(locale, slug)])),
         "x-default": pageHref(DEFAULT_LOCALE, slug),
       },
+      // LLM·에이전트용 Markdown 원문 — proxy 가 /raw/ 로 rewrite 하는 공개 주소
+      types: { "text/markdown": `${url}.md` },
     },
-    openGraph: { title: page.title, description: page.description, url, locale: OG_LOCALES[lang], type: "article" },
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      url,
+      locale: OG_LOCALES[lang],
+      alternateLocale: LOCALES.filter((locale) => locale !== lang).map((locale) => OG_LOCALES[locale]),
+      type: "article",
+      modifiedTime: getLastModified(lang, slug),
+      images: [OG_IMAGE],
+    },
   };
 }
 
@@ -66,9 +81,23 @@ export default async function DocPage({ params }: PageProps) {
 
   const dict = getDictionary(lang);
   const toc = extractToc(source);
+  const breadcrumb = breadcrumbJsonLd(lang, page, dict.meta.siteTitle);
+  // FAQ 형식(h3 질문 + 답변) 문서만 FAQPage 를 싣는다
+  const faq = slug === "resources/faq" ? faqPageJsonLd(lang, page, extractFaq(source)) : null;
 
   return (
     <div className="flex gap-12 px-5 pt-10 pb-20 sm:px-8 lg:px-12 xl:pr-8">
+      {/* 문서 엔티티 + 탐색 경로 — 사이트 엔티티(WebSite·Organization)는 레이아웃에 있다 */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            docArticleJsonLd(lang, page, getLastModified(lang, slug)),
+            ...(breadcrumb ? [breadcrumb] : []),
+            ...(faq ? [faq] : []),
+          ],
+        }}
+      />
       <article className="mx-auto w-full max-w-3xl min-w-0 xl:mx-0 xl:flex-1">
         <header className="mb-10 flex flex-col gap-4 border-b border-border pb-8">
           <p className="text-sm font-medium text-brand">{page.group.title}</p>

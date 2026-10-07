@@ -7,3 +7,6 @@ export const PRODUCT_URL = "https://specify.app";
 export const SUPPORT_EMAIL = "support@specify.app";
 
 export const SITE_NAME = "Specify Docs";
+
+/** 공유 미리보기 이미지 — 페이지 openGraph 가 레이아웃 값을 통째로 덮어쓰므로 양쪽에서 함께 쓴다 */
+export const OG_IMAGE = { url: "/logo.png", width: 480, height: 480, alt: "Specify" };

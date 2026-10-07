@@ -1,0 +1,131 @@
+This workflow uses a GitHub repository to draft requirements, architecture, and SOUP documents, then lists evidence gaps for review. The drafts are not certification submissions. Owners must confirm product details and regulatory decisions that code cannot establish.
+
+## What can you produce?
+
+| Your task | Documents | Output to review |
+| --- | --- | --- |
+| Document implemented behavior and structure | Requirements specification · Architecture design | Drafts with requirement IDs, architecture items, and supporting file paths |
+| Organize external software components | SOUP list | Component identities, evidence for versions and usage, and open review items |
+| Find gaps in the document set | Document set gap report | A report of missing sections, unconfirmed information, `[GAP]` items, and broken ID references |
+
+
+
+## Read these markers first
+
+| Marker | Meaning |
+| --- | --- |
+| REQ-… / ARCH-… | IDs for requirements and architecture items. Check that references point to real items and that their content agrees. |
+| [unconfirmed] | A proposed value that an owner has not confirmed. Do not use it as an approved fact. |
+| [GAP] | Missing evidence or input that needs review. The marker does not determine regulatory compliance by itself. |
+| SOUP | A marker for software whose source or development history is not fully known. Finding its version and usage does not complete a safety impact review. |
+
+<Screenshot name="medical-requirements" alt="Generated and reviewed requirements showing REQ-001 packet validation and REQ-002 sequence validation with code paths, verification candidates, and missing risk links" caption="Actual output connecting example code to requirement IDs, evidence files, and verification candidates. Document titles and numeric range notation were edited for readability." />
+
+## The project used in this example
+
+<strong>MedRelay Demo</strong> is a small documentation example implementing synthetic device packet validation, sequence checks, in-memory retention, and CSV export. The screens show actual app execution connected to this code. No real patient data or customer project is used.
+
+<a href="/examples/en/medrelay-demo.zip" download="medrelay-demo.zip">Download the example code</a>, place it in your own GitHub repository, and follow the same workflow. This is not an actual medical device or a certification success story. Safety classification and risk acceptance criteria are intentionally left unconfirmed.
+
+<Warning>
+  Generated documents are <strong>drafts that require regulatory and quality expert review before submission</strong>. Implementation facts recovered from code do not replace approved requirements or evidence of performed tests. The responsible people must confirm the target market, intended use, safety classification, and applicable standards and editions.
+</Warning>
+
+## Before you start
+
+- Connect the [GitHub repository and branch](/en/guides/github) you want to document. Begin with a repository whose review scope is clear.
+- Confirm editing permissions and a plan that supports [document projects](/en/guides/doc-projects). See [pricing](https://specify.app/pricing) for current availability.
+- Prepare information that code alone cannot confirm: product purpose, users, use environment, and code scope.
+- Check access to the [standards library](/en/knowledge/standards). If standards search is unavailable or a clause cannot be found, leave the evidence gap visible for review.
+
+In <strong>Settings → AI Agent → Plugins</strong>, find `medical-device-docs`, inspect its skills, and install it. The pack includes 10 skills covering profile intake, document drafting, and gap review.
+
+<Screenshot name="medical-docs-pack" alt="Medical device document pack detail screen showing profile intake, gap review, architecture skills, and the install button" caption="Before installing, check which skills are included and the language available for each one." />
+
+## Example 1. Draft requirements and architecture documents
+
+### Review the product information first
+
+First, use <strong>Create project</strong> to select the repository and branch, choose <strong>Certification profile intake</strong>, and generate it. `certification-profile-intake` reads the repository and proposes values for a <strong>certification profile</strong>. Product identity, intended use, and system boundaries include code evidence or an explanation of what could not be established.
+
+`[unconfirmed]` means a person has not confirmed the value. Change only reviewed fields to `[confirmed]`. Leave safety classification and risk acceptance criteria unconfirmed until the responsible people decide them. Subsequent documents treat only confirmed profile values as facts.
+
+<Screenshot name="medical-profile" alt="Generated MedRelay Demo certification profile with file evidence for name and version and unconfirmed markers for product information" caption="The profile separates repository evidence from decisions people must make. This example leaves profile values unconfirmed when generating the next documents." />
+
+### Choose the documents and scope
+
+<Steps>
+  <Step title="Add documents to the same project">
+    Use the project's add-document button in the sidebar. The existing repository and branch are reused. If an earlier progress panel opens, select <strong>Close</strong> to return to document selection.
+  </Step>
+  <Step title="Select requirements and architecture">
+    In <strong>Documents</strong>, clear the previous selection and select <strong>Software requirements specification (IEC 62304)</strong> and <strong>Software architecture design (IEC 62304)</strong>. This example also selects <strong>SOUP list (IEC 62304)</strong> for Example 2. Use <strong>View execution details</strong> to inspect the scope.
+  </Step>
+  <Step title="Connect the reviewed certification profile">
+    Expand each document in <strong>Selected document settings</strong> and provide the same <strong>Certification profile node ID</strong>. Open the profile document: the final <code>node-…</code> part of its address is the node ID. Without a connected profile or confirmed values, related information remains unconfirmed instead of being invented.
+  </Step>
+  <Step title="Review the selection and generate">
+    Check the document selection and inputs, then select <strong>Create 3 document types</strong>. Requirements and SOUP start first; architecture starts after the requirements run in the same batch finishes. Open the documents to inspect the output.
+  </Step>
+</Steps>
+
+<Screenshot name="medical-generation-progress" alt="Actual progress panel showing requirements and SOUP generation running while architecture waits for its prerequisite" caption="A batch follows document dependencies. Each document has its own progress status and thread." />
+
+### What to check in the output
+
+Follow IDs such as `REQ-001` in the requirements document and `ARCH-001` in the architecture document to check the descriptions against the implementation. Supporting file paths are the starting point for checking the evidence again.
+
+<Screenshot name="medical-architecture" alt="Excerpt from the actual architecture traceability table linking REQ requirements to ARCH software items and supporting code files" caption="Review the connections from REQ to ARCH to code evidence, rather than treating each document in isolation. This is an excerpt from the traceability table." />
+
+| Review item | Human review task |
+| --- | --- |
+| Behavior and interfaces | Compare with code; record missing requirements or differences between requirements and implementation |
+| Requirements-to-design links | Confirm referenced IDs exist and the linked content matches |
+| Standards citations | Confirm the standard, edition, and clause fit the review scope |
+| `[GAP]` and unconfirmed values | Assign the product, development, regulatory, or quality owner who can resolve them |
+| Verification information | Separate plans from performed activities and check test records as independent evidence |
+
+## Example 2. Prepare SOUP review information
+
+Use `sw-soup-list`, the <strong>SOUP list</strong> skill, to organize external libraries and software components. It drafts identification information from dependency manifests and lock files in the repository.
+
+Compare names, exact versions, licenses, and usage locations with the original files. If a license or an evaluation of known anomalies cannot be verified, keep that absence explicit.
+
+<Screenshot name="medical-soup" alt="Actual SOUP-001 zod entry showing version 3.25.17, MIT license, packet validation usage, and gaps for safety impact and architecture links" caption="Versions and usage locations come from code. Safety impact assessments that were not performed remain unconfirmed." />
+
+<Note>
+  A dependency inventory alone does not complete SOUP review. People must review coverage of direct and transitive dependencies, whether each component qualifies as SOUP, known anomaly evaluations, and product safety impact. Do not record vulnerability checks or risk assessments as completed when they have not been performed.
+</Note>
+
+## Example 3. Find gaps in your document set
+
+Once all documents have finished, open add-document in the same project. Clear the previous selection, select only <strong>Software document set gap report</strong>, supply the same certification profile node ID, and select <strong>Create 1 document types</strong>. The `pack-gap-review` skill reads the other documents and writes a report without modifying the documents being reviewed.
+
+<Screenshot name="medical-gap-review" alt="Excerpt from the actual gap report showing unmapped REQ-011, partially mapped REQ-020, and an unconfirmed SOUP-to-ARCH link" caption="Checking that IDs exist is separate from checking that the document links are sufficient. This is an actual report excerpt with column widths adjusted in the editor for readability." />
+
+This run flagged <strong>unmapped REQ-011, partially mapped REQ-020, and the SOUP item's ARCH link</strong> for review. It read the requirements, architecture, SOUP, and certification profile documents. Other documents not found through title discovery were recorded as <strong>unassessed</strong>, rather than being declared nonexistent.
+
+| Report finding | Next action |
+| --- | --- |
+| Missing required section or empty content | Complete the relevant section and supply evidence |
+| Missing standards reference | Check applicability and search results; supply a citation or explain the evidence gap |
+| Broken requirement or architecture ID | Link the actual item or check its retirement record |
+| Unconfirmed information presented as fact | Compare with the profile, correct it, and request owner review |
+| Remaining `[GAP]` items | Obtain the required input, evidence, or decision and review again |
+
+Use this report as a <strong>list of work to complete</strong> against the document pack's checklist. Finding no missing items does not establish full regulatory compliance or submission readiness.
+
+## After the code changes
+
+The pack's eight development document types and gap report use <strong>whole-document rewriting</strong>. With <strong>Automatically update on repository changes</strong> enabled, changes on the selected branch trigger updates to existing managed documents. Unlike incremental updates to affected sections, this rewrites the document as a whole, so review the output alongside human additions. Automatic updates were disabled for this example's initial generation.
+
+Before and after regeneration, check that confirmed product information, existing item IDs, human-supplied evidence, and review records remain consistent. Profile intake uses a separate incremental mode; it preserves confirmed values and records items that need reconsideration.
+
+## Start with your project
+
+Begin with <strong>one repository → profile review → requirements and architecture drafts → gap review</strong>. Use the first review to identify missing inputs and responsible people, then extend to SOUP, risk management, and usability documents.
+
+<CardGroup cols={2}>
+  <Card icon="git" title="Create a document project" href="/en/guides/doc-projects">Select a repository and document skills to create your first draft.</Card>
+  <Card icon="library" title="Standards evidence and document pack" href="/en/knowledge/standards">Check library availability and the other document types.</Card>
+</CardGroup>

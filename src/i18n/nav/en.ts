@@ -14,7 +14,7 @@ export const enNav: NavLabels = {
     writing: "Writing & AI",
     automation: "Documentation automation",
     extend: "Automation & Extensions",
-    "use-cases": "Use cases",
+    "use-cases": "Workflows",
     models: "Models",
     knowledge: "Knowledge & Search",
     "specify-mcp": "Specify MCP",
@@ -24,7 +24,7 @@ export const enNav: NavLabels = {
     intro: {
       title: "Introduction to Specify",
       description:
-        "Specify automates developer documentation for small development teams. It connects GitHub code changes to the related docs and prepares proposed updates backed by evidence.",
+        "Specify automates developer documentation. It connects GitHub code changes to the related docs and prepares proposed updates backed by evidence.",
     },
     quickstart: {
       title: "Quickstart",
@@ -43,7 +43,7 @@ export const enNav: NavLabels = {
     "workspace/members": {
       title: "Invite your team and manage roles",
       sidebarTitle: "Team and roles",
-      description: "Invite teammates to your workspace and see what each role can do.",
+      description: "Invite teammates to your workspace and see what the Owner, Admin, Editor, and Viewer roles can do, including document access.",
     },
     "workspace/settings": {
       title: "Settings at a glance",
@@ -111,6 +111,31 @@ export const enNav: NavLabels = {
       description:
         "Tune documentation automation with push triggers, writing skills, output folders, and a project style guide.",
     },
+    "guides/medical-device-docs": {
+      title: "Medical device software documentation",
+      sidebarTitle: "Medical device documentation",
+      description: "Prepare code-grounded requirements and architecture drafts for medical device software, review SOUP information, and identify gaps in your document set.",
+    },
+    "guides/use-cases": {
+      title: "Find a workflow for your work",
+      sidebarTitle: "Explore workflows",
+      description: "Explore evidence-based document workflows for engineering, sales, customer support, and quality teams.",
+    },
+    "guides/security-questionnaires": {
+      title: "Prepare customer security questionnaire answers",
+      sidebarTitle: "Security questionnaires",
+      description: "Compare current policies with past answers to draft sourced responses and identify questions requiring owner confirmation.",
+    },
+    "guides/project-handover": {
+      title: "Build a handover from code and team documents",
+      sidebarTitle: "Project handover",
+      description: "Compare project notes with actual code to document implemented scope, setup, outstanding requests, and operational unknowns.",
+    },
+    "guides/customer-updates": {
+      title: "Turn changes into customer updates and FAQs",
+      sidebarTitle: "Customer updates and FAQs",
+      description: "Use release information and existing FAQs to draft customer communications with consistent scope and limitations.",
+    },
     "guides/api-docs": {
       title: "Keep API docs up to date",
       description:
@@ -153,11 +178,11 @@ export const enNav: NavLabels = {
     },
     "resources/glossary": {
       title: "Glossary",
-      description: "Terms used across the Specify product and docs.",
+      description: "One-line definitions of terms used across the Specify product and docs, including workspace, document project, proposed update, RAG, and MCP.",
     },
     "resources/faq": {
       title: "FAQ",
-      description: "Frequently asked questions about adoption, documentation automation, security, and MCP.",
+      description: "Frequently asked questions about adoption, documentation automation, security, AI models, MCP, and pricing.",
     },
   },
 };

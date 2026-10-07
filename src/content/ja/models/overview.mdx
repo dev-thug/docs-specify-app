@@ -1,15 +1,15 @@
 Specifyは、Anthropic ClaudeとOpenAI GPT系の6種類のモデルを提供しています。チャットの入力欄で会話ごとにモデルを選び、ワークスペースの設定でオートメーションとドキュメント生成に使う既定のモデルを決めます。
 
-<Screenshot name="model-picker" alt="チャットの入力欄のモデルメニュー。Claude Opus 4.6、Claude Sonnet 4.6、Claude Haiku 4.5、GPT-6 Sol、GPT-5.6 Terra、GPT-6 Lunaが並んでいる" />
+<Screenshot name="model-picker" alt="チャットの入力欄のモデルメニュー。Claude Opus 5.5、Claude Sonnet 5.5、Claude Haiku 4.5、GPT-6.1 Sol、GPT-5.6 Terra、GPT-6 Lunaが並んでいる" />
 
 ## モデルの比較
 
 | モデル | 提供元 | 利用できるプラン | コンテキスト | 最大出力 | 入力 / 出力の単価（100万トークンあたり） |
 | --- | --- | --- | --- | --- | --- |
-| **Claude Opus 4.6** | Anthropic | プロ以上 | 100万 | 128K | $5.00 / $25.00 |
-| **Claude Sonnet 4.6** | Anthropic | プロ以上 | 100万 | 64K | $3.00 / $15.00 |
+| **Claude Opus 5.5** | Anthropic | プロ以上 | 20万 | 128K | $4.00 / $20.00 |
+| **Claude Sonnet 5.5** | Anthropic | プロ以上 | 20万 | 128K | $2.00 / $10.00 |
 | **Claude Haiku 4.5** | Anthropic | 無料を含むすべて | 20万 | 64K | $1.00 / $5.00 |
-| **GPT-6 Sol** | OpenAI | プロ以上 | 105万 | 128K | $2.00 / $10.00 |
+| **GPT-6.1 Sol** | OpenAI | プロ以上 | 105万 | 128K | $2.00 / $10.00 |
 | **GPT-5.6 Terra** | OpenAI | プロ以上 | 105万 | 128K | $2.00 / $12.00 |
 | **GPT-6 Luna** | OpenAI | 無料を含むすべて | 105万 | 128K | $0.10 / $0.50 |
 
@@ -22,9 +22,9 @@ Specifyは、Anthropic ClaudeとOpenAI GPT系の6種類のモデルを提供し�
 <CardGroup cols={2}>
   <Card icon="sparkles" title="GPT-6 Luna — 既定のモデル">最も安価なモデルです。日常的な質問、検索、要約にまず使ってみてください。無料プランでも利用できます。</Card>
   <Card icon="search" title="Claude Haiku 4.5 — 軽量なClaude">最も安価なClaudeモデルです。資料の照会や要約は得意ですが、複数ステップにわたるドキュメント編集は苦手です。</Card>
-  <Card icon="file" title="Claude Sonnet 4.6 — ドキュメント作業">ドキュメントの作成・編集、スキルに従う作業、コネクターを使う作業で安定しています。100万トークンのコンテキストに対応しています。</Card>
-  <Card icon="library" title="Claude Opus 4.6 — 最も深い推論">最も難しい分析や、長いドキュメントの構成設計・検証に使います。最も高価です。</Card>
-  <Card icon="blocks" title="GPT-6 Sol — 汎用の高性能モデル">Sonnetより安価なOpenAIの高性能モデルです。複雑なリクエストを別系統のモデルで試したいときに使います。</Card>
+  <Card icon="file" title="Claude Sonnet 5.5 — ドキュメント作業">ドキュメントの作成・編集、スキルに従う作業、コネクターを使う作業で安定しています。</Card>
+  <Card icon="library" title="Claude Opus 5.5 — 最も深い推論">最も難しい分析や、長いドキュメントの構成設計・検証に使います。最も高価です。</Card>
+  <Card icon="blocks" title="GPT-6.1 Sol — 汎用の高性能モデル">Sonnetと同じ単価のOpenAIの高性能モデルです。複雑なリクエストを別系統のモデルで試したいときに使います。</Card>
   <Card icon="workflow" title="GPT-5.6 Terra — OpenAIの代替">Solと入力単価が同じで、出力単価が少し高いOpenAIのモデルです。ほかのOpenAIモデルと結果を比較するときに使います。</Card>
 </CardGroup>
 
@@ -32,7 +32,7 @@ Specifyは、Anthropic ClaudeとOpenAI GPT系の6種類のモデルを提供し�
 
 ## 思考の強度
 
-すべてのモデルで、**思考の強度**を**オフ**、**低**、**中**、**高**、**エクストラ**、**最大**の6段階で調整できます。強度を上げると回答する前により深く推論しますが、応答が遅くなり、トークンを多く消費します。
+**思考の強度**は**オフ**、**低**、**中**、**高**、**エクストラ**、**最大**の6段階で調整できます。ただし、Claude Opus 5.5とGPT-6.1 Solはオフに対応していないため、低からの5段階です。強度を上げると回答する前により深く推論しますが、応答が遅くなり、トークンを多く消費します。
 
 | 段階 | 推論に使う最小トークン |
 | --- | --- |

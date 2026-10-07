@@ -24,7 +24,7 @@ export const koNav: NavLabels = {
     intro: {
       title: "Specify 소개",
       description:
-        "Specify는 작은 개발팀을 위한 개발문서 자동화 도구입니다. GitHub의 코드 변경과 관련 문서를 연결하고, 근거가 있는 수정안을 준비합니다.",
+        "Specify는 개발팀을 위한 개발문서 자동화 도구입니다. GitHub의 코드 변경과 관련 문서를 연결하고, 근거가 있는 수정안을 준비합니다.",
     },
     quickstart: {
       title: "빠른 시작",
@@ -40,7 +40,7 @@ export const koNav: NavLabels = {
     },
     "workspace/members": {
       title: "팀 초대와 권한",
-      description: "워크스페이스에 팀원을 초대하고 역할별로 할 수 있는 일을 확인합니다.",
+      description: "워크스페이스에 팀원을 초대하고 소유자·관리자·편집자·뷰어 역할별로 할 수 있는 일과 문서 접근 범위를 확인합니다.",
     },
     "workspace/settings": {
       title: "설정 한눈에 보기",
@@ -98,6 +98,31 @@ export const koNav: NavLabels = {
       title: "자동화 상세 설정",
       description: "push 트리거, 작성 스킬, 출력 폴더, 프로젝트 스타일 가이드로 문서 자동화를 조정합니다.",
     },
+    "guides/medical-device-docs": {
+      title: "의료기기 SW 개발 문서 자동화",
+      sidebarTitle: "의료기기 개발 문서",
+      description: "의료기기 소프트웨어 인증 준비를 위한 요구사항·설계 문서 초안을 코드 근거로 작성하고, SOUP 목록과 문서 누락 항목을 검토하는 활용사례입니다.",
+    },
+    "guides/use-cases": {
+      title: "내 업무에 맞는 활용사례 찾기",
+      sidebarTitle: "활용사례 둘러보기",
+      description: "개발·영업·고객지원·품질 업무에서 팀 자료를 근거로 문서를 만들고 검토하는 활용사례를 찾습니다.",
+    },
+    "guides/security-questionnaires": {
+      title: "고객 보안 질문서 답변 준비",
+      sidebarTitle: "보안 질문서 답변",
+      description: "현행 정책과 과거 답변을 대조해 근거가 있는 답변 초안과 담당자 확인 항목을 만듭니다.",
+    },
+    "guides/project-handover": {
+      title: "코드와 팀 자료로 인수인계 문서 만들기",
+      sidebarTitle: "프로젝트 인수인계",
+      description: "프로젝트 메모와 실제 코드를 대조해 구현 범위, 실행 방법, 미완료 요청과 운영 확인 사항을 정리합니다.",
+    },
+    "guides/customer-updates": {
+      title: "변경사항을 고객 안내문과 FAQ로 정리하기",
+      sidebarTitle: "고객 안내문과 FAQ",
+      description: "변경 자료와 기존 FAQ를 근거로 고객 안내 초안을 만들고, 출시 범위와 이용 제한을 일관되게 설명합니다.",
+    },
     "guides/api-docs": {
       title: "API 문서 최신화",
       description: "요청·응답·인증·오류·예시가 코드와 어긋나지 않도록 API 문서를 유지하는 방법입니다.",
@@ -136,11 +161,11 @@ export const koNav: NavLabels = {
     },
     "resources/glossary": {
       title: "용어집",
-      description: "Specify 문서와 제품에서 사용하는 용어를 정리합니다.",
+      description: "워크스페이스, 문서 프로젝트, 수정안, RAG, MCP 등 Specify 문서와 제품에서 사용하는 용어를 한 줄 정의로 정리합니다.",
     },
     "resources/faq": {
       title: "자주 묻는 질문",
-      description: "도입, 문서 자동화, 보안, MCP에 대해 자주 묻는 질문과 답변입니다.",
+      description: "도입, 문서 자동화, 보안, AI 모델, MCP, 요금에 대해 자주 묻는 질문과 답변입니다.",
     },
   },
 };

@@ -1,15 +1,15 @@
 Specify는 Anthropic Claude와 OpenAI GPT 계열의 모델 6종을 제공합니다. 채팅 입력창에서 대화마다 모델을 고르고, 워크스페이스 설정에서 자동화와 문서 생성에 쓸 기본 모델을 정합니다.
 
-<Screenshot name="model-picker" alt="채팅 입력창의 모델 메뉴. Claude Opus 4.6, Claude Sonnet 4.6, Claude Haiku 4.5, GPT-6 Sol, GPT-5.6 Terra, GPT-6 Luna가 나열되어 있다" />
+<Screenshot name="model-picker" alt="채팅 입력창의 모델 메뉴. Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 4.5, GPT-6.1 Sol, GPT-5.6 Terra, GPT-6 Luna가 나열되어 있다" />
 
 ## 모델 비교
 
 | 모델 | 제공사 | 사용 가능 플랜 | 컨텍스트 | 최대 출력 | 입력 / 출력 단가 (1M 토큰) |
 | --- | --- | --- | --- | --- | --- |
-| **Claude Opus 4.6** | Anthropic | 프로 이상 | 100만 | 128K | $5.00 / $25.00 |
-| **Claude Sonnet 4.6** | Anthropic | 프로 이상 | 100만 | 64K | $3.00 / $15.00 |
+| **Claude Opus 5.5** | Anthropic | 프로 이상 | 20만 | 128K | $4.00 / $20.00 |
+| **Claude Sonnet 5.5** | Anthropic | 프로 이상 | 20만 | 128K | $2.00 / $10.00 |
 | **Claude Haiku 4.5** | Anthropic | 무료 포함 전체 | 20만 | 64K | $1.00 / $5.00 |
-| **GPT-6 Sol** | OpenAI | 프로 이상 | 105만 | 128K | $2.00 / $10.00 |
+| **GPT-6.1 Sol** | OpenAI | 프로 이상 | 105만 | 128K | $2.00 / $10.00 |
 | **GPT-5.6 Terra** | OpenAI | 프로 이상 | 105만 | 128K | $2.00 / $12.00 |
 | **GPT-6 Luna** | OpenAI | 무료 포함 전체 | 105만 | 128K | $0.10 / $0.50 |
 
@@ -22,9 +22,9 @@ Specify는 Anthropic Claude와 OpenAI GPT 계열의 모델 6종을 제공합니�
 <CardGroup cols={2}>
   <Card icon="sparkles" title="GPT-6 Luna — 기본 모델">가장 저렴한 모델입니다. 일상적인 질문, 검색, 요약에 먼저 써 보세요. 무료 플랜에서도 사용할 수 있습니다.</Card>
   <Card icon="search" title="Claude Haiku 4.5 — 가벼운 Claude">가장 저렴한 Claude 모델입니다. 자료 조회와 요약은 잘하지만 여러 단계의 문서 편집에는 약합니다.</Card>
-  <Card icon="file" title="Claude Sonnet 4.6 — 문서 작업">문서 작성·편집, 스킬을 따르는 작업, 커넥터 작업에서 안정적입니다. 100만 토큰 컨텍스트를 지원합니다.</Card>
-  <Card icon="library" title="Claude Opus 4.6 — 가장 깊은 추론">가장 어려운 분석과 긴 문서의 구조 설계·검증에 씁니다. 가장 비쌉니다.</Card>
-  <Card icon="blocks" title="GPT-6 Sol — 범용 고성능">Sonnet보다 저렴한 OpenAI 고성능 모델입니다. 복잡한 요청을 다른 계열 모델로 시도해 보고 싶을 때 씁니다.</Card>
+  <Card icon="file" title="Claude Sonnet 5.5 — 문서 작업">문서 작성·편집, 스킬을 따르는 작업, 커넥터 작업에서 안정적입니다.</Card>
+  <Card icon="library" title="Claude Opus 5.5 — 가장 깊은 추론">가장 어려운 분석과 긴 문서의 구조 설계·검증에 씁니다. 가장 비쌉니다.</Card>
+  <Card icon="blocks" title="GPT-6.1 Sol — 범용 고성능">Sonnet과 같은 단가의 OpenAI 고성능 모델입니다. 복잡한 요청을 다른 계열 모델로 시도해 보고 싶을 때 씁니다.</Card>
   <Card icon="workflow" title="GPT-5.6 Terra — OpenAI 대안">Sol과 입력 단가가 같고 출력 단가가 조금 높은 OpenAI 모델입니다. 다른 OpenAI 모델과 결과를 비교할 때 씁니다.</Card>
 </CardGroup>
 
@@ -32,7 +32,7 @@ Specify는 Anthropic Claude와 OpenAI GPT 계열의 모델 6종을 제공합니�
 
 ## 사고 강도
 
-모든 모델은 **사고 강도**를 **끄기**, **낮음**, **보통**, **높음**, **엑스트라**, **최대** 여섯 단계로 조절할 수 있습니다. 강도를 높이면 답하기 전에 더 깊이 추론하지만 응답이 느려지고 토큰을 더 씁니다.
+**사고 강도**를 **끄기**, **낮음**, **보통**, **높음**, **엑스트라**, **최대** 여섯 단계로 조절할 수 있습니다. 단, Claude Opus 5.5와 GPT-6.1 Sol은 끄기를 지원하지 않아 낮음부터 다섯 단계입니다. 강도를 높이면 답하기 전에 더 깊이 추론하지만 응답이 느려지고 토큰을 더 씁니다.
 
 | 단계 | 추론에 쓰는 최소 토큰 |
 | --- | --- |

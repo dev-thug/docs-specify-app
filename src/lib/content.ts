@@ -88,7 +88,7 @@ export function extractToc(source: string): TocItem[] {
 }
 
 /** 검색용 평문 — import/export, JSX 태그, 마크다운 기호를 걷어낸다. 코드 블록 내용은 남긴다 */
-function toPlainText(markdown: string): string {
+export function toPlainText(markdown: string): string {
   return markdown
     .replace(/^\s*(import|export)\s.+$/gm, "")
     .replace(/^\s*(```|~~~).*$/gm, "")
@@ -136,6 +136,14 @@ export function splitSections(source: string): SearchSection[] {
       text: toPlainText(section.lines.join("\n")),
     }))
     .filter((section) => section.heading || section.text);
+}
+
+/** FAQ 문서의 h3(질문)와 그 아래 본문(답변)을 짝지어 FAQPage 구조화 데이터에 쓴다 */
+export function extractFaq(source: string): { question: string; answer: string }[] {
+  const headings = new Map(extractToc(source).map((item) => [item.id, item.depth]));
+  return splitSections(source)
+    .filter((section) => headings.get(section.id) === 3 && section.text)
+    .map((section) => ({ question: section.heading, answer: section.text }));
 }
 
 export async function buildSearchIndex(locale: Locale): Promise<SearchDocument[]> {

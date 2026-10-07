@@ -12,5 +12,7 @@ export function generateStaticParams() {
 export async function GET(_request: Request, { params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLocale(lang)) return new Response("Not found", { status: 404 });
-  return Response.json(await buildSearchIndex(lang));
+  return Response.json(await buildSearchIndex(lang), {
+    headers: { "X-Robots-Tag": "noindex" },
+  });
 }

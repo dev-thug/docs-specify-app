@@ -13,3 +13,13 @@ Specify 공식 문서 사이트. Next.js 16 App Router + `@next/mdx`, Tailwind v
 - 디자인 토큰은 Specify `src/app/globals.css` 미러다. 역할 토큰 클래스만 쓰고 hex·Tailwind 팔레트 클래스를 쓰지 않는다. hover 에 lift(translate/scale)를 넣지 않는다.
 - UI 문자열은 `src/i18n/<locale>.ts` 사전으로만 노출한다. 코드 주석은 한국어.
 - 검증: `npm run validate` (typecheck + lint + build). UI 변경은 브라우저에서 라이트·다크·모바일을 확인한다.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

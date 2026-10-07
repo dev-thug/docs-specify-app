@@ -1,10 +1,12 @@
 import { DocsHeader } from "@/components/layout/DocsHeader";
 import { DocsSidebar } from "@/components/layout/DocsSidebar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { getDictionary } from "@/i18n";
 import { isLocale, LOCALES, OG_LOCALES } from "@/lib/i18n";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { organizationJsonLd, webSiteJsonLd } from "@/lib/jsonld";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -37,8 +39,19 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       locale: OG_LOCALES[lang],
       title: dict.meta.siteTitle,
       description: dict.meta.siteDescription,
+      images: [OG_IMAGE],
     },
-    twitter: { card: "summary" },
+    twitter: { card: "summary", images: [OG_IMAGE.url] },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     icons: {
       icon: [
         { url: "/favicons/favicon.svg", type: "image/svg+xml" },
@@ -65,6 +78,13 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <body>
+        {/* 사이트 수준 엔티티 — 모든 문서 페이지의 TechArticle 이 여기를 참조한다 */}
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [organizationJsonLd(), webSiteJsonLd(dict.meta.siteTitle)],
+          }}
+        />
         <ThemeProvider>
           <a
             href="#main-content"
