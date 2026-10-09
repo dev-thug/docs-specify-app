@@ -106,40 +106,40 @@ export const jaNav: NavLabels = {
     "guides/medical-device-docs": {
       title: "医療機器ソフトウェアの開発文書自動化",
       sidebarTitle: "医療機器の開発文書",
-      description: "医療機器ソフトウェアの認証準備に向けて、コードを根拠に要求仕様書・設計書のドラフトを作成し、SOUP一覧と文書の不足項目を確認する活用例です。",
+      description: "医療機器の開発文書の不足を見つけにくい。コード根拠付きの要求・設計・SOUPの下書きとギャップレポートを作ります。担当者と専門家が漏れや未確定項目を確認します。",
     },
     "guides/use-cases": {
       title: "自分の業務に合う活用例を探す",
       sidebarTitle: "活用例一覧",
-      description: "開発・営業・カスタマーサポート・品質管理で、チーム資料を根拠に文書を作成・レビューする活用例を紹介します。",
+      description: "企画・開発・顧客対応・品質業務の問題を選び、必要な資料とSpecifyで解決する手順・成果を確認します。",
     },
     "guides/planning-with-mcp": {
       title: "企画変更をMCPで開発につなぐ",
       sidebarTitle: "企画・開発の協業",
-      description: "Specifyで整理した要求をClaude Code・CodexがMCPで読み、変更された企画と実装を合わせる協業の流れです。",
+      description: "企画が変わっても開発は古い文書を見ている。Specifyの同じ文書に企画を整理し、Claude Code・CodexからMCPで再読します。変更条件を実装計画とテストに合わせます。",
     },
     "guides/security-questionnaires": {
       title: "顧客のセキュリティ質問票への回答を準備する",
       sidebarTitle: "セキュリティ質問票",
-      description: "現行ポリシーと過去の回答を照合し、根拠付きの回答ドラフトと担当者への確認事項を作成します。",
+      description: "顧客のセキュリティ質問にどの回答を使うか迷う。最新ポリシーと過去の回答を照合し、回答・根拠・確認状態を作ります。担当者への確認が必要な質問をまとめます。",
     },
     "guides/project-handover": {
       title: "コードとチーム資料から引き継ぎ文書を作る",
       sidebarTitle: "プロジェクトの引き継ぎ",
-      description: "プロジェクトのメモと実際のコードを照合し、実装範囲、実行方法、未完了の要望、運用上の確認事項を整理します。",
+      description: "担当者が変わっても実装範囲が分からない。企画メモとコードを照合し、実装済み機能と未完了の要望を分けます。実行方法と次の担当者の確認一覧を残します。",
     },
     "guides/customer-updates": {
       title: "変更内容を顧客向け案内とFAQにまとめる",
       sidebarTitle: "顧客向け案内とFAQ",
-      description: "変更資料と既存FAQを根拠に案内ドラフトを作り、リリース範囲と利用制限を一貫して説明します。",
+      description: "リリース案内とFAQが食い違う。変更資料と既存FAQから顧客案内とFAQ修正案を作ります。変更する説明と維持する上限・条件を合わせます。",
     },
     "guides/api-docs": {
       title: "APIドキュメントを最新に保つ",
-      description: "リクエスト・レスポンス・認証・エラー・例がコードとずれないようにAPIドキュメントを維持する方法です。",
+      description: "APIは変わったのに文書や例が古いまま。GitHub変更を根拠付きの文書修正案につなげます。関連文書のリクエスト・レスポンス・例を照合して反映します。",
     },
     "guides/onboarding-docs": {
       title: "オンボーディングドキュメントの生成",
-      description: "新しいチームメンバーが初日に実行までたどり着けるオンボーディングドキュメントを生成し、補完する方法です。",
+      description: "新メンバーがインストールと実行でつまずく。リポジトリからインストール・実行・コード探索の案内を作ります。チーム手順を補完し、新しい環境で試して改善します。",
     },
     "guides/ask-ai": {
       title: "AIチャットと質問",

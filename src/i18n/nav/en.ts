@@ -114,42 +114,42 @@ export const enNav: NavLabels = {
     "guides/medical-device-docs": {
       title: "Medical device software documentation",
       sidebarTitle: "Medical device documentation",
-      description: "Prepare code-grounded requirements and architecture drafts for medical device software, review SOUP information, and identify gaps in your document set.",
+      description: "Gaps in medical device development documents are hard to find. Create code-backed requirements, design, and SOUP drafts plus a gap report. Owners and experts review omissions and unconfirmed items.",
     },
     "guides/use-cases": {
       title: "Find a workflow for your work",
       sidebarTitle: "Explore workflows",
-      description: "Explore evidence-based document workflows for engineering, sales, customer support, and quality teams.",
+      description: "Choose a planning, development, customer, or quality problem and find the sources, Specify workflow, and results for solving it.",
     },
     "guides/planning-with-mcp": {
       title: "Connect planning changes to development with MCP",
       sidebarTitle: "Planning and development",
-      description: "Connect requirements written in Specify to Claude Code and Codex through MCP, then align changing plans with implementation.",
+      description: "Plans change, but development uses an old copy. Keep requirements in a shared Specify document and reread it through MCP in Claude Code or Codex. Align changed conditions with implementation plans and tests.",
     },
     "guides/security-questionnaires": {
       title: "Prepare customer security questionnaire answers",
       sidebarTitle: "Security questionnaires",
-      description: "Compare current policies with past answers to draft sourced responses and identify questions requiring owner confirmation.",
+      description: "You cannot tell which security answer is current. Compare current policies with past responses to prepare answers, evidence, and review status. Gather questions that need an owner’s confirmation.",
     },
     "guides/project-handover": {
       title: "Build a handover from code and team documents",
       sidebarTitle: "Project handover",
-      description: "Compare project notes with actual code to document implemented scope, setup, outstanding requests, and operational unknowns.",
+      description: "Ownership changes, but implementation scope is unclear. Compare project notes with code to separate implemented features from unfinished requests. Leave run instructions and the next owner’s checklist.",
     },
     "guides/customer-updates": {
       title: "Turn changes into customer updates and FAQs",
       sidebarTitle: "Customer updates and FAQs",
-      description: "Use release information and existing FAQs to draft customer communications with consistent scope and limitations.",
+      description: "Release communications disagree with the FAQ. Prepare an announcement and FAQ update from change notes and existing answers. Align changed explanations with limits and conditions that remain.",
     },
     "guides/api-docs": {
       title: "Keep API docs up to date",
       description:
-        "Keep API docs aligned with the code so requests, responses, authentication, errors, and examples stay accurate.",
+        "API code changes while docs and examples stay behind. Connect GitHub changes to evidence-backed documentation updates. Compare requests, responses, and examples across related documents before applying them.",
     },
     "guides/onboarding-docs": {
       title: "Generate onboarding docs",
       description:
-        "Generate and refine onboarding docs that get a new teammate to a working local setup on their first day.",
+        "New teammates get stuck before their first run. Use the repository to draft setup, run, and code-reading instructions. Add team procedures and improve the guide by following it in a clean environment.",
     },
     "guides/ask-ai": {
       title: "AI chat and questions",

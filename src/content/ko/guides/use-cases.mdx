@@ -1,17 +1,17 @@
-팀 자료를 찾는 데서 끝내지 않고, 그 근거로 <strong>바로 검토할 수 있는 업무 문서</strong>를 만들어 보세요. 아래에서 내 업무와 비슷한 상황을 고르면, 준비할 자료와 만들어지는 결과물을 바로 확인할 수 있습니다.
+기획이 바뀌어도 개발은 옛 문서를 보고 있나요? 고객 답변의 근거를 찾기 어렵거나, 코드와 설명이 서로 다른가요? **지금 겪는 문제와 가까운 사례**를 골라 Specify에서 준비할 자료, 실행할 작업, 검토할 결과를 확인하세요.
 
-## 내 업무에 맞는 가이드 고르기
+## 지금 겪는 문제로 사례 고르기
 
-상황과 준비할 자료를 기준으로 사례를 고르세요. 링크를 열면 샘플 자료, 따라 할 순서, 복사해 쓸 요청문과 검토 항목을 확인할 수 있습니다.
+각 가이드는 문제 상황부터 시작해 Specify로 해결하는 순서와 결과물을 안내합니다. 처음에는 예제나 작은 문서로 따라 해 보고, 같은 흐름에 팀의 자료를 넣어 활용하세요.
 
 <CardGroup cols={2}>
-  <Card icon="workflow" title="기획·개발 협업" href="/ko/guides/planning-with-mcp" cta="기획자·PM·개발자용">기획자는 Specify에서 요구사항을 정리하고, 개발자는 Claude Code·Codex에서 MCP로 같은 문서를 읽어 변경된 기획을 구현에 반영합니다.</Card>
-  <Card icon="shield" title="고객 보안 질문서 답변" href="/ko/guides/security-questionnaires" cta="영업·보안 담당자용">준비: 현행 정책, 과거 답변, 새 질문 목록. 결과: 질문별 답변과 근거, 담당자 확인 상태.</Card>
-  <Card icon="users" title="프로젝트 인수인계" href="/ko/guides/project-handover" cta="개발·외주·유지보수용">준비: 프로젝트 메모와 버전을 표시한 코드 스냅샷. 결과: 요청과 구현의 대조표, 실행 방법, 다음 담당자의 확인 목록.</Card>
-  <Card icon="message" title="고객 안내문과 FAQ" href="/ko/guides/customer-updates" cta="PM·CS·마케팅용">준비: 변경 자료, 현재 FAQ, 이용 정책. 결과: 변경 요약, 고객 안내 초안, 바뀌는 답과 유지할 답을 구분한 FAQ 수정안.</Card>
-  <Card icon="file-search" title="의료기기 SW 개발 문서" href="/ko/guides/medical-device-docs" cta="개발·규제·품질 담당자용">준비: GitHub 저장소와 코드로 확인할 수 없는 제품 정보. 결과: 요구사항·설계·SOUP 초안과 갭 리포트. 제출 전 전문가 검토가 필요합니다.</Card>
-  <Card icon="git" title="API 문서 최신화" href="/ko/guides/api-docs" cta="API 개발팀용">준비: 라우트·핸들러·스키마가 있는 GitHub 저장소. 결과: 코드 변경 근거가 붙은 API 문서 수정안.</Card>
-  <Card icon="book" title="개발자 온보딩 문서" href="/ko/guides/onboarding-docs" cta="새 팀원을 위한 가이드">준비: 저장소와 코드에 없는 팀 절차. 결과: 저장소 구조, 실행 방법, 개발 흐름을 담은 초안.</Card>
+  <Card icon="workflow" title="기획이 바뀌었는데 개발은 옛 문서를 볼 때" href="/ko/guides/planning-with-mcp" cta="기획자·PM·개발자용">기획을 Specify의 같은 문서에 정리하고 Claude Code·Codex에서 MCP로 다시 읽습니다. 변경된 조건을 구현 계획과 테스트에 맞춥니다.</Card>
+  <Card icon="shield" title="고객 보안 질문에 어떤 답을 써야 할지 모를 때" href="/ko/guides/security-questionnaires" cta="영업·보안 담당자용">최신 정책과 과거 답변을 비교해 질문별 답변·근거·확인 상태를 만듭니다. 담당자가 확인할 질문을 따로 모읍니다.</Card>
+  <Card icon="users" title="담당자가 바뀌는데 구현 범위를 모를 때" href="/ko/guides/project-handover" cta="개발·외주·유지보수용">기획 메모와 코드를 대조해 완료 기능과 미구현 요청을 구분합니다. 실행 방법과 다음 담당자의 확인 목록을 남깁니다.</Card>
+  <Card icon="message" title="릴리스 안내와 FAQ가 서로 다를 때" href="/ko/guides/customer-updates" cta="PM·CS·마케팅용">변경 자료와 기존 FAQ로 고객 안내·FAQ 수정안을 함께 준비합니다. 바뀐 설명과 유지할 한도·조건을 맞춥니다.</Card>
+  <Card icon="file-search" title="의료기기 개발 문서의 빈 곳을 찾기 어려울 때" href="/ko/guides/medical-device-docs" cta="개발·규제·품질 담당자용">코드 근거가 있는 요구사항·설계·SOUP 초안과 갭 리포트를 만듭니다. 담당자와 전문가가 누락·미확정 항목을 검토합니다.</Card>
+  <Card icon="git" title="API는 바뀌었는데 문서와 예시가 그대로일 때" href="/ko/guides/api-docs" cta="API 개발팀용">GitHub 변경을 근거가 있는 API 문서 수정안으로 연결합니다. 관련 문서의 요청·응답·예시를 대조한 뒤 반영합니다.</Card>
+  <Card icon="book" title="새 팀원이 설치와 실행부터 막힐 때" href="/ko/guides/onboarding-docs" cta="새 팀원·개발팀용">저장소를 읽어 설치·실행·코드 탐색 순서를 안내합니다. 팀 절차를 보완하고 새 환경에서 따라 해 보며 문서를 고칩니다.</Card>
 </CardGroup>
 
 ## 결과를 검토하는 공통 순서

@@ -101,40 +101,40 @@ export const koNav: NavLabels = {
     "guides/medical-device-docs": {
       title: "의료기기 SW 개발 문서 자동화",
       sidebarTitle: "의료기기 개발 문서",
-      description: "의료기기 소프트웨어 인증 준비를 위한 요구사항·설계 문서 초안을 코드 근거로 작성하고, SOUP 목록과 문서 누락 항목을 검토하는 활용사례입니다.",
+      description: "의료기기 개발 문서의 빈 곳을 찾기 어려울 때. 코드 근거가 있는 요구사항·설계·SOUP 초안과 갭 리포트를 만듭니다. 담당자와 전문가가 누락·미확정 항목을 검토합니다.",
     },
     "guides/use-cases": {
       title: "내 업무에 맞는 활용사례 찾기",
       sidebarTitle: "활용사례 둘러보기",
-      description: "개발·영업·고객지원·품질 업무에서 팀 자료를 근거로 문서를 만들고 검토하는 활용사례를 찾습니다.",
+      description: "기획·개발·고객 대응·품질 업무에서 겪는 문제를 고르고, 필요한 자료와 Specify 활용 순서·결과를 확인합니다.",
     },
     "guides/planning-with-mcp": {
       title: "기획 변경을 MCP로 개발에 연결하기",
       sidebarTitle: "기획·개발 협업",
-      description: "기획자가 Specify에서 정리한 요구사항을 Claude Code·Codex가 MCP로 읽고, 변경된 기획과 구현을 함께 맞추는 협업 흐름입니다.",
+      description: "기획이 바뀌었는데 개발은 옛 문서를 볼 때. 기획을 Specify의 같은 문서에 정리하고 Claude Code·Codex에서 MCP로 다시 읽습니다. 변경된 조건을 구현 계획과 테스트에 맞춥니다.",
     },
     "guides/security-questionnaires": {
       title: "고객 보안 질문서 답변 준비",
       sidebarTitle: "보안 질문서 답변",
-      description: "현행 정책과 과거 답변을 대조해 근거가 있는 답변 초안과 담당자 확인 항목을 만듭니다.",
+      description: "고객 보안 질문에 어떤 답을 써야 할지 모를 때. 최신 정책과 과거 답변을 비교해 질문별 답변·근거·확인 상태를 만듭니다. 담당자가 확인할 질문을 따로 모읍니다.",
     },
     "guides/project-handover": {
       title: "코드와 팀 자료로 인수인계 문서 만들기",
       sidebarTitle: "프로젝트 인수인계",
-      description: "프로젝트 메모와 실제 코드를 대조해 구현 범위, 실행 방법, 미완료 요청과 운영 확인 사항을 정리합니다.",
+      description: "담당자가 바뀌는데 구현 범위를 모를 때. 기획 메모와 코드를 대조해 완료 기능과 미구현 요청을 구분합니다. 실행 방법과 다음 담당자의 확인 목록을 남깁니다.",
     },
     "guides/customer-updates": {
       title: "변경사항을 고객 안내문과 FAQ로 정리하기",
       sidebarTitle: "고객 안내문과 FAQ",
-      description: "변경 자료와 기존 FAQ를 근거로 고객 안내 초안을 만들고, 출시 범위와 이용 제한을 일관되게 설명합니다.",
+      description: "릴리스 안내와 FAQ가 서로 다를 때. 변경 자료와 기존 FAQ로 고객 안내·FAQ 수정안을 함께 준비합니다. 바뀐 설명과 유지할 한도·조건을 맞춥니다.",
     },
     "guides/api-docs": {
       title: "API 문서 최신화",
-      description: "요청·응답·인증·오류·예시가 코드와 어긋나지 않도록 API 문서를 유지하는 방법입니다.",
+      description: "API는 바뀌었는데 문서와 예시가 그대로일 때. GitHub 변경을 근거가 있는 API 문서 수정안으로 연결합니다. 관련 문서의 요청·응답·예시를 대조한 뒤 반영합니다.",
     },
     "guides/onboarding-docs": {
       title: "온보딩 문서 생성",
-      description: "새 팀원이 첫날 실행까지 도달할 수 있는 온보딩 문서를 생성하고 보완하는 방법입니다.",
+      description: "새 팀원이 설치와 실행부터 막힐 때. 저장소를 읽어 설치·실행·코드 탐색 순서를 안내합니다. 팀 절차를 보완하고 새 환경에서 따라 해 보며 문서를 고칩니다.",
     },
     "guides/ask-ai": {
       title: "AI 채팅과 질문",
