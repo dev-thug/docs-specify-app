@@ -38,3 +38,14 @@ Use the status badges in the project list to find projects that need review.
 | **current** | The managed docs are in sync with the source. |
 | **writing** | Document generation or an update is in progress. |
 | **needs attention** | There are changes to review or tasks that need your attention. |
+
+## Separating completion from document accuracy
+
+In the October 2026 sandbox evaluation, completed runs sometimes left old defaults in overview documents or cited existing code lines for claims they did not support. A **current** status or completion message does not replace factual review of every document.
+
+- Search for changed values and policies in the overview, API reference, and operational documents and check that they agree.
+- Open evidence links and check that the actual code and tests support the explanation. A valid path and line number are not enough.
+- After renaming, check the saved document title alongside the body heading and source paths.
+- After consecutive pushes, check that the last source change appears in every affected document. Record tool errors and unread content as separate review items.
+
+See [Choosing a model](/en/models/choosing) for measurement scope and limitations.

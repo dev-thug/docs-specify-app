@@ -64,11 +64,11 @@ export const koNav: NavLabels = {
     },
     "models/overview": {
       title: "모델 개요",
-      description: "Specify에서 사용할 수 있는 AI 모델과 플랜별 이용 범위, 컨텍스트 크기, 비용을 비교합니다.",
+      description: "Specify의 현행 AI 모델, 플랜별 이용 범위, 컨텍스트와 사고 강도를 안내합니다.",
     },
     "models/choosing": {
       title: "모델 선택 가이드",
-      description: "작업 종류별로 어떤 모델과 사고 강도를 쓰면 좋은지 내부 평가 결과를 바탕으로 추천합니다.",
+      description: "최신 모델 평가의 지표와 한계를 확인하고, 작업별 모델 선택과 문서 결과 검토 기준을 안내합니다.",
     },
     "models/usage": {
       title: "사용량과 AI 예산",

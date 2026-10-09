@@ -32,3 +32,9 @@ API docs drift from the code faster than any other docs. Change a single paramet
 ## Use with coding agents
 
 Connect [Specify MCP](/en/mcp/overview) so Claude Code or Codex can reference your workspace's API docs directly while changing the API. You get to work on docs and code in the same context.
+
+## Comparing every affected document
+
+Do not finish review after updating only the API reference. If the same default limit, retention policy, or status code appears in an overview or operational document, compare all of them with the current code and tests. The October 2026 sandbox evaluation observed old values remaining in an overview after the reference and policy documents were updated.
+
+After deletion or renaming, check examples, source links, and document titles too. Even when a test line number exists, read the line to confirm it actually verifies the documented status code or behavior. See [Review and apply proposed updates](/en/guides/review-proposals) for review criteria.

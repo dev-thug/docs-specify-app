@@ -67,11 +67,11 @@ export const jaNav: NavLabels = {
     },
     "models/overview": {
       title: "モデルの概要",
-      description: "Specifyで利用できるAIモデルと、プランごとの利用範囲、コンテキストサイズ、コストを比較します。",
+      description: "Specifyの現行AIモデル、プラン別の利用範囲、コンテキストと思考の強度を案内します。",
     },
     "models/choosing": {
       title: "モデル選択ガイド",
-      description: "作業の種類ごとに、どのモデルと思考の強度を使えばよいかを社内評価の結果に基づいておすすめします。",
+      description: "最新のモデル評価の指標と限界を確認し、作業別のモデル選択とドキュメント結果のレビュー基準を案内します。",
     },
     "models/usage": {
       title: "使用量とAI予算",

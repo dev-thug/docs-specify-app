@@ -72,12 +72,12 @@ export const enNav: NavLabels = {
     "models/overview": {
       title: "Models overview",
       description:
-        "Compare the AI models available in Specify, including plan availability, context size, and cost.",
+        "Explore current Specify models, plan availability, context limits, and reasoning effort.",
     },
     "models/choosing": {
       title: "Choosing a model",
       description:
-        "Recommendations, based on internal evaluations, for which model and reasoning effort to use for each kind of task.",
+        "Review the latest model evaluation metrics and limitations, choose models by task, and check document results.",
     },
     "models/usage": {
       title: "Usage and AI budget",

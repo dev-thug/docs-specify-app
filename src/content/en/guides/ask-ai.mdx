@@ -43,14 +43,12 @@ For what gets searched and how it works, see [Workspace RAG](/en/knowledge/rag).
 
 Select the model button at the bottom right of the message box to change the **model** and **reasoning effort**. The model applies to the whole current conversation and can't be changed while a response is in progress.
 
-<Screenshot name="model-picker" alt="The model menu showing Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 4.5, GPT-6.1 Sol, GPT-5.6 Terra, and GPT-6 Luna" />
-
 Choose a **reasoning effort** of **Off**, **Low**, **Medium**, **High**, **Extra**, or **Max**. Higher effort means deeper reasoning, but responses are slower and use more tokens.
 
 <Screenshot name="effort-picker" alt="The reasoning effort menu showing six levels from Off to Max" caption="Claude Opus 5.5 and GPT-6.1 Sol do not support Off." />
 
 <Note>
-  On the Free plan, you can use Claude Haiku 4.5 and GPT-6 Luna, and reasoning effort is fixed at Off. Other models and reasoning effort controls are available starting with the Pro plan. For task-by-task recommendations, see [Choosing a model](/en/models/choosing).
+  On the Free plan, you can use Claude Haiku 5.5 and GPT-6 Luna, and reasoning effort is fixed at Off. Other models and reasoning effort controls are available starting with the Pro plan. For task-by-task recommendations, see [Choosing a model](/en/models/choosing).
 </Note>
 
 ## Today's briefing
@@ -64,3 +62,7 @@ Colleagues who find technical docs hard to read can ask in everyday language and
 ## Ask from a coding agent
 
 If you use Claude Code or Codex, connect [Specify MCP](/en/mcp/overview) to reference the same team materials inside your editor.
+
+## Separating replies from post-processing
+
+In the October 2026 sandbox evaluation, automatic memory was created even after a request not to remember and a reply claiming no memory had been saved. A chat instruction or completion reply alone does not establish that memory or learning writes after the run have stopped. This describes behavior at the time of evaluation and does not mean a separate learning-disable feature has been implemented.

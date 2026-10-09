@@ -1,67 +1,64 @@
-If you're not sure which model to use, **start with GPT-6 Luna, the default model**. For writing documents, multi-step editing, or tasks that need to follow a skill, we recommend **Claude Sonnet 5.5**. For the hardest analysis and for verifying long documents, use **Claude Opus 5.5**.
+{/* 근거: Specify docs/research/2026-10-09-specify-model-evaluation.md, tmp/qa-runs/20261009-model-evaluation/final-analysis-data.json, scripts/bench/baselines/2026-07-02-matrix-haiku-sonnet/README.md. 모델·설정 계약은 amplify/shared/agent/llm/model_catalog.json 및 amplify/shared/doc-project/model-policy.ts. */}
 
-## Recommendations by task
+If you are unsure which model to choose, **start with GPT-6 Luna, the default model**, and compare results using the same sources and request. Several models handled small edits in the latest evaluation, but high-end models also missed document updates and made citation errors. Changing the model alone does not guarantee document quality.
 
-| What you want to do | Recommended model | Reasoning effort | Why |
+## Choosing by task
+
+| Task | Starting point | What to check |
+| --- | --- | --- |
+| Short questions, summaries, small document edits | GPT-6 Luna | Compare the result with the source and check for unsupported additions. |
+| Compare the same task with another model | GPT-6.1 Sol or Claude Sonnet 5.5 | Use the same input and edit scope. This evaluation does not establish a winner. |
+| Generate or automatically update several documents | Choose through Doc Generation Model settings | Reread the overview, reference, and policy documents and compare values and evidence. |
+| Review long documents or analyze complex issues | Compare Claude Opus 5.5 when needed | Opus also missed updates and made citation errors, so separate review is necessary. |
+| Use Claude Haiku 5.5 or GPT-5.6 Terra | Available in the model menu | Note the **Not recommended** badge. Do not interpret this evaluation as a model ranking. |
+
+## Latest internal evaluation
+
+On **October 9, 2026**, six current models were evaluated in the actual app on localhost and an Amplify sandbox. A synthetic API repository and fixed documents covered generation, partial, table, and multi-document edits, source questions, API and wiki generation, and push-driven modifications, additions, deletions, renames, unrelated changes, and consecutive changes. These were not production tests.
+
+Of 72 logical attempts, 26 were excluded because of memory or search-input contamination or preparation errors. The **46 comparable tests recorded 35 core task PASS results and 11 FAIL results**. The two runs for consecutive pushes were counted as one logical test.
+
+| Model | Valid tests | Task PASS / FAIL | Evidence passed / reviewed |
 | --- | --- | --- | --- |
-| Search team docs, ask short questions, summarize | **GPT-6 Luna** | Off | The least expensive default model. In the Haiku and Sonnet comparison, search- and lookup-focused tasks showed no difference between models. |
-| Quick lookups with Claude | **Claude Haiku 4.5** | Off | Showed a success rate similar to Sonnet for lookups, summaries, and search. |
-| Write new documents or edit several places in an existing one | **Claude Sonnet 5.5** | Low to Medium | The previous generation (Sonnet 4.6) showed a higher success rate than Haiku on document editing tasks. |
-| Write documents that follow a skill or plugin procedure | **Claude Sonnet 5.5** | Low to Medium | Skill application tasks showed the largest quality gap in the previous-generation evaluation. |
-| Tasks that use connectors such as GitHub or Slack | **Claude Sonnet 5.5** | Low | Completed every connector scenario in the previous-generation evaluation. |
-| Design the structure of long documents, verify quality, handle difficult analysis | **Claude Opus 5.5** | Medium to High | The deepest reasoning. It's the most expensive, so use it only in the conversations that need it. |
-| Compare the same task with a model from another family | **GPT-6.1 Sol** | Medium | A high-performance OpenAI alternative at the same price as Sonnet. |
+| Claude Haiku 5.5 | 7 | 5 / 2 | 1 / 2 |
+| Claude Opus 5.5 | 11 | 7 / 4 | 2 / 6 |
+| Claude Sonnet 5.5 | 11 | 7 / 4 | 0 / 6 |
+| GPT-5.6 Terra | 6 | 6 / 0 | 0 / 2 |
+| GPT-6 Luna | 6 | 5 / 1 | 0 / 2 |
+| GPT-6.1 Sol | 5 | 5 / 0 | 1 / 1 |
 
-## Internal evaluation results
+**Core PASS** means the saved result met the task's core conditions. **Semantic evidence passed** is a separate check of whether cited code or documents supported the actual claim. A core task can pass while its citations are semantically wrong. Tests without evidence review are not included in that column's denominator.
 
-Specify compared Claude Haiku 4.5 and Claude Sonnet 4.6 (the previous generation of the current Sonnet 5.5) across 38 real workspace scenarios, including document editing, skill application, connectors, memory, RAG search, and multi-turn conversations.
-
-| Metric | Claude Haiku 4.5 | Claude Sonnet 4.6 |
-| --- | --- | --- |
-| Task success rate | 66% | 78% |
-| Grader score (out of 5) | 4.19 | 4.59 |
-| Cost per successful task | Baseline | About 4.3× |
-
-Success rates by task type:
-
-| Task type | Haiku 4.5 | Sonnet 4.6 |
-| --- | --- | --- |
-| Skill application | 26% | 80% |
-| Document editing | 66% | 77% |
-| Connectors | 50% | 100% |
-| RAG search | 83% | 83% |
-| Multi-turn conversation | 83% | 83% |
-| Avoiding cost traps | 80% | 80% |
-| Memory | 60% | 60% |
-
-**Conclusion:** Tasks that follow a skill or edit documents in multiple steps need Sonnet. Search-, summary-, and lookup-focused tasks work well with a less expensive model.
+- Of 24 simple generation and editing tests with matching task coverage, 23 passed the core task. The failed generation added unsupported sharing and permission claims.
+- Within those tests, all 18 precise partial, table, and multi-document edits passed the core task. Each model performed each synthetic document test once.
+- The remaining 22 source-question and automation tests had different task coverage and denominators across models, so simple success-rate comparisons are inappropriate.
 
 <Note>
-  This evaluation compared only Claude Haiku 4.5 and Sonnet 4.6 (July 2026). Sonnet 5.5, Opus 5.5, and the GPT models weren't measured under the same conditions. The Sonnet 5.5 recommendation carries over the previous generation's measured results, while the GPT and Opus recommendations are based on specifications such as price and context, and on Specify's internal defaults.
+  Of 198 planned tests, 152 were not completed, and second and third repetitions were not performed. Unequal model samples do not support claims about final rankings, repeatability, p95 latency, or cost per successful task. This evaluation also did not establish comparisons by reasoning effort or overall skill and connector performance for current models.
 </Note>
 
-## Specify's internal defaults
+## Separating earlier evaluations
 
-When Specify picks a model itself in the background, it follows the same principles.
+The July 2026 baseline of 38 scenarios compared Claude Haiku 4.5 with Claude Sonnet 4.6. Its models, tests, and assessment conditions differ from the latest evaluation. Do not combine the results or carry previous-generation success rates, judge scores, or cost ratios into recommendations for current models.
 
-| Task | Default model |
-| --- | --- |
-| Maintaining and updating documents, planning | Claude Sonnet 5.5 |
-| Research, synthesizing results, analysis | Claude Haiku 4.5 |
-| Designing and verifying document quality outlines | Claude Opus 5.5 |
-| Document automation (when no workspace setting exists) | GPT-6 Luna |
+## Reviewing document results
 
-## Choose a reasoning effort
+1. Check that changed defaults, policies, and endpoints appear in **every affected document**. A completion indicator alone does not establish full coverage.
+2. Check both that a citation path and line range exist and that the cited code supports the sentence's actual claim.
+3. After deletion or renaming, compare the body, saved document title, source paths, and examples.
+4. If tools failed or some content could not be read, record and review what remains unverified. A model's completion message does not establish accuracy.
 
-- **Off**: Search, summaries, and short answers. The fastest.
-- **Low · Medium**: Writing and editing documents, and questions that compare several sources.
-- **High and above**: Problems where the right answer is hard to find, such as design decisions and complex root cause analysis. Responses slow down and usage increases significantly.
+Observed issues and proposed improvements in the evaluation do not mean fixes have been implemented or deployed. See [Review and apply proposed updates](/en/guides/review-proposals) for the review workflow.
 
-## Set the workspace default models
+## Choosing reasoning effort
 
-Automations and document generation use the models in workspace settings, separately from chat.
+Start short questions and small edits at a supported low level, then adjust if the result is insufficient. Higher effort can use more time and budget without guaranteeing accuracy. The Free plan fixes effort at **Off**. See [Models overview](/en/models/overview) for supported levels.
 
-<Screenshot name="settings-workspace" alt="The Default AI Model and Doc Generation Model pickers in Workspace General settings" />
+## Setting workspace defaults
 
-- **Default AI Model**: If you have many lightweight automations such as weekly summaries, we recommend GPT-6 Luna. If you have many automations that edit documents, we recommend Claude Sonnet 5.5.
-- **Doc Generation Model**: If document quality matters, we recommend Claude Sonnet 5.5. If cost comes first, start with the default (GPT-6 Luna), then change it after reviewing the results.
+Automations and document generation use workspace model settings separately from chat.
+
+<Screenshot name="settings-workspace" alt="Workspace general settings with Default AI Model and Doc Generation Model selectors" />
+
+- **Default AI Model** — Used for this workspace's automations. Compare results and usage on your actual automation requests.
+- **Doc Generation Model** — Used for project creation and automatic updates. If the setting is missing or invalid, GPT-6 Luna is used. Assess quality by reviewing generated results and all affected documents.

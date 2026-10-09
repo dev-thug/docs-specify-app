@@ -13,9 +13,10 @@ See this month's usage period and AI budget usage under **Settings** → **Plans
 
 Each request's actual cost is calculated from the token prices of the model used and deducted from the budget. The basis is **actual token usage**, not credit multipliers or request counts.
 
-- Usage grows with more expensive models, higher reasoning effort, and reading many long documents. For per-model prices, see [Models overview](/en/models/overview).
+- Usage grows with more expensive models, higher reasoning effort, and reading many long documents. For model availability, see [Models overview](/en/models/overview); for current prices, see the [pricing page](https://specify.app/en/pricing).
 - When the same content is read repeatedly, caching applies and input costs drop significantly.
 - For GPT models, when a single request's input exceeds 272,000 tokens, that request's price goes up (2× for input, 1.5× for output).
+- Claude Haiku 5.5 also applies long-context pricing when one request exceeds 100,000 input tokens, including cached tokens.
 - Knowledge search also uses a small amount of usage.
 
 ## Budget by plan
@@ -40,8 +41,8 @@ For exact limits and prices, see the [pricing page](https://specify.app/en/prici
 
 ## Ways to use less
 
-1. **Default to GPT-6 Luna.** The least expensive model is enough for search, summaries, and short questions.
-2. **Raise reasoning effort only when needed.** **Low** or **Medium** is enough for most document work.
+1. **Default to GPT-6 Luna.** Try short requests and small edits, then check the results.
+2. **Raise reasoning effort only when needed.** Start at a supported low level and adjust if results are insufficient. This evaluation did not measure advantages by reasoning effort.
 3. **Narrow your questions.** Specifying targets with document names or `@` mentions reduces unnecessary searching and reading.
 4. **Start a new conversation instead of continuing a long one.** The longer a conversation gets, the more each request has to read.
 5. **Review automation frequency.** Switch automations that don't need to run daily to a weekly schedule.

@@ -2,6 +2,10 @@ Before Specify's AI answers a question or writes a document, it searches your wo
 
 <Screenshot name="chat-rag" alt="A chat where AI answers a question about how the Orders API authenticates requests by finding the API Reference document with the Search knowledge tool, with an evidence link" />
 
+<Warning>
+  The October 2026 sandbox evaluation observed deleted material remaining in search and material from other tests entering answers. When using results just after deletion, check that the source still exists and is current. An existing result link does not establish that its content supports the answer. These observations do not mean the issue occurs in every environment or that a fix has been completed.
+</Warning>
+
 ## What gets searched
 
 | Source | Description |
@@ -13,7 +17,7 @@ Before Specify's AI answers a question or writes a document, it searches your wo
 
 The following aren't indexed.
 
-- Documents and files moved to the trash. Deleting an item also removes it from the search index, and restoring it indexes it again.
+- Documents and files moved to the trash. Deletion also schedules removal from the search index, and restoring an item indexes it again. Check deletion completion separately.
 - Documents with no content
 - Non-text items
 
@@ -53,7 +57,7 @@ In chat, expand the **Search knowledge** row to see the actual query, the chunks
 
 ## How it's used when writing docs
 
-When you have AI write a document in a document project or in chat, it searches for the materials each section needs and writes from your workspace's actual content (code explanations, decision records, existing docs). That's why the result matches **your team's facts** rather than generalities. AI is instructed not to make up content it can't find evidence for.
+When you have AI write a document in a document project or in chat, it searches for the materials each section needs and writes from your workspace's actual content (code explanations, decision records, existing docs). AI is instructed not to make up content it cannot find evidence for, but you still need to check that results match the facts in the sources.
 
 ## Tips for better search
 
