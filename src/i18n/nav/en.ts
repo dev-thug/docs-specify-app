@@ -121,6 +121,11 @@ export const enNav: NavLabels = {
       sidebarTitle: "Explore workflows",
       description: "Explore evidence-based document workflows for engineering, sales, customer support, and quality teams.",
     },
+    "guides/planning-with-mcp": {
+      title: "Connect planning changes to development with MCP",
+      sidebarTitle: "Planning and development",
+      description: "Connect requirements written in Specify to Claude Code and Codex through MCP, then align changing plans with implementation.",
+    },
     "guides/security-questionnaires": {
       title: "Prepare customer security questionnaire answers",
       sidebarTitle: "Security questionnaires",

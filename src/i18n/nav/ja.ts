@@ -113,6 +113,11 @@ export const jaNav: NavLabels = {
       sidebarTitle: "活用例一覧",
       description: "開発・営業・カスタマーサポート・品質管理で、チーム資料を根拠に文書を作成・レビューする活用例を紹介します。",
     },
+    "guides/planning-with-mcp": {
+      title: "企画変更をMCPで開発につなぐ",
+      sidebarTitle: "企画・開発の協業",
+      description: "Specifyで整理した要求をClaude Code・CodexがMCPで読み、変更された企画と実装を合わせる協業の流れです。",
+    },
     "guides/security-questionnaires": {
       title: "顧客のセキュリティ質問票への回答を準備する",
       sidebarTitle: "セキュリティ質問票",

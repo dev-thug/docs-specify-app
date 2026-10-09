@@ -28,6 +28,36 @@ Tool call success measures **individual calls handled successfully**. Edit compl
 
 **Luna and Haiku both delivered the requested small edits.** Consider another model when the actual result has omissions, inaccurate evidence, or unsuitable turnaround time. When drafting new documents, check for facts that were not provided in the sources.
 
+## Choose for document automation
+
+Choose for the stages of **reading sources, drafting documents, applying changes, and comparing affected documents**. Short editing speed alone does not establish performance on updating an entire project.
+
+| Task | What automation handles | Model selection and result checks |
+| --- | --- | --- |
+| **Generate API documentation** | Read endpoints, authentication, requests, responses, errors, and limits from code and draft documentation | **Start with Luna**. Luna and Haiku generation results included the main API items. Check that the code and tests support the explanations. |
+| **Generate a project wiki** | Organize setup, module roles, data flow, and operational checks across documents | Define required sections first. Compare **Sol, Sonnet, or Opus** if connections or evidence are insufficient. Wiki generation records include a Sol result that met both document task conditions and citation evidence checks. |
+| **Update after code changes** | Apply new APIs and changed defaults or policies to affected documents | Use the project's **Doc Generation Model**. Check coverage of every affected document rather than just the number of documents edited. |
+| **Reflect deletions and renames** | Remove obsolete descriptions and examples; update source paths and document titles | Check titles, links, and examples alongside the body. Compare models for insufficient explanations; inspect task errors first for storage or tool failures. |
+| **Handle unrelated code changes** | Distinguish changes that do not affect documentation | Check that existing content stays intact without unnecessary edits. More changes do not necessarily mean a better result. |
+| **Handle consecutive changes** | Apply incoming changes in order to reflect the final code state | Check for intermediate values left behind and agreement between overview and detailed documents. |
+
+**Start drafts and targeted edits with Luna or Haiku; compare other models when overall structure or interpretation of evidence is insufficient.** Choose the automation model for the documents your project produces and its actual update results. See [Create a document project](/en/guides/doc-projects) for setup and [Review and apply proposed updates](/en/guides/review-proposals) for applying changes.
+
+## Keep documents consistent
+
+Consistency means checking **documents against code**, **facts across related documents**, and **whether citations support claims**. Assess these separately from successful tool execution or document storage.
+
+| Check | What a good result looks like |
+| --- | --- |
+| **Defaults, policies, and limits** | The overview, API reference, and operational documents describe the same current code values. |
+| **Deleted features** | No descriptions, examples, or links still present them as current; relevant change guidance is included. |
+| **Names and paths** | The saved title, body heading, and source links use the same current names. |
+| **Requests, responses, and errors** | Descriptions and examples match behavior verified in code and tests. |
+| **Citation evidence** | Paths and line ranges are valid, and the source actually supports the sentence's claim. |
+| **Existing team explanations** | Manually written content and operational explanations unrelated to the code change are preserved. |
+
+Specify **both the changed facts and the documents to check**. For example: “Compare the default limit change across the overview, API reference, and operations guide, and resolve conflicting values and unsupported explanations.” Use Luna or Haiku for clearly scoped edits first, then compare another model when source interpretation or connections across documents need improvement. Choose by **complete coverage and accurate evidence**.
+
 ## When to change models
 
 - **If the desired section was not edited**, specify the document, edit location, what should change, and what should stay. If results remain insufficient, compare another model on the same request.

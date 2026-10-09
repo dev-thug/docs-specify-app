@@ -1,0 +1,65 @@
+The planner **organizes requirements in the Specify editor**, while the developer **reads the same documents through MCP in Claude Code or Codex and implements them**. Keep decisions made after meetings in the planning document so developers can reread the current requirements and align implementation and tests.
+
+## Planning and development use the same document
+
+Imagine a team building a booking service. The planner writes the screen flow, cancellation rules, exceptions, and acceptance criteria in a “Booking cancellation” document. The developer asks the coding agent to read it and compare it with the code. When requirements change, reread the same document to update implementation plans.
+
+| Role | Where they work | What they leave |
+| --- | --- | --- |
+| **Planner or PM** | Specify editor | Current requirements, confirmed decisions, open questions, and acceptance criteria |
+| **Developer** | Claude Code or Codex and the code editor | Requirements-to-code gaps, implementation plans, code, and tests |
+| **Team** | The shared Specify document and a separate review document | Reasons for changes, development checks, implementation results, and remaining questions |
+
+## Before you start
+
+- Both planner and developer need access to the document in the same workspace.
+- Connect Specify MCP to Claude Code or Codex using [Connect an editor or agent](/en/mcp/connect).
+- Start with read access to reference requirements. [Write access](/en/mcp/access) is also needed to record implementation results in Specify.
+
+## From requirements to implementation
+
+1. **The planner organizes the document.** Separate the purpose, screen flow, confirmed rules, exceptions, and acceptance criteria. Leave unresolved items as questions.
+2. **The developer reads the source through MCP.** Find the document with `search` or `browse`, then read its body with `read_document`. Providing the exact document name helps.
+3. **The agent compares requirements with code.** Separate implemented items, changes needed, and questions for the owner, then prepare an implementation plan.
+4. **The planner records agreed changes in the same document.** Include the new conditions and reasons, and distinguish current rules from previous ones.
+5. **The developer rereads the changed document.** Compare it with the earlier content and identify code and test impacts before continuing.
+6. **Return development checks to the document workflow.** With write access, use `create_document` for a separate review or `update_document` for an agreed section. The planner reviews this to resolve remaining decisions.
+
+## Example: rereading changed requirements
+
+The following is an example for a booking service.
+
+| Item | Initial plan | Agreed change |
+| --- | --- | --- |
+| **Cancellation cutoff** | 24 hours before the booking | 12 hours before the booking |
+| **Unavailable cancellation UI** | Hide the cancel button | Show a disabled button with a reason |
+| **Acceptance criteria** | Check whether cancellation is allowed | Also test the time boundary and disabled-state explanation |
+
+After a change, ask the agent to reread the same document rather than continuing from previously copied conditions. It can identify API rules, screen states, and tests that need changes together.
+
+<Note>
+  Specify supports real-time collaborative editing. Coding agents read documents reflected on the server when they call MCP. Changes are not automatically pushed into an ongoing agent conversation, so request another body read after a change. If you know the document ID, `read_document` can read it directly without waiting for search indexing.
+</Note>
+
+## Prompts to copy
+
+**When preparing the first implementation plan**
+
+> Find “Booking cancellation requirements” through Specify MCP and read the body. Separate confirmed requirements from open questions, compare them with the current code, and list an implementation plan and tests for each acceptance criterion. Leave policies not stated in the document as questions.
+
+**After requirements change**
+
+> Reread the same planning document through MCP. Compare it with what you read earlier, summarize changed conditions, and identify impacts on the code and tests in progress. Check behavior that needs to change in already implemented parts too.
+
+**When sharing development results**
+
+> Create a separate development review document in Specify. Include the planning source, requirements implemented, tests checked, and unresolved decisions. Leave the confirmed planning document body intact.
+
+## Collaboration checks
+
+- **Separate confirmed decisions from proposals.** Keep developer suggestions separate until the planner decides.
+- **Keep the document name and ID.** Rereading the same document helps avoid implementing from duplicate copies.
+- **Reread before important changes.** Check the current body before implementation, after requirements change, and before final review.
+- **Review requirements and implementation together.** Screens, APIs, exceptions, and tests should follow the same acceptance criteria.
+
+See [MCP tools](/en/mcp/tools) for available tools and inputs.

@@ -28,6 +28,7 @@ export const NAV_STRUCTURE = [
         id: "use-cases",
         pages: [
           "guides/use-cases",
+          "guides/planning-with-mcp",
           "guides/medical-device-docs",
           "guides/security-questionnaires",
           "guides/project-handover",

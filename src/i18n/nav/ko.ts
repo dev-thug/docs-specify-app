@@ -108,6 +108,11 @@ export const koNav: NavLabels = {
       sidebarTitle: "활용사례 둘러보기",
       description: "개발·영업·고객지원·품질 업무에서 팀 자료를 근거로 문서를 만들고 검토하는 활용사례를 찾습니다.",
     },
+    "guides/planning-with-mcp": {
+      title: "기획 변경을 MCP로 개발에 연결하기",
+      sidebarTitle: "기획·개발 협업",
+      description: "기획자가 Specify에서 정리한 요구사항을 Claude Code·Codex가 MCP로 읽고, 변경된 기획과 구현을 함께 맞추는 협업 흐름입니다.",
+    },
     "guides/security-questionnaires": {
       title: "고객 보안 질문서 답변 준비",
       sidebarTitle: "보안 질문서 답변",
