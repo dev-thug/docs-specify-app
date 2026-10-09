@@ -71,7 +71,7 @@ export const jaNav: NavLabels = {
     },
     "models/choosing": {
       title: "モデル選択ガイド",
-      description: "最新のモデル評価の指標と限界を確認し、作業別のモデル選択とドキュメント結果のレビュー基準を案内します。",
+      description: "文書の作成・編集性能とツール呼び出し記録を基に、作業に合わせたモデル選択の基準を案内します。",
     },
     "models/usage": {
       title: "使用量とAI予算",

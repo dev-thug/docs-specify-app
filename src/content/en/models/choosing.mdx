@@ -1,64 +1,51 @@
-{/* 근거: Specify docs/research/2026-10-09-specify-model-evaluation.md, tmp/qa-runs/20261009-model-evaluation/final-analysis-data.json, scripts/bench/baselines/2026-07-02-matrix-haiku-sonnet/README.md. 모델·설정 계약은 amplify/shared/agent/llm/model_catalog.json 및 amplify/shared/doc-project/model-policy.ts. */}
+Start everyday document drafting and editing with **GPT-6 Luna**. **Claude Haiku 5.5 can also handle targeted changes to sentences, tables, and multiple documents**. Choose by whether the requested changes are saved correctly and the turnaround time suits your work.
 
-If you are unsure which model to choose, **start with GPT-6 Luna, the default model**, and compare results using the same sources and request. Several models handled small edits in the latest evaluation, but high-end models also missed document updates and made citation errors. Changing the model alone does not guarantee document quality.
+## Choose for your task
 
-## Choosing by task
-
-| Task | Starting point | What to check |
+| Task | Model to try first | Selection criterion |
 | --- | --- | --- |
-| Short questions, summaries, small document edits | GPT-6 Luna | Compare the result with the source and check for unsupported additions. |
-| Compare the same task with another model | GPT-6.1 Sol or Claude Sonnet 5.5 | Use the same input and edit scope. This evaluation does not establish a winner. |
-| Generate or automatically update several documents | Choose through Doc Generation Model settings | Reread the overview, reference, and policy documents and compare values and evidence. |
-| Review long documents or analyze complex issues | Compare Claude Opus 5.5 when needed | Opus also missed updates and made citation errors, so separate review is necessary. |
-| Use Claude Haiku 5.5 or GPT-5.6 Terra | Available in the model menu | Note the **Not recommended** badge. Do not interpret this evaluation as a model ranking. |
+| Draft a short document from supplied sources | **GPT-6 Luna** | Start with the default model, then check facts and missing items. |
+| Change sentences, update tables, or edit specified sections across documents | **GPT-6 Luna · Claude Haiku 5.5** | Start with either model when the target and desired result are clear. Both completed these editing tasks. |
+| Reduce waiting time for short edits | **Also compare Claude Sonnet 5.5** | Its measured median for precise edits was about 11 seconds. Compare speed and usage on the same request. |
+| Read sources and create a complete document structure | **Start with Luna; compare GPT-6.1 Sol if needed** | Try the same sources with another model if sections are missing or explanations do not connect well. |
+| Interpret long sources or perform complex analysis and review | **Compare Sonnet, Sol, and Claude Opus 5.5** | Judge source length, depth of explanation, and citation accuracy. Review results after switching models too. |
+| Check another OpenAI model's output | **GPT-5.6 Terra** | Compare wording, structure, and turnaround time using the same sources and request. |
 
-## Latest internal evaluation
+## Document task performance
 
-On **October 9, 2026**, six current models were evaluated in the actual app on localhost and an Amplify sandbox. A synthetic API repository and fixed documents covered generation, partial, table, and multi-document edits, source questions, API and wiki generation, and push-driven modifications, additions, deletions, renames, unrelated changes, and consecutive changes. These were not production tests.
+October 2026 document task records compare successful responses from document reading, creation, editing, and browsing tools on the same generation and editing requests, alongside saved results. Precise editing means **partial edits, table edits, and targeted edits across multiple documents**.
 
-Of 72 logical attempts, 26 were excluded because of memory or search-input contamination or preparation errors. The **46 comparable tests recorded 35 core task PASS results and 11 FAIL results**. The two runs for consecutive pushes were counted as one logical test.
-
-| Model | Valid tests | Task PASS / FAIL | Evidence passed / reviewed |
+| Model | Document tool call success | Precise edit completion | Median edit time |
 | --- | --- | --- | --- |
-| Claude Haiku 5.5 | 7 | 5 / 2 | 1 / 2 |
-| Claude Opus 5.5 | 11 | 7 / 4 | 2 / 6 |
-| Claude Sonnet 5.5 | 11 | 7 / 4 | 0 / 6 |
-| GPT-5.6 Terra | 6 | 6 / 0 | 0 / 2 |
-| GPT-6 Luna | 6 | 5 / 1 | 0 / 2 |
-| GPT-6.1 Sol | 5 | 5 / 0 | 1 / 1 |
+| GPT-6 Luna | 100% | 100% | About 17 s |
+| Claude Haiku 5.5 | 100% | 100% | About 15 s |
+| Claude Sonnet 5.5 | 90.9% | 100% | About 11 s |
+| GPT-6.1 Sol | 100% | 100% | About 20 s |
+| Claude Opus 5.5 | 100% | 100% | About 21 s |
+| GPT-5.6 Terra | 94.1% | 100% | About 24 s |
 
-**Core PASS** means the saved result met the task's core conditions. **Semantic evidence passed** is a separate check of whether cited code or documents supported the actual claim. A core task can pass while its citations are semantically wrong. Tests without evidence review are not included in that column's denominator.
+Tool call success measures **individual calls handled successfully**. Edit completion measures **saved documents meeting the requested edit conditions**. An edit can complete through subsequent handling even if a call fails. Time runs from editing start to execution completion and varies with document length, search scope, and server conditions. These observations cover short document tasks and do not guarantee success on every task.
 
-- Of 24 simple generation and editing tests with matching task coverage, 23 passed the core task. The failed generation added unsupported sharing and permission claims.
-- Within those tests, all 18 precise partial, table, and multi-document edits passed the core task. Each model performed each synthetic document test once.
-- The remaining 22 source-question and automation tests had different task coverage and denominators across models, so simple success-rate comparisons are inappropriate.
+**Luna and Haiku both delivered the requested small edits.** Consider another model when the actual result has omissions, inaccurate evidence, or unsuitable turnaround time. When drafting new documents, check for facts that were not provided in the sources.
 
-<Note>
-  Of 198 planned tests, 152 were not completed, and second and third repetitions were not performed. Unequal model samples do not support claims about final rankings, repeatability, p95 latency, or cost per successful task. This evaluation also did not establish comparisons by reasoning effort or overall skill and connector performance for current models.
-</Note>
+## When to change models
 
-## Separating earlier evaluations
+- **If the desired section was not edited**, specify the document, edit location, what should change, and what should stay. If results remain insufficient, compare another model on the same request.
+- **If a long document lacks structure**, set the outline and required items first, then write section by section. Compare Sonnet, Sol, or Opus when explanation or analysis needs improvement.
+- **If code changes affect several documents**, compare values and examples across the overview, reference, and operational documents. A larger model does not guarantee complete coverage.
+- **If citations matter**, compare the answer with its cited source. Check that the source supports the explanation as well as that the link opens.
 
-The July 2026 baseline of 38 scenarios compared Claude Haiku 4.5 with Claude Sonnet 4.6. Its models, tests, and assessment conditions differ from the latest evaluation. Do not combine the results or carry previous-generation success rates, judge scores, or cost ratios into recommendations for current models.
+## Choose reasoning effort
 
-## Reviewing document results
+For short drafts and targeted edits, start with **Off** or a supported low level. Raise effort when comparing several sources or developing deeper explanations, and compare the results. Higher effort can increase time and usage. The Free plan fixes effort at **Off**.
 
-1. Check that changed defaults, policies, and endpoints appear in **every affected document**. A completion indicator alone does not establish full coverage.
-2. Check both that a citation path and line range exist and that the cited code supports the sentence's actual claim.
-3. After deletion or renaming, compare the body, saved document title, source paths, and examples.
-4. If tools failed or some content could not be read, record and review what remains unverified. A model's completion message does not establish accuracy.
-
-Observed issues and proposed improvements in the evaluation do not mean fixes have been implemented or deployed. See [Review and apply proposed updates](/en/guides/review-proposals) for the review workflow.
-
-## Choosing reasoning effort
-
-Start short questions and small edits at a supported low level, then adjust if the result is insufficient. Higher effort can use more time and budget without guaranteeing accuracy. The Free plan fixes effort at **Off**. See [Models overview](/en/models/overview) for supported levels.
-
-## Setting workspace defaults
+## Set workspace defaults
 
 Automations and document generation use workspace model settings separately from chat.
 
 <Screenshot name="settings-workspace" alt="Workspace general settings with Default AI Model and Doc Generation Model selectors" />
 
-- **Default AI Model** — Used for this workspace's automations. Compare results and usage on your actual automation requests.
-- **Doc Generation Model** — Used for project creation and automatic updates. If the setting is missing or invalid, GPT-6 Luna is used. Assess quality by reviewing generated results and all affected documents.
+- **Default AI Model** — Used for this workspace's automations. Start everyday document work with GPT-6 Luna and adjust based on actual results and usage.
+- **Doc Generation Model** — Used for project creation and automatic updates. If the setting is missing or invalid, GPT-6 Luna is used. Choose based on document type and actual generated results.
+
+See [Models overview](/en/models/overview) for supported models and context limits, and [Usage and AI budget](/en/models/usage) for usage management.

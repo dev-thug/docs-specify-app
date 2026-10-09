@@ -68,7 +68,7 @@ export const koNav: NavLabels = {
     },
     "models/choosing": {
       title: "모델 선택 가이드",
-      description: "최신 모델 평가의 지표와 한계를 확인하고, 작업별 모델 선택과 문서 결과 검토 기준을 안내합니다.",
+      description: "문서 작성·편집 성능과 도구 호출 기록을 바탕으로 작업에 맞는 모델 선택 기준을 안내합니다.",
     },
     "models/usage": {
       title: "사용량과 AI 예산",

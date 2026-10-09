@@ -77,7 +77,7 @@ export const enNav: NavLabels = {
     "models/choosing": {
       title: "Choosing a model",
       description:
-        "Review the latest model evaluation metrics and limitations, choose models by task, and check document results.",
+        "Choose models for your tasks using document drafting and editing performance and tool call records.",
     },
     "models/usage": {
       title: "Usage and AI budget",
