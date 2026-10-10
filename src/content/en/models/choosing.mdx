@@ -17,12 +17,12 @@ October 2026 document task records compare successful responses from document re
 
 | Model | Document tool call success | Precise edit completion | Median edit time |
 | --- | --- | --- | --- |
-| Claude Opus 5.5 | 100% | 100% | About 21 s |
-| Claude Sonnet 5.5 | 90.9% | 100% | About 11 s |
-| Claude Haiku 5.5 | 100% | 100% | About 15 s |
 | GPT-6.1 Sol | 100% | 100% | About 20 s |
 | GPT-5.6 Terra | 94.1% | 100% | About 24 s |
 | GPT-6 Luna | 100% | 100% | About 17 s |
+| Claude Opus 5.5 | 100% | 100% | About 21 s |
+| Claude Sonnet 5.5 | 90.9% | 100% | About 11 s |
+| Claude Haiku 5.5 | 100% | 100% | About 15 s |
 
 Tool call success measures **individual calls handled successfully**. Edit completion measures **saved documents meeting the requested edit conditions**. An edit can complete through subsequent handling even if a call fails. Time runs from editing start to execution completion and varies with document length, search scope, and server conditions. These observations cover short document tasks and do not guarantee success on every task.
 
@@ -42,6 +42,23 @@ Choose for the stages of **reading sources, drafting documents, applying changes
 | **Handle consecutive changes** | Apply incoming changes in order to reflect the final code state | Check for intermediate values left behind and agreement between overview and detailed documents. |
 
 **Start drafts and targeted edits with Luna or Haiku; compare other models when overall structure or interpretation of evidence is insufficient.** Choose the automation model for the documents your project produces and its actual update results. See [Create a document project](/en/guides/doc-projects) for setup and [Review and apply proposed updates](/en/guides/review-proposals) for applying changes.
+
+## Choose a model from automatic update results
+
+After pushing code, **compare Sol when finding every required edit and checking evidence matters most**, or **Luna and Haiku when execution cost is the priority**. These recommendations use observed updates to a Ledger API test repository on October 9, 2026, covering changed values, API additions, removals, renames, and consecutive pushes.
+
+| Model | Execution cost | Recommendation |
+| --- | --- | --- |
+| **GPT-6.1 Sol** | **$2.28** | **Compare first for accuracy-sensitive updates.** It correctly updated changed values and supporting citations. |
+| **GPT-5.6 Terra** | **$1.74** | **Consider for default and limit updates.** It located changed code values and reflected them in documents. |
+| **GPT-6 Luna** | **$0.21** | **Start here for cost-conscious routine updates.** Review updated values and explanations as you use it. |
+| **Claude Opus 5.5** | **$4.21** | **Consider for detailed API and policy updates.** It reflected feature removal and a file rename in all three document bodies. |
+| **Claude Sonnet 5.5** | **$0.76** | **Consider when short editing speed also matters.** Use it for sentences, tables, targeted edits, and value updates following code changes. |
+| **Claude Haiku 5.5** | **$0.24** | **Consider for updating several documents at low cost.** It completed core updates across four managed documents in this run. |
+
+Costs total stored Run records for four update tasks. Document counts and workloads differed, so these are not unit prices for identical work or expected bills. See [pricing](https://specify.app/pricing) for plans and prices.
+
+Sol's retrieval included other test material; Terra, Luna, and Haiku retained earlier test memory. Use these observations to select candidates rather than as definitive rankings. After updates, check **values across overview and detailed documents, removed claims, document titles, and cited sources** together.
 
 ## Keep documents consistent
 
