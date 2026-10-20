@@ -30,35 +30,28 @@ Tool call success measures **individual calls handled successfully**. Edit compl
 
 ## Choose for document automation
 
-Choose for the stages of **reading sources, drafting documents, applying changes, and comparing affected documents**. Short editing speed alone does not establish performance on updating an entire project.
+**We recommend GPT-6 Luna as the default model for document automation.** Start with Luna when generating documents from code or applying pushed changes to related documents. In the October 11, 2026 sandbox comparison, it matched Claude Haiku 5.5 on small-repository update accuracy and covered more backend functions and screen routes in a large repository.
 
-| Task | What automation handles | Model selection and result checks |
+**Compare Claude Haiku 5.5 when completion speed is your priority.** It was about twice as fast in this measurement. We recommend starting with Luna when coverage and source evidence in a large repository matter most.
+
+## Document automation measurements
+
+Under the same conditions, both models generated an API reference, a software requirements specification (SRS), and an architecture document, then applied value changes, API additions, deletions, renames, and consecutive pushes. A separate test generated an SRS for a repository containing 1,342 files. Each comparison condition was measured once per model; these are observations rather than rankings established through repeated trials.
+
+| Check | GPT-6 Luna | Claude Haiku 5.5 |
 | --- | --- | --- |
-| **Generate API documentation** | Read endpoints, authentication, requests, responses, errors, and limits from code and draft documentation | **Start with Luna**. Luna and Haiku generation results included the main API items. Check that the code and tests support the explanations. |
-| **Generate a project wiki** | Organize setup, module roles, data flow, and operational checks across documents | Define required sections first. Compare **Sol, Sonnet, or Opus** if connections or evidence are insufficient. Wiki generation records include a Sol result that met both document task conditions and citation evidence checks. |
-| **Update after code changes** | Apply new APIs and changed defaults or policies to affected documents | Use the project's **Doc Generation Model**. Check coverage of every affected document rather than just the number of documents edited. |
-| **Reflect deletions and renames** | Remove obsolete descriptions and examples; update source paths and document titles | Check titles, links, and examples alongside the body. Compare models for insufficient explanations; inspect task errors first for storage or tool failures. |
-| **Handle unrelated code changes** | Distinguish changes that do not affect documentation | Check that existing content stays intact without unnecessary edits. More changes do not necessarily mean a better result. |
-| **Handle consecutive changes** | Apply incoming changes in order to reflect the final code state | Check for intermediate values left behind and agreement between overview and detailed documents. |
+| Small-repository update accuracy | 9/9 passed | 9/9 passed |
+| Small-repository generation and update time | 62 min | 28 min |
+| Large-repository SRS generation time | About 33 min | About 17 min |
+| Backend functions covered in the large repository | 13/16 | 10/16 |
+| Screen routes covered in the large repository | 7/51 | 1/51 |
+| Cited file paths that existed | 156/157 | 92/95 |
 
-**Start drafts and targeted edits with Luna or Haiku; compare other models when overall structure or interpretation of evidence is insufficient.** Choose the automation model for the documents your project produces and its actual update results. See [Create a document project](/en/guides/doc-projects) for setup and [Review and apply proposed updates](/en/guides/review-proposals) for applying changes.
+Luna also had lower execution cost in the large repository. After fixing context accumulation that had increased Haiku's cost in the small repository, however, Haiku's total cost fell below the earlier Luna comparison run. Luna is therefore not necessarily cheaper for every task. See [Pricing](https://specify.app/pricing) for plans and rates.
 
-## Choose a model from automatic update results
+Both models covered few screen routes. After automation, review **missing required features and screen routes, changed values, removed descriptions, and citation evidence**. An existing file path alone does not establish that a claim is accurate. Other models were not included in this comparison, and sandbox results do not guarantee the same performance in production.
 
-After pushing code, **compare Sol when finding every required edit and checking evidence matters most**, or **Luna and Haiku when execution cost is the priority**. These recommendations use observed updates to a Ledger API test repository on October 9, 2026, covering changed values, API additions, removals, renames, and consecutive pushes.
-
-| Model | Execution cost | Recommendation |
-| --- | --- | --- |
-| **GPT-6.1 Sol** | **$2.28** | **Compare first for accuracy-sensitive updates.** It correctly updated changed values and supporting citations. |
-| **GPT-5.6 Terra** | **$1.74** | **Consider for default and limit updates.** It located changed code values and reflected them in documents. |
-| **GPT-6 Luna** | **$0.21** | **Start here for cost-conscious routine updates.** Review updated values and explanations as you use it. |
-| **Claude Opus 5.5** | **$4.21** | **Consider for detailed API and policy updates.** It reflected feature removal and a file rename in all three document bodies. |
-| **Claude Sonnet 5.5** | **$0.76** | **Consider when short editing speed also matters.** Use it for sentences, tables, targeted edits, and value updates following code changes. |
-| **Claude Haiku 5.5** | **$0.24** | **Consider for updating several documents at low cost.** It completed core updates across four managed documents in this run. |
-
-Costs total stored Run records for four update tasks. Document counts and workloads differed, so these are not unit prices for identical work or expected bills. See [pricing](https://specify.app/pricing) for plans and prices.
-
-Sol's retrieval included other test material; Terra, Luna, and Haiku retained earlier test memory. Use these observations to select candidates rather than as definitive rankings. After updates, check **values across overview and detailed documents, removed claims, document titles, and cited sources** together.
+Select GPT-6 Luna as the project's **Doc Generation Model**. See [Create a document project](/en/guides/doc-projects) for setup and [Review and apply proposed updates](/en/guides/review-proposals) for applying changes.
 
 ## Keep documents consistent
 
