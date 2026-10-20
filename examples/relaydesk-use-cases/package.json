@@ -1,0 +1,8 @@
+{
+  "name": "relaydesk-demo",
+  "version": "1.4.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": { "test": "node --test test/*.test.js", "demo": "node src/demo.js" }
+}
