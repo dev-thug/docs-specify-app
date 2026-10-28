@@ -4,14 +4,18 @@ Start everyday document drafting and editing with **GPT-6 Luna**. **Claude Haiku
 
 | Task | Model to try first | Selection criterion |
 | --- | --- | --- |
-| Draft a short document from supplied sources | **GPT-6 Luna** | Start with the default model, then check facts and missing items. |
+| Draft a short document from supplied sources | **GPT-6 Luna** | Start with Luna, then check facts and missing items. |
 | Change sentences, update tables, or edit specified sections across documents | **GPT-6 Luna · Claude Haiku 5.5** | Start with either model when the target and desired result are clear. Both completed these editing tasks. |
 | Reduce waiting time for short edits | **Also compare Claude Sonnet 5.5** | Its measured median for precise edits was about 11 seconds. Compare speed and usage on the same request. |
 | Read sources and create a complete document structure | **Start with Luna; compare GPT-6.1 Sol if needed** | Try the same sources with another model if sections are missing or explanations do not connect well. |
 | Interpret long sources or perform complex analysis and review | **Compare Sonnet, Sol, and Claude Opus 5.5** | Judge source length, depth of explanation, and citation accuracy. Review results after switching models too. |
-| Check another OpenAI model's output | **GPT-5.6 Terra** | Compare wording, structure, and turnaround time using the same sources and request. |
+| Check another OpenAI model's output | **GPT-6.1 Terra** | Compare wording, structure, and turnaround time using the same sources and request. |
 
 ## Document task performance
+
+<Note>
+  The currently supported model is GPT-6.1 Terra. The GPT-5.6 Terra figures below are historical measurements of the previous model; GPT-6.1 Terra was not measured in this comparison.
+</Note>
 
 October 2026 document task records compare successful responses from document reading, creation, editing, and browsing tools on the same generation and editing requests, alongside saved results. Precise editing means **partial edits, table edits, and targeted edits across multiple documents**.
 
@@ -86,6 +90,6 @@ Automations and document generation use workspace model settings separately from
 <Screenshot name="settings-workspace" alt="Workspace general settings with Default AI Model and Doc Generation Model selectors" />
 
 - **Default AI Model** — Used for this workspace's automations. Start everyday document work with GPT-6 Luna and adjust based on actual results and usage.
-- **Doc Generation Model** — Used for project creation and automatic updates. If the setting is missing or invalid, GPT-6 Luna is used. Choose based on document type and actual generated results.
+- **Doc Generation Model** — Used for project creation and automatic updates. Choose based on document type and actual generated results.
 
 See [Models overview](/en/models/overview) for supported models and context limits, and [Usage and AI budget](/en/models/usage) for usage management.

@@ -4,16 +4,18 @@ Specify offers six models from the Anthropic Claude and OpenAI GPT families. Cho
 
 | Model | Provider | Available on | Context | Max output |
 | --- | --- | --- | --- | --- |
-| **Claude Opus 5.5** | Anthropic | Pro and above | 200K | 128K |
-| **Claude Sonnet 5.5** | Anthropic | Pro and above | 200K | 128K |
-| **Claude Haiku 5.5** | Anthropic | All plans, including Free | 200K | 64K |
+| **Claude Opus 5.5** | Anthropic | Pro and above | 1M | 128K |
+| **Claude Sonnet 5.5** | Anthropic | Pro and above | 1M | 128K |
+| **Claude Haiku 5.5** | Anthropic | All plans, including Free | 1M | 128K |
 | **GPT-6.1 Sol** | OpenAI | Pro and above | 1.05M | 128K |
-| **GPT-5.6 Terra** | OpenAI | Pro and above | 1.05M | 128K |
+| **GPT-6.1 Terra** | OpenAI | Pro and above | 1.05M | 128K |
 | **GPT-6 Luna** | OpenAI | All plans, including Free | 1.05M | 128K |
+
+All supported models offer **at least 1 million tokens of context**: 1 million for Claude and 1.05 million for GPT. Context is the conversation and source material a request can work with; it is separate from the maximum output token count.
 
 - For current prices and limits, see the [pricing page](https://specify.app/en/pricing). For how usage is calculated, see [Usage and AI budget](/en/models/usage).
 - Every model supports tool calls (searching knowledge, reading and writing documents, and more) and parallel tool calls.
-- The default model for new conversations is **GPT-6 Luna**.
+- The default model for new conversations is **Claude Haiku 5.5**.
 
 ## Model characteristics
 
@@ -22,8 +24,8 @@ Specify offers six models from the Anthropic Claude and OpenAI GPT families. Cho
   <Card icon="file" title="Claude Sonnet 5.5: compare editing speed">An option for comparing response speed on short edits. Its measured median document editing time was about 11 seconds.</Card>
   <Card icon="search" title="Claude Haiku 5.5: targeted editing">Use it for specified changes to sentences, tables, and multiple documents. Compare new content with the facts you supplied. Also available on the Free plan.</Card>
   <Card icon="blocks" title="GPT-6.1 Sol: compare structure and explanations">An option for comparing a draft structure or explanation with another OpenAI model. Check context size when working with long sources.</Card>
-  <Card icon="workflow" title="GPT-5.6 Terra: OpenAI alternative">An OpenAI option for comparing wording, structure, and turnaround time on the same sources and request.</Card>
-  <Card icon="sparkles" title="GPT-6 Luna: everyday document work">The default model. Try it first for drafts from supplied sources and changes to sentences or tables. Available on the Free plan.</Card>
+  <Card icon="workflow" title="GPT-6.1 Terra: OpenAI alternative">An OpenAI option for comparing wording, structure, and turnaround time on the same sources and request.</Card>
+  <Card icon="sparkles" title="GPT-6 Luna: everyday document work">Try it first for drafts from supplied sources and changes to sentences or tables. Available on the Free plan.</Card>
 </CardGroup>
 
 For which model to use for each task, see [Choosing a model](/en/models/choosing).
