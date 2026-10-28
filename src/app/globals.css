@@ -1,3 +1,4 @@
+@import "./pretendard-variable-dynamic-subset.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -10,20 +11,53 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Pretendard — 한글/영문 혼합 UI 본문 폰트 (self-host) */
+/* 동적 서브셋의 잔여 글리프는 OFL 예약 이름을 쓰지 않는 소형 파생 face로 제공한다. */
 @font-face {
-  font-family: "Pretendard Variable";
-  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+  font-family: "Specify Residual";
+  src: url("/fonts/pretendard/woff2-residual/PretendardResidualCommon.woff2") format("woff2-variations");
+  font-style: normal;
   font-weight: 45 920;
   font-display: swap;
+  unicode-range: U+B5, U+2212, U+2318, U+26A0, U+2713, U+27FA, U+E002;
 }
 
-/* 대구북성로 — 브랜드 로고타입 전용 */
 @font-face {
-  font-family: "DaeguBukseongro";
-  src: url("/fonts/DaeguBukseongro-ExtraBold.woff2") format("woff2");
-  font-weight: 800;
+  font-family: "Specify Residual";
+  src: url("/fonts/pretendard/woff2-residual/PretendardResidualCjk.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 45 920;
   font-display: swap;
+  unicode-range:
+    U+301A-301B, U+301D, U+3094, U+3099-309E, U+30F7-30FA, U+30FD-30FE, U+FF5F-FF60, U+FFA1-FFBE,
+    U+FFC2-FFC7, U+FFCA-FFCF, U+FFD2-FFD7, U+FFDA-FFDC;
+}
+
+@font-face {
+  font-family: "Specify Residual";
+  src: url("/fonts/pretendard/woff2-residual/PretendardResidualOther.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  unicode-range:
+    U+A6, U+AF, U+C1, U+C3-C5, U+CC-CD, U+D1-D3, U+D5-D6, U+DA, U+DD,
+    U+E1, U+E3-E5, U+EC-ED, U+F1-F3, U+F5-F6, U+FA, U+FD, U+100-110, U+112-125, U+128-130, U+134-137,
+    U+139-13E, U+143-148, U+14C-151, U+154-165, U+168-1C3, U+1C5-2BB, U+2BD-2C6, U+2C8-2CF, U+2D1-2D7,
+    U+2DE-31E, U+321-377, U+37A-37F, U+384-38A, U+38C, U+38E-390, U+3AA-3B0, U+3C2, U+3CA-3E1,
+    U+3F0-49D, U+4A0-4FF, U+52F, U+E3F, U+1D43, U+1D47-1D49, U+1D4D, U+1D4F-1D50, U+1D52,
+    U+1D56-1D58, U+1D5B, U+1D62-1D65, U+1D9C, U+1DA0, U+1DBB, U+1DBF-1DF5, U+1DFC-1F15,
+    U+1F18-1F1D, U+1F20-1F45, U+1F48-1F4D, U+1F50-1F57, U+1F59, U+1F5B, U+1F5D, U+1F5F-1F7D,
+    U+1F80-1FB4, U+1FB6-1FC4, U+1FC6-1FD3, U+1FD6-1FDB, U+1FDD-1FEF, U+1FF2-1FF4, U+1FF6-1FFE, U+2000-200D,
+    U+2011-2012, U+2017, U+201A, U+201E, U+2023-2024, U+2027, U+202F, U+2031, U+2037-2038, U+203D,
+    U+203F-2041, U+2043-2060, U+2070-2071, U+2075-2079, U+2080, U+2085-208E, U+2090-209C, U+20A0-20A8,
+    U+20AA-20AB, U+20AD-20BF, U+20DB-20DE, U+20E8, U+20F0, U+2100-2101, U+2105-2106, U+2117, U+211E-2120,
+    U+2123, U+212A, U+212E, U+2132, U+213B, U+214D, U+214F, U+215A, U+215F, U+216A-216F,
+    U+217A-2188, U+21A9-21AA, U+21B5, U+21BA-21BB, U+21DE-21DF, U+21E4-21E5, U+21EA, U+2205,
+    U+2303, U+2305, U+2325-2327, U+2329-232B, U+2380, U+2387, U+238B, U+23CE-23CF, U+2423,
+    U+24EA, U+24FF, U+25A2, U+25AA, U+25BA-25BB, U+25C4-25C5, U+2600, U+263C, U+2717, U+2780-2789,
+    U+27EF, U+27F5-27F9, U+2985-2986, U+2B06, U+2B12-2B13, U+2B1C, U+2C7C, U+2C7F, U+2DFF, U+2E18,
+    U+A69F, U+A7FF, U+A92E, U+E000, U+E003-E05E, U+E06A-E080, U+E093-E096, U+E0A5-E0E6, U+E0F3-E11C,
+    U+E11E-E12A, U+E131-E147, U+E14E-E164, U+EE01-EE05, U+F000-F057, U+F6C3, U+FE20-FE2D, U+FEFF,
+    U+1F10B, U+1F12F-1F149, U+1F150-1F16B, U+1F170-1F189, U+1F850, U+1F852, U+F0000-F0002;
 }
 
 /* 마루부리 — 제목 안 에디토리얼 강조 한 단어 전용 */
@@ -116,8 +150,8 @@
   --color-glass-border: var(--glass-border);
 
   /* Typography families */
-  --font-family-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --font-family-display: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-family-sans: "Pretendard Variable", "Specify Residual", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-family-display: "Pretendard Variable", "Specify Residual", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-family-brand: "DaeguBukseongro", sans-serif;
   --font-family-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-serif: "MaruBuri", "Noto Serif KR", ui-serif, Georgia, serif;

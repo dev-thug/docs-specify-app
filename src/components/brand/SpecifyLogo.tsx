@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Wordmark } from "./Wordmark";
 import { cn } from "@/lib/utils";
 
 // Specify 로고 — specify/public/logo.png 원본 자산. 보라는 로고에만 존재한다.
@@ -21,7 +22,7 @@ export function SpecifyWordmark({ className }: { className?: string }) {
   return (
     <span className={cn("flex items-center gap-2 text-lg text-foreground", className)}>
       <SpecifyMark size={28} />
-      <span className="font-brand font-extrabold">Specify</span>
+      <Wordmark />
     </span>
   );
 }
