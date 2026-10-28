@@ -1,56 +1,22 @@
-Coding agents are capable, but they don't know your team. Specify runs as an MCP server so agents such as Claude Code, Codex, and Cursor can explore your team's docs, decisions, and code context directly.
+Specify MCP lets external agents such as Claude Code, Codex, and Cursor search and read your team's documents and material. Use the same workspace context inside and outside Specify.
 
-## What is MCP
+## What it does
 
-MCP (Model Context Protocol) is an open standard for connecting AI agents to external tools and data. Because Specify provides an MCP server, any client that supports MCP can search and read your team's docs within the scope your workspace permissions allow.
+Agents search sources and read the originals to verify domain terms, requirements, and decisions. With write access and an appropriate role, they can also edit documents and canvases. Request implementation directly from your connected coding agent and check progress and results there.
 
-## What you can do
-
-<CardGroup cols={3}>
-  <Card icon="search" title="Search team docs">Agents find and read the docs they need from your workspace while they work.</Card>
-  <Card icon="library" title="Share the same context">The context your team leaves in Specify is exactly the context your agents read.</Card>
-  <Card icon="file" title="Write docs">If you allow write access, agents can create and edit docs.</Card>
-</CardGroup>
-
-## Server details
+## Server and authentication
 
 | Item | Value |
 | --- | --- |
 | Server URL | `https://mcp.specify.app` |
-| Transport | Streamable HTTP (JSON responses, no SSE sessions) |
-| Authentication | Workspace MCP token (Bearer) or OAuth |
-| Scopes | `mcp:read` (default), `mcp:write` (optional) |
-| Server name | `specify` in every client |
+| Transport | Streamable HTTP |
+| Authentication | Workspace token (Bearer) or OAuth |
+| Scopes | `mcp:read` by default; `mcp:write` optional |
 
-<Note>
-  The simplest way to get connection commands and tokens is from your workspace. When you choose a connection, access permission for that workspace is issued and the commands or config for each client are prepared for you.
-</Note>
+## Connect and use
 
-## Connection at a glance
+Open **Tools & skills** → **Connect editor**, select a client, and apply the generated command or configuration. Access is read-only by default; grant extra permissions only when writing is needed.
 
-<Steps>
-  <Step title="Open Connect editor in your workspace">
-    Open the account menu at the bottom of the sidebar and select **Skills & connectors** to open the **Tools & skills** window. On the **Connect editor** tab, choose the client you use.
+After connecting, ask the agent to find the feature's requirements and recent decisions and read the source documents. Read the originals before implementation, and read them again if they change during the work.
 
-    <Screenshot name="tools-editor-connect" alt="The Connect editor tab in the Tools & skills window with client connection cards" />
-  </Step>
-  <Step title="Choose a scope">
-    The default is read-only. If the agent needs to create or edit docs, check **Allow document creation and editing**.
-  </Step>
-  <Step title="Apply the command or config">
-    Depending on the client, run a terminal command, paste a config, or open your editor with a deep link. For client-specific steps, see [Connect editors and agents](/en/mcp/connect).
-  </Step>
-  <Step title="Ask on top of your context">
-    Ask about decisions, docs, or code, and the agent answers from your team's actual context instead of generic guesses.
-  </Step>
-</Steps>
-
-## Next steps
-
-<CardGroup cols={3}>
-  <Card icon="terminal" title="Connect editors and agents" href="/en/mcp/connect">How to connect Claude Code, Codex, Cursor, VS Code, and Claude Desktop</Card>
-  <Card icon="blocks" title="Available tools" href="/en/mcp/tools">search, read_document, browse, create_document, update_document</Card>
-  <Card icon="key" title="Tokens and access policies" href="/en/mcp/access">Token scopes and revocation, and admin access policies</Card>
-</CardGroup>
-
-<Card icon="workflow" title="Connect planning changes to implementation" href="/en/guides/planning-with-mcp">See how planners work in Specify while developers reread requirements through MCP to align implementation and tests.</Card>
+See [Client connections](/en/mcp/connect), [Available tools](/en/mcp/tools), and [Access policies](/en/mcp/access).

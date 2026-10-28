@@ -1,31 +1,30 @@
-Are developers working from old requirements? Is evidence for customer answers hard to find, or does documentation disagree with code? Choose the case closest to **your current problem** to see what to prepare, do in Specify, and review.
+Review a visual account of structure and behavior, then record the agreed improvements. A coding agent can read them through MCP, implement the changes, and help you continue the review with linked documents and canvases after the next push.
 
-## Choose by the problem you face
-
-Each guide starts with a problem and shows the Specify workflow and resulting documents. Begin with an example or a small document, then use the same workflow with your team’s sources.
+## Choose a use case
 
 <CardGroup cols={2}>
-  <Card icon="workflow" title="Plans change, but development uses an old copy" href="/en/guides/planning-with-mcp" cta="For planners, PMs, and developers">Keep requirements in a shared Specify document and reread it through MCP in Claude Code or Codex. Align changed conditions with implementation plans and tests.</Card>
-  <Card icon="shield" title="You cannot tell which security answer is current" href="/en/guides/security-questionnaires" cta="For sales and security teams">Compare current policies with past responses to prepare answers, evidence, and review status. Gather questions that need an owner’s confirmation.</Card>
-  <Card icon="users" title="Ownership changes, but implementation scope is unclear" href="/en/guides/project-handover" cta="For development and maintenance teams">Compare project notes with code to separate implemented features from unfinished requests. Leave run instructions and the next owner’s checklist.</Card>
-  <Card icon="message" title="Release communications disagree with the FAQ" href="/en/guides/customer-updates" cta="For PM, support, and marketing">Prepare an announcement and FAQ update from change notes and existing answers. Align changed explanations with limits and conditions that remain.</Card>
-  <Card icon="file-search" title="Gaps in medical device development documents are hard to find" href="/en/guides/medical-device-docs" cta="For development, regulatory, and quality teams">Create code-backed requirements, design, and SOUP drafts plus a gap report. Owners and experts review omissions and unconfirmed items.</Card>
-  <Card icon="git" title="API code changes while docs and examples stay behind" href="/en/guides/api-docs" cta="For API development teams">Connect GitHub changes to evidence-backed documentation updates. Compare requests, responses, and examples across related documents before applying them.</Card>
-  <Card icon="book" title="New teammates get stuck before their first run" href="/en/guides/onboarding-docs" cta="For new teammates and development teams">Use the repository to draft setup, run, and code-reading instructions. Add team procedures and improve the guide by following it in a clean environment.</Card>
+  <Card icon="blocks" title="Design the architecture for a new feature" href="/en/guides/architecture-design">Follow technical lead Jimin to map Mamma (a parenting app), compare alternatives, and define the target and implementation criteria.</Card>
+  <Card icon="workflow" title="Align requirements and implementation" href="/en/guides/planning-with-mcp">Compare behavior and requirements, then create an improvement document for the coding agent to read over MCP.</Card>
+  <Card icon="git" title="Check API documentation and call flows" href="/en/guides/api-docs">Document handlers and schemas, then check linked content updates after pushes.</Card>
+  <Card icon="book" title="Help new teammates understand the code" href="/en/guides/onboarding-docs">Review a repository map and architecture, then verify install, run, and test steps.</Card>
+  <Card icon="users" title="Prepare for an ownership change" href="/en/guides/project-handover">Separate implemented scope, requests, and unknown operational details for the next owner.</Card>
+  <Card icon="message" title="Align release announcements and FAQs" href="/en/guides/customer-updates">Explain current availability and limits from shared evidence, with owner review before publication.</Card>
+  <Card icon="shield" title="Check evidence for security answers" href="/en/guides/security-questionnaires">Compare policies and operational evidence to draft answers and questions for owners.</Card>
+  <Card icon="file-search" title="Prepare medical device and certification documents" href="/en/guides/medical-device-docs">Manage drafts supported by code and arrange specialist review where needed.</Card>
 </CardGroup>
 
-## Review every draft the same way
+<Screenshot name="canvas-review" alt="Architecture canvas showing Mamma components and data flows" caption="Review dependencies and data flow through the diagram." />
 
-1. <strong>Set the scope.</strong> Name the source files, product version, time period, and repository commit.
-2. <strong>Check the original evidence.</strong> Open source material instead of relying on search snippets. If a source does not appear, check indexing and access.
-3. <strong>Ask for a reviewable format.</strong> Request a table, comparison, announcement, or checklist with source IDs, review status, and unresolved items.
-4. <strong>Compare the draft with the sources.</strong> Separate facts from suggestions. Keep items that need an owner unconfirmed until someone verifies them.
+## A shared workflow
 
-<Note>Connecting a service does not automatically index every external item. Check [knowledge search scope](/en/knowledge/rag) and each [connector's read scope](/en/guides/connectors). When reusing a generated answer, check its original evidence and date.</Note>
+1. **Understand the current state.** Choose the repository, reference branch, and source documents. Ask in chat for architecture diagrams and feature explanations.
+2. **Review as a person.** Compare unexpected structure, edge cases, and components that appear to share a role against source code.
+3. **Agree in an improvement document.** Record the reason, scope, acceptance criteria, and open questions.
+4. **Let the coding agent read it.** Ask Claude Code or Codex to read the improvement document through Specify MCP, then implement and test.
+5. **Review again after changes.** Compare linked documents and canvases updated after the push with the current code and continue the review.
 
+<Note>When components look similar, a person checks the source to decide whether to reuse or consolidate them. Repository-linked documents and canvases update directly, so review the saved result and edit history afterward.</Note>
 
-## Practice with the sample materials
+## When you need certification preparation
 
-The questionnaire, handover, and customer-update examples share the <a href="/examples/en/relaydesk-demo.zip" download="relaydesk-demo.zip">RelayDesk Demo material pack</a>. It contains fictional policies, an older FAQ, change notes, and a fixed code copy so you can compare differences between sources. It contains no real customer information or actual Specify security policies.
-
-Each guide includes screens from actual source-grounded app execution, example requests, and human review checks. The medical device guide provides its own separate code example.
+Create and manage drafts in Specify and select specialist help where needed. Check the relevant fields and scope at [Specify certification support](https://certify.specify.app). Document preparation and certification decisions are separate.

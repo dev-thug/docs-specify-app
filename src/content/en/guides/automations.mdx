@@ -1,53 +1,27 @@
-Automations schedule the agent to run a prompt on a set schedule. Hand off recurring summaries such as "Summarize last week's activity every Monday," and the results arrive in your Inbox.
+Keep linked documents and architecture canvases current when code reaches GitHub. Automatic updates are configured through the repositories connected to each document or canvas.
 
-## Automations list
+## Start automatic updates
 
-See your workspace's automations under **Settings** → **AI Agent** → **Automations**.
+1. [Connect GitHub](/en/guides/github) and create a document or canvas.
+2. In the content, open **Connections** → **Manage connections** → **Event connections** and check the repository.
+3. The next push to the displayed default branch triggers analysis of relevant changes.
 
-<Screenshot name="settings-automations" alt="The Automations settings page with a description, a New automation button, and a message that there are no automations yet" />
+Connect documents and canvases separately. Multiple outputs can use the same repository, and one output can be linked to several repositories.
 
-## Create an automation
+<Screenshot name="document-connections" alt="Content connection showing the Mamma develop branch and Connected status" caption="Check the repository link and target branch for each document and canvas." />
 
-<Steps>
-  <Step title="Open a new automation">
-    On the Automations page, select **New automation**.
-  </Step>
-  <Step title="Write a name and prompt">
-    In **Name**, enter a name that identifies the automation (for example, "Weekly activity summary"). In **Prompt**, describe specifically what the agent should do on each run.
-  </Step>
-  <Step title="Choose an agent role">
-    In **Agent role**, choose the role that handles the task. The default is **Specify (default)**.
-  </Step>
-  <Step title="Set the frequency and time">
-    Choose a **Frequency** (for example, Weekly), a **Time**, and, depending on the frequency, a **Day of week** or **Day of month**. Times use your local timezone.
-  </Step>
-  <Step title="Save">
-    Select **Save**, and the automation runs starting at the next scheduled time.
-  </Step>
-</Steps>
+## What a run does
 
-<Screenshot name="automation-form" alt="The New automation dialog with Name, Prompt, Agent role, Frequency, Time, and Day of week fields and a Save button" />
+The agent checks the diff, the current branch, and the existing content, then edits relevant parts directly. It can preserve the document when the relevant information is already current. For canvases, it updates related elements in the existing design.
 
-## Example of a good prompt
-
-```text
-Find the documents that were created or modified in the workspace over the last 7 days
-and summarize what changed in each document in one line.
-At the end, recommend 3 documents the team should review, with the reason for each.
-```
-
-- State the time period, the targets, and the output format clearly.
-- To keep the result as a document, ask for it explicitly, for example "Save the result to a 'Weekly Summary' document."
+With consecutive pushes, a newer run may replace an earlier one. Check that the final result matches the current code.
 
 ## Check run results
 
-When an automation runs, a task card appears in the [Inbox](/en/workspace/tour). On the card, check the request, result summary, and progress timeline.
+Open **Connections** → **Run history** to view execution status and analysis coverage in the inbox. Also inspect the saved document or canvas. Use document history to inspect and revert AI changes.
 
-## Models and usage
+## Pause or disconnect
 
-- Automations use the **Default AI Model** in the **Workspace general** settings. Depending on the role, a better-suited model may be selected. See [Choosing a model](/en/models/choosing).
-- Automation runs also use the workspace AI budget. For automations that run often, keep the prompt scope narrow.
+The agent editing lock stops automatic updates while allowing people to edit. To stop reflecting future pushes, uncheck the repository under **Event connections**.
 
-## Daily briefing
-
-The daily briefing, which you turn on from the **Today's briefing** card in chat, is also a kind of automation. It analyzes your workspace every day and recommends what to do next, and it's available starting with the Pro plan. To turn it off or delete it, manage it from the automations list.
+If an update does not run, check GitHub status, the owner's GitHub usage setting, repository access, and content write permissions. See [Manage connections](/en/guides/automation-settings).

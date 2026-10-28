@@ -1,35 +1,31 @@
-Use a document project's **Automation settings** to manage connected repositories, how docs are updated, and writing defaults. Project settings are split into **Project**, **Sources**, **Automation**, and **Writing** sections.
+Automatic updates use the repositories linked to each document or canvas. Check the connections and branches under **Connections**. The content owner manages these settings.
 
-## Repositories and push triggers
+## Link or unlink a repository
 
-In the **Sources** section, connect the repositories and branches used as evidence for your docs. Turn on **Trigger on push** for a source to have Specify prepare proposed document updates whenever you push code to that branch.
+1. Open the document or canvas.
+2. Open **Connections** → **Manage connections** → **Event connections**. You can also use **Event connections** in the content menu.
+3. Check a repository to link it. Uncheck it to stop future push updates from that repository.
 
-<Tip>
-  If you turn on the push trigger only for the default branch (for example, `main`), changes on work-in-progress branches won't mix into your proposed updates.
-</Tip>
+The list shows each repository and branch. New connections use the repository's default branch. You can link multiple repositories; configure documents and canvases individually.
 
-## Writing skill
+## Read the connection status
 
-The **Writing skill** is the writing discipline the agent follows when it generates docs. Choose a skill that fits the document type, and add auxiliary skills if needed. You can select up to 5 auxiliary skills.
+**Connections** shows repositories, linked branches, and GitHub connection status. Use the refresh action to check again.
 
-## Default output folder
+- Reconnect GitHub in the workspace if the connection was removed.
+- Restore a suspended app installation on GitHub.
+- Refresh an unknown status, then check access permissions.
 
-Choose the folder where generated docs are saved. If you don't choose one, they're saved in the current project folder.
+An active GitHub connection still requires the owner's GitHub usage setting, repository access, and content write permission for updates to run.
 
-## Project style guide
+<Screenshot name="document-connections" alt="Content connection showing the Mamma develop branch and Connected status" caption="Check the repository link and target branch for each document and canvas." />
 
-Write the Markdown rules to apply to this project's docs. Because it's more specific than the [workspace style guide](/en/workspace/settings#document-style-guide), the project style guide wins when they conflict. If you leave it empty, only the workspace guide applies.
+## Agent editing lock
 
-```md title="Example project style guide"
-## Tone
-- Prefer prose over tables
-- Name the owning team in each section
+Use the agent editing lock to pause automatic updates while people refine the content. Unlock it to allow updates again. Check the inbox for subsequent execution results.
 
-## Terminology
-- Write "customer" instead of "user"
-- Format API names as code (`like_this`)
-```
+## Update scope and results
 
-## Apply policy
+The agent reads the existing linked content and changes relevant source-supported facts. It is instructed to preserve the document's language, purpose, unrelated sections, and protected content. Canvas updates likewise use existing objects and layout.
 
-Whether proposed updates are applied automatically follows your project settings and the policy applied to your workspace. New projects start without automatic updates, and when automatic updates are allowed, low-risk changes may be approved automatically. For the review flow, see [Review and apply proposed updates](/en/guides/review-proposals).
+Open **Run history** and [review automatic updates](/en/guides/review-proposals).

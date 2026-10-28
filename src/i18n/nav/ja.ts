@@ -11,7 +11,7 @@ export const jaNav: NavLabels = {
   groups: {
     "first-steps": "最初のステップ",
     workspace: "ワークスペース",
-    writing: "ドキュメント作成とAI",
+    writing: "設計・キャンバスとAI",
     automation: "ドキュメント自動化",
     extend: "オートメーションと拡張",
     "use-cases": "活用ガイド",
@@ -23,17 +23,15 @@ export const jaNav: NavLabels = {
   pages: {
     intro: {
       title: "Specifyの概要",
-      description:
-        "Specifyは開発ドキュメントを自動化するツールです。GitHubのコード変更と関連ドキュメントをつなぎ、根拠のある修正案を用意します。",
+      description: "コードを設計図と機能文書で理解してレビューします。可視化、認証文書、MCPから目的に合わせて始めます。",
     },
     quickstart: {
       title: "クイックスタート",
-      description: "ワークスペースを作成し、GitHubリポジトリを接続して最初の開発ドキュメントを生成するまでの流れを説明します。",
+      description: "GitHubから最初の文書を作成し、設計図をレビューして改善内容をコーディングエージェントにつなげます。",
     },
     concepts: {
       title: "主要な概念",
-      description:
-        "ワークスペース、ノード、ドキュメントプロジェクト、修正案、スキルなど、Specifyを理解するために必要な概念をまとめます。",
+      description: "ワークスペース、文書、キャンバス、チャット、リポジトリ接続、編集履歴、MCPの関係を学びます。",
     },
     "workspace/tour": {
       title: "画面ツアー",
@@ -48,17 +46,21 @@ export const jaNav: NavLabels = {
       title: "設定の概要",
       description: "アカウント、ワークスペース、AIエージェント、プラン・使用量の設定がどこにあり、何を変更できるかをまとめます。",
     },
+    "guides/canvas": {
+      title: "アーキテクチャ図とキャンバス",
+      description: "キャンバスを直接編集し、下部の指示と選択項目からエージェントと設計を改善します。",
+    },
     "guides/editor": {
       title: "ドキュメントの作成と編集",
-      description: "ドキュメントを作成し、ブロックコマンド、ステータス、共有、ファイルのアップロードでチームのドキュメントを整理する方法です。",
+      description: "文書とキャンバスを編集し、エージェント編集ロック、編集履歴、元に戻す操作で結果を管理します。",
     },
     "guides/automations": {
-      title: "オートメーション",
-      description: "決められたスケジュールでエージェントがプロンプトを実行するように、オートメーションを作成・管理します。",
+      title: "文書の自動更新",
+      description: "リポジトリのpushで接続した文書とキャンバスを更新する流れと確認事項です。",
     },
     "guides/plugins-skills": {
-      title: "プラグインとスキル",
-      description: "公式プラグインをインストールし、スキルで繰り返し作業の手順をエージェントに伝える方法です。",
+      title: "ツールとスキル",
+      description: "コネクタとスキルを管理し、繰り返す作業の手順をエージェントに伝えます。",
     },
     "guides/connectors": {
       title: "コネクターの接続",
@@ -92,54 +94,58 @@ export const jaNav: NavLabels = {
       description: "ワークスペースにGitHubアカウントとリポジトリを接続する方法と、組織リポジトリの承認手順を説明します。",
     },
     "guides/doc-projects": {
-      title: "ドキュメントプロジェクトの作成",
-      description: "GitHubソース、ドキュメント種別、更新方式を選択して、コードに基づくドキュメントプロジェクトを作成します。",
+      title: "コードから文書・設計図を作る",
+      description: "リポジトリを読み、機能文書とアーキテクチャキャンバスを作成して根拠を確認します。",
     },
     "guides/review-proposals": {
-      title: "修正案のレビューと反映",
-      description: "コード変更によって用意されたドキュメントの修正案を、根拠とあわせてレビューし反映する流れを説明します。",
+      title: "自動更新の結果を確認",
+      description: "接続した文書・キャンバスの直接更新と編集履歴を確認し、必要に応じて元に戻します。",
     },
     "guides/automation-settings": {
-      title: "自動化の詳細設定",
-      description: "pushトリガー、作成スキル、出力フォルダ、プロジェクトのスタイルガイドでドキュメント自動化を調整します。",
+      title: "リポジトリ接続の管理",
+      description: "文書・キャンバスごとのリポジトリ接続と自動更新の範囲を管理します。",
     },
     "guides/medical-device-docs": {
-      title: "医療機器ソフトウェアの開発文書自動化",
-      sidebarTitle: "医療機器の開発文書",
-      description: "医療機器の開発文書の不足を見つけにくい。コード根拠付きの要求・設計・SOUPの下書きとギャップレポートを作ります。担当者と専門家が漏れや未確定項目を確認します。",
+      title: "医療機器文書と認証準備",
+      description: "製品資料とコードを根拠に認証文書の草案を作成し、専門家による確認事項を整理します。",
     },
     "guides/use-cases": {
       title: "自分の業務に合う活用例を探す",
       sidebarTitle: "活用例一覧",
-      description: "企画・開発・顧客対応・品質業務の問題を選び、必要な資料とSpecifyで解決する手順・成果を確認します。",
+      description: "アーキテクチャ設計、企画・開発、顧客対応、品質業務の目的から、準備資料と進め方を確認します。",
+    },
+    "guides/architecture-design": {
+      title: "ペルソナと進めるアーキテクチャ設計",
+      sidebarTitle: "アーキテクチャ設計",
+      description: "技術リードのジミンと、Mamma（育児アプリ）の現状把握、代替案比較、目標設計、決定文書、MCPでの実装を進めます。",
     },
     "guides/planning-with-mcp": {
       title: "企画変更をMCPで開発につなぐ",
       sidebarTitle: "企画・開発の協業",
-      description: "企画が変わっても開発は古い文書を見ている。Specifyの同じ文書に企画を整理し、Claude Code・CodexからMCPで再読します。変更条件を実装計画とテストに合わせます。",
+      description: "企画と現在の実装を一緒に確認して改善文書を作り、MCPを通じて実装・テストにつなげます。",
     },
     "guides/security-questionnaires": {
       title: "顧客のセキュリティ質問票への回答を準備する",
       sidebarTitle: "セキュリティ質問票",
-      description: "顧客のセキュリティ質問にどの回答を使うか迷う。最新ポリシーと過去の回答を照合し、回答・根拠・確認状態を作ります。担当者への確認が必要な質問をまとめます。",
+      description: "ポリシーと運用証跡を集め、セキュリティ質問への回答・根拠・担当者の確認事項を準備します。",
     },
     "guides/project-handover": {
       title: "コードとチーム資料から引き継ぎ文書を作る",
       sidebarTitle: "プロジェクトの引き継ぎ",
-      description: "担当者が変わっても実装範囲が分からない。企画メモとコードを照合し、実装済み機能と未完了の要望を分けます。実行方法と次の担当者の確認一覧を残します。",
+      description: "企画資料とコードを照合し、実装範囲、起動手順、次の担当者の確認事項をまとめます。",
     },
     "guides/customer-updates": {
       title: "変更内容を顧客向け案内とFAQにまとめる",
       sidebarTitle: "顧客向け案内とFAQ",
-      description: "リリース案内とFAQが食い違う。変更資料と既存FAQから顧客案内とFAQ修正案を作ります。変更する説明と維持する上限・条件を合わせます。",
+      description: "変更資料と既存FAQを根拠に、顧客案内と回答を同じ基準で整理します。",
     },
     "guides/api-docs": {
       title: "APIドキュメントを最新に保つ",
-      description: "APIは変わったのに文書や例が古いまま。GitHub変更を根拠付きの文書修正案につなげます。関連文書のリクエスト・レスポンス・例を照合して反映します。",
+      description: "コードとAPI説明を照合し、接続した文書の直接更新をリクエスト・レスポンス・例と併せて確認します。",
     },
     "guides/onboarding-docs": {
       title: "オンボーディングドキュメントの生成",
-      description: "新メンバーがインストールと実行でつまずく。リポジトリからインストール・実行・コード探索の案内を作ります。チーム手順を補完し、新しい環境で試して改善します。",
+      description: "新しいメンバーの初回起動とコード理解を支える、セットアップ・起動・探索の手順とチームの進め方を整理します。",
     },
     "guides/ask-ai": {
       title: "AIチャットと質問",
@@ -171,7 +177,7 @@ export const jaNav: NavLabels = {
     },
     "resources/glossary": {
       title: "用語集",
-      description: "ワークスペース、ドキュメントプロジェクト、修正案、RAG、MCPなど、Specifyのドキュメントと製品で使われる用語を一行で定義します。",
+      description: "ワークスペース、文書、キャンバス、リポジトリ接続、編集履歴、RAG、MCPの用語を学びます。",
     },
     "resources/faq": {
       title: "よくある質問",

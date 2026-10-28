@@ -1,69 +1,48 @@
-This guide walks you through creating a workspace, connecting a GitHub repository, and generating your first developer document. By the end, you'll have one document generated from your code and a document project that's ready to receive proposed updates as the code changes.
+Create your first document from a GitHub repository, review its architecture, and record improvements. Read generated results alongside the actual implementation.
 
-## Prerequisites
+## Before you begin
 
-- A **GitHub repository** with the code you want to document, either personal or owned by an organization
-- For an organization repository, the ability to get **approval from a GitHub organization admin**
-- **Editor or higher permissions** in the workspace so you can create document projects (whoever creates a workspace first is its owner)
-- A **Pro, Max, Team, or Enterprise** plan. Document projects are a paid plan feature. The Pro and Team plans can start with a 14-day free trial.
+- A Specify account and workspace
+- A GitHub repository connected with permission for Specify to read it
+- Workspace administrator access to connect GitHub
 
-<Note>
-  On the Free plan, you can still use document writing, AI chat, and [Workspace RAG](/en/knowledge/rag). If you'd like to look around first, start with [Tour the interface](/en/workspace/tour).
-</Note>
+See [official pricing](https://specify.app/pricing) for available features and plans.
 
 ## Create your first document
 
 <Steps>
-  <Step title="Sign up and create a workspace">
-    Sign up at [specify.app](https://specify.app/en) and create a workspace. You can start on the free plan without a credit card. To use document projects, switch to the Pro plan or higher (see [Plans](/en/resources/plans)).
-  </Step>
-  <Step title="Open Create project">
-    Select the **New (+)** button in the sidebar, then choose **Create project**. The **Document project setup** tab opens in the center.
+  <Step title="Open your workspace home">
+    Sign in and select the workspace to use. Open **Home** in the sidebar.
 
-    <Screenshot name="new-menu" alt="The sidebar New menu showing Create project, New Document, New Chat, and Add External Node" />
+    <Screenshot name="workspace-home" alt="Workspace home with the action to create a document from a repository" />
   </Step>
-  <Step title="Connect GitHub">
-    In the Source step, select **Connect GitHub**, then grant Specify access to the GitHub account and repositories it should read.
+  <Step title="Choose a repository">
+    Select **Create docs from GitHub**. If this is your first connection, use **Connect GitHub** to choose which repositories Specify can access. Otherwise, the repository list appears.
 
-    <Screenshot name="project-wizard-source" alt="The Source step of Create document project with a Connect GitHub button" />
-
-    Organization repositories connect after a GitHub organization admin approves the request. Once it's approved, select reconnect on the same screen to finish. For details, see [Connect GitHub](/en/guides/github).
+    <Screenshot name="github-repositories" alt="Selecting a connected GitHub repository" />
   </Step>
-  <Step title="Choose a source">
-    Pick a **GitHub account**, choose the **Repository** and **Branch** to document, then select **Next**. This repository and branch become the evidence for every document and proposed update that follows.
+  <Step title="Start document generation">
+    Select the repository and choose **Create document**. A request to read its default branch starts in chat. The English UI requests an English document.
   </Step>
-  <Step title="Choose document types">
-    In the **Documents** step, select the document skills the agent should create first. If there's something to emphasize this time, describe the audience, the topics to emphasize, and the level of detail you want in **Focus for this run (optional)**. For example, you could write "Center it on the deployment procedure."
-  </Step>
-  <Step title="Choose an update mode">
-    In the same step, turn on **Automatically update on repository changes** to have Specify prepare proposed document updates whenever code lands on the selected branch. Skills that regenerate the whole document every time don't support automatic updates; regenerate those when you need to.
-  </Step>
-  <Step title="Confirm your first document is generated">
-    Select **Create N document types**, and the document agent writes the selected documents. You can close this screen. The **Inbox** keeps tracking the generation task and shows completed, failed, and try-again options.
+  <Step title="Inspect the saved result">
+    Follow progress in chat and open the generated document. Check its source paths, key features, and limitations against the repository. Continue in the same chat if there are errors or questions.
   </Step>
 </Steps>
 
-<Tip>
-  Start with a single document. After you review the generated document with your team, you can generate additional guides or references in the same project folder.
-</Tip>
+## Continue with diagrams and improvement documents
 
-## After generation finishes
+Try this request in chat:
 
-Generated pages keep links to their sources, so you can review later repository changes against precise evidence. Continue with the next steps.
+> Create an architecture canvas showing the main components and call flow in this repository. Use the source paths in the document as evidence and list questions for connections that need further verification.
 
-<CardGroup cols={2}>
-  <Card icon="workflow" title="Review and apply proposed updates" href="/en/guides/review-proposals">How to review the proposed updates that arrive when code changes.</Card>
-  <Card icon="users" title="Invite your team and manage roles" href="/en/workspace/members">Invite teammates and assign roles.</Card>
-  <Card icon="terminal" title="Connect a coding agent" href="/en/mcp/connect">Let Claude Code and Codex reference your workspace docs.</Card>
-  <Card icon="message" title="Ask AI" href="/en/guides/ask-ai">Ask questions grounded in the generated docs and code context.</Card>
-</CardGroup>
+Read the diagram to identify differences from your intent, then record the evidence and desired behavior in an improvement document. Your coding agent can read it through MCP and update the actual code.
 
-## Troubleshooting
+<Note>To update content when code changes, link each document and canvas to its repository. Using a repository during generation is separate from linking it for automatic updates. Automatic updates edit linked content directly, so inspect the edit history afterward.</Note>
 
-| Symptom | What to check |
-| --- | --- |
-| The repository list is empty | Check that the selected GitHub account has repositories that Specify is allowed to access. Organization repositories require organization admin approval. |
-| Document generation doesn't start on the Free plan | Document projects are available on the Pro plan or higher. See [Plans](/en/resources/plans). |
-| You can't create a document project | Viewers can't create document projects. Ask a member with edit permissions. If workspace writes are locked, check your subscription status. |
-| Generation is taking a long time | The Inbox keeps tracking the task even if you close the screen. When it finishes, you can see the result in the Inbox. |
-| Generation shows that it needs attention | Your project is saved. Check the reason shown, then try again or change the source. |
+## Next steps
+
+- [Check the GitHub connection](/en/guides/github)
+- [Create documents and canvases](/en/guides/doc-projects)
+- [Manage repository links](/en/guides/automation-settings)
+- [Connect a coding agent through MCP](/en/mcp/connect)
+- [Prepare certification documents](/en/guides/medical-device-docs)

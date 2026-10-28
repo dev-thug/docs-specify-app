@@ -1,0 +1,107 @@
+Follow a technical lead who works with coding agents to understand the current architecture, design the next feature, and carry the decision into implementation. Use the record-saving flow in Mamma (a parenting app) as the starting point.
+
+## Persona and goal
+
+**Jimin is the technical lead of a three-developer team.** The team builds a parenting record service with coding agents. Jimin wants to design how users can keep writing records and checking save results as connectivity changes.
+
+| Area | What to decide |
+| --- | --- |
+| User experience | How to show drafts, saving progress, and completion |
+| Architecture | Which parts of the existing UI and save path to reuse, and which responsibilities to add |
+| Quality criteria | How to verify retries, duplicate saves, and reopening the app |
+| Deliverables | Current-state canvas, target-state canvas, decision document, and implementation/test checklist |
+
+<Note>Jimin and the added requirements form a fictional workflow scenario. The screenshots show documents and canvases generated from actual Mamma code. Manage the target design separately from the current implementation.</Note>
+
+## Gather the inputs
+
+- A repository and reference branch available through the [GitHub connection](/en/guides/github)
+- Current feature documentation and requirements describing the user’s situation
+- APIs, data structures, permissions, and deployment/operating constraints to preserve
+- User scenarios and test criteria that define completion
+
+Jimin starts with one flow: “write a record → request a save → check the result.” This scope narrows both the code the AI reads and the questions a person needs to decide.
+
+## Map the current architecture
+
+Specify the repository and relevant documents in chat, then request a document and canvas explaining the current calls and responsibilities.
+
+```text
+Read the record-entry and saving flow in the Mamma repository.
+Create a current-state canvas showing calls between the UI, state management,
+save commands, and data access layer. Include source paths for key explanations.
+Separate code-confirmed behavior from questions to investigate.
+Save a separate document describing the current implementation.
+```
+
+<Screenshot name="canvas-review" alt="Current architecture canvas generated from Mamma code" caption="A shared view of the existing structure helps the team decide where new responsibilities belong." />
+
+Jimin checks each arrow against the source. The review covers where saving starts, where results return to the UI, and the access boundaries between users and data.
+
+## Refine the design with the agent at the bottom
+
+Open the current-architecture canvas and enter a change in **Ask to edit this canvas…** at the bottom. Jimin groups components by layer and selects shapes or connections to ask about their roles and alternatives. Close the AI panel for more design space while continuing the same conversation.
+
+<Screenshot name="canvas-command" alt="Requesting improvements to Mamma architecture from the bottom composer" caption="Identify the target and what to preserve while viewing the design." />
+
+```text
+Explain the responsibilities and connection directions of the selection.
+Preserve current architecture and propose where retry responsibility could belong.
+Create target architecture in a separate canvas.
+```
+
+Follow [Architecture diagrams and canvases](/en/guides/canvas) for direct drawing, selection-based requests, and save checks.
+
+## Compare alternatives and draw the target
+
+Keep current and target architecture in separate canvases. For example, Jimin asks the agent to compare **retries through the existing save path** with **a separate pending-save queue**. These are design candidates for the added requirement.
+
+```text
+Compare two designs using the current architecture and record-saving requirements.
+Option A uses the existing save path; option B adds a pending-save queue.
+Make a table of changed modules, record identifiers, save ordering, duplicate handling,
+permissions, user-visible states, and test scope.
+List assumptions and validation questions, then draw a target architecture draft.
+Keep the current-state canvas and save a separate target-state canvas.
+```
+
+| Criterion | Review question |
+| --- | --- |
+| Responsibility | Which layer owns save state and retries? |
+| Consistency | Which identifier and processing rules apply when the same record is sent again? |
+| User experience | What evidence distinguishes saving from completion? |
+| Permissions | How are existing user and family access boundaries preserved? |
+| Implementation and operations | What additional storage, deployment work, observability, and testing are needed? |
+
+## Record the design decision
+
+After choosing an option, Jimin asks chat to document the rationale and scope. Include the **selected design, alternatives considered, interfaces to preserve, data flow, acceptance criteria, and open questions**.
+
+<Screenshot name="chat-review" alt="Chat summarizing Mamma record flow and review points from a document" caption="Narrow the review questions and turn the agreed outcome into a design document." />
+
+Example acceptance criteria include “saving the same record again results in one record” and “the save status is available after reopening the app.” Turn the team’s agreed conditions into tests for success, retries, permissions, and reconnection.
+
+## Have the coding agent read and implement the design
+
+Ask a coding agent connected through [Specify MCP](/en/mcp/connect) to read the decision document and target canvas. The document and canvas reading tools provided by your MCP connection give it the same context.
+
+```text
+Read the Mamma record-saving decision document and target canvas through Specify MCP.
+Compare them with the current code and outline the modules to change and the work order.
+Implement the acceptance criteria and test success, retries, permissions, and reconnection.
+Collect policy questions that need an additional decision.
+```
+
+## Reconcile the design after the next change
+
+After implementation, link each document and canvas describing the current state to the repository. Inspect updated results and edit history after pushes to the linked branch. Keep the target design document as the agreed reference, then compare it with current-state material to check acceptance criteria.
+
+See [Manage repository links](/en/guides/automation-settings) for setup and [Check automatic updates](/en/guides/review-proposals) for review.
+
+## Completion checklist
+
+- Current and target architecture have distinct roles.
+- New responsibilities, existing interfaces, and data flows are explained.
+- The decision document records the rationale and acceptance criteria.
+- The coding agent has read the same document and recorded implementation and test results.
+- A person has checked the current architecture against the changed code.

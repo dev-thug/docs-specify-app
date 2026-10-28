@@ -1,31 +1,30 @@
-기획이 바뀌어도 개발은 옛 문서를 보고 있나요? 고객 답변의 근거를 찾기 어렵거나, 코드와 설명이 서로 다른가요? **지금 겪는 문제와 가까운 사례**를 골라 Specify에서 준비할 자료, 실행할 작업, 검토할 결과를 확인하세요.
+구조와 동작을 시각화해 리뷰하고, 합의한 내용을 개선 문서로 남기세요. 코딩 에이전트가 MCP로 읽어 구현한 뒤, 다음 push에 맞춰 연결된 문서와 캔버스를 확인하며 개선을 이어갈 수 있습니다.
 
-## 지금 겪는 문제로 사례 고르기
-
-각 가이드는 문제 상황부터 시작해 Specify로 해결하는 순서와 결과물을 안내합니다. 처음에는 예제나 작은 문서로 따라 해 보고, 같은 흐름에 팀의 자료를 넣어 활용하세요.
+## 지금 필요한 사례 고르기
 
 <CardGroup cols={2}>
-  <Card icon="workflow" title="기획이 바뀌었는데 개발은 옛 문서를 볼 때" href="/ko/guides/planning-with-mcp" cta="기획자·PM·개발자용">기획을 Specify의 같은 문서에 정리하고 Claude Code·Codex에서 MCP로 다시 읽습니다. 변경된 조건을 구현 계획과 테스트에 맞춥니다.</Card>
-  <Card icon="shield" title="고객 보안 질문에 어떤 답을 써야 할지 모를 때" href="/ko/guides/security-questionnaires" cta="영업·보안 담당자용">최신 정책과 과거 답변을 비교해 질문별 답변·근거·확인 상태를 만듭니다. 담당자가 확인할 질문을 따로 모읍니다.</Card>
-  <Card icon="users" title="담당자가 바뀌는데 구현 범위를 모를 때" href="/ko/guides/project-handover" cta="개발·외주·유지보수용">기획 메모와 코드를 대조해 완료 기능과 미구현 요청을 구분합니다. 실행 방법과 다음 담당자의 확인 목록을 남깁니다.</Card>
-  <Card icon="message" title="릴리스 안내와 FAQ가 서로 다를 때" href="/ko/guides/customer-updates" cta="PM·CS·마케팅용">변경 자료와 기존 FAQ로 고객 안내·FAQ 수정안을 함께 준비합니다. 바뀐 설명과 유지할 한도·조건을 맞춥니다.</Card>
-  <Card icon="file-search" title="의료기기 개발 문서의 빈 곳을 찾기 어려울 때" href="/ko/guides/medical-device-docs" cta="개발·규제·품질 담당자용">코드 근거가 있는 요구사항·설계·SOUP 초안과 갭 리포트를 만듭니다. 담당자와 전문가가 누락·미확정 항목을 검토합니다.</Card>
-  <Card icon="git" title="API는 바뀌었는데 문서와 예시가 그대로일 때" href="/ko/guides/api-docs" cta="API 개발팀용">GitHub 변경을 근거가 있는 API 문서 수정안으로 연결합니다. 관련 문서의 요청·응답·예시를 대조한 뒤 반영합니다.</Card>
-  <Card icon="book" title="새 팀원이 설치와 실행부터 막힐 때" href="/ko/guides/onboarding-docs" cta="새 팀원·개발팀용">저장소를 읽어 설치·실행·코드 탐색 순서를 안내합니다. 팀 절차를 보완하고 새 환경에서 따라 해 보며 문서를 고칩니다.</Card>
+  <Card icon="blocks" title="새 기능의 아키텍처 설계하기" href="/ko/guides/architecture-design">기술 리드 지민과 맘마(육아 앱)의 현재 구조를 파악하고 대안을 비교해 목표 설계와 구현 기준을 만듭니다.</Card>
+  <Card icon="workflow" title="기획과 구현을 같은 문서로 맞추기" href="/ko/guides/planning-with-mcp">현재 동작과 기획을 비교해 개선 문서를 만들고 코딩 에이전트가 MCP로 읽게 합니다.</Card>
+  <Card icon="git" title="API 설명과 호출 흐름 확인하기" href="/ko/guides/api-docs">핸들러와 스키마를 근거로 문서를 만들고 push 후 연결된 문서의 갱신을 확인합니다.</Card>
+  <Card icon="book" title="새 팀원의 코드 이해 돕기" href="/ko/guides/onboarding-docs">저장소 지도와 아키텍처를 보고 설치·실행·테스트 순서를 검증합니다.</Card>
+  <Card icon="users" title="담당자 변경에 대비하기" href="/ko/guides/project-handover">구현 범위, 요청, 미확인 운영 정보를 나눠 다음 담당자가 이어갈 수 있게 합니다.</Card>
+  <Card icon="message" title="릴리스 안내와 FAQ 맞추기" href="/ko/guides/customer-updates">현재 제공 범위와 제한을 같은 근거로 설명하고 담당자가 공개 전 검토합니다.</Card>
+  <Card icon="shield" title="보안 질문의 근거 확인하기" href="/ko/guides/security-questionnaires">정책과 운영 증적을 대조해 답변 초안과 담당자 확인 항목을 만듭니다.</Card>
+  <Card icon="file-search" title="의료기기 문서와 인증 준비하기" href="/ko/guides/medical-device-docs">코드 근거가 있는 초안을 관리하고 필요한 전문 검토를 연결합니다.</Card>
 </CardGroup>
 
-## 결과를 검토하는 공통 순서
+<Screenshot name="canvas-review" alt="맘마의 구성요소와 데이터 흐름을 보여주는 아키텍처 캔버스" caption="설계도에서 의존 관계와 데이터 흐름을 리뷰합니다." />
 
-1. <strong>범위를 정합니다.</strong> 자료 이름, 제품 버전, 대상 기간과 저장소 커밋을 지정합니다.
-2. <strong>근거 원문을 확인합니다.</strong> 검색 결과만으로 단정하지 말고 원문을 엽니다. 검색되지 않으면 색인 상태와 접근 권한도 확인합니다.
-3. <strong>검토하기 쉬운 형식으로 요청합니다.</strong> 표·비교표·안내문·체크리스트와 함께 출처 ID, 확인 상태, 미확정 항목을 요청합니다.
-4. <strong>초안을 원문과 대조합니다.</strong> 사실과 제안을 구분하고, 담당자 확인이 필요한 내용은 해결되기 전까지 미확정으로 둡니다.
+## 공통으로 따라갈 순서
 
-<Note>커넥터를 연결해도 모든 외부 자료가 자동으로 색인되지는 않습니다. [자료 검색 범위](/ko/knowledge/rag)와 각 [커넥터의 읽기 범위](/ko/guides/connectors)를 확인하세요. 생성한 답을 다시 사용할 때도 원래 근거와 기준일을 확인합니다.</Note>
+1. **현재 상태를 이해합니다.** 저장소와 기준 브랜치, 참고 문서를 정하고 채팅으로 아키텍처 다이어그램과 기능 설명을 요청합니다.
+2. **사람이 리뷰합니다.** 원하던 구조와 다른 곳, 예외, 같은 역할로 보이는 구성요소를 근거 코드와 대조합니다.
+3. **개선 문서로 합의합니다.** 변경 이유, 범위, 수락 조건과 남은 질문을 정리합니다.
+4. **코딩 에이전트가 읽습니다.** Claude Code나 Codex에서 Specify MCP로 개선 문서를 읽도록 요청하고 구현·테스트를 진행합니다.
+5. **변경 후 다시 확인합니다.** push로 갱신된 연결 문서와 캔버스를 현재 코드와 비교하고 다음 리뷰를 이어갑니다.
 
+<Note>비슷한 구성요소를 발견하면 사람이 근거 코드를 확인해 재사용·통합 여부를 판단합니다. 저장소에 연결한 문서·캔버스는 직접 갱신되므로, 갱신 후 저장 결과와 편집 기록을 함께 확인하세요.</Note>
 
-## 샘플 자료로 먼저 연습하기
+## 인증 준비가 필요하다면
 
-보안 질문서·인수인계·고객 안내 사례는 공통으로 <a href="/examples/ko/relaydesk-demo.zip" download="relaydesk-demo.zip">RelayDesk Demo 자료 묶음</a>을 사용합니다. 가상의 정책, 과거 FAQ, 변경 메모, 고정된 코드 사본을 함께 제공해 자료 간 차이를 비교할 수 있습니다. 실제 고객 자료나 Specify의 실제 보안 정책은 포함하지 않습니다.
-
-각 가이드에는 실제 앱에서 원문을 참조해 작성한 화면, 요청 예시, 사람이 확인할 항목이 있습니다. 의료기기 사례의 별도 예제 코드는 해당 가이드에서 받을 수 있습니다.
+Specify에서 문서 초안을 직접 작성·관리하고 필요한 전문 지원을 선택할 수 있습니다. [Specify 인증 지원](https://certify.specify.app)에서 제품에 맞는 분야와 지원 범위를 확인하세요. 문서 준비와 인증 판단은 구분합니다.

@@ -1,31 +1,30 @@
-企画が変わっても開発者は古い文書を見ていませんか。顧客回答の根拠が見つからない、コードと説明が食い違うことはありませんか。**今の問題に近い例**を選び、用意する資料、Specifyで行う作業、確認する成果を見てください。
+構造と動作を可視化してレビューし、合意内容を改善ドキュメントに残します。コーディングエージェントがMCPで読んで実装した後、次のpushに合わせて接続した文書・キャンバスを確認し、改善を続けられます。
 
-## 今の問題から例を選ぶ
-
-各ガイドは問題から始め、Specifyで解決する順序と成果物を案内します。まず例や小さな文書で試し、同じ流れにチームの資料を使ってください。
+## 必要な事例を選ぶ
 
 <CardGroup cols={2}>
-  <Card icon="workflow" title="企画が変わっても開発は古い文書を見ている" href="/ja/guides/planning-with-mcp" cta="企画担当者・PM・開発者向け">Specifyの同じ文書に企画を整理し、Claude Code・CodexからMCPで再読します。変更条件を実装計画とテストに合わせます。</Card>
-  <Card icon="shield" title="顧客のセキュリティ質問にどの回答を使うか迷う" href="/ja/guides/security-questionnaires" cta="営業・セキュリティ担当者向け">最新ポリシーと過去の回答を照合し、回答・根拠・確認状態を作ります。担当者への確認が必要な質問をまとめます。</Card>
-  <Card icon="users" title="担当者が変わっても実装範囲が分からない" href="/ja/guides/project-handover" cta="開発・保守担当者向け">企画メモとコードを照合し、実装済み機能と未完了の要望を分けます。実行方法と次の担当者の確認一覧を残します。</Card>
-  <Card icon="message" title="リリース案内とFAQが食い違う" href="/ja/guides/customer-updates" cta="PM・CS・マーケティング向け">変更資料と既存FAQから顧客案内とFAQ修正案を作ります。変更する説明と維持する上限・条件を合わせます。</Card>
-  <Card icon="file-search" title="医療機器の開発文書の不足を見つけにくい" href="/ja/guides/medical-device-docs" cta="開発・規制・品質担当者向け">コード根拠付きの要求・設計・SOUPの下書きとギャップレポートを作ります。担当者と専門家が漏れや未確定項目を確認します。</Card>
-  <Card icon="git" title="APIは変わったのに文書や例が古いまま" href="/ja/guides/api-docs" cta="API開発チーム向け">GitHub変更を根拠付きの文書修正案につなげます。関連文書のリクエスト・レスポンス・例を照合して反映します。</Card>
-  <Card icon="book" title="新メンバーがインストールと実行でつまずく" href="/ja/guides/onboarding-docs" cta="新メンバー・開発チーム向け">リポジトリからインストール・実行・コード探索の案内を作ります。チーム手順を補完し、新しい環境で試して改善します。</Card>
+  <Card icon="blocks" title="新機能のアーキテクチャを設計する" href="/ja/guides/architecture-design">技術リードのジミンとMamma（育児アプリ）の現状を把握し、代替案を比較して目標構造と実装基準を作ります。</Card>
+  <Card icon="workflow" title="企画と実装を同じ文書に合わせる" href="/ja/guides/planning-with-mcp">現在の動作と企画を比較して改善ドキュメントを作り、エージェントにMCPで読ませます。</Card>
+  <Card icon="git" title="APIの説明と呼び出しを確認する" href="/ja/guides/api-docs">ハンドラーとスキーマを根拠に文書を作り、push後の接続先の更新を確認します。</Card>
+  <Card icon="book" title="新しいメンバーのコード理解を助ける" href="/ja/guides/onboarding-docs">リポジトリの地図と構造を見て、インストール・起動・テストの手順を検証します。</Card>
+  <Card icon="users" title="担当者の交代に備える" href="/ja/guides/project-handover">実装範囲、依頼、未確認の運用情報を分け、次の担当者につなげます。</Card>
+  <Card icon="message" title="リリース案内とFAQを合わせる" href="/ja/guides/customer-updates">現行の提供範囲と制限を同じ根拠で説明し、公開前に担当者が確認します。</Card>
+  <Card icon="shield" title="セキュリティ回答の根拠を確認する" href="/ja/guides/security-questionnaires">ポリシーと運用証跡を比較し、回答案と担当者への確認事項を作ります。</Card>
+  <Card icon="file-search" title="医療機器文書と認証を準備する" href="/ja/guides/medical-device-docs">コードを根拠とする下書きを管理し、必要な専門家のレビューにつなげます。</Card>
 </CardGroup>
 
-## どのドラフトも同じ手順で確認する
+<Screenshot name="canvas-review" alt="Mammaの構成要素とデータフローを示すアーキテクチャキャンバス" caption="設計図で依存関係とデータフローをレビューします。" />
 
-1. <strong>範囲を決めます。</strong> 資料名、製品の版、対象期間、リポジトリのコミットを指定します。
-2. <strong>元の根拠を確認します。</strong> 検索スニペットだけで判断せず、原文を開きます。検索に出ない場合はインデックスとアクセス権も確認します。
-3. <strong>レビューしやすい形式を依頼します。</strong> 表・比較・案内文・チェックリストと、根拠ID・確認状態・未解決項目を指定します。
-4. <strong>原文とドラフトを照合します。</strong> 事実と提案を分け、担当者の確認が必要な項目は確認が終わるまで未確定のままにします。
+## 共通の進め方
 
-<Note>サービスを接続しても、すべての外部資料が自動でインデックスされるわけではありません。[資料検索の範囲](/ja/knowledge/rag)と各[コネクターの読み取り範囲](/ja/guides/connectors)を確認してください。生成した回答を再利用する場合も、元の根拠と基準日を確認します。</Note>
+1. **現在の状態を理解します。** リポジトリ、基準ブランチ、参考資料を決め、チャットでアーキテクチャ図と機能説明を依頼します。
+2. **人がレビューします。** 想定と異なる構造、例外、同じ役割に見える構成要素をコードと照合します。
+3. **改善ドキュメントで合意します。** 変更理由、範囲、受け入れ条件、未決事項をまとめます。
+4. **コーディングエージェントが読みます。** Claude CodeやCodexでSpecify MCPを通じて改善ドキュメントを読み、実装とテストを進めます。
+5. **変更後に再確認します。** push後に更新された接続先の文書・キャンバスを現在のコードと比較し、次のレビューにつなげます。
 
+<Note>似た構成要素を見つけたら、人がコードの根拠を確認して再利用・統合を判断します。リポジトリに接続した文書・キャンバスは直接更新されるため、保存結果と編集履歴を併せて確認してください。</Note>
 
-## サンプル資料で練習する
+## 認証準備が必要な場合
 
-質問票・引き継ぎ・顧客案内の例は、共通の<a href="/examples/ja/relaydesk-demo.zip" download="relaydesk-demo.zip">RelayDesk Demo資料セット</a>を使います。架空のポリシー、旧FAQ、変更メモ、固定したコードを含み、資料間の相違を比較できます。実際の顧客情報やSpecifyのセキュリティポリシーは含みません。
-
-各ガイドには原文を参照して実際のアプリで作成した画面、依頼例、人が確認する項目があります。医療機器の例は、専用ガイドから別のサンプルコードを取得できます。
+Specifyで下書きを作成・管理し、必要な専門家の支援を選べます。[Specify認証支援](https://certify.specify.app)で製品に合う分野と支援範囲を確認してください。文書準備と認証の判断は区別します。

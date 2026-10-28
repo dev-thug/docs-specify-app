@@ -1,95 +1,25 @@
-Start everyday document drafting and editing with **GPT-6 Luna**. **Claude Haiku 5.5 can also handle targeted changes to sentences, tables, and multiple documents**. Choose by whether the requested changes are saved correctly and the turnaround time suits your work.
+Choose a model by checking both the result and usage. Compare the same request and source material to identify omissions and editing mistakes.
 
-## Choose for your task
+## Start with a small task
 
-| Task | Model to try first | Selection criterion |
-| --- | --- | --- |
-| Draft a short document from supplied sources | **GPT-6 Luna** | Start with Luna, then check facts and missing items. |
-| Change sentences, update tables, or edit specified sections across documents | **GPT-6 Luna · Claude Haiku 5.5** | Start with either model when the target and desired result are clear. Both completed these editing tasks. |
-| Reduce waiting time for short edits | **Also compare Claude Sonnet 5.5** | Its measured median for precise edits was about 11 seconds. Compare speed and usage on the same request. |
-| Read sources and create a complete document structure | **Start with Luna; compare GPT-6.1 Sol if needed** | Try the same sources with another model if sections are missing or explanations do not connect well. |
-| Interpret long sources or perform complex analysis and review | **Compare Sonnet, Sol, and Claude Opus 5.5** | Judge source length, depth of explanation, and citation accuracy. Review results after switching models too. |
-| Check another OpenAI model's output | **GPT-6.1 Terra** | Compare wording, structure, and turnaround time using the same sources and request. |
+**Claude Haiku 5.5** and **GPT-6 Luna** are available on the Free plan and can be used for a short draft or a specific edit. For more complex material, compare the results with another available model.
 
-## Document task performance
+- Name the document, the section to change, and what to preserve.
+- Check facts, citations, and the saved result.
+- If the result is insufficient, compare the same request with another model or reasoning effort.
 
-<Note>
-  The currently supported model is GPT-6.1 Terra. The GPT-5.6 Terra figures below are historical measurements of the previous model; GPT-6.1 Terra was not measured in this comparison.
-</Note>
+## Scope of measurements
 
-October 2026 document task records compare successful responses from document reading, creation, editing, and browsing tools on the same generation and editing requests, alongside saved results. Precise editing means **partial edits, table edits, and targeted edits across multiple documents**.
-
-| Model | Document tool call success | Precise edit completion | Median edit time |
-| --- | --- | --- | --- |
-| GPT-6.1 Sol | 100% | 100% | About 20 s |
-| GPT-5.6 Terra | 94.1% | 100% | About 24 s |
-| GPT-6 Luna | 100% | 100% | About 17 s |
-| Claude Opus 5.5 | 100% | 100% | About 21 s |
-| Claude Sonnet 5.5 | 90.9% | 100% | About 11 s |
-| Claude Haiku 5.5 | 100% | 100% | About 15 s |
-
-Tool call success measures **individual calls handled successfully**. Edit completion measures **saved documents meeting the requested edit conditions**. An edit can complete through subsequent handling even if a call fails. Time runs from editing start to execution completion and varies with document length, search scope, and server conditions. These observations cover short document tasks and do not guarantee success on every task.
-
-**Luna and Haiku both delivered the requested small edits.** Consider another model when the actual result has omissions, inaccurate evidence, or unsuitable turnaround time. When drafting new documents, check for facts that were not provided in the sources.
-
-## Choose for document automation
-
-**We recommend GPT-6 Luna as the default model for document automation.** Start with Luna when generating documents from code or applying pushed changes to related documents. In the October 11, 2026 sandbox comparison, it matched Claude Haiku 5.5 on small-repository update accuracy and covered more backend functions and screen routes in a large repository.
-
-**Compare Claude Haiku 5.5 when completion speed is your priority.** It was about twice as fast in this measurement. We recommend starting with Luna when coverage and source evidence in a large repository matter most.
-
-## Document automation measurements
-
-Under the same conditions, both models generated an API reference, a software requirements specification (SRS), and an architecture document, then applied value changes, API additions, deletions, renames, and consecutive pushes. A separate test generated an SRS for a repository containing 1,342 files. Each comparison condition was measured once per model; these are observations rather than rankings established through repeated trials.
-
-| Check | GPT-6 Luna | Claude Haiku 5.5 |
-| --- | --- | --- |
-| Small-repository update accuracy | 9/9 passed | 9/9 passed |
-| Small-repository generation and update time | 62 min | 28 min |
-| Large-repository SRS generation time | About 33 min | About 17 min |
-| Backend functions covered in the large repository | 13/16 | 10/16 |
-| Screen routes covered in the large repository | 7/51 | 1/51 |
-| Cited file paths that existed | 156/157 | 92/95 |
-
-Luna also had lower execution cost in the large repository. After fixing context accumulation that had increased Haiku's cost in the small repository, however, Haiku's total cost fell below the earlier Luna comparison run. Luna is therefore not necessarily cheaper for every task. See [Pricing](https://specify.app/pricing) for plans and rates.
-
-Both models covered few screen routes. After automation, review **missing required features and screen routes, changed values, removed descriptions, and citation evidence**. An existing file path alone does not establish that a claim is accurate. Other models were not included in this comparison, and sandbox results do not guarantee the same performance in production.
-
-Select GPT-6 Luna as the project's **Doc Generation Model**. See [Create a document project](/en/guides/doc-projects) for setup and [Review and apply proposed updates](/en/guides/review-proposals) for applying changes.
-
-## Keep documents consistent
-
-Consistency means checking **documents against code**, **facts across related documents**, and **whether citations support claims**. Assess these separately from successful tool execution or document storage.
-
-| Check | What a good result looks like |
-| --- | --- |
-| **Defaults, policies, and limits** | The overview, API reference, and operational documents describe the same current code values. |
-| **Deleted features** | No descriptions, examples, or links still present them as current; relevant change guidance is included. |
-| **Names and paths** | The saved title, body heading, and source links use the same current names. |
-| **Requests, responses, and errors** | Descriptions and examples match behavior verified in code and tests. |
-| **Citation evidence** | Paths and line ranges are valid, and the source actually supports the sentence's claim. |
-| **Existing team explanations** | Manually written content and operational explanations unrelated to the code change are preserved. |
-
-Specify **both the changed facts and the documents to check**. For example: “Compare the default limit change across the overview, API reference, and operations guide, and resolve conflicting values and unsupported explanations.” Use Luna or Haiku for clearly scoped edits first, then compare another model when source interpretation or connections across documents need improvement. Choose by **complete coverage and accurate evidence**.
-
-## When to change models
-
-- **If the desired section was not edited**, specify the document, edit location, what should change, and what should stay. If results remain insufficient, compare another model on the same request.
-- **If a long document lacks structure**, set the outline and required items first, then write section by section. Compare Sonnet, Sol, or Opus when explanation or analysis needs improvement.
-- **If code changes affect several documents**, compare values and examples across the overview, reference, and operational documents. A larger model does not guarantee complete coverage.
-- **If citations matter**, compare the answer with its cited source. Check that the source supports the explanation as well as that the link opens.
+Compare measurements from the same model version and task conditions. A controlled comparison of every current model needs further measurement. GPT-6.1 Terra is unmeasured in this guide. Treat earlier GPT-5.6 Terra measurements as evidence for that version, and compare current models using speed, accuracy, and cost from your actual tasks.
 
 ## Choose reasoning effort
 
-For short drafts and targeted edits, start with **Off** or a supported low level. Raise effort when comparing several sources or developing deeper explanations, and compare the results. Higher effort can increase time and usage. The Free plan fixes effort at **Off**.
+Start with a supported lower level and increase it when comparing sources or developing a complex explanation. The Free plan uses **Off**. Claude Opus 5.5 and GPT-6.1 Sol start at Low.
 
-## Set workspace defaults
+<Screenshot name="reasoning-settings" alt="Reasoning effort menu with six levels" caption="Open the model button, then Reasoning effort, and choose a level for the task." />
 
-Automations and document generation use workspace model settings separately from chat.
+## Check consistency between code and documents
 
-<Screenshot name="settings-workspace" alt="Workspace general settings with Default AI Model and Doc Generation Model selectors" />
+Documents and canvases linked to repositories can be updated in place after a push. After an automatic update, compare changed defaults, removed features, paths, and citations with the current code. Check that unrelated manually written content remains intact.
 
-- **Default AI Model** — Used for this workspace's automations. Start everyday document work with GPT-6 Luna and adjust based on actual results and usage.
-- **Doc Generation Model** — Used for project creation and automatic updates. Choose based on document type and actual generated results.
-
-See [Models overview](/en/models/overview) for supported models and context limits, and [Usage and AI budget](/en/models/usage) for usage management.
+See [Model overview](/en/models/overview), [Usage and AI budget](/en/models/usage), and [Document automation](/en/guides/review-proposals).

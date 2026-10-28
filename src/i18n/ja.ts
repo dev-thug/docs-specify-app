@@ -5,7 +5,7 @@ export const ja: Dictionary = {
   meta: {
     siteTitle: "Specifyドキュメント",
     siteDescription:
-      "Specify公式ドキュメント — GitHubのコード変更と開発ドキュメントをつなぐ開発ドキュメント自動化、AIドキュメント検索、MCP接続ガイド。",
+      "Specify公式ドキュメント — 設計図と機能文書でコードを理解・レビューし、認証文書を準備してMCPで知識を接続するガイド。",
   },
   header: {
     docs: "Docs",
@@ -55,6 +55,9 @@ export const ja: Dictionary = {
     copied: "コピーしました",
   },
   footer: {
+    design: "設計・可視化",
+    certify: "認証ドキュメント",
+    mcp: "Specify MCP",
     product: "製品",
     home: "Specifyホーム",
     pricing: "料金プラン",

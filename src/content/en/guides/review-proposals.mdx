@@ -1,51 +1,26 @@
-When code changes, a proposed update arrives first. Specify reads pushed changes, finds the affected docs, and prepares proposed updates for review. Applying them follows the policy your team sets.
+After an automatic update, check the run result alongside the saved document or canvas. Push-triggered work edits linked content directly. Use change history and undo to inspect or reverse the result.
 
-## How proposed updates are prepared
+## How an update runs
 
-1. Code lands on the source branch of a document project. **Trigger on push** must be on for that source.
-2. Specify compares the changes with the docs the project manages to find the affected docs.
-3. For each document, it prepares a proposed update with the evidence for the change and a before-and-after view.
+1. A push arrives on the branch linked to the content.
+2. The agent compares the diff, the current branch source, and the existing content.
+3. It updates the existing document or canvas when relevant facts have changed. It can preserve the existing content when relevant information is already current.
 
-## What a proposed update includes
+With consecutive pushes, a newer run may replace an earlier one. Check that the result reflects the latest source state.
 
-| Item | Description |
-| --- | --- |
-| **Evidence** | Which code change makes this document need an update |
-| **Before and after** | Which part of the document changes, and how |
-| **Scope** | The documents and sections the proposed update affects |
+## Open the run result
 
-## Review and apply
+Open **Connections** on the content to check the repository and branch, then select **Run history** to open the inbox. Check the run’s analysis coverage, follow-up items, and saved updates. If it reports unread files or tool errors, review those areas next.
 
-Check the evidence and the before-and-after view of the proposed update, then approve it to apply it to the document. By default, only changes that a person has reviewed and approved are applied.
+## Review the content
 
-<Note>
-  New projects start without automatic updates. You can review the changes and their evidence, and how updates are applied after that follows your project settings and the applicable policy. When automatic updates are allowed, low-risk changes may be approved automatically.
-</Note>
+- Check changed values, feature names, and API examples against the current code.
+- Compare documents and canvases for consistent components and data flows.
+- Confirm that unrelated explanations and human-written content were preserved.
+- Leave unread source areas marked as unverified and request further analysis.
 
-## Review checklist
+## Undo or pause updates
 
-- Is the code change cited as evidence actually related to the document content?
-- Are deleted or renamed items reflected consistently throughout the document?
-- Do code examples and request and response examples match the new behavior?
-- Were explanations that need human judgment (design intent, operational policy) left intact rather than overwritten by an automatic edit?
+Check document history and undo changes when needed. Use the agent editing lock while people refine content. People can continue editing while automatic updates are paused.
 
-## Project status
-
-Use the status badges in the project list to find projects that need review.
-
-| Status | Meaning |
-| --- | --- |
-| **current** | The managed docs are in sync with the source. |
-| **writing** | Document generation or an update is in progress. |
-| **needs attention** | There are changes to review or tasks that need your attention. |
-
-## Separating completion from document accuracy
-
-After completion, check the change scope and saved results. Compare values, examples, and evidence across affected documents alongside the **current** status or completion message to find omissions.
-
-- Search for changed values and policies in the overview, API reference, and operational documents and check that they agree.
-- Open evidence links and check that the actual code and tests support the explanation. A valid path and line number are not enough.
-- After renaming, check the saved document title alongside the body heading and source paths.
-- After consecutive pushes, check that the last source change appears in every affected document. Record tool errors and unread content as separate review items.
-
-See [Choosing a model](/en/models/choosing) for measurement scope and limitations.
+To stop reflecting future pushes, uncheck the repository under **Manage connections** → **Event connections**. See [Manage connections](/en/guides/automation-settings).

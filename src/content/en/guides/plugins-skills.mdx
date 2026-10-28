@@ -1,53 +1,31 @@
-A **skill** is the procedure and conditions of use an agent follows for a specific task. A **plugin** is a package that bundles several skills (along with agents, MCP servers, and event hooks), and you can install it from the official marketplace in one step.
+Skills describe when and how an agent should perform a task. Open **Tools** → **Skills** to inspect built-in and workspace skills.
 
-## Install a plugin
+## Built-in and workspace skills
 
-Browse the official marketplace under **Settings** → **AI Agent** → **Plugins**.
+Built-in skills cover code analysis, diagram creation, document writing, and source evidence. They are always enabled. Built-in skills are available for reading. Add a workspace skill for instructions tailored to your team.
 
-<Screenshot name="settings-plugins" alt="The Plugins page with Catalog and Installed tabs, category filters, and recommended plugins such as doc-quality, specify-docs, and medical-device-docs" />
+Administrators create or import workspace skills. Search the list, filter by source or enabled state, and toggle usage as needed. Members can read the list and skill contents.
 
-1. On the **Catalog** tab, filter by category (Productivity, Communication, Development, Design, Marketing, Finance, Legal) or search.
-2. Select a plugin to review its **Included components** and **Requested permissions**.
-3. Select **+** or **Install**. You can find installed plugins on the **Installed** tab and **Remove** them there.
+## Create a skill
 
-The agents in this workspace use the installed skills.
+Select **New skill** to write a skill or upload a zip. `SKILL.md` contains its name, description, and instructions. Describe when to use it in the description, and put procedures and completion criteria in the instructions.
 
-### Key official plugins
+Place `SKILL.md` at the zip root or inside a single top-level folder. Include reference material as text files. Check format errors and duplicate-name notices before saving.
 
-| Plugin | Description |
-| --- | --- |
-| **specify-docs** | Official Specify document skills |
-| **doc-quality** | Document quality review skill bundle |
-| **eng-quality** | Engineering quality skills, such as incident postmortems and technical document quality |
-| **medical-device-docs** | Medical device software document pack (IEC 62304, ISO 14971), grounded in code and standards |
-| **productivity-meetings** | Meeting productivity skills, such as organizing minutes and extracting action items |
-| **marketing-content** | Marketing content skills, such as content briefs and campaign copy |
+## Import from GitHub
 
-**medical-device-docs** searches and cites standard clauses as it writes documents. See [Standards library](/en/knowledge/standards).
+Under **Import from GitHub**, enter a public repository URL, `owner/repo`, or a folder URL and scan it. Review discovered skills and compatibility, then select the ones to import.
 
-### Import from GitHub
+Imported skills are pinned to a commit. Review instruction and tool compatibility in the import screen. Script execution is unsupported, so skills that require scripts can use part of their instructions. These skills are imported disabled; review their compatibility before enabling them.
 
-Use **Add** → **Import GitHub repo** on the Plugins page to import a plugin from a GitHub repository. Enter the **GitHub repo URL** and, optionally, a **Branch, tag, or commit**.
+## Updates and versions
 
-## Manage skills
+Use **Check for updates** in skill details to check upstream changes. Review the changes and apply the source update or keep your app edits. Save or revert any unsaved changes first.
 
-See your workspace's skills under **Settings** → **Tools & skills** → **Skills**.
+Restoring an earlier version through **Version history** creates a new version with that content and preserves the history.
 
-<Screenshot name="tools-skills" alt="The Skills page with All, My skills, Agent-learned, and Plugins tabs and a list of active skill cards" />
+## Use skills in conversations
 
-- Filter by source with the **All · My skills · Agent-learned · Plugins** tabs.
-- Select **Add** to create a new skill. Write the **Procedure** (body) in Markdown along with a name, description, version, and tags.
-- Pin skills you use often to keep them at the top of the list.
-- Use **Export SKILL.md** to download a skill as a file.
+The agent can select skills based on their usage conditions. Skills that allow user invocation can be selected with `/` in chat. Conversations show the skills used and references read. Review imported instructions before enabling them, since they may be used across conversations.
 
-<Tip>
-  A good skill makes it clear when to use it and in what order to work. Put the conditions of use in the description, and the steps and completion criteria in the procedure.
-</Tip>
-
-## Agent learning
-
-The agent automatically saves what it learns from conversations as **memories** and **skills**. Under **Settings** → **AI Agent** → **Agent Learning**, review **Activity**, **Memory**, **Skills**, and **Curator history**, delete memories you don't need, or roll a skill change back to an earlier version.
-
-## Use skills in document projects
-
-The **document skills** you choose when you create a [document project](/en/guides/doc-projects) are the same skills. If no document skills are installed, you can find one in the marketplace or create your own, and you can use up to 5 auxiliary skills alongside it.
+External service access is configured separately. Set up accounts and AI access through [connectors](/en/guides/connectors).

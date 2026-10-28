@@ -1,67 +1,26 @@
-Prepare evidence-backed answers to customer security questionnaires by comparing current policies with past responses.
+Prepare security questionnaire drafts using current policies and operational evidence. Organize items needing confirmation as questions for the responsible owners to support review and follow-up.
 
-## When this is your problem
+## Prepare the sources
 
-A customer asks about encryption, retention, and SSO, but the evidence is scattered across documents. Copying a previous answer can miss changed policies or eligibility rules. Questions without supporting material need a security owner’s confirmation.
+Prepare the customer questions, current security and privacy policies, operational evidence, and previous answers. Mark reference dates, applicable services, and retired sources. Exclude sensitive customer or account information and secrets.
 
-## Solve it with Specify
+## Organize answers and evidence by question
 
-1. Collect current policies, approved past answers, and the new questionnaire in Specify, with dates for each source.
-2. Ask AI to compare current evidence and put each answer, source, and review status in one table.
-3. Review supported answers and gather unresolved questions for the owner before submitting to the customer.
+Ask in chat for a table with a short answer, source document, scope, and verification status for each question. Update previous answers against current policies. When further evidence is needed, check source access and search scope, and verify certification status through official certificates or the responsible owner.
 
-## What you get
+## Review and follow up
 
-Create a response table for sales, customer-facing teams, and security reviewers. This example was produced in the actual app by reading documents for the fictional <strong>RelayDesk Demo</strong>. It does not describe Specify's security policies or certification status.
+A security owner verifies the answers against actual operations before transferring them to the customer form and submitting them. Record the current status of capabilities and procedures that need work, and organize the follow-up in an improvement document. For code changes, the coding agent can read that document over MCP to review the implementation scope.
 
-<Screenshot name="security-questionnaire-result" alt="Security response draft with source IDs and confirmation status for encryption, location, deletion, SSO, SOC 2, and subprocessors" caption="Distinguish sourced answers from open questions in the same table. A responsible person reviews the draft before sending it." />
-
-## Prepare the materials
-
-<a href="/examples/en/relaydesk-demo.zip" download="relaydesk-demo.zip">Download the example materials</a> and upload the following files to your workspace to try the questions.
-
-| Material | What to check |
-| --- | --- |
-| `relaydesk-security-current.md` | Current policy RD-SEC-02 and its effective date |
-| `relaydesk-security-retired.md` | Retired response RD-SEC-01 |
-| `relaydesk-faq-before.md` | Existing explanation of SSO availability |
-
-For real work, use policies, approved answers, and questionnaires you are authorized to use. Keep the questions separate from their evidence, and record each source's version and scope.
-
-## Follow the workflow
-
-<Steps>
-  <Step title="Collect the sources in your workspace">Upload files or write workspace documents. Include current or retired status and a document ID in each source.</Step>
-  <Step title="Define the questions in a new chat">Use <strong>New Chat</strong> to name the product and list the questions. Specify the source scope so other products or outdated answers are not mixed in.</Step>
-  <Step title="Request evidence and confirmation status">Ask for source links, dates, and status alongside the answers. Leave unsupported answers for owner confirmation.</Step>
-  <Step title="Compare the saved draft with its sources">Save the table as a document and check that every question is included. Open its sources and verify that their limits and scope remain intact.</Step>
-</Steps>
+## Example chat request
 
 ```text
-Find and compare RelayDesk Demo's current security policy and previous responses.
-Questions: encryption, data location, deletion of operational data and backups,
-SSO eligibility, SOC 2 report availability, and the subprocessor list.
-Create six rows: question / short answer / source link and ID / confirmation status.
-Check dates and current or retired status. Mark unsupported answers for owner confirmation.
-Summarize differences from past responses in a short review note.
-Save a 'Security questionnaire response draft' document. Do not edit sources or send it externally.
+Read the customer security questions, current policies, and previous answers.
+Create a table: question / draft answer / source document / scope / verification status.
+Mark conflicting sources or missing operational evidence for owner review.
+Do not claim unverified certifications or controls are held or complete.
 ```
 
-## Differences to inspect in this example
+<Note>Use this workflow to prepare answers for review, then transfer the approved answers to the customer form and submit it. For certification documentation and expert review, check the relevant preparation path and support scope at [Specify certification support](https://certify.specify.app).</Note>
 
-<Screenshot name="security-policy-note" alt="Review note distinguishing the current policy from retired answers and separating operational deletion from backup expiry" caption="Check the current source's periods and audience instead of reusing a historical answer unchanged." />
-
-- Separate the old <strong>90-day</strong> answer from deletion of operational data <strong>within 30 days</strong>. Backups have a separate retention cycle of up to <strong>35 days</strong>. These are fictional example values.
-- Preserve the restriction that SSO is for <strong>invited pilot customers only</strong>.
-- Missing SOC 2 evidence does not establish either certification possession or absence. Do not invent a subprocessor list.
-
-## Check search results and submission readiness
-
-<Note>The output in this example was checked by reading workspace originals directly. If newly uploaded material does not appear in search, check indexing and permissions and refer to the original. No search result does not mean no source exists.</Note>
-
-This workflow produces a review document. It does not demonstrate filling cells in a customer's Excel template or submitting answers automatically. The responsible person checks evidence and approvals before submission.
-
-<CardGroup cols={2}>
-  <Card icon="search" title="Workspace knowledge search" href="/en/knowledge/rag">Check search scope and indexing behavior.</Card>
-  <Card icon="book" title="More workflows" href="/en/guides/use-cases">Explore engineering, customer-facing, and quality examples.</Card>
-</CardGroup>
+[GitHub](/en/guides/doc-projects) · [MCP](/en/mcp/overview)

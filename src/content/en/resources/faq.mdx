@@ -1,73 +1,43 @@
-## Adoption
+## Getting started
 
-### What kind of team is Specify for?
+### What material should I start with?
 
-Specify fits development teams that don't have the time or people to write docs. Teams that use AI tools such as Claude Code, Cursor, and Codex every day can use documentation automation and the MCP connection together.
-
-### Do we need to replace our existing tools?
-
-No. Keep your existing GitHub and editor workflows, and just add a GitHub connection. You can start a pilot with a single document.
+Write documents or upload files to your workspace, then name the relevant material in chat. Connect external services such as GitHub, Notion, and Slack to search them when needed.
 
 ### Do teammates need to set anything up?
 
-Teammates just accept the invitation. No extra setup is needed to read docs or ask AI.
+Teammates accept invitations using their own accounts. Each person needs their own MCP access authorization to connect an external editor.
 
-## Documentation automation
+## Document automation
 
-### Will AI change our docs on its own?
+### How are code changes reflected?
 
-New projects start without automatic updates. Document changes driven by code changes arrive first as proposed updates with their evidence and a before-and-after view, and how they're applied after that follows your project settings and the applicable policy. When automatic updates are allowed, low-risk changes may be approved automatically.
+Link a GitHub repository and branch to a document or canvas to update the existing item after pushes to that branch. The run reads the current content and latest source, then saves necessary changes. After completion, inspect the saved content and edit history to review the update.
 
-### Are docs updated automatically when code changes?
+### What should I check after an automatic update?
 
-If **Trigger on push** is on for the source and the document skill uses incremental updates, proposed updates are prepared when code lands on the selected branch. Docs that use full regeneration need to be regenerated when you need them.
+Check the inbox and run result, then inspect the actual document changes. Verify that unrelated explanations remain, changed values and removed features are reflected correctly, and citations are accurate. See [Document automation](/en/guides/review-proposals).
 
-### Can we use documentation automation on the Free plan?
+## AI and knowledge search
 
-Document projects (GitHub-based document generation and automatic updates) are a feature of the Pro, Max, Team, and Enterprise plans. On the Free plan, you can use document writing, AI chat, and Workspace RAG.
+### Which model should I use?
 
-### Can we connect organization repositories?
+Compare the same material and request in a small task. Check facts, omissions, saved results, and usage. See [Choosing a model](/en/models/choosing).
 
-Yes. Organization repositories connect after a GitHub organization admin approves the request. After approval, select reconnect in Specify to finish.
+### How can I find the material I need?
 
-## Security
+Search by document name or a distinctive term, and check the document listing and original content too. Immediately after saving or uploading, check indexing status before searching again. External service material uses connector search separately from the workspace index. See [Workspace RAG](/en/knowledge/rag).
 
-### Are our code and docs safe?
+### Is a document ready for submission if it cites standards?
 
-All data runs on AWS infrastructure, isolated per workspace, and is visible only to approved members. We don't use customer data to train AI models. For details, see [Security and data](/en/resources/security).
+Use citations to check evidence, then review clauses, editions, normative status, and product-specific material with an expert to prepare the submission. Regulatory conformity and certification are established through the applicable assessment process. See [Standards library](/en/knowledge/standards).
 
-## AI and models
+## MCP and pricing
 
-### Which model should we use?
+### What does MCP do?
 
-Start everyday document drafting and editing with GPT-6 Luna. Claude Haiku 5.5 can also handle targeted changes to sentences, tables, and multiple documents. Compare another model on the same request when you need faster responses or a different structure. See [Choosing a model](/en/models/choosing) for task criteria and tool call and editing performance.
+External agents such as Claude Code and Codex search and read workspace context. With write scope and an appropriate role, they can also edit documents and canvases. See [Available tools](/en/mcp/tools).
 
-### What does AI base its answers on?
+### Where can I check pricing and get support?
 
-It uses Workspace RAG to search your team's documents, uploaded files, and messages from connected Slack public channels as evidence, and shows links to the documents it relied on. Search runs only within workspaces you're a member of. See [Workspace RAG](/en/knowledge/rag).
-
-### Can it write regulatory documents accurately?
-
-In workspaces where the standards library is available, the agent searches and cites clauses from standards such as IEC 62304 and ISO 14971 as it writes. Content without evidence is marked `[GAP]`. Generated documents are drafts that need expert review before submission. See [Standards library](/en/knowledge/standards).
-
-## MCP
-
-### Which coding agents can we connect?
-
-Any client that supports MCP, including Claude Code, Codex, Cursor, VS Code, and Claude Desktop. See [Connect editors and agents](/en/mcp/connect).
-
-### Can agents edit docs too?
-
-Yes, if you check **Allow document creation and editing** when issuing the token. The default is read-only, and admins can block creating and editing with a workspace policy.
-
-## Pricing
-
-### Can we start for free?
-
-Yes. You can start on the Free plan without a credit card, and the Pro and Team plans come with a 14-day free trial. For current pricing, see the [pricing page](https://specify.app/en/pricing).
-
-## Support
-
-### Where can I send other questions?
-
-Contact us at [support@specify.app](mailto:support@specify.app).
+See the [pricing page](https://specify.app/pricing) for current terms, or contact [support@specify.app](mailto:support@specify.app).

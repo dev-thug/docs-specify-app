@@ -1,68 +1,36 @@
-A document project connects a GitHub repository to a folder in your workspace so the agent can generate code-based docs and keep them in sync.
+Specify reads GitHub code to create feature documents and architecture canvases. Connect repositories to the resulting content to keep it aligned with later changes. Create the outputs you need, then enable updates for each one.
 
-## Before you begin
+## Before you start
 
-- Your workspace must have [GitHub connected](/en/guides/github).
-- You need Editor, Admin, or Owner permissions. Viewers can't create document projects.
-- Document projects are available on the **Pro, Max, Team, and Enterprise** plans. If you're on the Free plan, see [Plans](/en/resources/plans).
+[Connect GitHub](/en/guides/github) and confirm that the app can access the repository. Choose the workspace and folder where the results should be saved.
 
-## Create a project
+## Create your first document and canvas
 
-Select **New (+) → Create project** in the sidebar to open the **Document project setup** tab. The wizard has two steps, **Source** and **Documents**, and before generation starts you choose the GitHub source, the document types, and the update mode.
+1. Select the repository in chat or mention it with `@`.
+2. Describe the feature, audience, and output format. Start with a key flow and expand to the scope you need.
+3. When the agent has inspected the code and saved a document or canvas, open the result. Answer any follow-up questions in the same conversation.
 
-<Screenshot name="project-wizard-source" alt="Step 1, Source, of Create document project, with a Connect GitHub button below What codebase would you like to document?" caption="If you haven't connected GitHub yet, the Source step shows a Connect GitHub button." />
+```text
+Check the login flow in this repository against the code.
+Create a document covering entry points, authentication, storage,
+and error handling, plus an architecture canvas showing component relationships.
+Mark anything you could not verify separately.
+```
 
-<Steps>
-  <Step title="Source: What codebase would you like to document?">
-    Choose a **GitHub account**, **Repository**, and **Branch**. You can search for repositories by name. Once both the repository and branch are selected, **Next** at the top right becomes available.
-  </Step>
-  <Step title="Documents: What should the agent create first?">
-    Select one or more document skills for the agent to create first. If no document skills are installed, use **Find more in marketplace** or **Create new**. For each skill, use **View execution details** to see which document it writes and how.
-  </Step>
-  <Step title="Selected document settings">
-    Expand a document in <strong>Selected document settings</strong> and fill in its <strong>Inputs</strong>. Required information, such as a certification profile, varies by skill. Choose supporting skills under the additional settings.
-  </Step>
-  <Step title="Update mode: What happens when code changes?">
-    Turn on **Automatically update on repository changes** to keep documents current when code lands on the selected branch. When you're ready, select **Create N document types** to start generation.
-  </Step>
-</Steps>
+<Screenshot name="architecture-document" alt="Project overview created from Mamma source code" caption="Inspect source evidence and the main components in a document." />
 
-<Note>
-  Depending on the document skill, updates change affected sections or rewrite the whole document. Both modes offer automatic updates. Whole-document rewriting targets managed documents created by the initial generation; review the scope and output afterward.
-</Note>
+## Check the saved results
 
-## What happens during generation
+Compare document claims with the source code. For canvases, check components, connection directions, and external dependencies. After the run completes, review the saved content and request any missing details in the same conversation.
 
-When you start generation, Specify prepares the following.
+<Screenshot name="canvas-review" alt="Architecture canvas showing Mamma components and data flows" caption="Review dependencies and data flow through the diagram." />
 
-- **Project index**: Links the folder, the project record, and the generation task so later updates attach to the same project.
-- **Automatic update setup**: Saves the selected automation mode first so the generated docs can receive proposed changes.
-- **Change review foundation**: Leaves source links in the generated pages so later repository changes can be reviewed against their evidence.
+## Connect automatic updates
 
-The Inbox keeps tracking the task even if you close the generation screen. Each document's generation status appears as **Waiting to start**, **Writing**, **Complete**, **Failed**, or **Start blocked**.
+In each document or canvas, open **Connections** → **Manage connections** → **Event connections** and check the repository. Starting with the next push to the linked default branch, Specify analyzes changes and directly updates that content. Connect both outputs if you want both to stay current.
 
-## When the agent asks a question
+<Screenshot name="document-connections" alt="Content connection showing the Mamma develop branch and Connected status" caption="Check the repository link and target branch for each document and canvas." />
 
-If the agent doesn't have enough information to write a document, it asks a question and waits for your answer. Open the thread and answer to continue generation.
+## Expand your documentation
 
-## When generation doesn't finish
-
-If the project was created but the first document generation didn't finish, **Generation needs attention** appears. Check the reason shown, then choose one of the following.
-
-- **Try again**: Restarts generation with the same settings.
-- **Change source**: Change the repository or branch and start again.
-- **Close and notify me**: Follow the result in the Inbox.
-
-<Tip>
-  If some document tasks didn't start because you reached a task limit, check the budget and project permissions, then regenerate once running document tasks have finished.
-</Tip>
-
-## Add documents
-
-After the first run, you can generate additional guides or references in the same project folder. Select the project in the project list and run add document.
-
-## Checking generated and updated results
-
-**Complete** is an execution status, not a guarantee that all content has been verified. Open each generated document and check for unsupported claims, mismatched evidence, and old defaults. After automatic updates, compare values in the overview and detailed documents as well.
-
-After renaming, check the body heading and saved document title together. List items to improve for each document, then review them using [Review and apply proposed updates](/en/guides/review-proposals).
+Request API explanations, onboarding guides, and operating procedures from the same repository, then organize them into folders. Manage reusable writing instructions as [skills](/en/guides/plugins-skills). After updates, [check the results](/en/guides/review-proposals).

@@ -3,7 +3,7 @@ export const ko = {
   meta: {
     siteTitle: "Specify 문서",
     siteDescription:
-      "Specify 공식 문서 — GitHub 코드 변경과 개발문서를 연결하는 개발문서 자동화, AI 문서 검색, MCP 연결 가이드.",
+      "Specify 공식 문서 — 코드를 설계도와 기능 문서로 이해하고 리뷰하는 방법, 인증 문서 준비, AI 지식 검색과 MCP 연결 가이드.",
   },
   header: {
     docs: "Docs",
@@ -53,6 +53,9 @@ export const ko = {
     copied: "복사됨",
   },
   footer: {
+    design: "설계·시각화",
+    certify: "인증 문서",
+    mcp: "Specify MCP",
     product: "제품",
     home: "Specify 홈",
     pricing: "요금제",

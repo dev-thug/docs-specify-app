@@ -1,54 +1,27 @@
-When API code changes faster than its explanations and examples, connect repository changes to proposed documentation updates.
+When API code and its documented requests or responses diverge, read the current implementation and keep reviewing the linked documentation after changes.
 
-## When this is your problem
+## Prepare the sources
 
-A changed parameter or response field can leave old values in the docs and break integrations built from those docs. Updating only the API reference can leave the overview and operations guide describing different behavior.
+Prepare the GitHub repository and branch containing routes, handlers, and schemas. Identify the existing API document and its audience. Keep actual credentials and production secrets out of documentation.
 
-## Solve it with Specify
+<Screenshot name="architecture-document" alt="Project overview created from Mamma source code" caption="Inspect source evidence and the main components in a document." />
 
-1. Connect a repository with routes, handlers, and schemas to a document project.
-2. Use an API documentation skill and the push trigger to prepare updates backed by code changes.
-3. Compare requests, responses, errors, and examples with code, and check related documents before applying changes.
+## Generate and review
 
-## What you get
+Ask in chat for an API reference based on the repository. If the call flow is difficult to understand, request a diagram of clients, servers, and external services. Compare paths, methods, required fields, status codes, authentication, permissions, pagination, errors, and examples with the actual handlers, schemas, and tests.
 
-Prepare API documentation updates with code-change evidence and before-and-after content. Review shared values across documents and compatibility impacts.
+## Update after code changes
 
-## Set up
+Link the repository and branch to the existing document or canvas you want to keep updated. A push to that branch can start a run that edits the linked content directly. Check the resulting body and history to review the applied changes. Link each additional guide you want to maintain to its repository.
 
-<Steps>
-  <Step title="Connect the repository with your API code">
-    Connect the repository and branch containing your routes, handlers, and schema definitions as the source of a document project. If your schemas live in a separate repository, add another source.
-  </Step>
-  <Step title="Select an API reference document skill">
-    Select a document skill that creates an API reference, and in the focus field, describe the target readers (internal team, external partners, and so on) and the scope to cover.
-  </Step>
-  <Step title="Turn on the push trigger">
-    Turn on **Trigger on push** for the default branch to receive a proposed update every time an API change lands.
-  </Step>
-</Steps>
+## Example chat request
 
-## What to check when reviewing proposed updates
+```text
+Read the current branch of the API repository and write documentation for order creation.
+Include requests, responses, errors, permissions, and examples with source file paths.
+Mark unverified behavior as unknown and explain the call flow.
+```
 
-| Area | What to check |
-| --- | --- |
-| **Requests** | Path, method, path and query parameters, request body schema, and required fields |
-| **Responses** | Response fields for each status code, types, nullability, and pagination format |
-| **Authentication** | Required authentication method, scopes, and where the token is sent |
-| **Errors** | Error codes and messages, and whether the request can be retried |
-| **Examples** | Whether request and response examples match the new schema |
-| **Compatibility** | Whether the change breaks existing integrations, such as removing or renaming a field, and whether migration guidance is needed |
+<Note>A person must decide migration guidance and communication for breaking changes. To change the implementation, create an improvement document and ask the coding agent to read it over MCP. Review the linked documents again after the push.</Note>
 
-<Warning>
-  An automatic edit may not be enough for changes that break existing integrations. Have a person decide whether a changelog entry and migration guidance are needed, and fill them in.
-</Warning>
-
-## Use with coding agents
-
-Connect [Specify MCP](/en/mcp/overview) so Claude Code or Codex can reference your workspace's API docs directly while changing the API. You get to work on docs and code in the same context.
-
-## Comparing every affected document
-
-Do not finish review after updating only the API reference. If the same default limit, retention policy, or status code appears in an overview or operational document, compare all of them with the current code and tests.
-
-After deletion or renaming, check examples, source links, and document titles too. Even when a test line number exists, read the line to confirm it actually verifies the documented status code or behavior. See [Review and apply proposed updates](/en/guides/review-proposals) for review criteria.
+[GitHub](/en/guides/doc-projects) · [MCP](/en/mcp/overview)

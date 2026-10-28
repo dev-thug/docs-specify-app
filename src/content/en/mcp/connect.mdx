@@ -1,7 +1,5 @@
 When you choose a client in your workspace under **Tools & skills** → **Connect editor**, a token for that workspace is issued, and the command or config for that client is prepared with the token already filled in. This page explains each format.
 
-<Screenshot name="tools-editor-connect" alt="The Connect editor tab in Tools & skills, showing Permissions for new connections, the Allow document creation and editing checkbox, and connection cards for Claude Code, Cursor, VS Code, Claude Desktop, and Codex" caption="The Connect editor tab under Skills & connectors in the sidebar account menu" />
-
 ## Set permissions before connecting
 
 Before you select **Connect** on a client card, check **Permissions for new connections**. The default is **Read only**, which allows only searching and reading documents. If the agent needs to create or edit docs, check **Allow document creation and editing** before connecting. This setting applies to connections you issue from then on.
@@ -80,7 +78,7 @@ In the examples below, replace `<SPECIFY_MCP_TOKEN>` with the token you were iss
     The header value is passed through the `AUTH_HEADER` environment variable. Write it with no space after `Authorization:` so the argument doesn't contain a space.
 
     <Warning>
-      Don't add a remote entry in the `type`, `url`, `headers` format directly to the Claude Desktop config. Claude Desktop may erase your entire `mcpServers` config. Use `mcp-remote` as shown above.
+      Use the `mcp-remote` format shown above in the Claude Desktop configuration file. Adding a remote entry directly in the `type`, `url`, `headers` format may cause Claude Desktop to erase the entire `mcpServers` configuration.
     </Warning>
   </Tab>
 </Tabs>
@@ -99,6 +97,6 @@ The Specify MCP server also supports the OAuth authorization code flow (PKCE `S2
 | Symptom | What to check |
 | --- | --- |
 | Authentication error | Check that the token hasn't been revoked and that the `Bearer ` prefix is included. |
-| Tool calls are rejected | A workspace admin may have blocked external editor access or not allowed that operation. See [Tokens and access policies](/en/mcp/access). |
-| Creating or editing docs doesn't work | The token doesn't have write scope (`mcp:write`), or your workspace role is below Editor. |
+| Tool calls are rejected | Ask your admin to check whether the workspace permits external editor access and the requested tool. See [Tokens and access policies](/en/mcp/access). |
+| Creating or editing docs doesn't work | Check that the token has write scope (`mcp:write`) and your role is Editor or higher. |
 | A message says the MCP server URL is not configured | Contact your workspace admin. |

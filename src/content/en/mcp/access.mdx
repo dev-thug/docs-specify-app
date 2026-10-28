@@ -1,48 +1,19 @@
-Agents read only what your workspace permissions allow. This page explains personal token scopes and management, and the access policies admins apply to the whole workspace.
+MCP access checks token scopes, workspace roles, and access policies together. Grant only the access you need.
 
-## Token scopes
+## Reading and writing
 
-| Scope | Allowed tools | Default |
-| --- | --- | --- |
-| `mcp:read` | `search`, `read_document`, `browse` | Always included |
-| `mcp:write` | `create_document`, `update_document` | Optional (when **Allow document creation and editing** is checked) |
+The default `mcp:read` scope covers browsing, search, and reading documents, history, and canvases. `mcp:write` is required for tools that change the workspace, including document and canvas creation and editing, revision restoration, folders, and trash operations. See [Available tools](/en/mcp/tools) for the tool list.
 
-The default is read-only. Allow write access only when the agent needs to create or edit docs. If you check **Allow document creation and editing** under **Permissions for new connections** before connecting, the token is issued with write access.
+Writing requires write scope, a workspace role that permits the action, and a workspace that allows writes. Select **Allow document creation and editing** to include write scope. For reading material, connect with the default read-only access.
 
-<Screenshot name="tools-editor-connect" alt="Access overview and Permissions for new connections at the top of the Connect editor tab" caption="Admins also see active access permissions, workspace access, and calls in the last 24 hours at the top." />
+## Manage your access
 
-## Manage your access permissions
+Open **Tools & skills** → **Connect editor** to review issued access permissions and last use, and end access you no longer need. The list shows issued access and usage history. Verify the live connection by calling a tool from your editor.
 
-In the **Editor access** list on **Tools & skills** → **Connect editor**, you can see the permissions you've issued.
+Do not share tokens. If you suspect exposure, end the old access and connect again. Revoked tokens cannot be used for subsequent requests.
 
-- **Read only / Read and write**: The scope of the issued permission
-- **Last used**: When this permission was last used for a call. If it has never been used, it shows **Not used yet**.
-- **Revoke access**: Ends a permission you no longer use. Editors connected with this permission need to be set up again.
+## Workspace policies
 
-<Tip>
-  If you switch laptops or a token may have been exposed, revoke the existing permission and connect again. A revoked permission is rejected starting with the next call. You can see revoked permissions with **Show N revoked permissions**.
-</Tip>
+Admins and owners manage external editor access, tool policies, workspace tokens, and usage. Other members manage their own connections and should contact an administrator about workspace policies.
 
-## Admin access policies
-
-Admins and owners also see the **Workspace access policy** on the **Tools & skills** → **Connect editor** tab, where they manage external editor access for the whole workspace.
-
-### Allow access from external editors
-
-Turning this off blocks access from every external editor connected to this workspace. You can use it as a switch to cut off access immediately during incident response or a policy review.
-
-### Allowed operations
-
-Decide per tool whether it's allowed: **Search**, **Read document**, **Browse tree**, **Create document**, and **Update document**. For example, you can allow only reads and block creating and editing. This setting applies to every editor connection, and write operations also require write access to be allowed when connecting.
-
-### Token inventory
-
-See the owner, label, scopes, last use, and status of every token issued in the workspace. Admins can **Revoke** other members' tokens here, and revoking immediately cuts off access for the connected editor.
-
-### Usage
-
-See call counts and error counts per tool for the last 24 hours.
-
-<Note>
-  Members can manage only their own connections. For workspace-wide access policies, contact an admin.
-</Note>
+Documents and folders excluded from MCP, including their descendants, are excluded from search, reading, and editing. For permission errors, check token scopes, membership, role, and administrator policies.
