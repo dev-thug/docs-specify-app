@@ -1,34 +1,19 @@
-Specify handles your team's code and docs. This page explains where data is stored, who can access it, and what boundaries are in place.
+Check access scope and permissions when managing workspace material and external tool connections.
 
-## Core principles
+## Workspace and roles
 
-<CardGroup cols={3}>
-  <Card icon="shield" title="Workspace isolation">All data is isolated and operated per workspace.</Card>
-  <Card icon="users" title="Approved members only">Data is visible only to members approved in the workspace.</Card>
-  <Card icon="sparkles" title="Not used for training">We don't use customer data to train AI models.</Card>
-</CardGroup>
+Material access is evaluated against the current workspace, membership, and role. Confirm the intended workspace when switching between them. See [Team invitations and permissions](/en/workspace/members) for roles.
 
-## Infrastructure
+## External service connections
 
-Specify runs on AWS serverless infrastructure.
+Connected services such as GitHub, Notion, and Slack use the authorized accounts and resources. External material is searched through connectors rather than copied into the workspace knowledge index. Disconnect services you no longer need and review permissions in the source service too.
 
-## Access control
+## MCP access
 
-- **Role-based permissions**: What each person can do depends on their role: Owner, Admin, Editor, or Viewer. See [Invite your team and manage roles](/en/workspace/members).
-- **Document access**: You can't open documents you don't have permission for, but you can send an access request.
-- **AI answer scope**: AI uses only the documents the person asking can access as evidence.
+External clients authenticate using an MCP token or OAuth. Access is read-only by default; writes require a separate scope and an appropriate workspace role. Do not store tokens in shared documents or repositories.
 
-## GitHub connection
+Documents and folders excluded from MCP, including their descendants, are excluded from external agent access. Administrators can manage external access and tool policies. See [Tokens and access policies](/en/mcp/access).
 
-- Specify reads only the GitHub repositories you allow. Organization repositories connect only after an organization admin approves them.
-- Events sent from GitHub are processed only after signature verification and duplicate-delivery protection.
+## Data processing and contact
 
-## MCP connection
-
-- External editors authenticate with a workspace MCP token or OAuth. Tokens are read-only by default.
-- Every tool call checks current workspace membership each time, so access is blocked immediately when a member leaves or a token is revoked.
-- Admins can block all external editor access or set which tools are allowed. See [Tokens and access policies](/en/mcp/access).
-
-## Contact
-
-Send security questions or vulnerability reports to [support@specify.app](mailto:support@specify.app). For details on how data is handled, see the [Privacy policy](https://specify.app/en/privacy).
+See the [privacy policy](https://specify.app/en/privacy) for data processing terms. Send security questions or vulnerability reports to [support@specify.app](mailto:support@specify.app).

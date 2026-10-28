@@ -1,57 +1,31 @@
-Connectors let AI reference information from external services and let you hand some tasks to the agent. Manage connectors under **Settings** → **Tools & skills** → **Connectors**. You can also get there from **Skills & connectors** in the sidebar account menu.
+Connectors bring external information and tools into Specify. Service account connections and your AI access preferences are managed separately.
 
-<Screenshot name="tools-hub" alt="The Connectors tab in Tools & skills, with GitHub, Notion, Slack, Jira, Google, and Linear cards and an Add custom MCP server button" />
+## Open connectors
 
-## Supported services
+Open **Tools** → **Connectors** to see services and their connection status. Cards are available for GitHub, Notion, Slack, Jira, Linear, Gmail, Google Calendar, and Google Drive. Google services share one Google connection.
 
-| Service | Description |
-| --- | --- |
-| **GitHub** | Code collaboration platform: repository code, issues and PRs, commit history |
-| **Notion** | Docs and database workspace |
-| **Slack** | Team messenger |
-| **Jira** | Atlassian issue tracker |
-| **Linear** | Issue tracking tool |
-| **Google** | Combined Gmail, Calendar, and Drive integration |
+In service details, check the data the agent reads and the tasks it can handle. Read, search, and write capabilities vary by service.
 
-Find the connector you want with the **All · Connected · Available · Needs attention** filters at the top of the list, the categories, and **Search apps**.
+## Account connections and AI access
 
-## Connect a service
+1. A user with connection management permissions selects the service's **Connect** action.
+2. Authorize the account and access scope on the service, then return to Specify.
+3. Enable **Agent access** so the agent can use the connected data and tools.
 
-<Steps>
-  <Step title="Open the connector">
-    Select the card for the service you want to connect to open its details. Check **Data the agent reads** and **Tasks you can delegate to the agent** first.
-  </Step>
-  <Step title="Connect to the workspace">
-    Select the **Connect** button under **Connect to workspace**, then allow access on the service's screen. Once connected, members and the agent can use it together.
-  </Step>
-  <Step title="Check the status">
-    Once connected, the card changes to **Connected**. If authentication expires, **Reconnect needed** appears; select **Reconnect** to authenticate again.
-  </Step>
-</Steps>
+After connecting an account, enable your AI access so the agent can use the service. Use **Reconnect** if authentication expires. Administrators manage workspace connections, while each user's AI access preferences apply to their use.
 
-<Screenshot name="connector-github" alt="The GitHub connector details with a Connect to workspace button, About, Data the agent reads, and Tasks you can delegate to the agent" />
+## GitHub and Slack scope
 
-<Note>
-  Only workspace admins can connect connectors. Organization GitHub repositories connect after a GitHub organization admin approves.
-</Note>
+GitHub access includes only repositories allowed for the app. Organization policy may require approval. After connecting the account, configure push updates [for each output](/en/guides/automation-settings).
 
-## Slack advanced settings
-
-After you connect Slack, you can specify **Channels the agent can search** and **Channels to exclude from search** under **Advanced settings**. Only messages in public channels are searched.
+Slack advanced settings let you allow or exclude search channels. If both lists are empty, all public channels are searched; the allowlist takes precedence.
 
 ## Custom MCP servers
 
-You can connect tools that aren't in the list directly as MCP servers.
+Administrators can add custom MCP servers. Enter an HTTPS server URL, namespace, display name, and authentication mode, and put required secrets in the connection form. Review the server and its tools, then confirm trust to register it.
 
-1. Select **Add custom MCP server**.
-2. Enter the **Server URL**, **Namespace**, and **Display name**.
-3. Choose an **Authentication** method and, if needed, enter a **Header name** and **Secret**.
-4. Check the consent that you trust the server, then save.
+The tool list is pinned at registration. When the server changes its tools, preview and apply the changes through tool refresh. Secrets are stored without being displayed again. Re-enter the required value in the connection form when refreshing.
 
-<Warning>
-  A custom MCP server becomes an external tool the agent calls. Add only servers you trust, and use a secret with the minimum permissions needed.
-</Warning>
+## Stop usage or remove a connection
 
-## Disconnect
-
-You can remove the connection from the connector details. Once removed, the agent no longer reads information from that service.
+Turn off your AI access to stop the agent from using a connection. Removing the connection requires reconnecting before it can be used again. For GitHub-linked content, this also affects automatic updates; check **Connections** in the related documents and canvases.

@@ -1,70 +1,26 @@
-Before Specify's AI answers a question or writes a document, it searches your workspace's materials and uses what it finds as evidence. Generating answers from retrieved materials this way is called RAG (Retrieval-Augmented Generation). There's nothing to set up: the docs you write and the files you upload become team knowledge that AI can find.
+Specify searches workspace documents and uploaded material as evidence for answers and writing. Building an answer from retrieved material is called RAG (retrieval-augmented generation).
 
-<Screenshot name="chat-rag" alt="A chat where AI answers a question about how the Orders API authenticates requests by finding the API Reference document with the Search knowledge tool, with an evidence link" />
+## Search sources
 
-<Tip>
-  Open retrieved sources to check that their content is current. Compare both the source link and the actual content with the answer to improve document accuracy.
-</Tip>
-
-## What gets searched
-
-| Source | Description |
+| Source | How it is searched |
 | --- | --- |
-| **Workspace documents** | Text documents in Explorer. Titles and bodies are indexed. |
-| **Uploaded files** | PDF, DOCX, DOC, CSV, XLS, XLSX, TXT, MD, and HTML files uploaded as external nodes (up to 50MB) |
-| **Slack messages** | Messages in public channels, if you've connected the Slack connector |
-| **Standards library** | Standard clauses referenced when writing documents. See [Standards library](/en/knowledge/standards). |
+| Workspace documents | Searches saved document content and titles. |
+| Uploaded files | Searches extracted, indexed content. Availability depends on processing status. |
+| Standards library | Searches published standard clauses. See [Standards library](/en/knowledge/standards). |
+| External services | Connected services such as GitHub, Notion, and Slack are searched through connectors rather than copied into the workspace index. |
 
-The following aren't indexed.
+## Semantic and text search
 
-- Documents and files moved to the trash. Deletion also schedules removal from the search index, and restoring an item indexes it again. Check deletion completion separately.
-- Documents with no content
-- Non-text items
+Search can find related meanings as well as exact terms and strings. Use document browsing for a complete listing, then open the source to read its content.
 
-<Note>
-  Past conversations and agent memory are managed separately from the document index. When needed, AI references them with other tools such as conversation history search and memory.
-</Note>
+Through [MCP](/en/mcp/tools), use `knowledge_search`, `knowledge_grep`, `search_files`, `list_files`, and `read_file`. External service search uses `search_connectors`.
 
-## When indexing takes effect
+## Indexing and freshness
 
-When you save a document or upload a file, indexing starts in the background. Changes usually show up in search within a few minutes, and can take longer when work piles up, such as during bulk uploads. You can check the **Embedding Status** in an uploaded file's details.
+Documents and uploads become searchable when indexing completes. To find material immediately after saving or uploading, check the file listing and original content first. If it is missing from search results, check processing status and try another query.
 
-| Status | Meaning |
-| --- | --- |
-| **Pending** | Waiting to be indexed |
-| **Indexed** | Available in search |
-| **Stale** | The content changed and will be indexed again |
-| **Failed** | Couldn't be indexed. Select **Retry**. |
-| **Removing · Removed** | A deleted item is being removed from the index · has been removed |
+## Permissions and evidence
 
-## How search works
+Search operates within the current workspace and access permissions. Items excluded from MCP exposure are also excluded from external agent access.
 
-1. When AI receives a question, it writes a search query and sends it to the **Search knowledge** tool.
-2. Search looks for semantically similar chunks in an index that splits documents into chunks of about 300 tokens.
-3. The chunks it finds are reranked by relevance and passed to AI.
-4. AI answers based on the contents of the chunks and shows links to the documents it used as evidence.
-
-In chat, expand the **Search knowledge** row to see the actual query, the chunks found, and their relevance scores.
-
-<Screenshot name="chat-rag-tool" alt="The expanded Search knowledge tool showing the input query, the retrieved document chunks, and their relevance scores" />
-
-## Permissions and data isolation
-
-- Search always runs **only within the current workspace**. Materials from other workspaces aren't searched.
-- You can't search a workspace you're not a member of.
-- The same workspace scope applies when a coding agent searches with the `search` tool through [MCP](/en/mcp/tools).
-- Knowledge search also uses the AI budget, so search stops when the budget is used up.
-
-## How it's used when writing docs
-
-When you have AI write a document in a document project or in chat, it searches for the materials each section needs and writes from your workspace's actual content (code explanations, decision records, existing docs). AI is instructed not to make up content it cannot find evidence for, but you still need to check that results match the facts in the sources.
-
-## Tips for better search
-
-- **Use specific titles.** "Payment retry design decision" is easier to find than "Notes."
-- **Write one topic per document.** When topics are mixed, chunk relevance drops.
-- **Upload Korean text files as `.md`.** `.txt` files that contain Korean text may fail to be recognized.
-- **Include proper nouns in your questions.** Service names, API paths, and document names improve search accuracy.
-- Requests for a full list, such as "List every document," are handled by browsing documents instead of search. Ask about a specific topic.
-
-<Card icon="book" title="Workflows for your work" href="/en/guides/use-cases">Explore how team sources become policy answers, project handovers, and customer communications.</Card>
+Open source links to check freshness and whether a citation actually supports the claim. Identify the sources needed for important decisions and read the originals to confirm the scope of your review.

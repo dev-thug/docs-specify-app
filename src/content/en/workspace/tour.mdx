@@ -1,62 +1,31 @@
-The Specify interface has a **sidebar** on the left, a **tab area** in the center, and an **AI panel** on the right that opens when you need it. This page walks through what each area does, using real screenshots.
+Use the sidebar to find material and conversations, and the central tabs to open documents and chats. Documents and canvases work alongside conversations to organize team knowledge.
 
-<Screenshot name="editor" alt="The Specify interface with the sidebar on the left and the document editor in the center" caption="Pick a document in the sidebar to open it in the tab area in the center." />
+## Sidebar and search
 
-## Sidebar
+Browse documents, chats, and the inbox from the sidebar. Use **Search** or <Kbd>⌘K</Kbd> to open the command palette and find documents or run commands.
 
-From top to bottom, the sidebar contains the following.
+Organize documents and folders in the explorer. Deleted material can be restored from trash. The account menu at the bottom lets you switch workspaces or open settings.
 
-| Area | What it does |
-| --- | --- |
-| **Search** | Opens the command palette to find documents and commands. The shortcut is <Kbd>⌘K</Kbd>. |
-| **Home · Chat · Inbox** | Switches the sidebar list between the document tree, conversation history, and task list. |
-| **New (+)** | Creates a project, document, or chat, or adds an external node (file). |
-| **Projects** | The list of document projects. Documents connected to GitHub repositories collect here. |
-| **Explorer** | The tree of documents and folders in your workspace. It has New Folder, New File, and Upload File buttons. |
-| **Trash** | Restores deleted documents or deletes them permanently. |
-| **Account menu** | Select the workspace name at the bottom to switch workspaces, invite members, or open Skills & connectors, Settings, or Sign out. |
+<Screenshot name="workspace-home" alt="Mamma workspace explorer and GitHub document creation entry point" caption="Open localized documents and canvases from the explorer." />
 
-## Create new items
+## Create something new
 
-Select the **New (+)** button in the sidebar to see what you can create.
+Start these actions from the sidebar's **New** menu.
 
-<Screenshot name="new-menu" alt="The New menu showing Create project, New Document, New Chat, and Add External Node" />
+- **New Document** — Create and edit a blank document.
+- **New Chat** — Start a new AI conversation.
+- **Add Resource** — Upload a file as workspace material.
 
-- **Create project**: Creates a [document project](/en/guides/doc-projects) that generates docs from a GitHub repository.
-- **New Document**: Creates a blank document you can edit right away. See [Write and edit docs](/en/guides/editor).
-- **New Chat**: Starts a new conversation with AI. See [AI chat and questions](/en/guides/ask-ai).
-- **Add External Node**: Uploads a file such as a PDF, Word document, or spreadsheet so AI can use it as a reference.
+To create documentation from GitHub code, name the repository and desired document in chat. Link a repository to the resulting document or canvas to use automatic updates when code changes.
 
-## Command palette
+## Document and chat tabs
 
-Select **Search** in the sidebar or press <Kbd>⌘K</Kbd> to open the command palette. You can jump straight to a document by title or run an action such as creating a new document. Results are split into **All**, **Actions**, **Resources**, and **Navigation** tabs.
+Open several documents and conversations in tabs and move between them. In chat, select the model and reasoning effort and specify relevant sources. See [Document editing](/en/guides/editor) and [AI chat](/en/guides/ask-ai).
 
-<Screenshot name="command-palette" alt="The command palette with API entered, showing the API Reference document in the results" />
+<Screenshot name="chat-review" alt="AI chat reading the Mamma document to explain record flow and review points" caption="Ask questions grounded in a document and narrow down what to verify." />
 
-## Tab area
+## Inbox and results
 
-Documents, chats, and document project setup all open as tabs in the center area. You can keep several documents open as tabs and move between them, and right-click a tab to choose **Close**, **Close Others**, **Close to the Right**, or **Close All**.
+Check background task progress and results in the inbox. When a run finishes, open the actual document or canvas as well as its summary to inspect the changes.
 
-## Chat
-
-When you open a **New Chat**, a message box appears in the center. You can also start from an example request with the **Research**, **Writing**, **Analysis**, **Ideas**, and **Summary** buttons at the top.
-
-<Screenshot name="home" alt="The new chat screen, with example request buttons at the top and the message box and model picker at the bottom" />
-
-Below the message box are the **Connect repository** button and the model and reasoning effort picker. For details, see [AI chat and questions](/en/guides/ask-ai).
-
-## Inbox
-
-The Inbox is where the tasks the agent handles in the background collect. Check the progress and results of long-running tasks such as document generation and automation runs. When a completed task hasn't been reviewed yet, a dot appears on the Inbox icon in the sidebar.
-
-<Screenshot name="inbox" alt="The Inbox list open in the sidebar, showing agent task cards" />
-
-Select a task card to see its **Request**, **Result summary**, **Progress timeline**, and **Sub-tasks**.
-
-## Next steps
-
-<CardGroup cols={3}>
-  <Card icon="file" title="Write and edit docs" href="/en/guides/editor">Block commands, sharing, and file uploads</Card>
-  <Card icon="message" title="AI chat and questions" href="/en/guides/ask-ai">Get answers grounded in your team's materials</Card>
-  <Card icon="blocks" title="Settings at a glance" href="/en/workspace/settings">Account, workspace, and AI settings</Card>
-</CardGroup>
+When moving between personal and team work, check the current workspace first. Manage members and tool connections in [Settings](/en/workspace/settings).

@@ -1,65 +1,26 @@
-When ownership changes, compare project notes with the actual code to create a handover the next owner can use.
+When ownership changes, explain the current code structure and behavior first, then document the gap between requested work and actual implementation.
 
-## When this is your problem
+## Prepare the sources
 
-Notes mix requested work with completed work, so the next owner cannot tell what is implemented. Scattered setup and operational information leads to repeated questions and missed unfinished requests.
+Prepare the repository and branch, or a versioned code snapshot, together with requirements notes and existing operations documents. Distinguish snapshot-based analysis from a review of the latest repository.
 
-## Solve it with Specify
+## Check structure and implementation scope
 
-1. Prepare project notes and a versioned code snapshot in Specify.
-2. Ask AI to compare requests with implementation and separate completed features, limits, missing work, and their evidence.
-3. Save run instructions and the next owner’s checklist; have an owner fill in operational facts the code cannot establish.
+Ask in chat for a diagram of key components and dependencies. Separate verified implementation, requested work, and unknowns for each feature, with source files. Explain production access management using both role-checking code and operational policies.
 
-## What you get
+## Help the next owner continue
 
-Create a handover document for developers, agencies, and maintenance teams. <strong>RelayDesk Demo</strong> is fictional. This example compares an uploaded code snapshot with project notes by reading their actual contents.
+Document run and test steps, known limitations, open decisions, and owners. Put unimplemented requests in an improvement document for the coding agent to read over MCP. After changes are pushed, check updates to existing documents and canvases linked to the repository and branch, then reconcile the handover materials.
 
-<Screenshot name="project-handover-result" alt="Handover comparison table separating implemented CSV scope from requested limits, role restrictions, and an unimplemented ZIP feature" caption="Compare requests with behavior found in the supplied code instead of treating planned work as completed." />
-
-## Prepare the materials
-
-<a href="/examples/en/relaydesk-demo.zip" download="relaydesk-demo.zip">Download the example materials and code</a> and upload these two documents to your workspace.
-
-| Material | Purpose |
-| --- | --- |
-| `relaydesk-project-brief.md` | Requests, decisions, responsible roles, and operational unknowns |
-| `relaydesk-code-snapshot.md` | A fixed copy of implementation, tests, and run commands |
-
-A snapshot is not the live repository. Record its version, commit, and scope, and refresh it after changes. To connect a GitHub branch directly, start with a [document project](/en/guides/doc-projects).
-
-## Follow the workflow
-
-<Steps>
-  <Step title="Prepare notes and code scope together">Collect the requirements notes, code copy, and setup instructions with their versions. Do not treat the example policy as proof of implemented security controls.</Step>
-  <Step title="Name the recipient in a new chat">In <strong>New Chat</strong>, identify the audience, such as a new developer or maintenance owner, and name the sources to read.</Step>
-  <Step title="Compare requests with implementation">Separate completed functionality, implementation limits, future requests, and unknowns. Require source IDs and code paths for each finding.</Step>
-  <Step title="Review setup and handover actions">After saving the document, check the commands and assign owners to operational unknowns. Test files alone do not establish completed execution or performance validation.</Step>
-</Steps>
+## Example chat request
 
 ```text
-Read and compare RelayDesk Demo's project handover notes and code snapshot 1.4.
-Write an overview / request-versus-implementation table / setup and verification / handover checklist.
-Separate code-backed functionality and limits from planned requests and absent features.
-Include source document IDs and real file paths. Mark missing deployment and operational information as unknown.
-State that the code snapshot is a fixed copy; do not claim to have inspected a live repository.
-Save a 'Project handover' document without changing the sources.
+Read this repository and the handover notes. Create a document and diagram explaining the current structure.
+Separate completed features, implementation limits, requested work, and unknowns with source files.
+Include run and test steps and questions for the next owner.
+Keep suggested improvements separate from established feature descriptions.
 ```
 
-## Differences to inspect in this example
+<Note>Supply deployment, recovery, and operational owners from actual team records. For reproducible test records, include the commands actually run and results checked.</Note>
 
-<Screenshot name="project-handover-checklist" alt="Handover checklist covering undecided scope, operational and recovery procedures, test evidence, and FAQ updates" caption="Leave actionable checks for the next owner, not just an explanation of the project." />
-
-- The requested capacity is <strong>10,000 rows</strong>; the implementation limit is <strong>1,000</strong>.
-- Distinguish validation of a supplied role parameter from a real authentication and authorization system.
-- ZIP export and actual deployment or recovery procedures are not present in this example. Do not invent dates or named operational owners.
-
-## Keep it current
-
-<Note>This run directly referenced uploaded originals and a code snapshot. Sources not yet indexed can be checked by referring to the original. Changes made after the snapshot are outside this result's scope.</Note>
-
-Prepare updated inputs and repeat the comparison. Do not assume that every operational document is automatically updated; compare the generated draft with the team's actual handover process.
-
-<CardGroup cols={2}>
-  <Card icon="git" title="GitHub document projects" href="/en/guides/doc-projects">Connect a repository and branch to document generation.</Card>
-  <Card icon="book" title="More workflows" href="/en/guides/use-cases">Use team materials for sales and customer communication too.</Card>
-</CardGroup>
+[GitHub](/en/guides/doc-projects) · [MCP](/en/mcp/overview)

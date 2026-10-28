@@ -1,64 +1,39 @@
-AI in your IDE knows the code itself well, but it doesn't know why it was built that way. Specify's AI searches the docs, files, and connected sources collected in your workspace and answers based on what it finds.
+Specify chat is a workspace for answering questions and creating documents or canvases from workspace knowledge, connected code, and external sources. Describe both the subject and the result you want.
 
-## Start a chat
+## Ask with specific sources
 
-1. Select sidebar **New (+)** → **New Chat**, or select **+** under **Chat** in the sidebar.
-2. Type your question in the message box and press <Kbd>Enter</Kbd>. To add a line break, press <Kbd>Shift</Kbd>+<Kbd>Enter</Kbd>.
-3. If you need an example, start with the **Research**, **Writing**, **Analysis**, **Ideas**, or **Summary** buttons at the top.
+Use `@` in the input to reference a document or repository. For example, ask the agent to compare the login implementation with the authentication guide. The connected GitHub App must have repository access.
 
-<Screenshot name="home" alt="The new chat screen with example request buttons and a message box" />
+```text
+Check the order processing flow in this repository.
+List differences from the current documentation with code evidence,
+and keep anything you could not verify in a separate list.
+```
 
-While you edit a document, select the AI button at the bottom right to open the AI panel next to the document.
+<Screenshot name="chat-review" alt="AI chat reading the Mamma document to explain record flow and review points" caption="Ask questions grounded in a document and narrow down what to verify." />
 
-## Answers grounded in your team's materials
+## Turn answers into work
 
-When you ask a question, AI searches the workspace with the **Search knowledge** tool when it needs to. Links to the documents used as evidence appear below the answer.
+After a summary or explanation, request a new document, edits to an existing document, or a canvas. Specify the save location and scope. For existing documents, identify sections to preserve.
 
-<Screenshot name="chat-rag" alt="A chat where a question about how the Orders API authenticates requests triggers the Search knowledge tool, and the answer is grounded in the API Reference document" />
+The task list can show progress for reading code and reflecting it in a document separately. After the document update completes, open the output to verify the saved content.
 
-Expand the **Search knowledge** row to see what search query AI actually used and what it found.
+## Discuss the design while drawing
 
-<Screenshot name="chat-rag-tool" alt="The expanded Search knowledge tool showing the input query, the retrieved document chunks, and their scores" />
+Ask “Draw this flow as a diagram” to visualize the structure. Open a canvas and continue the conversation in **Ask to edit this canvas…** at the bottom to refine layout, labels, and connections. Selected shapes or connections are also supplied as context.
 
-For what gets searched and how it works, see [Workspace RAG](/en/knowledge/rag).
+Follow [Architecture diagrams and canvases](/en/guides/canvas) for whole-design commands and focused edits.
 
-## Questions it answers well
+## Check evidence
 
-| Question type | Example |
-| --- | --- |
-| **Why** | "Why did we move payment retries into a queue?" |
-| **Where** | "Where is the logic that saves notification settings?" |
-| **How** | "What order do we work in when adding a new API endpoint?" |
-| **Summary** | "Summarize the Onboarding Guide in 5 lines for a new developer." |
+Open the conversation's evidence to inspect the sources used. You can retract incorrect or unsuitable evidence; retracted evidence is excluded from later answers. Evidence may also change state when its source changes or becomes inaccessible.
 
-## Get better answers
+Before an important decision, compare the answer with the original material and code behavior. If the agent could not read the full scope, identify the remaining areas and request further checks.
 
-- **Narrow the scope.** Including a service name, feature name, or document name makes it easier to find evidence.
-- **Point to documents.** Type `@` in the message box to pick an item from **Projects** or **Documents** and add it to the conversation.
-- **Connect a repository.** Use **Connect repository** below the message box to connect a GitHub repository to the conversation so AI also references the code context.
-- **Check the evidence.** Before relying on an answer for an important decision, open the documents it was based on yourself.
-- **Save answers as docs.** Writing up answers to recurring questions gives the next question something to draw on.
+## Model and reasoning effort
 
-## Choose a model and reasoning effort
+Use the input's model settings to choose a model and its supported reasoning effort for the current conversation. Model changes are locked during a response. Higher effort can increase response time and usage. See the measured evidence in the [model selection guide](/en/models/choosing).
 
-Select the model button at the bottom right of the message box to change the **model** and **reasoning effort**. The model applies to the whole current conversation and can't be changed while a response is in progress.
+## External services and coding agents
 
-Choose a **reasoning effort** of **Off**, **Low**, **Medium**, **High**, **Extra**, or **Max**. Higher effort means deeper reasoning, but responses are slower and use more tokens.
-
-<Screenshot name="effort-picker" alt="The reasoning effort menu showing six levels from Off to Max" caption="Claude Opus 5.5 and GPT-6.1 Sol do not support Off." />
-
-<Note>
-  On the Free plan, you can use Claude Haiku 5.5 and GPT-6 Luna, and reasoning effort is fixed at Off. Other models and reasoning effort controls are available starting with the Pro plan. For task-by-task recommendations, see [Choosing a model](/en/models/choosing).
-</Note>
-
-## Today's briefing
-
-Select **Turn on daily briefing** on the **Today's briefing** card in chat to have Specify analyze your workspace every day and recommend what to do next. The daily briefing is available starting with the Pro plan and is managed under [Automations](/en/guides/automations) in settings.
-
-## Use with non-developer colleagues
-
-Colleagues who find technical docs hard to read can ask in everyday language and still get answers they understand. Asking something like "What changes will customers see in this release?" lets them understand where the project stands without pulling in the development team.
-
-## Ask from a coding agent
-
-If you use Claude Code or Codex, connect [Specify MCP](/en/mcp/overview) to reference the same team materials inside your editor.
+Connect [services](/en/guides/connectors) and enable AI access to include permitted external information. To use the same team documents in your IDE, connect [Specify MCP](/en/mcp/overview).

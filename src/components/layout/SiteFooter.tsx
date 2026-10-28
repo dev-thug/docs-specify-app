@@ -9,6 +9,9 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary[
     {
       title: dict.product,
       links: [
+        { label: dict.design, href: `/${locale}/guides/doc-projects` },
+        { label: dict.certify, href: `/${locale}/guides/medical-device-docs` },
+        { label: dict.mcp, href: `/${locale}/mcp/overview` },
         { label: dict.home, href: `${PRODUCT_URL}/${locale}` },
         { label: dict.pricing, href: `${PRODUCT_URL}/${locale}/pricing` },
         { label: dict.blog, href: `${PRODUCT_URL}/${locale}/blog` },

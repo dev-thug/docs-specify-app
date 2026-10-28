@@ -1,49 +1,27 @@
-If new teammates get stuck on installation and startup, use the repository to build an onboarding guide they can follow to a first run.
+Help new teammates understand the code and reach their first local run by separating repository evidence from team information that people must supply.
 
-## When this is your problem
+## Prepare the sources
 
-New teammates repeatedly ask which versions to install and commands to run. Outdated paths, environment variables, and startup instructions can block them before their first task.
+Choose the repository, branch, existing README, the teammate’s role, and their first goal. Keep real passwords, tokens, and personal contact details out of onboarding materials.
 
-## Solve it with Specify
+<Screenshot name="architecture-document" alt="Project overview created from Mamma source code" caption="Inspect source evidence and the main components in a document." />
 
-1. Connect the onboarding repository to a document project and define the new teammate’s role and first goal.
-2. Generate a repository map and setup, run, and test instructions in Specify; add team access and contact information.
-3. Follow the guide in a clean environment, correct blockers, and review related instructions after code changes.
+## Generate and review
 
-## What you get
+Ask in chat for a repository map and architecture diagram explaining entry points and dependencies. Derive install, run, and test commands from package configuration and scripts. People should supply access requests, review and deployment agreements, and the responsible contacts.
 
-Create a guide showing setup and run steps, the code to read first, and where to get help. Improve missing instructions by following it in practice.
+## Update after code changes
 
-## What good onboarding docs include
+Follow the instructions in a fresh environment and correct the places where you get stuck. Link the repository and branch to the existing onboarding document or architecture canvas to allow later pushes to update the linked content directly. Check commands and paths after updates, and have owners maintain team procedures such as access requests, reviews, and deployment agreements separately.
 
-1. **What this project is**: A one-paragraph overview and the main components
-2. **Running locally**: Required runtimes and versions, installation, environment variables, and run and test commands
-3. **Repository map**: Key directories and entry points, and where to start reading
-4. **Development workflow**: Branching strategy, reviews, and deployment process
-5. **Where to get help**: Owners, related docs, and common sticking points
+## Example chat request
 
-## Generate
+```text
+Create onboarding documentation for a backend developer joining this repository.
+Include a project overview, repository map and architecture, and install, run, and test steps.
+Cite source files for commands. Leave questions for access requests and team procedures not established by code.
+```
 
-<Steps>
-  <Step title="Create a document project">
-    Connect the repository to onboard people onto as the source, and select a document skill that creates onboarding guides.
-  </Step>
-  <Step title="Write the focus">
-    Be specific about the readers and the goal. For example: "Get a backend developer in their first week to a local run and their first PR."
-  </Step>
-  <Step title="Fill in the gaps yourself">
-    Add what can't be learned from the code, such as team agreements, owners, and how to request access, directly to the generated docs.
-  </Step>
-</Steps>
+<Note>Ask questions in chat while reviewing the diagram when the structure is unclear. If changes are needed, record the agreed work in an improvement document for the coding agent to read over MCP. Record the environment and checked result alongside commands you actually ran.</Note>
 
-## Verify
-
-The most reliable way to verify generated docs is to actually follow them.
-
-- In a fresh environment, confirm you can install and run the project using only the commands in the docs.
-- Confirm the docs list only the names of environment variables and secrets, not their values.
-- Fix any sticking points in the docs right away so the next person doesn't get stuck in the same place.
-
-<Tip>
-  Have new teammates bring onboarding questions to [Ask AI](/en/guides/ask-ai) first. It saves your colleagues' time and helps you find gaps in the docs quickly.
-</Tip>
+[GitHub](/en/guides/doc-projects) · [MCP](/en/mcp/overview)

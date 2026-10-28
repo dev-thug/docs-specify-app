@@ -1,58 +1,41 @@
-Specify reads code changes, finds the developer docs that need to change, and turns them into proposed updates you can review. Even a team with no time to write docs by hand can keep developer documentation in step with the code just by connecting a GitHub repository.
+Specify is a workspace that turns code into **diagrams and plain-language feature documentation**. Understand what your coding agent built, review where it differs from your intent, and record improvements in documents your agent can read.
 
-There are two main ways to use Specify, and you can combine them depending on your team's needs.
-
-|  | Documentation automation | Specify MCP |
-| --- | --- | --- |
-| **What it is** | A workspace feature that generates developer docs from your GitHub repository and prepares proposed updates as the code changes | An MCP server that lets coding agents such as Claude Code, Codex, and Cursor read the docs and context in your team's workspace |
-| **Best for** | Keeping API, architecture, and onboarding docs in sync with the code | Working on top of team context without pasting project background into your agent every time |
-| **Get started** | [Quickstart](/en/quickstart) | [MCP overview](/en/mcp/overview) |
-
-## What Specify does
+## Start with the result you need
 
 <CardGroup cols={3}>
-  <Card icon="git" title="Connects code and docs">Connects GitHub repositories and branches to a document project and generates your first docs from the code.</Card>
-  <Card icon="pr" title="Proposed updates with evidence">When code changes, finds the affected docs and prepares a proposed update with the reason for the change and a before-and-after view.</Card>
-  <Card icon="message" title="Answers from team context">Answers "why was it built this way?" and "where is it?" using your docs, decisions, and code history as evidence.</Card>
+  <Card icon="git" title="Design & visualization" href="/en/quickstart" cta="Create your first diagram">Read GitHub code as documents and diagrams to understand and review its structure and behavior.</Card>
+  <Card icon="shield" title="Certification documents" href="/en/guides/medical-device-docs" cta="See the preparation workflow">Collect product evidence and requirements to draft documents and identify missing evidence.</Card>
+  <Card icon="terminal" title="Specify MCP" href="/en/mcp/connect" cta="Connect your agent">Find and read team documents and knowledge from Claude Code, Codex, or Cursor.</Card>
 </CardGroup>
 
-<Note>
-  New document projects start without automatic updates. Every change arrives first as a proposed update with its evidence, and how updates are applied after that follows your project settings and the applicable policy.
-</Note>
+## Understand and review code through diagrams
 
-## Recommended path for new teams
+Ask for architecture, feature flows, and API behavior grounded in the repository, then read the results. Compare the structure and behavior with your intended design and requirements.
 
-Follow these steps to go from creating a workspace to developer docs your whole team uses.
+<Screenshot name="architecture-document" alt="Specify project document explaining repository structure and processing flow" caption="Read feature explanations alongside source paths to check the implementation." />
+
+1. **Understand** — Connect a repository and create a project overview and behavior documentation.
+2. **Review** — Read documents and canvases to check dependency directions and feature flows against requirements.
+3. **Improve** — Use chat to record improvements in a document your coding agent can read through MCP.
+4. **Check again** — After the next change, inspect updates to documents and canvases linked to the repository.
+
+<Note>Automatic repository updates apply to **documents and canvases linked to that repository**. The agent edits and saves the content directly. Review the edit history and saved result after completion.</Note>
+
+## Prepare certification documents
+
+Certification documents start from the same evidence. Collect product overviews, requirements, designs, and test material; distinguish confirmed facts from missing evidence when drafting. The [certification document guide](/en/guides/medical-device-docs) explains what to prepare and review.
+
+See [Specify Certify](https://certify.specify.app) for supported areas and expert review needs. Complete submission material through expert review, and establish certification and conformity through the applicable assessment process.
+
+## Give your agent the same context
+
+Let your coding agent find and read the improvement document directly. Connect [Specify MCP](/en/mcp/overview) and ask your coding agent: “Read the improvement document in Specify and update the implementation accordingly.” See [MCP tools](/en/mcp/tools) for search, reading, and permitted writing tools.
+
+## What to do next
 
 <CardGroup cols={2}>
-  <Card icon="rocket" title="Create a workspace" href="/en/quickstart" cta="Go to the quickstart">Sign up, create a workspace, and connect a GitHub repository.</Card>
-  <Card icon="git" title="Create a document project" href="/en/guides/doc-projects" cta="Read the guide">Choose the repository to document, the document types, and an update mode, then generate your first docs.</Card>
-  <Card icon="workflow" title="Review proposed updates" href="/en/guides/review-proposals" cta="See the review flow">Check the evidence and scope of the proposed updates that code changes produce.</Card>
-  <Card icon="terminal" title="Connect a coding agent" href="/en/mcp/connect" cta="See how to connect">Let Claude Code or Codex reference your workspace docs directly.</Card>
-</CardGroup>
-
-## Evidence behind accurate docs
-
-Specify's AI doesn't make up documents from general knowledge. It searches for evidence before it writes.
-
-<CardGroup cols={3}>
-  <Card icon="search" title="Workspace RAG" href="/en/knowledge/rag">Searches your workspace's docs, uploaded files, and connected sources to answer and write from your team's facts.</Card>
-  <Card icon="library" title="Standards library" href="/en/knowledge/standards">Searches and cites clauses from standards such as IEC 62304 and ISO 14971, and flags content that has no evidence.</Card>
-  <Card icon="sparkles" title="The right model for the task" href="/en/models/choosing">Choose a lightweight model for search and summaries, and a model that's strong at document work for writing.</Card>
-</CardGroup>
-
-## Common workflows
-
-- **Keep API docs current** — Connect the repository that holds your API code, and a proposed update is prepared whenever endpoints, request schemas, or response fields drift from the code. See what gets reviewed in [Keep API docs up to date](/en/guides/api-docs).
-- **Developer onboarding docs** — Generate a draft grounded in repository structure and run instructions so a new teammate reaches a working setup on day one. People fill in the team procedures code can't show. See [Generate onboarding docs](/en/guides/onboarding-docs).
-- **Team knowledge search** — Get answers grounded in team context without digging through docs or pulling a colleague aside. See [Ask AI](/en/guides/ask-ai).
-
-For work beyond engineering — security questionnaires, project handovers, customer updates — [Explore workflows](/en/guides/use-cases) shows what to prepare and what you get back for each example.
-
-## Learn more
-
-<CardGroup cols={3}>
-  <Card icon="book" title="Tour the interface" href="/en/workspace/tour">Learn the layout, including the sidebar, tabs, search, and Inbox, with real screenshots.</Card>
-  <Card icon="shield" title="Security and data" href="/en/resources/security">Review data isolation and permission boundaries.</Card>
-  <Card icon="help" title="FAQ" href="/en/resources/faq">Common questions from teams evaluating Specify.</Card>
+  <Card icon="rocket" title="Quickstart" href="/en/quickstart">Create your first document from a repository and inspect the result.</Card>
+  <Card icon="book" title="Tour the interface" href="/en/workspace/tour">Learn the explorer, chat, Inbox, documents, and canvases.</Card>
+  <Card icon="message" title="Review with AI" href="/en/guides/ask-ai">Check evidence and ask for an improvement document.</Card>
+  <Card icon="workflow" title="Check document updates" href="/en/guides/review-proposals">Inspect edit history and results after repository changes.</Card>
 </CardGroup>

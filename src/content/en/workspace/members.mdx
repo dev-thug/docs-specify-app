@@ -1,44 +1,24 @@
-A workspace becomes more valuable when you share it with your team. Teammates don't need to set anything up: they accept the invitation and can start reading docs or asking AI.
+Teammates join a workspace by accepting an invitation with their own accounts.
 
 ## Roles
 
-Each workspace member has one of four roles.
-
-| Role | What they can do |
+| Role | Scope |
 | --- | --- |
-| **Owner** | Controls the entire workspace. |
-| **Admin** | Invites and removes members and changes settings. Handles admin-only settings such as the external editor access policy. |
-| **Editor** | Edits documents, projects, and sources. Can create document projects and start document generation. |
-| **Viewer** | Read-only access. Can't create document projects. |
+| Owner | Holds workspace ownership and management authority. |
+| Admin | Manages members and workspace settings. |
+| Editor | Edits permitted documents and canvases. |
+| Viewer | Reads permitted material. |
 
-<Note>
-  Role-based permissions and multiple teammates are available on the Team plan. You can add up to 100 members per workspace. For details, see [Plans](/en/resources/plans).
-</Note>
+## Invite and manage
 
-## Invite teammates
+Open **Settings** → **Workspace** → **Members** and select **Invite Member**. Enter the email address and role, then choose **Send Invitation**. The invitation must be accepted using the account with the invited email address.
 
-<Steps>
-  <Step title="Open Member Management">
-    In workspace settings, go to **Member Management** and select **Invite Member**.
-  </Step>
-  <Step title="Enter an email and role">
-    Enter the email address of the teammate you want to invite, choose a role, and select **Send Invitation**.
-  </Step>
-  <Step title="Wait for the invitation to be accepted">
-    An invitation email is sent, and your teammate must accept it **within 7 days**. You can resend or cancel pending invitations from the same screen.
-  </Step>
-</Steps>
+Use the member list to change roles, suspend, or remove members within your permissions. Pending invitations can be resent or canceled.
 
-<Warning>
-  An invitation can only be accepted with the email address it was sent to. If you're signed in with a different account, sign in again with the account for the invited email.
-</Warning>
+## Team and personal workspaces
 
-## Manage members
+To invite teammates and manage roles, open Members in a team workspace. Use personal workspaces for individual work. See the [pricing page](https://specify.app/pricing) for plan terms and limits.
 
-- **Change Role**: Change a member's role to Admin, Editor, or Viewer.
-- **Suspend**: Blocks workspace access but keeps the member's record and role. You can reactivate them anytime.
-- **Remove**: Removes the member from the workspace. This action can't be undone.
+## External agent access
 
-## Document access
-
-If you open a document you don't have permission for, you can send an access request. What coding agents can read over MCP is also limited to the scope your workspace permissions allow. See [Tokens and access policies](/en/mcp/access).
+Each member uses their own access authorization for external editor connections. For MCP writes, check both an Editor-or-higher role and the token’s write scope. See [Tokens and access policies](/en/mcp/access).

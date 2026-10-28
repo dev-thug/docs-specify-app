@@ -11,7 +11,7 @@ export const enNav: NavLabels = {
   groups: {
     "first-steps": "First steps",
     workspace: "Workspace",
-    writing: "Writing & AI",
+    writing: "Design, canvas & AI",
     automation: "Documentation automation",
     extend: "Automation & Extensions",
     "use-cases": "Workflows",
@@ -23,17 +23,15 @@ export const enNav: NavLabels = {
   pages: {
     intro: {
       title: "Introduction to Specify",
-      description:
-        "Specify automates developer documentation. It connects GitHub code changes to the related docs and prepares proposed updates backed by evidence.",
+      description: "Understand and review code through diagrams and feature documentation. Start with visualization, certification documents, or MCP.",
     },
     quickstart: {
       title: "Quickstart",
-      description: "Create a workspace, connect a GitHub repository, and generate your first developer document.",
+      description: "Create your first document from GitHub, review the architecture, and share improvements with your coding agent.",
     },
     concepts: {
       title: "Core concepts",
-      description:
-        "The concepts you need to understand Specify: workspaces, nodes, document projects, proposed updates, skills, and more.",
+      description: "Learn how workspaces, documents, canvases, chat, repository links, edit history, and MCP fit together.",
     },
     "workspace/tour": {
       title: "Tour the interface",
@@ -50,19 +48,22 @@ export const enNav: NavLabels = {
       description:
         "Where to find account, workspace, AI agent, and billing and usage settings, and what you can change in each.",
     },
+    "guides/canvas": {
+      title: "Architecture diagrams and canvases",
+      description: "Edit canvases directly and refine designs with the agent using bottom commands and selected elements.",
+    },
     "guides/editor": {
       title: "Write and edit docs",
       description:
-        "Create docs and organize your team's knowledge with block commands, statuses, sharing, and file uploads.",
+        "Edit documents and canvases, and manage results with agent edit locks, edit history, and reverts.",
     },
     "guides/automations": {
-      title: "Automations",
-      description: "Create and manage automations that have the agent run a prompt on a set schedule.",
+      title: "Automatic document updates",
+      description: "Understand how repository pushes update linked documents and canvases, and what to check afterward.",
     },
     "guides/plugins-skills": {
-      title: "Plugins and skills",
-      description:
-        "Install official plugins and use skills to teach the agent the procedure for recurring tasks.",
+      title: "Tools and skills",
+      description: "Manage connectors and skills to teach the agent repeatable working procedures.",
     },
     "guides/connectors": {
       title: "Connect connectors",
@@ -99,57 +100,60 @@ export const enNav: NavLabels = {
         "Connect a GitHub account and repositories to your workspace, and get approval for organization repositories.",
     },
     "guides/doc-projects": {
-      title: "Create a document project",
-      description: "Choose a GitHub source, document types, and an update mode to create a code-based document project.",
+      title: "Create documents and diagrams from code",
+      description: "Read a repository to create feature documents and architecture canvases, then check their evidence.",
     },
     "guides/review-proposals": {
-      title: "Review and apply proposed updates",
-      description: "Review the proposed document updates that code changes produce, along with their evidence, and apply them.",
+      title: "Check automatic updates",
+      description: "Review direct updates and edit history for linked documents and canvases, and revert changes when needed.",
     },
     "guides/automation-settings": {
-      title: "Automation settings",
-      description:
-        "Tune documentation automation with push triggers, writing skills, output folders, and a project style guide.",
+      title: "Manage repository links",
+      description: "Manage repository connections and automatic update scope for each document and canvas.",
     },
     "guides/medical-device-docs": {
-      title: "Medical device software documentation",
-      sidebarTitle: "Medical device documentation",
-      description: "Gaps in medical device development documents are hard to find. Create code-backed requirements, design, and SOUP drafts plus a gap report. Owners and experts review omissions and unconfirmed items.",
+      title: "Medical device and certification documents",
+      description: "Draft certification documents from product evidence and code, and identify items for expert review.",
     },
     "guides/use-cases": {
       title: "Find a workflow for your work",
       sidebarTitle: "Explore workflows",
-      description: "Choose a planning, development, customer, or quality problem and find the sources, Specify workflow, and results for solving it.",
+      description: "Choose an outcome in architecture design, planning, development, customer communication, or quality work, then follow the preparation and workflow.",
+    },
+    "guides/architecture-design": {
+      title: "Design architecture with a technical lead",
+      sidebarTitle: "Architecture design",
+      description: "Follow Jimin’s Mamma (a parenting app) scenario from current architecture and alternatives to target design, decisions, and MCP-assisted implementation.",
     },
     "guides/planning-with-mcp": {
       title: "Connect planning changes to development with MCP",
       sidebarTitle: "Planning and development",
-      description: "Plans change, but development uses an old copy. Keep requirements in a shared Specify document and reread it through MCP in Claude Code or Codex. Align changed conditions with implementation plans and tests.",
+      description: "Review requirements with the current implementation, create an improvement document, and connect it to implementation and testing through MCP.",
     },
     "guides/security-questionnaires": {
       title: "Prepare customer security questionnaire answers",
       sidebarTitle: "Security questionnaires",
-      description: "You cannot tell which security answer is current. Compare current policies with past responses to prepare answers, evidence, and review status. Gather questions that need an owner’s confirmation.",
+      description: "Collect policy and operating evidence to prepare answers, citations, and owner review items for security questionnaires.",
     },
     "guides/project-handover": {
       title: "Build a handover from code and team documents",
       sidebarTitle: "Project handover",
-      description: "Ownership changes, but implementation scope is unclear. Compare project notes with code to separate implemented features from unfinished requests. Leave run instructions and the next owner’s checklist.",
+      description: "Compare product notes with code to document implementation scope, run instructions, and the next owner’s checklist.",
     },
     "guides/customer-updates": {
       title: "Turn changes into customer updates and FAQs",
       sidebarTitle: "Customer updates and FAQs",
-      description: "Release communications disagree with the FAQ. Prepare an announcement and FAQ update from change notes and existing answers. Align changed explanations with limits and conditions that remain.",
+      description: "Use change material and existing FAQs to align customer announcements and answers around shared evidence.",
     },
     "guides/api-docs": {
       title: "Keep API docs up to date",
       description:
-        "API code changes while docs and examples stay behind. Connect GitHub changes to evidence-backed documentation updates. Compare requests, responses, and examples across related documents before applying them.",
+        "Compare code with API explanations and inspect direct updates to linked documents alongside requests, responses, and examples.",
     },
     "guides/onboarding-docs": {
       title: "Generate onboarding docs",
       description:
-        "New teammates get stuck before their first run. Use the repository to draft setup, run, and code-reading instructions. Add team procedures and improve the guide by following it in a clean environment.",
+        "Guide new teammates through setup, their first run, code navigation, and team procedures.",
     },
     "guides/ask-ai": {
       title: "AI chat and questions",
@@ -183,7 +187,7 @@ export const enNav: NavLabels = {
     },
     "resources/glossary": {
       title: "Glossary",
-      description: "One-line definitions of terms used across the Specify product and docs, including workspace, document project, proposed update, RAG, and MCP.",
+      description: "Learn the terms for workspaces, documents, canvases, repository links, edit history, RAG, and MCP.",
     },
     "resources/faq": {
       title: "FAQ",

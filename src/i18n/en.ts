@@ -5,7 +5,7 @@ export const en: Dictionary = {
   meta: {
     siteTitle: "Specify Docs",
     siteDescription:
-      "Official Specify documentation: guides for developer documentation automation that connects GitHub code changes to your docs, AI document search, and MCP connections.",
+      "Official Specify documentation — understand and review code through diagrams and feature documents, prepare certification documents, and connect knowledge through MCP.",
   },
   header: {
     docs: "Docs",
@@ -55,6 +55,9 @@ export const en: Dictionary = {
     copied: "Copied",
   },
   footer: {
+    design: "Design & visualization",
+    certify: "Certification documents",
+    mcp: "Specify MCP",
     product: "Product",
     home: "Specify home",
     pricing: "Pricing",

@@ -18,7 +18,7 @@ export const NAV_STRUCTURE = [
   {
     id: "guides",
     groups: [
-      { id: "writing", pages: ["guides/editor", "guides/ask-ai"] },
+      { id: "writing", pages: ["guides/canvas", "guides/editor", "guides/ask-ai"] },
       {
         id: "automation",
         pages: ["guides/github", "guides/doc-projects", "guides/review-proposals", "guides/automation-settings"],
@@ -28,6 +28,7 @@ export const NAV_STRUCTURE = [
         id: "use-cases",
         pages: [
           "guides/use-cases",
+          "guides/architecture-design",
           "guides/planning-with-mcp",
           "guides/medical-device-docs",
           "guides/security-questionnaires",

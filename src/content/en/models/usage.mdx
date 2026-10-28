@@ -1,48 +1,22 @@
-AI usage in Specify is managed as a **monthly AI budget per workspace**. Every task that uses AI, including chat, document generation, automations, and knowledge search, draws from the same budget.
+AI usage is managed per workspace. Check the current workspace's usage when using chat and background AI tasks.
 
-## Check your usage
+## Check usage
 
-See this month's usage period and AI budget usage under **Settings** → **Plans & Billing** → **Usage**. Usage also appears in the sidebar account menu.
+Open **Settings** → **Plans & Billing** → **Usage** to see the usage period and AI usage percentage. Switching workspaces changes the displayed usage. Also check the refresh and reset times shown on screen.
 
-<Screenshot name="settings-usage" alt="The Usage page showing this month's usage period, unlimited documents, and an AI Budget usage bar" />
+<Screenshot name="usage-panel" alt="Workspace AI usage and current period" caption="Check the current workspace’s period, usage percentage, and last checked time together." />
 
-- Usage is scoped to the current workspace. Personal and team workspace budgets are separate.
-- Usage resets at the end of each monthly usage period.
+## What affects usage
 
-## How usage is calculated
+The model, input and output length, reasoning effort, and tool use affect usage. Even the same request can use different amounts depending on the sources read and conversation length.
 
-Each request's actual cost is calculated from the token prices of the model used and deducted from the budget. The basis is **actual token usage**, not credit multipliers or request counts.
+- Specify the documents and the exact scope of an edit.
+- Start short tasks with a supported lower reasoning effort.
+- Start a new conversation for a new topic to reduce unnecessary context.
+- Keep repository links and the documents and canvases they update scoped to what you need.
 
-- Usage grows with more expensive models, higher reasoning effort, and reading many long documents. For model availability, see [Models overview](/en/models/overview); for current prices, see the [pricing page](https://specify.app/en/pricing).
-- When the same content is read repeatedly, caching applies and input costs drop significantly.
-- For GPT models, when a single request's input exceeds 272,000 tokens, that request's price goes up (2× for input, 1.5× for output).
-- Claude Haiku 5.5 also applies long-context pricing when one request exceeds 100,000 input tokens, including cached tokens.
-- Knowledge search also uses a small amount of usage.
+## Limits and top-ups
 
-## Budget by plan
+AI tasks may be restricted when the budget is exhausted. Follow the on-screen guidance to check your plan and top-up availability. The [pricing page](https://specify.app/pricing) is the reference for prices, plan limits, and billing terms.
 
-Higher plans come with a larger monthly AI budget.
-
-| Plan | AI usage |
-| --- | --- |
-| Free | Basic AI usage |
-| Pro | More AI usage than the Free plan |
-| Max | 5× the AI usage of Pro |
-| Team | A shared pool where the team uses the per-seat budget together |
-| Enterprise | Customized for your organization |
-
-For exact limits and prices, see the [pricing page](https://specify.app/en/pricing).
-
-## Warnings and top-ups
-
-- A warning appears when you've used 70% and 90% of the budget.
-- When the budget is used up, an **AI budget exhausted** banner appears, and you can add usage with **Top up $5**. Top-up credits are deducted only after the base budget is used up.
-- Even with a remaining balance, each run has round and time limits, so a task may finish only partially.
-
-## Ways to use less
-
-1. **Default to GPT-6 Luna.** Try short requests and small edits, then check the results.
-2. **Raise reasoning effort only when needed.** Start at a supported low level and adjust if results are insufficient. Compare depth of explanation, turnaround time, and usage together.
-3. **Narrow your questions.** Specifying targets with document names or `@` mentions reduces unnecessary searching and reading.
-4. **Start a new conversation instead of continuing a long one.** The longer a conversation gets, the more each request has to read.
-5. **Review automation frequency.** Switch automations that don't need to run daily to a weekly schedule.
+Check each run’s completion state and saved result. If a run stops or fails, request the remaining work. Check remaining usage and the success of each run separately.

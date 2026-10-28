@@ -1,83 +1,41 @@
-Specify documents are real-time collaborative documents your team edits together. What you write here becomes team knowledge that AI searches, and coding agents read the same documents through [MCP](/en/mcp/overview).
+Work with documents and canvases in the same Specify workspace. Explain features and evidence in documents, then review components and data flows on a canvas. You can edit AI-created results and refine them with your team.
 
-## Create a document
+## Create and edit documents
 
-Create a new document in any of these ways.
+Use **New File** in the explorer or ask the agent to write a document in chat. Rename the title and type in the body; changes save automatically. Use Markdown input for headings and lists, or type `/` on an empty line to open the block menu.
 
-- Sidebar **New (+)** → **New Document**
-- The **New File** button next to the **Explorer** heading in the sidebar
-- **New Document** in the command palette (<Kbd>⌘K</Kbd>)
+Choose headings, lists, quotes, code blocks, tables, images, callouts, or toggles for your content. Put API names and code examples in code formatting to keep them clear.
 
-When the new document opens as a tab, select the title at the top to rename it, then start writing in the body below.
+<Screenshot name="architecture-document" alt="Project overview created from Mamma source code" caption="Inspect source evidence and the main components in a document." />
 
-<Screenshot name="editor" alt="The editor with the API Reference document open, showing Overview, Authentication, and Endpoints headings and body text below the title" />
+## Check save status
 
-## Markdown shortcuts and block commands
+Watch the automatic save status. If **Not saved** appears, select **Retry save**. Unsaved content may exist only on this device. Copy anything you need before closing the tab or reloading.
 
-When you type Markdown syntax in the body, it turns into formatting right away. For example, typing `## ` at the start of a line creates a Heading 2.
+Changes to your permissions or a document restoration by another person may require a reload. Preserve local edits first, then follow the on-screen instructions.
 
-Type `/` on an empty line to open the block command menu.
+<Screenshot name="canvas-review" alt="Architecture canvas showing Mamma components and data flows" caption="Review dependencies and data flow through the diagram." />
 
-<Screenshot name="slash-menu" alt="The basic blocks menu opened by typing a slash in the body, showing Text, Heading 1 to 4, Bullet list, and more" />
+## Review architecture on a canvas
 
-You can add the following blocks from the block menu.
+Ask the agent to create an architecture canvas from a repository, then open the result. Inspect components and connectors and edit their layout and descriptions. When requesting changes to an existing canvas, specify what to change and which elements to preserve.
 
-| Category | Blocks |
-| --- | --- |
-| Text | Text, Heading 1–4, Quote |
-| Lists | Bullet list, Numbered list, To-do list |
-| Structure | Divider, Toggle, Callout |
-| Media and data | Image, Code block, Table, Board |
+Review dependencies and system boundaries by comparing document descriptions with connection directions on the canvas. If saving fails, retry and download a draft if needed.
 
-<Tip>
-  From the block menu, you can edit, duplicate, move up or down, or delete a block, and change its text and background colors.
-</Tip>
+## Improve a canvas from the bottom composer
 
-## Saving and collaboration
+Open a canvas to use **Ask to edit this canvas…** at the bottom. Select shapes or connections and ask, “Improve only these labels and layout; preserve the other connections.” See the [canvas guide](/en/guides/canvas) to draw and refine architecture through conversation.
 
-Changes save automatically, and several people can edit the same document at the same time. The save status shows as **All changes saved**, **Saving…**, or **Not saved**. If saving fails, select **Retry save**.
+<Screenshot name="canvas-selection" alt="Requesting improvements to Mamma architecture from the bottom composer" caption="Identify the target and what to preserve while viewing the design." />
 
-## Document status and details
+## AI change history and editing lock
 
-At the top right of a document are the status button (for example, **Draft**), **Share**, and the **Document details menu**.
+Inspect and revert AI edits in document history. Lock agent editing while reviewing or refining content; people can continue editing.
 
-<Screenshot name="doc-details" alt="The Document Details menu open, showing Change Type, Created by, and Updated At" />
+If another collaborator has changed the same object, reverting may be restricted to preserve their work. Check the current content and edit only the necessary parts.
 
-- **Change Type**: Changes the document to a **Page** or a **Rule**. A rule document becomes guidance the agent follows while it works.
-- You can see **Created by** and **Updated At**.
-- For documents in a document project, you can set the **Document automation** mode per document: **Use folder setting**, **Turn automation off**, **Suggest changes**, or **Apply changes automatically**. If needed, select **Regenerate** to create the document again.
+## Link a repository
 
-The bar at the top of the document shows the agent rules applied to this document, and you can create a folder-level rule with **Add a rule in the parent folder**.
+Check repositories and branches under **Connections** in each document and canvas. Owners configure automatic updates through **Manage connections** → **Event connections**. Relevant changes from subsequent pushes are applied directly, so review the inbox and change history afterward.
 
-## Sharing
-
-Select **Share** to manage access to this document.
-
-<Screenshot name="share" alt="The Share dialog with an email field, a permission picker (View only), an Invite button, the list of people with access, and a Copy link button" />
-
-1. Enter an email address and choose a permission: **View only**, **Can edit**, or **Admin**.
-2. Select **Invite**.
-3. Use **Copy link** to share the document's address. People who receive the link also need permission to open the document.
-
-## Upload files
-
-Upload files such as PDFs and Word documents as **external nodes**. The contents of uploaded files become searchable by AI.
-
-- Select sidebar **New (+)** → **Add External Node**, or the **Upload File** button in **Explorer**.
-- You can also drag and drop files onto Explorer.
-- Supported formats: PDF, DOCX, DOC, CSV, XLS, XLSX, TXT, MD, HTML
-- Maximum size: 50MB
-
-<Tip>
-  `.txt` files that contain Korean text may fail to be recognized. When possible, save them as `.md` before uploading.
-</Tip>
-
-For how uploaded files are reflected in AI search, see [Workspace RAG](/en/knowledge/rag).
-
-## Organize and delete
-
-- You can move documents by dragging them, and nest folders up to 4 levels deep.
-- You can select several documents to move or delete them at once.
-- Deleted documents move to **Trash**, where you can restore them for 30 days.
-- Only the author and admins can delete a document.
-- Version history is available starting with the Pro plan.
+See [Create documents and canvases](/en/guides/doc-projects) and [Manage connections](/en/guides/automation-settings).

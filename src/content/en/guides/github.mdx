@@ -1,57 +1,27 @@
-Specify uses GitHub repositories as the evidence for your docs. Once you connect a repository, the agent can read the code to generate docs and prepare later changes as proposed updates.
+Connect GitHub so Specify can read repository code and development history to create feature documents and architecture canvases. Repository access and automatic content updates are configured separately.
 
-You can connect GitHub in two places.
+## Connect GitHub
 
-- **Connect GitHub** in the Source step of **Create document project**: Choose the repositories that serve as evidence for document generation.
-- **Connect** under **Tools & skills → Connectors → GitHub**: Lets the agent reference code, issues, and PRs in chat. See [Connect connectors](/en/guides/connectors).
+1. Open GitHub under **Tools** → **Connectors**.
+2. Select **Connect**, then choose the account and repositories to allow on GitHub.
+3. Return to Specify and check the connection status and **Agent access**.
 
-## Connection flow
+Repositories granted to the GitHub App are available to Specify. Add any repository you need to the app installation’s access scope.
 
-<Steps>
-  <Step title="Start connecting GitHub">
-    In the Source step of the create document project screen, select **Connect GitHub**. You need to connect GitHub before you can select repositories in this workspace.
+<Screenshot name="github-repositories" alt="Selecting the Mamma develop repository in the GitHub repository list" caption="Choose a connected repository to start work grounded in actual code." />
 
-    <Screenshot name="project-wizard-source" alt="The Source step of Create document project, with the prompt to connect GitHub to select repositories for this workspace and a Connect GitHub button" />
-  </Step>
-  <Step title="Grant access on GitHub">
-    On the GitHub screen, choose the account and repository scope Specify should read, then grant access.
-  </Step>
-  <Step title="Choose a repository and branch">
-    Back in Specify, pick a **GitHub account**, search for the repository by name and select it, then choose a branch. If the list doesn't load, you can also enter it directly in `owner/repo` format.
-  </Step>
-</Steps>
+## Organization repositories and access
 
-## Organization repositories
+Your organization may require administrator approval. After approval, return to Specify and connect again. If a repository is missing, update access in the GitHub app installation settings, then return to the conversation and ask the agent to check again.
 
-Organization repositories require approval from a GitHub organization admin.
+Use **Reconnect** when authentication expires. A suspended GitHub installation or removed repository access also needs to be restored.
 
-1. When you request a connection, GitHub sends an approval request to the organization admin.
-2. The organization admin approves the request on GitHub.
-3. Once it's approved, select **Reconnect** in Specify to finish.
+## Create documents from code
 
-<Note>
-  While you wait for organization admin approval, that organization's repositories don't appear in the list.
-</Note>
+Specify the repository in chat and request a document or canvas. Include the feature scope, audience, and branch to clarify what the agent should inspect. See [Create documents and canvases](/en/guides/doc-projects).
 
-## Use GitHub in chat
+## Connect push updates
 
-When you connect GitHub as a connector, the agent can read **repository code and file contents**, **issues, PRs, and comments**, and **commit history**, and handle tasks such as searching code and summarizing issues and PRs.
+In a document or canvas, open **Connections** → **Manage connections** → **Event connections** and check the repository. A push to its default branch can directly update the linked content. To enable automatic updates for a repository used in chat, link it through this menu.
 
-<Screenshot name="connector-github" alt="The GitHub connector details, showing the Connect to workspace button and the lists of data the agent reads and tasks you can delegate" caption="The details window that opens when you select GitHub under Tools & skills → Connectors." />
-
-## Connect multiple repositories
-
-You can add multiple sources to a single document project. In the **Sources** section of project settings, add or remove the repositories and branches used as evidence for your docs. You can assign a role to each source.
-
-## Trigger on push
-
-Turn on **Trigger on push** for a source to have Specify prepare proposed document updates whenever you push code to that branch. For detailed settings, see [Automation settings](/en/guides/automation-settings).
-
-## Troubleshooting
-
-| Symptom | What to check |
-| --- | --- |
-| Repositories fail to load | Try again in a moment, or use **Enter manually** to type `owner/repo`. |
-| No repositories are available | Check that the selected GitHub account has repositories where Specify access is allowed. |
-| No branches are available | Check that the repository has branches and that you have access to it. |
-| Organization repositories don't appear | Confirm the organization admin has approved the request, then select reconnect. |
+See [Manage connections](/en/guides/automation-settings) for triggers and conditions that stop updates.

@@ -1,58 +1,41 @@
-Specify는 코드 변경을 읽고, 고쳐야 할 개발문서를 찾아, 검토할 수 있는 수정안으로 연결합니다. 문서를 직접 쓸 여력이 없는 팀도 GitHub 저장소를 연결하는 것만으로 코드와 함께 움직이는 개발문서를 유지할 수 있습니다.
+Specify는 코드를 **설계도와 자연어 기능 문서**로 보여 주는 워크스페이스입니다. 코딩 에이전트가 만든 결과를 이해하고, 의도와 다른 부분을 리뷰하고, 개선할 내용을 다시 에이전트가 읽을 수 있는 문서로 남기세요.
 
-Specify를 활용하는 방법은 크게 두 가지이며, 팀의 상황에 따라 함께 사용할 수 있습니다.
-
-|  | 문서 자동화 | Specify MCP |
-| --- | --- | --- |
-| **무엇인가** | GitHub 저장소를 근거로 개발문서를 생성하고, 코드 변경에 맞춰 수정안을 준비하는 워크스페이스 기능 | Claude Code·Codex·Cursor 같은 코딩 에이전트가 팀 워크스페이스의 문서와 맥락을 읽도록 연결하는 MCP 서버 |
-| **적합한 용도** | API·아키텍처·온보딩 문서를 코드와 동기화 | 에이전트에 프로젝트 배경을 매번 붙여 넣지 않고 팀 맥락 위에서 작업 |
-| **시작하기** | [빠른 시작](/ko/quickstart) | [MCP 개요](/ko/mcp/overview) |
-
-## Specify가 하는 일
+## 원하는 결과로 시작하세요
 
 <CardGroup cols={3}>
-  <Card icon="git" title="코드와 문서 연결">GitHub 저장소와 브랜치를 문서 프로젝트에 연결하고, 코드를 근거로 첫 문서를 생성합니다.</Card>
-  <Card icon="pr" title="근거가 있는 수정안">코드가 바뀌면 영향을 받는 문서를 찾아 변경 이유와 수정 전후를 담은 수정안을 준비합니다.</Card>
-  <Card icon="message" title="팀 맥락으로 답변">문서·결정·코드 기록을 근거로 "왜 이렇게 만들었는지", "어디에 있는지"에 답합니다.</Card>
+  <Card icon="git" title="설계·시각화" href="/ko/quickstart" cta="첫 설계도 만들기">GitHub 코드를 읽어 구조와 동작을 문서·다이어그램으로 파악하고 리뷰합니다.</Card>
+  <Card icon="shield" title="인증 문서" href="/ko/guides/medical-device-docs" cta="준비 흐름 보기">제품 자료와 기준을 모아 인증에 필요한 문서 초안과 확인할 근거를 정리합니다.</Card>
+  <Card icon="terminal" title="Specify MCP" href="/ko/mcp/connect" cta="에이전트 연결하기">Claude Code·Codex·Cursor에서 팀의 문서와 지식을 찾아 읽고 작업을 이어갑니다.</Card>
 </CardGroup>
 
-<Note>
-  새 문서 프로젝트는 자동 반영 없이 시작합니다. 모든 변경은 근거와 함께 수정안으로 먼저 도착하며, 이후 반영 방식은 프로젝트 설정과 적용 정책을 따릅니다.
-</Note>
+## 설계도로 코드 파악하고 리뷰하기
 
-## 처음 시작하는 팀을 위한 권장 경로
+저장소를 근거로 아키텍처, 기능 흐름, API 동작을 설명하게 하고 그 결과를 읽어 보세요. 구조와 동작을 의도한 설계 및 요구사항과 대조하며 리뷰할 수 있습니다.
 
-다음 순서를 따라 워크스페이스 생성부터 팀이 함께 쓰는 개발문서까지 완성해 보세요.
+<Screenshot name="architecture-document" alt="저장소 구조와 처리 흐름을 정리한 Specify 프로젝트 문서" caption="기능 설명과 소스 경로를 함께 읽으며 구현을 확인합니다." />
+
+1. **파악** — 저장소를 연결하고 프로젝트 개요와 주요 동작을 문서로 만듭니다.
+2. **리뷰** — 문서와 캔버스를 보며 의존 방향과 기능 흐름을 요구사항에 맞춰 검토합니다.
+3. **교정** — 채팅에서 개선 내용을 문서로 정리하고 코딩 에이전트가 MCP로 읽어 수정하게 합니다.
+4. **재확인** — 저장소에 연결한 문서·캔버스의 갱신 결과를 다음 변경 뒤에 확인합니다.
+
+<Note>저장소 변경의 자동 갱신은 **그 저장소에 연결한 문서·캔버스**에 적용됩니다. 에이전트가 내용을 직접 수정하고 저장합니다. 완료 후 변경 기록과 저장된 결과를 확인하세요.</Note>
+
+## 인증 문서를 준비하기
+
+인증 문서도 같은 자료에서 출발합니다. 제품 개요, 요구사항, 설계와 테스트 자료를 모으고, 확인된 사실과 부족한 근거를 나눠 초안을 작성하세요. [인증 문서 가이드](/ko/guides/medical-device-docs)에서 준비물과 검토 순서를 확인할 수 있습니다.
+
+지원 분야와 전문가 검토가 필요하다면 [Specify Certify](https://certify.specify.app)를 확인하세요. 제출 자료는 전문가 검토로 완성하고, 인증과 적합성은 해당 평가 절차에서 확인합니다.
+
+## 에이전트와 같은 맥락에서 작업하기
+
+개선 문서를 코딩 에이전트가 직접 찾아 읽게 하세요. [Specify MCP](/ko/mcp/overview)를 연결하고 코딩 에이전트에 “Specify의 개선 문서를 읽고 이 내용에 맞춰 수정해 줘”라고 요청하세요. 문서를 검색하고 읽는 도구와 허용된 쓰기 도구는 [MCP 도구](/ko/mcp/tools)에서 확인할 수 있습니다.
+
+## 다음으로 할 일
 
 <CardGroup cols={2}>
-  <Card icon="rocket" title="워크스페이스 만들기" href="/ko/quickstart" cta="빠른 시작으로 이동">가입하고 워크스페이스를 만든 뒤 GitHub 저장소를 연결합니다.</Card>
-  <Card icon="git" title="문서 프로젝트 만들기" href="/ko/guides/doc-projects" cta="가이드 읽기">문서화할 저장소, 문서 종류, 갱신 방식을 선택해 첫 문서를 생성합니다.</Card>
-  <Card icon="workflow" title="수정안 검토하기" href="/ko/guides/review-proposals" cta="검토 흐름 보기">코드 변경으로 준비된 수정안의 근거와 반영 범위를 확인합니다.</Card>
-  <Card icon="terminal" title="코딩 에이전트 연결하기" href="/ko/mcp/connect" cta="연결 방법 보기">Claude Code나 Codex에서 워크스페이스 문서를 바로 참고하게 합니다.</Card>
-</CardGroup>
-
-## 정확한 문서를 만드는 근거
-
-Specify의 AI는 일반 지식으로 문서를 지어내지 않습니다. 쓰기 전에 근거를 검색합니다.
-
-<CardGroup cols={3}>
-  <Card icon="search" title="워크스페이스 RAG" href="/ko/knowledge/rag">워크스페이스의 문서, 업로드한 파일, 연결된 자료를 검색해 우리 팀의 사실을 근거로 답하고 씁니다.</Card>
-  <Card icon="library" title="표준 문서 라이브러리" href="/ko/knowledge/standards">IEC 62304·ISO 14971 등 표준 조항을 검색해 인용하며, 근거가 없는 내용은 표시합니다.</Card>
-  <Card icon="sparkles" title="작업에 맞는 모델" href="/ko/models/choosing">검색·요약은 가벼운 모델로, 문서 작성은 문서 작업에 강한 모델로 고릅니다.</Card>
-</CardGroup>
-
-## 주요 활용 사례
-
-- **API·개발 문서 최신화** — API 코드가 있는 저장소를 연결해 두면, 엔드포인트·요청 스키마·응답 필드가 코드와 어긋날 때마다 수정안이 준비됩니다. 검토할 항목은 [API 문서 최신화](/ko/guides/api-docs)를 참고하세요.
-- **개발자 온보딩 문서** — 저장소 구조와 실행 방법을 근거로, 새 팀원이 첫날 로컬 실행까지 도달하는 문서 초안을 만듭니다. 코드에 없는 팀 절차는 사람이 보완합니다. [온보딩 문서 생성](/ko/guides/onboarding-docs)을 참고하세요.
-- **팀 지식 검색** — 문서를 뒤지거나 동료를 붙잡지 않고, 워크스페이스의 문서와 자료를 근거로 답을 얻습니다. [AI에게 질문하기](/ko/guides/ask-ai)를 참고하세요.
-
-보안 질문서 답변, 프로젝트 인수인계, 고객 안내문처럼 개발 업무 밖의 사례까지 포함해 [활용사례 둘러보기](/ko/guides/use-cases)에서 준비할 자료와 만들어지는 결과물을 사례별로 확인할 수 있습니다.
-
-## 더 알아보기
-
-<CardGroup cols={3}>
-  <Card icon="book" title="화면 둘러보기" href="/ko/workspace/tour">사이드바, 탭, 검색, 인박스 등 화면 구성을 실제 화면으로 익힙니다.</Card>
-  <Card icon="shield" title="보안과 데이터" href="/ko/resources/security">데이터 격리와 권한 경계를 확인합니다.</Card>
-  <Card icon="help" title="자주 묻는 질문" href="/ko/resources/faq">도입 전에 자주 묻는 질문을 모았습니다.</Card>
+  <Card icon="rocket" title="빠른 시작" href="/ko/quickstart">저장소에서 첫 문서를 만들고 결과를 확인합니다.</Card>
+  <Card icon="book" title="화면 둘러보기" href="/ko/workspace/tour">탐색기, 채팅, 인박스, 문서와 캔버스를 익힙니다.</Card>
+  <Card icon="message" title="AI와 리뷰하기" href="/ko/guides/ask-ai">근거를 확인하고 개선 문서를 만드는 요청을 배웁니다.</Card>
+  <Card icon="workflow" title="갱신 결과 확인" href="/ko/guides/review-proposals">저장소 변경 뒤 문서의 변경 기록과 결과를 점검합니다.</Card>
 </CardGroup>

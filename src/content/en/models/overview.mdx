@@ -1,4 +1,7 @@
-Specify offers six models from the Anthropic Claude and OpenAI GPT families. Choose a model for each conversation in the chat message box, and set the default models for automations and document generation in workspace settings.
+Specify offers six models from the Anthropic Claude and OpenAI GPT families. Choose a model for each conversation in the chat message box, and set the default models for automations in workspace settings.
+
+
+<Screenshot name="model-picker" alt="Model picker showing six supported models" caption="Open the model button in the composer, then Model. The checkmark identifies the current model." />
 
 ## Compare models
 
@@ -13,26 +16,19 @@ Specify offers six models from the Anthropic Claude and OpenAI GPT families. Cho
 
 All supported models offer **at least 1 million tokens of context**: 1 million for Claude and 1.05 million for GPT. Context is the conversation and source material a request can work with; it is separate from the maximum output token count.
 
-- For current prices and limits, see the [pricing page](https://specify.app/en/pricing). For how usage is calculated, see [Usage and AI budget](/en/models/usage).
+- For current prices and limits, see the [pricing page](https://specify.app/pricing). For how usage is calculated, see [Usage and AI budget](/en/models/usage).
 - Every model supports tool calls (searching knowledge, reading and writing documents, and more) and parallel tool calls.
 - The default model for new conversations is **Claude Haiku 5.5**.
 
 ## Model characteristics
 
-<CardGroup cols={2}>
-  <Card icon="library" title="Claude Opus 5.5: compare analysis">Compare results with other models when interpreting long sources or writing complex explanations. Choose by depth of explanation and source accuracy.</Card>
-  <Card icon="file" title="Claude Sonnet 5.5: compare editing speed">An option for comparing response speed on short edits. Its measured median document editing time was about 11 seconds.</Card>
-  <Card icon="search" title="Claude Haiku 5.5: targeted editing">Use it for specified changes to sentences, tables, and multiple documents. Compare new content with the facts you supplied. Also available on the Free plan.</Card>
-  <Card icon="blocks" title="GPT-6.1 Sol: compare structure and explanations">An option for comparing a draft structure or explanation with another OpenAI model. Check context size when working with long sources.</Card>
-  <Card icon="workflow" title="GPT-6.1 Terra: OpenAI alternative">An OpenAI option for comparing wording, structure, and turnaround time on the same sources and request.</Card>
-  <Card icon="sparkles" title="GPT-6 Luna: everyday document work">Try it first for drafts from supplied sources and changes to sentences or tables. Available on the Free plan.</Card>
-</CardGroup>
+Compare accuracy and speed using the same material and request. Choose a model for your task by considering both the quality of the result and usage.
 
 For which model to use for each task, see [Choosing a model](/en/models/choosing).
 
 ## Reasoning effort
 
-You can set **reasoning effort** to one of six levels: **Off**, **Low**, **Medium**, **High**, **Extra**, or **Max**. Claude Opus 5.5 and GPT-6.1 Sol don't support Off, so they offer five levels starting at Low. Higher effort means deeper reasoning before answering, but responses are slower and use more tokens.
+You can set **reasoning effort** to one of six levels: **Off**, **Low**, **Medium**, **High**, **Extra**, or **Max**. Claude Opus 5.5 and GPT-6.1 Sol support five levels, from Low through Max. Higher effort means deeper reasoning before answering, but responses are slower and use more tokens.
 
 <Note>
   On the Free plan, reasoning effort is fixed at **Off**. When you switch models, the current reasoning effort is adjusted to the range the new model supports.
@@ -42,8 +38,39 @@ You can set **reasoning effort** to one of six levels: **Off**, **Low**, **Mediu
 
 | Location | Applies to |
 | --- | --- |
-| The model button in the chat message box | The whole current conversation. It can't be changed while a response is in progress. |
-| **Settings** → **Workspace general** → **Default AI Model** | Automations in this workspace |
-| **Settings** → **Workspace general** → **Doc Generation Model** | Document automation (project creation and automatic updates) |
+| The model button in the chat message box | The whole current conversation. Change it after the response finishes. |
+| **Settings** → **Workspace** → **General** → **Default AI Model** | Automations in this workspace |
 
-Models that aren't available on your plan show a lock in the menu, and selecting one shows a plan upgrade prompt. Specify never silently swaps the model you requested for a different one.
+Models that aren't available on your plan show a lock in the menu, and selecting one shows a plan upgrade prompt. The selected model is used for the request.
+
+## Understand models, skills, plugins, and connectors
+
+After choosing a model, decide **which sources it should read and how it should work**. Connected sources and skills shape the result with any model.
+
+| Component | Role | Example in Mamma (a parenting app) |
+| --- | --- | --- |
+| **Model** | Understands your request, reasons over sources, and produces an answer. | Summarize the record-saving flow with Claude Haiku 5.5. |
+| **Skill** | Instructions and review steps for repeatable work. Built-in skills are always on; workspace skills have usage controls. | Investigate the call flow with code analysis and save the result using document-writing instructions. |
+| **Plugin / integration** | Makes the capabilities of external services and MCP servers available for the agent to discover and use. | Check the GitHub connection and prepare access to the repository. |
+| **Connector** | The screen for managing service account connections and your AI access preferences. | Check Connected and AI access on on the GitHub card. |
+
+### Review skills
+
+Open **Skills & connectors** from the account menu to reach **Tools**. In **Skills**, review the built-in instructions and create skills for recurring team work. When switching models, also check the skills and sources needed for the task.
+
+<Screenshot name="skills-library" alt="Skills screen filtered for code analysis" caption="Review built-in skill roles and workspace skill usage settings." />
+
+### Connect external sources
+
+Find a service in **Tools → Connectors**. Check both **Connected** and **AI access on**. Google connects Gmail, Calendar, and Drive through one card. To let an external editor read Specify sources, follow the MCP instructions in **Connect editor**.
+
+<Screenshot name="connectors-library" alt="Connectors filtered for GitHub" caption="Check the service connection and your AI access separately." />
+
+### Try it with Mamma
+
+1. Choose **Claude Haiku 5.5** in the chat composer.
+2. Check the GitHub connection and access to the Mamma repository in Connectors.
+3. Specify the sources and result: “Explain Mamma’s record-saving flow with code evidence.”
+4. Review cited files, tool results, and the saved document.
+
+For details, see the [skills guide](/en/guides/plugins-skills), [connectors guide](/en/guides/connectors), and [MCP guide](/en/mcp/overview).

@@ -1,62 +1,37 @@
-The Specify MCP server provides five tools. Read tools require the `mcp:read` scope, and write tools require the `mcp:write` scope. The exact input schema is defined by the JSON Schema that clients receive from `tools/list`.
+Specify MCP exposes the same workspace and knowledge tools used by the Specify agent to external agents. The schema returned by the client's `tools/list` defines available tools and inputs.
 
-## Tool list
+## Search and read
 
-| Tool | Scope | What it does |
-| --- | --- | --- |
-| `search` | `mcp:read` | Searches workspace docs by meaning and title, and returns results from enabled external connectors grouped by source. |
-| `read_document` | `mcp:read` | Reads the full body or a section of a text or PDF document. |
-| `browse` | `mcp:read` | Explores the workspace through the document tree, recent documents, and title search. |
-| `create_document` | `mcp:write` | Creates a new document from a Markdown body. |
-| `update_document` | `mcp:write` | Finds and replaces exact text in a document, or appends to the end of the body. |
-
-## search
-
-Use it to find the docs a task needs.
-
-| Input | Description |
+| Tool | Purpose |
 | --- | --- |
-| `query` | Search query |
-| `topK` | Optional. Number of results to return (1–25) |
+| `list_files` | Lists document and uploaded-file paths and current versions. |
+| `search_files` | Finds strings in document content. |
+| `read_file` | Reads file content, optionally using `startLine` and `endLine`. |
+| `knowledge_search` | Finds semantically related knowledge fragments. |
+| `knowledge_grep` | Finds exact strings in indexed material. |
+| `knowledge_status` | Checks knowledge processing status. |
+| `search_connectors` | Searches connected external services. |
 
-## read_document
+Knowledge and connector tool availability depends on the connected services and workspace state.
 
-Reads a document found through search or browsing. You can read long documents section by section.
+## Documents and canvases
 
-| Input | Description |
+| Tool | Purpose |
 | --- | --- |
-| `nodeId` | ID of the document to read |
-| `around`, `offset`, `limit`, `page` | Optional. Specify the section to read. |
+| `create_document`, `write_document` | Creates documents or saves their content. |
+| `edit_document` | Edits specified text in an existing document. |
+| `list_document_history`, `read_document_revision` | Reads document history and earlier revisions. |
+| `revert_document` | Restores an earlier document revision. |
+| `create_canvas`, `read_canvas`, `edit_canvas` | Creates, reads, and edits canvases. |
 
-## browse
+Read the latest content with `read_file` or `read_canvas` before editing. Supply the `baseRevision` and location version required by the write schema. On a conflict, read again before editing. Each `oldText` in `edit_document` must match exactly once.
 
-| Input | Description |
-| --- | --- |
-| `mode` | One of `tree` (document tree), `recent` (recent documents), or `search` (title search) |
-| `query` | Optional. Search query for `search` mode |
-| `limit` | Optional. Number of items to return |
+## Folders and trash
 
-## create_document
-
-| Input | Description |
-| --- | --- |
-| `title` | Document title |
-| `content` | Markdown body |
-| `parentNodeId` | Optional. Parent folder to create the document in |
-
-## update_document
-
-| Input | Description |
-| --- | --- |
-| `nodeId` | ID of the document to edit |
-| `search` | Optional. Text to replace (must match exactly) |
-| `replace` | Replacement content. If `search` is omitted, it's appended to the end of the body. |
-
-Uploaded file documents can't be edited.
+Use `create_folder`, `move_entry`, `trash_entry`, `list_trash`, and `restore_entry` to manage folders and entries. Tools that remove entries are marked as destructive to the client.
 
 ## Permissions and limits
 
-- Every tool call checks the token, workspace membership, scope, admin access policy, and rate limits each time. If a member leaves or a token is revoked, the existing token can no longer access data.
-- Write tools require a workspace role of Editor or higher, and don't run while workspace writes are locked.
-- Documents and folders excluded from MCP exposure, along with everything beneath them, don't appear in search, read, or edit results.
-- If a tool fails because of an input or permission problem, it returns an error result with an explanation the agent can read and act on.
+Reading requires `mcp:read`; changing documents, canvases, or structure requires `mcp:write`. Workspace roles and current access policies also apply to writes. Documents and folders excluded from MCP, including their descendants, are outside external access.
+
+MCP provides workspace search, reading, and permitted editing. To continue implementation, ask your external coding agent directly to read the document and implement the changes. See [Tokens and access policies](/en/mcp/access).

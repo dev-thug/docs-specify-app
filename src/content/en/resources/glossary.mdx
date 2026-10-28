@@ -1,29 +1,28 @@
-Terms commonly used across the Specify product and docs.
+These are the main terms used in Specify.
+
+## Material and work
 
 | Term | Meaning |
 | --- | --- |
-| **Workspace** | The unit in which a team shares docs, conversations, decisions, and code history, along with members and connected tools. It's the boundary where data is isolated. |
-| **Node** | The core unit of content in a workspace. Documents, folders, and agent rules are all nodes. |
-| **Document project** | The unit that creates and maintains developer docs from a GitHub repository. It ties together a folder, sources, skills, and automation settings. |
-| **Source** | The GitHub repository and branch a document project uses as evidence. |
-| **Document skill** | The writing discipline an agent follows when it generates docs. |
-| **Auxiliary skill** | A reference procedure that helps a document skill. You can select up to 5. |
-| **Incremental update** | A mode that updates docs by applying only the code changes. Supports automatic updates. |
-| **Full regeneration** | A mode that recreates the whole document every time. Doesn't support automatic updates. |
-| **Proposed update** | A suggestion to change a document in response to a code change. It includes the evidence for the change and a before-and-after view. |
-| **Trigger on push** | A trigger that prepares proposed document updates when code is pushed to a source branch. |
-| **Style guide** | Markdown writing rules applied to docs. The project guide takes precedence over the workspace guide. |
-| **Inbox** | Where the progress and results of background tasks collect. |
-| **Thread** | A unit of conversation with an agent. |
-| **Daily briefing** | A daily summary of workspace changes, stale-document alerts, and suggested tasks. |
-| **RAG** | Retrieval-augmented generation. An approach where AI searches workspace materials and uses them as evidence before answering or writing a document. See [Workspace RAG](/en/knowledge/rag). |
-| **Index** | The process of splitting documents and files into chunks and storing them for RAG search. Indexing runs again when you edit a document or upload a file. |
-| **Standards library** | A knowledge source for searching standards such as IEC 62304 and ISO 14971 clause by clause. See [Standards library](/en/knowledge/standards). |
-| **[GAP]** | A marker the agent adds to content that isn't supported by a standard or other materials. A person needs to check it. |
-| **Reasoning effort** | How deeply a model reasons before answering. Choose from Off, Low, Medium, High, Extra, and Max. |
-| **Connector** | An integration that connects an external service such as GitHub, Notion, or Slack so the agent can read from it and work with it. |
-| **Plugin** | A package that bundles several skills for installation in one step. Example: medical-device-docs. |
-| **Automation** | A routine that has the agent run a prompt on a set schedule. |
-| **MCP** | Model Context Protocol. An open standard for connecting AI agents to external tools and data. |
-| **Specify MCP** | The MCP server that provides workspace context to external coding agents such as Claude Code and Codex. |
-| **MCP token** | A workspace-level token external editors use to authenticate with Specify MCP. Read-only by default. |
+| Workspace | The scope in which documents, conversations, members, and connected tools are shared. |
+| Document | Text content that can be saved, edited, and reviewed through change history. |
+| Canvas | Material that expresses structure or architecture through elements and connections. |
+| Repository link | A connection between a document or canvas and a GitHub repository and branch for reflecting code changes. |
+| Automatic update | Work triggered by a push to a linked branch that reconciles an existing document or canvas with current source. |
+| Inbox | The place to check background task progress and results. |
+| Thread | A conversation with the agent. |
+
+## Knowledge and tools
+
+| Term | Meaning |
+| --- | --- |
+| RAG | Retrieval-augmented generation: building answers from retrieved evidence. |
+| Indexing | Processing documents and files into searchable material. |
+| Standards library | A knowledge source for searching standard clauses and editions as evidence. |
+| Skill | Instructions an agent follows for a specific task. |
+| Connector | A connection to an external service such as GitHub, Notion, or Slack. |
+| MCP | A protocol through which external AI clients use tools and material. |
+| MCP token | Credentials used by an external client to access a workspace; read-only by default. |
+| Revision | The version of a document or canvas that was read or edited; used to detect write conflicts. |
+| Reasoning effort | A model's reasoning setting. Supported levels depend on the model and plan. |
+| [GAP] | A marker for material requiring additional evidence or human confirmation. |

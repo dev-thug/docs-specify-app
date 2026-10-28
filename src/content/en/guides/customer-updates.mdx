@@ -1,66 +1,26 @@
-After a release, compare change notes with existing explanations to update customer communications and FAQs.
+Give customers consistent information by preparing release announcements and FAQs from the same evidence. Confirm current behavior and conditions, then prepare the drafts for publication.
 
-## When this is your problem
+## Prepare the sources
 
-A feature ships while the FAQ still describes the previous version, and sales and support explain different scopes. Translating code changes into customer language can also drop limits or access rules and create more confusion.
+Prepare approved release notes, the existing FAQ, and current usage policies. Distinguish implemented code, customer availability, and future plans. Record the reference date and applicable version for each source.
 
-## Solve it with Specify
+## Review announcements and FAQs together
 
-1. Collect approved change notes, the existing FAQ, and current usage policies in Specify.
-2. Ask AI to separate new customer capabilities, answers that change, and limits or conditions that remain.
-3. Create a change summary, announcement, and FAQ update from the same evidence; compare their scope before the owner publishes.
+Ask in chat to separate what customers can now do, answers that change, and limits and conditions that remain. Draft a change summary, customer announcement, and FAQ updates, then check the evidence for each statement. For complex features, review internal feature documents and flow diagrams to find misleading explanations.
 
-## What you get
+## Maintain them through later changes
 
-Create a change summary, customer announcement draft, and FAQ revisions for PM, support, and product marketing. The screens show actual output from fictional <strong>RelayDesk Demo</strong> materials, not a message sent to real customers.
+Internal documents linked to GitHub can be updated directly after pushes. An owner reviews availability, permissions, limitations, and effective dates in those results to prepare customer communications. After review, publish or send them through your customer channel.
 
-<Screenshot name="customer-update-result" alt="Customer announcement draft explaining CSV export benefits together with the 1,000-row limit and eligible roles" caption="Translate technical changes into customer language while retaining eligibility and limitations." />
-
-## Prepare the materials
-
-<a href="/examples/en/relaydesk-demo.zip" download="relaydesk-demo.zip">Download the example materials</a> and upload these sources to your workspace.
-
-| Material | What to check |
-| --- | --- |
-| `relaydesk-release-brief.md` | Version 1.4 scope and claims to avoid |
-| `relaydesk-faq-before.md` | Existing version 1.3 customer explanations |
-| `relaydesk-security-current.md` | Current role restrictions and SSO eligibility |
-
-Use approved change records and product descriptions in real work. Planned functionality, internal implementation completion, and availability to customers are different states.
-
-## Follow the workflow
-
-<Steps>
-  <Step title="Prepare both new information and existing guidance">Include the FAQ to update, not just the new change record. Clearly identify versions and audiences.</Step>
-  <Step title="Define audiences and outputs in a new chat">Use <strong>New Chat</strong> to request specific outputs, such as a PM summary, customer notice, and support FAQ.</Step>
-  <Step title="Separate changed explanations from retained limits">Ask for limits, eligible roles, and unavailable features alongside changes. Do not invent menu paths or performance figures absent from the sources.</Step>
-  <Step title="Review saved drafts before distribution">Save the output as a document and verify consistent limits, roles, and scope across all three sections. Publishing and sending remain separate actions for the owner.</Step>
-</Steps>
+## Example chat request
 
 ```text
-Read RelayDesk Demo's 1.4 change brief, existing FAQ 1.3, and current security and operations policy.
-Write three sections: PM change summary / customer announcement draft / FAQ revisions.
-Explain CSV export benefits together with row limits and role restrictions.
-Distinguish FAQ answers that change from answers that stay the same. Include source IDs.
-Do not invent menu paths, release dates, performance figures, or unavailable features.
-Save 'Customer update and FAQ drafts'. Do not edit the original FAQ or send anything externally.
+Read the current release notes, existing FAQ, and usage policies.
+Draft a change summary, customer announcement, and FAQ updates from the same evidence.
+Separate changed explanations from limits that remain, with reference dates and source documents.
+Do not invent schedules, performance figures, or menu paths absent from the sources.
 ```
 
-## Differences to inspect in this example
+<Note>When sources conflict, check applicability and approval status rather than choosing solely by date. If behavior itself needs to change, create an improvement document for the coding agent to read over MCP.</Note>
 
-<Screenshot name="customer-faq-result" alt="FAQ review updating the old unavailable-CSV answer while preserving viewer restrictions, unavailable ZIP export, and SSO pilot eligibility" caption="Identify which answers change and which must remain consistent instead of rewriting every answer indiscriminately." />
-
-- Update the version 1.3 claim that <strong>CSV export is unavailable</strong> using the 1.4 source.
-- Apply the same <strong>1,000-row maximum</strong> and <strong>owner/editor eligibility</strong> in the notice and FAQ.
-- Do not announce ZIP export, 10,000-row support, or general SSO availability as part of this change.
-
-## Reuse it for the next change
-
-<Note>This example's output was checked against uploaded originals. If knowledge search is empty, inspect the originals and indexing status. This task does not automatically change the original FAQ or external customer channels.</Note>
-
-Upload the next version's change brief and request the same format. Once the workflow is established, specify the period, sources, and output document in an [automation routine](/en/guides/automations) for recurring review.
-
-<CardGroup cols={2}>
-  <Card icon="message" title="Ask questions grounded in sources" href="/en/guides/ask-ai">Learn to define the scope and inspect evidence.</Card>
-  <Card icon="book" title="More workflows" href="/en/guides/use-cases">Explore more document and customer-facing examples.</Card>
-</CardGroup>
+[GitHub](/en/guides/doc-projects) · [MCP](/en/mcp/overview)
